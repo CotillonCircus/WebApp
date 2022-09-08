@@ -1,5 +1,5 @@
 import axios from "axios"
-export const GET_PRODUCTOS = "get productos"
+export const GET_PRODUCTOS = "GET_PRODUCTOS"
 
 export function getProductos(){
 

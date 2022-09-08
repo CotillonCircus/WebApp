@@ -6,7 +6,7 @@ const initialState = {
 
 function reducer(state= initialState, {type,payload}){
     switch(type){
-        case GET_PRODUCTOS:
+        case "GET_PRODUCTOS":
             return{
                 productos:payload,
             }
