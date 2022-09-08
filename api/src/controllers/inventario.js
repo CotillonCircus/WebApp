@@ -1,1356 +1,1388 @@
 const GLOBOS = [{
-    nombre:"tuky",
-    precio:0,
-    imagen:"",
+    name:"tuky",
+    price:0,
+    catalogId:1,
     color:"perlado",
-    cantidad:50,
-    tamanio:""
+    cant:50,
+    size:""
 },{
-    nombre:"tuky",
-    precio:0,
-    imagen:"",
+    name:"tuky",
+    price:0,
+    catalogId:1,
     color:"std",
-    cantidad:50,
-    tamanio:""
+    cant:50,
+    size:""
 },{
-    nombre:"party time",
-    precio:0,
-    imagen:"",
+    name:"party time",
+    price:0,
+    catalogId:1,
     color:"std",
-    cantidad:50,
-    tamanio:""
+    cant:50,
+    size:""
 },{
-    nombre:"globox",
-    precio:0,
-    imagen:"",
+    name:"globox",
+    price:0,
+    catalogId:1,
     color:"perlado",
-    cantidad:50,
-    tamanio:""
+    cant:50,
+    size:""
 },{
-    nombre:"party time",
-    precio:0,
-    imagen:"",
+    name:"party time",
+    price:0,
+    catalogId:1,
     color:"perlado",
-    cantidad:25,
-    tamanio:""
+    cant:25,
+    size:""
 }]
 
 const GLOBOS_NUMEROS = [{
-    nombre:"cero",
-    precio:0,
-    imagen:"",
+    name:"cero",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"uno",
-    precio:0,
-    imagen:"",
+    name:"uno",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"dos",
-    precio:0,
-    imagen:"",
+    name:"dos",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"tres",
-    precio:0,
-    imagen:"",
+    name:"tres",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"cuatro",
-    precio:0,
-    imagen:"",
+    name:"cuatro",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"cinco",
-    precio:0,
-    imagen:"",
+    name:"cinco",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"seis",
-    precio:0,
-    imagen:"",
+    name:"seis",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"siete",
-    precio:0,
-    imagen:"",
+    name:"siete",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"ocho",
-    precio:0,
-    imagen:"",
+    name:"ocho",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"nueve",
-    precio:0,
-    imagen:"",
+    name:"nueve",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"cero",
-    precio:0,
-    imagen:"",
+    name:"cero",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"uno",
-    precio:0,
-    imagen:"",
+    name:"uno",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"dos",
-    precio:0,
-    imagen:"",
+    name:"dos",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"tres",
-    precio:0,
-    imagen:"",
+    name:"tres",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"cuatro",
-    precio:0,
-    imagen:"",
+    name:"cuatro",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"cinco",
-    precio:0,
-    imagen:"",
+    name:"cinco",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"seis",
-    precio:0,
-    imagen:"",
+    name:"seis",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"siete",
-    precio:0,
-    imagen:"",
+    name:"siete",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"ocho",
-    precio:0,
-    imagen:"",
+    name:"ocho",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"nueve",
-    precio:0,
-    imagen:"",
+    name:"nueve",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"cero",
-    precio:0,
-    imagen:"",
+    name:"cero",
+    price:0,
+    catalogId:2,
     color:"rosa",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"uno",
-    precio:0,
-    imagen:"",
+    name:"uno",
+    price:0,
+    catalogId:2,
     color:"rosa",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"dos",
-    precio:0,
-    imagen:"",
+    name:"dos",
+    price:0,
+    catalogId:2,
     color:"rosa",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"tres",
-    precio:0,
-    imagen:"",
+    name:"tres",
+    price:0,
+    catalogId:2,
     color:"rosa",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"cuatro",
-    precio:0,
-    imagen:"",
+    name:"cuatro",
+    price:0,
+    catalogId:2,
     color:"rosa",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"cinco",
-    precio:0,
-    imagen:"",
+    name:"cinco",
+    price:0,
+    catalogId:2,
     color:"rosa",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"seis",
-    precio:0,
-    imagen:"",
+    name:"seis",
+    price:0,
+    catalogId:2,
     color:"rosa",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"siete",
-    precio:0,
-    imagen:"",
+    name:"siete",
+    price:0,
+    catalogId:2,
     color:"rosa",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"ocho",
-    precio:0,
-    imagen:"",
+    name:"ocho",
+    price:0,
+    catalogId:2,
     color:"rosa",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"nueve",
-    precio:0,
-    imagen:"",
+    name:"nueve",
+    price:0,
+    catalogId:2,
     color:"rosa",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"cero",
-    precio:0,
-    imagen:"",
+    name:"cero",
+    price:0,
+    catalogId:2,
     color:"negro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"uno",
-    precio:0,
-    imagen:"",
+    name:"uno",
+    price:0,
+    catalogId:2,
     color:"negro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"dos",
-    precio:0,
-    imagen:"",
+    name:"dos",
+    price:0,
+    catalogId:2,
     color:"negro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"tres",
-    precio:0,
-    imagen:"",
+    name:"tres",
+    price:0,
+    catalogId:2,
     color:"negro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"cuatro",
-    precio:0,
-    imagen:"",
+    name:"cuatro",
+    price:0,
+    catalogId:2,
     color:"negro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"cinco",
-    precio:0,
-    imagen:"",
+    name:"cinco",
+    price:0,
+    catalogId:2,
     color:"negro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"seis",
-    precio:0,
-    imagen:"",
+    name:"seis",
+    price:0,
+    catalogId:2,
     color:"negro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"siete",
-    precio:0,
-    imagen:"",
+    name:"siete",
+    price:0,
+    catalogId:2,
     color:"negro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"ocho",
-    precio:0,
-    imagen:"",
+    name:"ocho",
+    price:0,
+    catalogId:2,
     color:"negro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"nueve",
-    precio:0,
-    imagen:"",
+    name:"nueve",
+    price:0,
+    catalogId:2,
     color:"negro",
-    cantidad:0,
-    tamanio:`16"`
+    cant:0,
+    size:`16"`
 },{
-    nombre:"cero",
-    precio:0,
-    imagen:"",
+    name:"cero",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"uno",
-    precio:0,
-    imagen:"",
+    name:"uno",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"dos",
-    precio:0,
-    imagen:"",
+    name:"dos",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"tres",
-    precio:0,
-    imagen:"",
+    name:"tres",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"cuatro",
-    precio:0,
-    imagen:"",
+    name:"cuatro",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"cinco",
-    precio:0,
-    imagen:"",
+    name:"cinco",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"seis",
-    precio:0,
-    imagen:"",
+    name:"seis",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"siete",
-    precio:0,
-    imagen:"",
+    name:"siete",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"ocho",
-    precio:0,
-    imagen:"",
+    name:"ocho",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"nueve",
-    precio:0,
-    imagen:"",
+    name:"nueve",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"cero",
-    precio:0,
-    imagen:"",
+    name:"cero",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"uno",
-    precio:0,
-    imagen:"",
+    name:"uno",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"dos",
-    precio:0,
-    imagen:"",
+    name:"dos",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"tres",
-    precio:0,
-    imagen:"",
+    name:"tres",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"cuatro",
-    precio:0,
-    imagen:"",
+    name:"cuatro",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"cinco",
-    precio:0,
-    imagen:"",
+    name:"cinco",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"seis",
-    precio:0,
-    imagen:"",
+    name:"seis",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"siete",
-    precio:0,
-    imagen:"",
+    name:"siete",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"ocho",
-    precio:0,
-    imagen:"",
+    name:"ocho",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"nueve",
-    precio:0,
-    imagen:"",
+    name:"nueve",
+    price:0,
+    catalogId:2,
     color:"oro",
-    cantidad:0,
-    tamanio:`32"`
+    cant:0,
+    size:`32"`
 },{
-    nombre:"cero",
-    precio:0,
-    imagen:"",
+    name:"cero",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`40"`
+    cant:0,
+    size:`40"`
 },{
-    nombre:"uno",
-    precio:0,
-    imagen:"",
+    name:"uno",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`40"`
+    cant:0,
+    size:`40"`
 },{
-    nombre:"dos",
-    precio:0,
-    imagen:"",
+    name:"dos",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`40"`
+    cant:0,
+    size:`40"`
 },{
-    nombre:"tres",
-    precio:0,
-    imagen:"",
+    name:"tres",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`40"`
+    cant:0,
+    size:`40"`
 },{
-    nombre:"cuatro",
-    precio:0,
-    imagen:"",
+    name:"cuatro",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`40"`
+    cant:0,
+    size:`40"`
 },{
-    nombre:"cinco",
-    precio:0,
-    imagen:"",
+    name:"cinco",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`40"`
+    cant:0,
+    size:`40"`
 },{
-    nombre:"seis",
-    precio:0,
-    imagen:"",
+    name:"seis",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`40"`
+    cant:0,
+    size:`40"`
 },{
-    nombre:"siete",
-    precio:0,
-    imagen:"",
+    name:"siete",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`40"`
+    cant:0,
+    size:`40"`
 },{
-    nombre:"ocho",
-    precio:0,
-    imagen:"",
+    name:"ocho",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`40"`
+    cant:0,
+    size:`40"`
 },{
-    nombre:"nueve",
-    precio:0,
-    imagen:"",
+    name:"nueve",
+    price:0,
+    catalogId:2,
     color:"plata",
-    cantidad:0,
-    tamanio:`40"`
+    cant:0,
+    size:`40"`
 },{
-    nombre:"cero",
-    precio:0,
-    imagen:"",
+    name:"cero",
+    price:0,
+    catalogId:2,
     color:"rojo",
-    cantidad:0,
-    tamanio:`34"`
+    cant:0,
+    size:`34"`
 },{
-    nombre:"uno",
-    precio:0,
-    imagen:"",
+    name:"uno",
+    price:0,
+    catalogId:2,
     color:"rojo",
-    cantidad:0,
-    tamanio:`34"`
+    cant:0,
+    size:`34"`
 },{
-    nombre:"dos",
-    precio:0,
-    imagen:"",
+    name:"dos",
+    price:0,
+    catalogId:2,
     color:"rojo",
-    cantidad:0,
-    tamanio:`34"`
+    cant:0,
+    size:`34"`
 },{
-    nombre:"tres",
-    precio:0,
-    imagen:"",
+    name:"tres",
+    price:0,
+    catalogId:2,
     color:"rojo",
-    cantidad:0,
-    tamanio:`34"`
+    cant:0,
+    size:`34"`
 },{
-    nombre:"cuatro",
-    precio:0,
-    imagen:"",
+    name:"cuatro",
+    price:0,
+    catalogId:2,
     color:"rojo",
-    cantidad:0,
-    tamanio:`34"`
+    cant:0,
+    size:`34"`
 },{
-    nombre:"cinco",
-    precio:0,
-    imagen:"",
+    name:"cinco",
+    price:0,
+    catalogId:2,
     color:"rojo",
-    cantidad:0,
-    tamanio:`34"`
+    cant:0,
+    size:`34"`
 },{
-    nombre:"seis",
-    precio:0,
-    imagen:"",
+    name:"seis",
+    price:0,
+    catalogId:2,
     color:"rojo",
-    cantidad:0,
-    tamanio:`34"`
+    cant:0,
+    size:`34"`
 },{
-    nombre:"siete",
-    precio:0,
-    imagen:"",
+    name:"siete",
+    price:0,
+    catalogId:2,
     color:"rojo",
-    cantidad:0,
-    tamanio:`34"`
+    cant:0,
+    size:`34"`
 },{
-    nombre:"ocho",
-    precio:0,
-    imagen:"",
+    name:"ocho",
+    price:0,
+    catalogId:2,
     color:"rojo",
-    cantidad:0,
-    tamanio:`34"`
+    cant:0,
+    size:`34"`
 },{
-    nombre:"nueve",
-    precio:0,
-    imagen:"",
+    name:"nueve",
+    price:0,
+    catalogId:2,
     color:"rojo",
-    cantidad:0,
-    tamanio:`34"`
+    cant:0,
+    size:`34"`
 },{
-    nombre:"diez",
-    precio:0,
-    imagen:"",
+    name:"diez",
+    price:0,
+    catalogId:2,
     color:"rojo",
-    cantidad:0,
-    tamanio:`34"`
+    cant:0,
+    size:`34"`
 },]
 
 const CORTINAS_METALIZADAS = [
     {
-        nombre:"lluvia",
-        precio:0,
-        imagen:"",
+        name:"lluvia",
+        price:0,
+        catalogId:3,
         color:"plata",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lluvia",
-        precio:0,
-        imagen:"",
+        name:"lluvia",
+        price:0,
+        catalogId:3,
         color:"oro",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"rojo",
-        precio:0,
-        imagen:"",
+        name:"rojo",
+        price:0,
+        catalogId:3,
         color:"rosa",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lluvia",
-        precio:0,
-        imagen:"",
+        name:"lluvia",
+        price:0,
+        catalogId:3,
         color:"rosa gold",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lluvia",
-        precio:0,
-        imagen:"",
+        name:"lluvia",
+        price:0,
+        catalogId:3,
         color:"celeste",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lluvia",
-        precio:0,
-        imagen:"",
+        name:"lluvia",
+        price:0,
+        catalogId:3,
         color:"pastel",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lluvia",
-        precio:0,
-        imagen:"",
+        name:"lluvia",
+        price:0,
+        catalogId:3,
         color:"multicolor",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lluvia",
-        precio:0,
-        imagen:"",
+        name:"lluvia",
+        price:0,
+        catalogId:3,
         color:"negro",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lluvia",
-        precio:0,
-        imagen:"",
+        name:"lluvia",
+        price:0,
+        catalogId:3,
         color:"fucsia",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lluvia",
-        precio:0,
-        imagen:"",
+        name:"lluvia",
+        price:0,
+        catalogId:3,
         color:"verde",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lluvia",
-        precio:0,
-        imagen:"",
+        name:"lluvia",
+        price:0,
+        catalogId:3,
         color:"blanco",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"corazon",
-        precio:0,
-        imagen:"",
+        name:"corazon",
+        price:0,
+        catalogId:3,
         color:"rojo",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"corazon",
-        precio:0,
-        imagen:"",
+        name:"corazon",
+        price:0,
+        catalogId:3,
         color:"plata",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"corazon",
-        precio:0,
-        imagen:"",
+        name:"corazon",
+        price:0,
+        catalogId:3,
         color:"oro",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"corazon",
-        precio:0,
-        imagen:"",
+        name:"corazon",
+        price:0,
+        catalogId:3,
         color:"azul",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"corazon",
-        precio:0,
-        imagen:"",
+        name:"corazon",
+        price:0,
+        catalogId:3,
         color:"rosa gold",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"corazon",
-        precio:0,
-        imagen:"",
+        name:"corazon",
+        price:0,
+        catalogId:3,
         color:"celeste",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"corazon",
-        precio:0,
-        imagen:"",
+        name:"corazon",
+        price:0,
+        catalogId:3,
         color:"rosa",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"estrella",
-        precio:0,
-        imagen:"",
+        name:"estrella",
+        price:0,
+        catalogId:3,
         color:"plata",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"estrella",
-        precio:0,
-        imagen:"",
+        name:"estrella",
+        price:0,
+        catalogId:3,
         color:"oro",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"estrella",
-        precio:0,
-        imagen:"",
+        name:"estrella",
+        price:0,
+        catalogId:3,
         color:"rojo",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"estrella",
-        precio:0,
-        imagen:"",
+        name:"estrella",
+        price:0,
+        catalogId:3,
         color:"azul",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"estrella",
-        precio:0,
-        imagen:"",
+        name:"estrella",
+        price:0,
+        catalogId:3,
         color:"celeste",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"estrella",
-        precio:0,
-        imagen:"",
+        name:"estrella",
+        price:0,
+        catalogId:3,
         color:"rosa",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"estrella",
-        precio:0,
-        imagen:"",
+        name:"estrella",
+        price:0,
+        catalogId:3,
         color:"negro",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"estrella",
-        precio:0,
-        imagen:"",
+        name:"estrella",
+        price:0,
+        catalogId:3,
         color:"fucsia",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"square",
-        precio:0,
-        imagen:"",
+        name:"square",
+        price:0,
+        catalogId:3,
         color:"plata",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"square",
-        precio:0,
-        imagen:"",
+        name:"square",
+        price:0,
+        catalogId:3,
         color:"oro",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"square",
-        precio:0,
-        imagen:"",
+        name:"square",
+        price:0,
+        catalogId:3,
         color:"rosa",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"square",
-        precio:0,
-        imagen:"",
+        name:"square",
+        price:0,
+        catalogId:3,
         color:"celeste",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"square",
-        precio:0,
-        imagen:"",
+        name:"square",
+        price:0,
+        catalogId:3,
         color:"violeta",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"square",
-        precio:0,
-        imagen:"",
+        name:"square",
+        price:0,
+        catalogId:3,
         color:"fucsia",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"square",
-        precio:0,
-        imagen:"",
+        name:"square",
+        price:0,
+        catalogId:3,
         color:"verde",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },
 ]
 
 const BANDERINES_FC = [
     {
-        nombre:"lisos",
-        precio:0,
-        imagen:"",
+        name:"liso",
+        price:0,
+        catalogId:4,
         color:"oro",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lisos",
-        precio:0,
-        imagen:"",
+        name:"liso",
+        price:0,
+        catalogId:4,
         color:"plata",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lisos",
-        precio:0,
-        imagen:"",
+        name:"liso",
+        price:0,
+        catalogId:4,
         color:"rosa",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lisos",
-        precio:0,
-        imagen:"",
+        name:"liso",
+        price:0,
+        catalogId:4,
         color:"negro",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lisos",
-        precio:0,
-        imagen:"",
+        name:"liso",
+        price:0,
+        catalogId:4,
         color:"rojo",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lisos",
-        precio:0,
-        imagen:"",
+        name:"liso",
+        price:0,
+        catalogId:4,
         color:"celeste",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lisos",
-        precio:0,
-        imagen:"",
+        name:"liso",
+        price:0,
+        catalogId:4,
         color:"azul",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"lisos",
-        precio:0,
-        imagen:"",
+        name:"liso",
+        price:0,
+        catalogId:4,
         color:"pastel",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"gibreado",
-        precio:0,
-        imagen:"",
+        name:"gibreado",
+        price:0,
+        catalogId:4,
         color:"dorado",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"gibreado",
-        precio:0,
-        imagen:"",
+        name:"gibreado",
+        price:0,
+        catalogId:4,
         color:"plata",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"gibreado",
-        precio:0,
-        imagen:"",
+        name:"gibreado",
+        price:0,
+        catalogId:4,
         color:"rosa",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"gibreado",
-        precio:0,
-        imagen:"",
+        name:"gibreado",
+        price:0,
+        catalogId:4,
         color:"negro",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"gibreado",
-        precio:0,
-        imagen:"",
+        name:"gibreado",
+        price:0,
+        catalogId:4,
         color:"fucsia",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"gibreado",
-        precio:0,
-        imagen:"",
+        name:"gibreado",
+        price:0,
+        catalogId:4,
         color:"celeste",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"gibreado",
-        precio:0,
-        imagen:"",
+        name:"gibreado",
+        price:0,
+        catalogId:4,
         color:"azul",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"gibreado",
-        precio:0,
-        imagen:"",
+        name:"gibreado",
+        price:0,
+        catalogId:4,
         color:"rojo",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },
 ]
 
 const RADHA = [
     {
-        nombre:"polvos",
-        precio:0,
-        imagen:"",
+        name:"polvos",
+        price:0,
+        catalogId:5,
         color:"verde",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"polvos",
-        precio:0,
-        imagen:"",
+        name:"polvos",
+        price:0,
+        catalogId:5,
         color:"verde aqua",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"polvos",
-        precio:0,
-        imagen:"",
+        name:"polvos",
+        price:0,
+        catalogId:5,
         color:"amarillo",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"polvos",
-        precio:0,
-        imagen:"",
+        name:"polvos",
+        price:0,
+        catalogId:5,
         color:"naranja",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"polvos",
-        precio:0,
-        imagen:"",
+        name:"polvos",
+        price:0,
+        catalogId:5,
         color:"violeta",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"splash",
-        precio:0,
-        imagen:"",
+        name:"splash",
+        price:0,
+        catalogId:5,
         color:"celeste",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"splash",
-        precio:0,
-        imagen:"",
+        name:"splash",
+        price:0,
+        catalogId:5,
         color:"verde",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"splash",
-        precio:0,
-        imagen:"",
+        name:"splash",
+        price:0,
+        catalogId:5,
         color:"amarillo",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"splash",
-        precio:0,
-        imagen:"",
+        name:"splash",
+        price:0,
+        catalogId:5,
         color:"rosa",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"splash",
-        precio:0,
-        imagen:"",
+        name:"splash",
+        price:0,
+        catalogId:5,
         color:"violeta",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"polvos fluo",
-        precio:0,
-        imagen:"",
+        name:"polvos fluo",
+        price:0,
+        catalogId:5,
         color:"naranja",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"polvos fluo",
-        precio:0,
-        imagen:"",
+        name:"polvos fluo",
+        price:0,
+        catalogId:5,
         color:"amarillo",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"polvos fluo",
-        precio:0,
-        imagen:"",
+        name:"polvos fluo",
+        price:0,
+        catalogId:5,
         color:"verde",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"polvos fluo",
-        precio:0,
-        imagen:"",
+        name:"polvos fluo",
+        price:0,
+        catalogId:5,
         color:"celeste",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"polvos fluo",
-        precio:0,
-        imagen:"",
+        name:"polvos fluo",
+        price:0,
+        catalogId:5,
         color:"fucsia",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"polvos fluo",
-        precio:0,
-        imagen:"",
+        name:"polvos fluo",
+        price:0,
+        catalogId:5,
         color:"violeta",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },
 ]
 
 const LANZA_PAPELES = [
     {
-        nombre:"corazon",
-        precio:0,
-        imagen:"",
+        name:"corazon",
+        price:0,
+        catalogId:6,
         color:"rosa gold",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"corazon",
-        precio:0,
-        imagen:"",
+        name:"corazon",
+        price:0,
+        catalogId:6,
         color:"plata",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"corazon",
-        precio:0,
-        imagen:"",
+        name:"corazon",
+        price:0,
+        catalogId:6,
         color:"oro",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },{
-        nombre:"corazon",
-        precio:0,
-        imagen:"",
+        name:"corazon",
+        price:0,
+        catalogId:6,
         color:"multicolor",
-        cantidad:0,
-        tamanio:``
+        cant:0,
+        size:``
     },
 ]
 
 const SET_DE_GLOBOS = [
     {
-        nombre:"set9",
-        precio:0,
-        imagen:"",
+        name:"set9",
+        price:0,
+        catalogId:7,
         color:"rosa gold",
-        cantidad:9,
-        tamanio:``
+        cant:9,
+        size:``
     },{
-        nombre:"set9",
-        precio:0,
-        imagen:"",
+        name:"set9",
+        price:0,
+        catalogId:7,
         color:"dorado",
-        cantidad:9,
-        tamanio:``
+        cant:9,
+        size:``
     },{
-        nombre:"set9",
-        precio:0,
-        imagen:"",
+        name:"set9",
+        price:0,
+        catalogId:7,
         color:"plata",
-        cantidad:9,
-        tamanio:``
+        cant:9,
+        size:``
     },{
-        nombre:"set9",
-        precio:0,
-        imagen:"",
+        name:"set9",
+        price:0,
+        catalogId:7,
         color:"dorado/negro",
-        cantidad:9,
-        tamanio:``
+        cant:9,
+        size:``
     },{
-        nombre:"set9",
-        precio:0,
-        imagen:"",
+        name:"set9",
+        price:0,
+        catalogId:7,
         color:"rosa",
-        cantidad:9,
-        tamanio:``
+        cant:9,
+        size:``
     },{
-        nombre:"set9",
-        precio:0,
-        imagen:"",
+        name:"set9",
+        price:0,
+        catalogId:7,
         color:"violeta",
-        cantidad:9,
-        tamanio:``
+        cant:9,
+        size:``
     },{
-        nombre:"set9",
-        precio:0,
-        imagen:"",
+        name:"set9",
+        price:0,
+        catalogId:7,
         color:"rojo",
-        cantidad:9,
-        tamanio:``
+        cant:9,
+        size:``
     },{
-        nombre:"set9",
-        precio:0,
-        imagen:"",
+        name:"set9",
+        price:0,
+        catalogId:7,
         color:"azul",
-        cantidad:9,
-        tamanio:``
+        cant:9,
+        size:``
     },{
-        nombre:"set10",
-        precio:0,
-        imagen:"",
+        name:"set10",
+        price:0,
+        catalogId:7,
         color:"dorado",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set10",
-        precio:0,
-        imagen:"",
+        name:"set10",
+        price:0,
+        catalogId:7,
         color:"rosa gold",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set10",
-        precio:0,
-        imagen:"",
+        name:"set10",
+        price:0,
+        catalogId:7,
         color:"plata",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set10",
-        precio:0,
-        imagen:"",
+        name:"set10",
+        price:0,
+        catalogId:7,
         color:"rosa",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set10",
-        precio:0,
-        imagen:"",
+        name:"set10",
+        price:0,
+        catalogId:7,
         color:"rojo",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set10",
-        precio:0,
-        imagen:"",
+        name:"set10",
+        price:0,
+        catalogId:7,
         color:"azul",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set10",
-        precio:0,
-        imagen:"",
+        name:"set10",
+        price:0,
+        catalogId:7,
         color:"negro",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set14",
-        precio:0,
-        imagen:"",
+        name:"set14",
+        price:0,
+        catalogId:7,
         color:"dorado",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set14",
-        precio:0,
-        imagen:"",
+        name:"set14",
+        price:0,
+        catalogId:7,
         color:"rosa gold",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set14",
-        precio:0,
-        imagen:"",
+        name:"set14",
+        price:0,
+        catalogId:7,
         color:"dorado/negro",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set14",
-        precio:0,
-        imagen:"",
+        name:"set14",
+        price:0,
+        catalogId:7,
         color:"rosa",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set14",
-        precio:0,
-        imagen:"",
+        name:"set14",
+        price:0,
+        catalogId:7,
         color:"violeta",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set14",
-        precio:0,
-        imagen:"",
+        name:"set14",
+        price:0,
+        catalogId:7,
         color:"rojo",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set14",
-        precio:0,
-        imagen:"",
+        name:"set14",
+        price:0,
+        catalogId:7,
         color:"verde",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },{
-        nombre:"set14",
-        precio:0,
-        imagen:"",
+        name:"set14",
+        price:0,
+        catalogId:7,
         color:"negro",
-        cantidad:10,
-        tamanio:``
+        cant:10,
+        size:``
     },
 ]
 
 const BURBUJA_CON_CONFETTI = [
     {
-        nombre:"chico",
-        precio:0,
-        imagen:"",
+        name:"chico",
+        price:0,
+        catalogId:8,
         color:"rojo",
-        cantidad:10,
-        tamanio:`18"`
+        cant:10,
+        size:`18"`
     },{
-        nombre:"chico",
-        precio:0,
-        imagen:"",
+        name:"chico",
+        price:0,
+        catalogId:8,
         color:"fucsia",
-        cantidad:10,
-        tamanio:`18"`
+        cant:10,
+        size:`18"`
     },{
-        nombre:"chico",
-        precio:0,
-        imagen:"",
+        name:"chico",
+        price:0,
+        catalogId:8,
         color:"azul",
-        cantidad:10,
-        tamanio:`18"`
+        cant:10,
+        size:`18"`
     },{
-        nombre:"chico",
-        precio:0,
-        imagen:"",
+        name:"chico",
+        price:0,
+        catalogId:8,
         color:"plata",
-        cantidad:10,
-        tamanio:`18"`
+        cant:10,
+        size:`18"`
     },{
-        nombre:"chico",
-        precio:0,
-        imagen:"",
+        name:"chico",
+        price:0,
+        catalogId:8,
         color:"dorado",
-        cantidad:10,
-        tamanio:`18"`
+        cant:10,
+        size:`18"`
     },{
-        nombre:"grande",
-        precio:0,
-        imagen:"",
+        name:"grande",
+        price:0,
+        catalogId:8,
         color:"multicolor",
-        cantidad:10,
-        tamanio:`18"`
+        cant:10,
+        size:`18"`
     },{
-        nombre:"grande",
-        precio:0,
-        imagen:"",
+        name:"grande",
+        price:0,
+        catalogId:8,
         color:"azul",
-        cantidad:10,
-        tamanio:`18"`
+        cant:10,
+        size:`18"`
     },{
-        nombre:"grande",
-        precio:0,
-        imagen:"",
+        name:"grande",
+        price:0,
+        catalogId:8,
         color:"rojo",
-        cantidad:10,
-        tamanio:`18"`
+        cant:10,
+        size:`18"`
     },{
-        nombre:"grande",
-        precio:0,
-        imagen:"",
+        name:"grande",
+        price:0,
+        catalogId:8,
         color:"rosa gold",
-        cantidad:10,
-        tamanio:`18"`
+        cant:10,
+        size:`18"`
     },{
-        nombre:"grande",
-        precio:0,
-        imagen:"",
+        name:"grande",
+        price:0,
+        catalogId:8,
         color:"fucsia",
-        cantidad:10,
-        tamanio:`18"`
+        cant:10,
+        size:`18"`
     },{
-        nombre:"extra grande",
-        precio:0,
-        imagen:"",
+        name:"extra grande",
+        price:0,
+        catalogId:8,
         color:"multicolor",
-        cantidad:10,
-        tamanio:`24"`
+        cant:10,
+        size:`24"`
     },
 ]
 
-const productos = {GLOBOS,GLOBOS_NUMEROS,CORTINAS_METALIZADAS,BANDERINES_FC,RADHA,LANZA_PAPELES,SET_DE_GLOBOS,BURBUJA_CON_CONFETTI}
+const catalogos = [
+    {
+        id:1,
+        name:"globos"
+    },{
+        id:2,
+        name:"globos_numeros"
+    },{
+        id:3,
+        name:"cortinas_metalizadas"
+    },{
+        id:4,
+        name:"banderines_fc"
+    },{
+        id:5,
+        name:"radha"
+    },{
+        id:6,
+        name:"lanza_papeles"
+    },{
+        id:7,
+        name:"set_de_globos"
+    },{
+        id:8,
+        name:"burbuja_con_confetti"
+    },
+]
+
+
+const inventario = [...GLOBOS,...GLOBOS_NUMEROS,...CORTINAS_METALIZADAS,...BANDERINES_FC,...RADHA,...LANZA_PAPELES,...SET_DE_GLOBOS,...BURBUJA_CON_CONFETTI]
 
 
 
-module.exports=productos
+module.exports={
+    inventario,
+    catalogos,
+}

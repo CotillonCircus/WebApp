@@ -1,16 +1,26 @@
-const productos = require("./inventario")
+const {Product,Catalog} = require("../db") 
 
+const {inventario,catalogos} = require("./inventario")
+// const path = require("path")
+// const FS = require("fs")
 
+const populate = async ()=> {
+    const url="http://localhost:3001/images/"
+    // let images = FS.readdirSync(path.join(__dirname, '/images'))
 
-function prod(){
-    let cant = 0
-
-    for(const prop in productos){
-        cant += productos[prop].length
-        // console.log(productos[prop].length)
-    }
-    console.log(cant)
-    // console.log(productos.CORTINAS_METALIZADAS[1])
+    await Catalog.bulkCreate(catalogos)
+    let productos = inventario.map((i)=>{
+        return{
+            ...i,
+            img:`${url+i.name}_${i.color}.jpg`
+        }
+    })
+    
+    await Product.bulkCreate(productos)
+    console.log("db populated")
 }
 
-prod()
+module.exports={
+    populate
+}
+
