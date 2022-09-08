@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 * {
   margin: 0;
@@ -10,18 +10,18 @@
   text-decoration: none;
 }
 
-/* :root {
-  --color-bg: #1f1f38;
-  --color-bg-variant: #2c2c6c;
+:root {
+  --color-bg: #fff;
+  /* --color-bg-variant: #2c2c6c;
   --color-primary: #4db5ff;
-  --color-primary-variant: rgba(77, 181, 255, 0.4);
-  --color-white: #fff;
-  --color-light: rgba(255, 255, 255, 0.6);
+  --color-primary-variant: rgba(77, 181, 255, 0.4); */
+  --color-text: #6d6c6c;
+  --color-text-variant: #ff009f;
   --container-width-lg: 75%;
   --container-width-md: 86%;
   --container-width-sm: 90%;
   --transition: all 400ms ease;
-} */
+}
 
 html {
   scroll-behavior: smooth;
@@ -31,32 +31,31 @@ html {
   display: none;
 }
 
-/* body {
-  font-family: "Poppins", sans-serif;
+body {
+  font-family: 'Montserrat', sans-serif;
   background: var(--color-bg);
-  color: var(--color-white);
-  line-height: 1.7;
-  background-image: url(../src/assets/bg-texture.png);
-} */
+  color: var(--color-text);
+  /* line-height: 1.7; */
+}
 
 /* ========== GENERAL STYLES ========== */
 
-/* .container {
+.container {
   width: var(--container-width-lg);
   margin: 0 auto;
-} */
+}
 
-/* h1,
+h1,
 h2,
 h3,
 h4,
 h5 {
   font-weight: 500;
-} */
+}
 
-/* h1 {
+h1 {
   font-size: 2.5rem;
-} */
+}
 
 /* section {
     margin-top: 8rem;
@@ -135,19 +134,3 @@ h5 {
     margin-bottom: 2rem;
   } */
 }
-
-/* Estaba en archivo anterior */
-
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
