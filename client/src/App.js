@@ -19,7 +19,7 @@ function App() {
         return(
           <div >
             <span>{p.name}</span>
-            <img src={p.src}></img>
+            <img src={p.img}></img>
           </div>
         )
       })}
