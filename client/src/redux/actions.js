@@ -5,7 +5,7 @@ export function getProductos(){
 
     return async function(dispatch){
         try{
-            const productos = (await axios.get("http://localhost:3001/productos")).data
+            const productos = (await axios.get("http://localhost:3001/products")).data
             return dispatch({
                 type:GET_PRODUCTOS,
                 payload:productos

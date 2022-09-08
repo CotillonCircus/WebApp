@@ -1,36 +1,26 @@
+const { Op } = require("sequelize")
 const {Product} = require("../db") 
 
 const getAllProducts = async (req,res,next) => {
 
+    const {name,catalogId} = req.query
+
     const condition = {}
 
-    for (const prop in req.query) {
-        condition[prop]=req.query[prop]
-    }
+    condition.name={[Op.iLike]:`%${name||""}`}
+    
+    if(catalogId)condition.catalogId=catalogId
 
     try {
-        const products = await Product.findAll()
+        const products = await Product.findAll({where:condition})
+        console.log(products.length)
         res.send(products)
     } catch (error) {
         console.log(error.message)
         res.status(404).send(error.message)
     }
 }
-
-const getProductsByCatalog = async (req,res,next) => {
-    const {catalog} = req.query
-
-    try {
-        const products = await Product.findAll()
-        res.send(products)
-    } catch (error) {
-        console.log(error.message)
-        res.status(404).send(error.message)
-    }
-}
-
 
 module.exports={
     getAllProducts,
-    getProductsByCatalog
 }

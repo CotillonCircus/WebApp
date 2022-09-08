@@ -5,7 +5,6 @@ const {getAllProducts,getProductsByCatalog} = require("../controllers/productCon
 
 
 router.get("/",getAllProducts)
-router.get("/catalog/:catalog",getProductsByCatalog)
 
 
 
