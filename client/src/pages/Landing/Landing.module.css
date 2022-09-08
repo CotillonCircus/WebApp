@@ -1,0 +1,27 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonContainer{
+    display: flex;
+    gap: 10vw;
+}
+
+.button{
+    height: 4rem;
+    width:12rem;
+    border-radius: 10px;
+    background-color: rgb(148, 90, 207);
+    font-size: 25px;
+    border: 1px solid black;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+}
+
+.button:active{
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
