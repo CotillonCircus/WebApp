@@ -1,18 +1,24 @@
 const {Product,Catalog} = require("../db") 
 
 const {inventario,catalogos} = require("./inventario")
-// const path = require("path")
-// const FS = require("fs")
+const path = require("path")
+const FS = require("fs")
 
-const populate = async ()=> {
-    const url="http://localhost:3001/images/"
-    // let images = FS.readdirSync(path.join(__dirname, '/images'))
+const populate = async () => {
 
     await Catalog.bulkCreate(catalogos)
+
+    const url="http://localhost:3001/images/"
+
+    let images = FS.readdirSync(path.join(__dirname, '../routes/images'))
     let productos = inventario.map((i)=>{
+        let img = `${url}imagen_no_disponible.jpg`
+        if(images.includes(`${i.name}_${i.color}.jpg`)){
+            img = `${url+i.name}_${i.color}.jpg`
+        }
         return{
             ...i,
-            img:`${url+i.name}_${i.color}.jpg`
+            img:img
         }
     })
     
