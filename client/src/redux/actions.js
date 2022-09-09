@@ -22,7 +22,6 @@ export function getLogin(user) {
     try {
       const userLogged = (await axios.post('http://localhost:3001/user', user))
         .data;
-      console.log(userLogged[1]);
       return dispatch({
         type: GET_USER,
         payload: userLogged,
