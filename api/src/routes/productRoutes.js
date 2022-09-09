@@ -1,10 +1,11 @@
 const {Router} = require("express")
 const router = Router()
 
-const {getAllProducts,getProductsByCatalog} = require("../controllers/productControllers")
+const {getAllProducts,getProductDetails} = require("../controllers/productControllers")
 
 
 router.get("/",getAllProducts)
+router.get("/:ID",getProductDetails)
 
 
 
