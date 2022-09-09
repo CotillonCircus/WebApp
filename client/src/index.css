@@ -17,9 +17,9 @@
   --color-primary-variant: rgba(77, 181, 255, 0.4); */
   --color-text: #6d6c6c;
   --color-text-variant: #ff009f;
-  --container-width-lg: 75%;
+  /* --container-width-lg: 75%;
   --container-width-md: 86%;
-  --container-width-sm: 90%;
+  --container-width-sm: 90%; */
   --transition: all 400ms ease;
 }
 
@@ -41,7 +41,7 @@ body {
 /* ========== GENERAL STYLES ========== */
 
 .container {
-  width: var(--container-width-lg);
+  /* width: var(--container-width-lg); */
   margin: 0 auto;
 }
 

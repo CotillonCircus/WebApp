@@ -1,0 +1,12 @@
+header {
+  text-align: center;
+}
+
+.row_header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container {
+  border: 1px solid green;
+}
