@@ -4,10 +4,12 @@ const router = Router();
 
 const productRoutes = require("./productRoutes")
 const userRoutes = require("./userRoutes")
+const catalogRoutes = require("./catalogRoutes")
 
 router.use('/images', static(path.join(__dirname, 'images')));
 
-router.use("/products",productRoutes)
+router.use("/product",productRoutes)
 router.use("/user",userRoutes)
+router.use("/catalog",catalogRoutes)
 
 module.exports = router;
