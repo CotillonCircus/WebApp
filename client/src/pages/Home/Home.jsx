@@ -11,8 +11,8 @@ const Home = () => {
 
   return (
     <section id='home'>
-      {/* {isAuthenticated ? (
-        <LogOutButton> */}
+       {isAuthenticated ? (
+        <LogOutButton> 
       <div>
         <Header />
         <Navbar />
@@ -21,7 +21,7 @@ const Home = () => {
         </div>
         <Footer />
       </div>
-      {/* </LogOutButton>
+       </LogOutButton>
       ) : (
         <LoginButton>
           <Header />
@@ -31,7 +31,7 @@ const Home = () => {
           </div>
           <Footer />
         </LoginButton>
-      )} */}
+      )} 
     </section>
   );
 };
