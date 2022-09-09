@@ -5,6 +5,8 @@ import Home from './pages/Home/Home';
 import Admin from './pages/Admin/Admin';
 import Products from './pages/Products/Products';
 import Tutorial from './pages/Tutorial/Tutorial';
+import Aform from "./pages/AForm/AForm";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/tutorial' element={<Tutorial />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path="/aform" element={<Aform />}/>
+        <Route path="/contact" element={<Contact />}/>
       </Routes>
     </>
   );
