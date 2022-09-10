@@ -51,7 +51,7 @@ export function getAllUsers () {
   };
 }
 
-export function getRroductById (ID) {
+export function getProductById (ID) {
   return async function (dispatch) {
     try {
       const product = (await axios.get(`http://localhost:3001/product/${ID}`))
