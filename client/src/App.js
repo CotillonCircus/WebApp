@@ -7,6 +7,7 @@ import Products from './pages/Products/Products';
 import Tutorial from './pages/Tutorial/Tutorial';
 import Aform from "./pages/AForm/AForm";
 import Contact from "./pages/Contact/Contact";
+import Details from "./pages/Details/Details";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/admin' element={<Admin />} />
         <Route path="/aform" element={<Aform />}/>
         <Route path="/contact" element={<Contact />}/>
+        <Route path="/details/:ID" element={<Details />}/>
       </Routes>
     </>
   );

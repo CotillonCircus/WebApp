@@ -1,0 +1,45 @@
+#detailsPage{
+    position: relative;
+    left: 5vw;
+    width: 90vw;
+    min-height: 10vh;
+    max-height: max-content;
+    border: 1px solid red;
+}
+
+ #detailsContainer{
+    width: 90vw;
+    min-height: 10vh;
+    max-height: max-content;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+#imgandredes{
+    width: 50%;
+    height: 80vh;
+    margin: 0;
+    border: 1px solid black;
+}
+
+#formanddetails{
+    width: 50%;
+    height: 100vh;
+    border: 1px solid black;
+}
+
+#facebookcoments{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    width: 100%;
+    min-height: 30vh;
+    max-height: max-content;
+    border: 1px solid black;
+}
+
+#relacionados{
+    width: 100%;
+    min-height: 70vh;
+    border: 1px solid black;
+}
