@@ -1,19 +1,34 @@
 import React from 'react';
 import { AiFillFacebook, AiFillInstagram } from 'react-icons/ai';
+import { BsFillTelephoneFill } from 'react-icons/bs';
+import { MdEmail } from 'react-icons/md';
+import { ImLocation } from 'react-icons/im';
 
 const Footer = () => {
   return (
     <footer>
       <div className='container-fluid text-center'>
         <div className='row'>
-          <div className='col-md'>Av. Godoy Cruz 65, Ciudad. Mendoza</div>
-          <div className='col-md'>Tel: 0261-4236840</div>
+          <div className='col-md'>
+            <ImLocation /> Av. Godoy Cruz 65, Ciudad. Mendoza
+          </div>
+          <div className='col-md footer_center'>
+            <div>
+              <BsFillTelephoneFill /> 0261-4236840
+            </div>
+            <div>
+              <MdEmail />
+              <a href='mailto:ventascircuscotillon@gmail.com' target='_blank'>
+                ventascircuscotillon@gmail.com
+              </a>
+            </div>
+          </div>
           <div className='col-md footer_socials'>
             <a href='https://www.facebook.com/circus.cotillon' target='_blank'>
-              <AiFillFacebook />
+              <AiFillFacebook size={30} style={{ fill: 'black' }} />
             </a>
             <a href='https://instagram.com/circus_cotillon' target='_blank'>
-              <AiFillInstagram />
+              <AiFillInstagram size={30} style={{ fill: 'black' }} />
             </a>
           </div>
         </div>
