@@ -1,1 +1,11 @@
+.column_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.row_log {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
