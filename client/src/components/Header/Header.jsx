@@ -17,28 +17,30 @@ const Header = () => {
   }, [dispatch, user]);
 
   return (
-    <header className='container-fluid text-center container'>
-      <div className='row row_header'>
-        {isAuthenticated ? (
-          <div>
-            <div className='col-md-4 col1'>Search</div>
-            <div className='col-md-4 col2'>Logo</div>
-            <div className='col-md-4 col3'>
+    <header>
+      {isAuthenticated ? (
+        <div className='container-fluid text-center'>
+          <div className='row'>
+            <div className='col-md'>Search</div>
+            <div className='col-md'>Logo</div>
+            <div className='col-md'>
               <LogOutButton> </LogOutButton>
-              <span>{userLogged[0]?.name}</span>
+              <p>{userLogged[0]?.name}</p>
             </div>
           </div>
-        ) : (
-          <div>
-            <div className='col-md-4 col1'>Search</div>
-            <div className='col-md-4 col2'>Logo</div>
-            <div className='col-md-4 col3'>
+        </div>
+      ) : (
+        <div className='container-fluid text-center'>
+          <div className='row'>
+            <div className='col-md'>Search</div>
+            <div className='col-md'>Logo</div>
+            <div className='col-md'>
               <LoginButton> </LoginButton>
               <span>{userLogged[0]?.name}</span>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   );
 };
