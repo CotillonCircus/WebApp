@@ -1,0 +1,7 @@
+.carousel-indicators {
+  background-color: var(--color-text);
+}
+
+.carousel-indicators .active {
+  background-color: var(--color-text-variant);
+}

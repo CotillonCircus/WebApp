@@ -6,6 +6,8 @@ const Footer = () => {
       <div className='container-fluid text-center'>
         <div className='row'>
           <div className='col-md'>Footer</div>
+          <div className='col-md'>Footer</div>
+          <div className='col-md'>Footer</div>
         </div>
       </div>
     </footer>
