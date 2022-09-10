@@ -39,13 +39,13 @@ const Carousel = () => {
       {/* ===== Images ===== */}
       <div className='carousel-inner'>
         <div className='carousel-item active'>
-          <img src={Circus} className='d-block w-100' alt='logo' />
+          <img src={Circus} className='d-block w-50 mx-auto' alt='logo' />
         </div>
         <div className='carousel-item'>
-          <img src={Banderin} className='d-block w-100' alt='banderin' />
+          <img src={Banderin} className='d-block w-50 mx-auto' alt='banderin' />
         </div>
         <div className='carousel-item'>
-          <img src={Globo} className='d-block w-100' alt='globo' />
+          <img src={Globo} className='d-block w-50 mx-auto' alt='globo' />
         </div>
       </div>
       {/* ===== Lateral controls ===== */}
