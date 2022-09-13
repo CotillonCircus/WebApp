@@ -80,9 +80,9 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className='nav-item'>
-                <Link to={'/aform'} className='link'>
+                <Link to={'/admin'} className='link'>
                   <a className='nav-link' href='#footer'>
-                    Formulario Autorizacion
+                    Dashboard Admin
                   </a>
                 </Link>
               </li>

@@ -4,8 +4,15 @@
   align-items: center;
 }
 
-.row_log {
+.row_log1 {
+  margin-top: 9vh;
+}
+
+.row_log2 {
+  margin-top: 6vh;
+}
+/* .column_header_log {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
