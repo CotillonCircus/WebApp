@@ -27,7 +27,7 @@ const Navbar = () => {
               <li className='nav-item'>
                 <Link to={'/home'} className='link'>
                   <a
-                    className='nav-link active'
+                    className='nav-link'
                     aria-current='page'
                     href='#header'
                     id='as'
@@ -76,13 +76,6 @@ const Navbar = () => {
                 <Link to={'/contact'} className='link'>
                   <a className='nav-link' href='#footer'>
                     Contacto
-                  </a>
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link to={'/tutorial'} className='link'>
-                  <a className='nav-link' href='#footer'>
-                    Tutorial
                   </a>
                 </Link>
               </li>
@@ -148,13 +141,6 @@ const Navbar = () => {
                 <Link to={'/contact'} className='link'>
                   <a className='nav-link' href='#footer'>
                     Contacto
-                  </a>
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link to={'/tutorial'} className='link'>
-                  <a className='nav-link' href='#footer'>
-                    Tutorial
                   </a>
                 </Link>
               </li>

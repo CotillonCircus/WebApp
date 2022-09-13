@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
 * {
   margin: 0;
@@ -36,6 +36,14 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   /* line-height: 1.7; */
+}
+
+footer {
+  margin-top: 4rem;
+}
+
+nav {
+  margin-bottom: 4rem;
 }
 
 /* ========== GENERAL STYLES ========== */
@@ -85,26 +93,31 @@ h1 {
   color: var(--color-white);
 } */
 
-/* .btn {
+.btn {
   width: max-content;
   display: inline-block;
-  color: var(--color-primary);
+  color: var(--color-bg);
+  background: var(--color-text);
   padding: 0.75rem 1.2rem;
   border-radius: 0.4rem;
   cursor: pointer;
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--color-text);
   transition: var(--transition);
-} */
+}
 
-/* .btn:hover {
-  background: var(--color-white);
-  color: var(--color-bg);
-  border-color: transparent;
-} */
+.btn:hover {
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+}
 
 /* .btn-primary {
-  background: var(--color-primary);
+  background: var(--color-text);
   color: var(--color-bg);
+}
+
+.btn-primary:hover {
+  background: var(--color-text-variant);
 } */
 
 img {
