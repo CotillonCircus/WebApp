@@ -3,6 +3,7 @@ const {Auth} = require("../db");
 const postAuth = async (req,res,next)=>{
 
     const {sub,email,cuit,company,name} = req.body;
+
     try{
         const auth = await Auth.create({sub,email,cuit,company,name});
         res.status(200).send(auth);
