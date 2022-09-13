@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
 * {
   margin: 0;
@@ -36,6 +36,14 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   /* line-height: 1.7; */
+}
+
+footer {
+  margin-top: 4rem;
+}
+
+nav {
+  margin-bottom: 4rem;
 }
 
 /* ========== GENERAL STYLES ========== */

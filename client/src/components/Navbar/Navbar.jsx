@@ -27,7 +27,7 @@ const Navbar = () => {
               <li className='nav-item'>
                 <Link to={'/home'} className='link'>
                   <a
-                    className='nav-link active'
+                    className='nav-link'
                     aria-current='page'
                     href='#header'
                     id='as'
