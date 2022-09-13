@@ -1,0 +1,16 @@
+.authCardContainer{
+    background: coral;
+    padding: 10px;
+    margin: 10px;
+    width: 20vw;
+}
+
+.buttonsContainer{
+    display: flex;
+    gap: 5vw;
+}
+
+.buttonsContainer button{
+    border-radius: 10px;
+    padding: 1px;
+}

@@ -1,11 +1,12 @@
-import { GET_PRODUCTOS, GET_USER,CHANGE_USER_STATUS,GET_ALL_USERS,GET_PRODUCT_BY_ID,GET_ALL_CATALOGS } from './actions';
+import { GET_PRODUCTOS, GET_USER,CHANGE_USER_STATUS,GET_ALL_USERS,GET_PRODUCT_BY_ID,GET_ALL_CATALOGS, GET_ALL_AUTHS } from './actions';
 
 const initialState = {
   productos: [],
   userLogged: {},
   users:[],
   productDetails:{},
-  catalogs:[]
+  catalogs:[],
+  auths:[]
 };
 
 function reducer(state = initialState, { type, payload }) {
@@ -44,7 +45,12 @@ function reducer(state = initialState, { type, payload }) {
         ...state,
         catalogs:payload
       };
-      
+
+    case GET_ALL_AUTHS:
+      return {
+        ...state,
+        auths:payload
+      };  
     default:
       return state;
   }
