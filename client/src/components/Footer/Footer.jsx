@@ -31,7 +31,7 @@ const Footer = () => {
             <a href='https://instagram.com/circus_cotillon' target='_blank'>
               <AiFillInstagram size={30} style={{ fill: 'black' }} />
             </a>
-            <a href='https://wa.me/542616084535' target='_blank'>
+            <a href='https://wa.me/542616537320' target='_blank'>
               <FaWhatsappSquare size={30} style={{ fill: 'black' }} />
             </a>
           </div>

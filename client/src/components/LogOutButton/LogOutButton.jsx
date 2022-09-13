@@ -24,7 +24,7 @@ const LogOutButton = () => {
           });
         }}
       >
-        {userLogged[0]?.name}
+        {userLogged[0]?.name} / Logout
       </button>
     </div>
   );
