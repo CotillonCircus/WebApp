@@ -5,6 +5,7 @@ export const CHANGE_USER_STATUS = "CHANGE_USER_STATUS"
 export const GET_ALL_USERS = "GET_ALL_USERS"
 export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID"
 export const GET_ALL_CATALOGS = "GET_ALL_CATALOGS"
+export const GET_ALL_AUTHS = "GET_ALL_AUTHS"
 
 export function getLogin(user) {
   return async function (dispatch) {
@@ -90,6 +91,21 @@ export function getCatalogs() {
       return dispatch({
         type: GET_ALL_CATALOGS,
         payload: catalogs,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+
+export function getAllAuths () {
+  return async function (dispatch) {
+    try {
+      const auths = (await axios.get('http://localhost:3001/auth'))
+        .data;
+      return dispatch({
+        type: GET_ALL_AUTHS,
+        payload: auths,
       });
     } catch (error) {
       console.log(error.message);
