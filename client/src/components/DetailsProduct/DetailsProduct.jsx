@@ -2,28 +2,30 @@ import { useAuth0 } from '@auth0/auth0-react'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getProductById } from '../../redux/actions'
+import { getProductById, getRelated } from '../../redux/actions'
 import "./detailsProduct.css"
 import {FaFacebookF,FaTwitter,FaPinterestP,FaCcVisa,FaCcMastercard,FaCreditCard} from "react-icons/fa"
 import {SiAmericanexpress} from "react-icons/si"
-
-const img = "https://d2r9epyceweg5n.cloudfront.net/stores/001/156/993/products/fucsia1-9304b057a0c7c113d415886127367996-1024-1024.jpg"
+import { useState } from 'react'
 
 const DetailsProduct = () => {
 
-  
-  const {isAuthenticated}  = useAuth0()
   const {productDetails} = useSelector(state=>state)
   const dispatch = useDispatch()
   const {ID} = useParams()
+  const [related,setRelated] = useState([])
 
   useEffect(()=>{
     ID&&dispatch(getProductById(ID))
   },[dispatch,ID])
 
-  // if(!isAuthenticated){
-  //   return <span>autentiquese</span>
-  // }
+  useEffect(()=>{
+    x()
+  },[productDetails])
+
+  async function x(){
+    productDetails&&setRelated(await getRelated(productDetails.name))
+  }
 
   return productDetails&&(
     <div id="detailsPage">
@@ -62,7 +64,13 @@ const DetailsProduct = () => {
         </div>
       </div>
       <div id="facebookcoments">facebookcoments</div>
-      <div id="relacionados">relacionados</div>
+      <div id="relacionados">{
+        related?.slice(0,4).map((rel)=>{
+          return(
+            <img src={rel.img}/>
+          )
+        })
+      }</div>
     </div>
   )
 }
