@@ -3,6 +3,7 @@ import { AiFillFacebook, AiFillInstagram } from 'react-icons/ai';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import { ImLocation } from 'react-icons/im';
+import { FaWhatsappSquare } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -29,6 +30,9 @@ const Footer = () => {
             </a>
             <a href='https://instagram.com/circus_cotillon' target='_blank'>
               <AiFillInstagram size={30} style={{ fill: 'black' }} />
+            </a>
+            <a href='https://wa.me/542616084535' target='_blank'>
+              <FaWhatsappSquare size={30} style={{ fill: 'black' }} />
             </a>
           </div>
         </div>
