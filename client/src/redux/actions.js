@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export const GET_PRODUCTOS = 'GET_PRODUCTOS';
 export const GET_USER = 'GET_USER';
 export const CHANGE_USER_STATUS = "CHANGE_USER_STATUS"
@@ -96,3 +97,13 @@ export function getCatalogs() {
     }
   };
 }
+
+export async function getRelated(name) {
+  try {
+    const related = (await axios.get(`http://localhost:3001/product?name=${name}`)).data;
+    return related
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+

@@ -12,4 +12,5 @@ router.use("/product",productRoutes)
 router.use("/user",userRoutes)
 router.use("/catalog",catalogRoutes)
 
+
 module.exports = router;

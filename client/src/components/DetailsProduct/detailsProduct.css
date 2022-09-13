@@ -124,6 +124,13 @@
     width: 100%;
     min-height: 70vh;
     border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+#relacionados img{
+    height: 30vh;
+    width: 30vh;
 }
 
 
