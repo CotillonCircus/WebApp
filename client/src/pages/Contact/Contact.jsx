@@ -1,4 +1,5 @@
 import React from 'react';
+import ContactForm from '../../components/ContactForm/ContactForm';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Mapa from '../../components/Mapa/Mapa';
@@ -9,6 +10,7 @@ const Contact = () => {
     <div>
       <Header />
       <Navbar />
+      <ContactForm />
       <Mapa />
       <Footer />
     </div>

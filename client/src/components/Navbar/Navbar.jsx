@@ -80,13 +80,6 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className='nav-item'>
-                <Link to={'/tutorial'} className='link'>
-                  <a className='nav-link' href='#footer'>
-                    Tutorial
-                  </a>
-                </Link>
-              </li>
-              <li className='nav-item'>
                 <Link to={'/aform'} className='link'>
                   <a className='nav-link' href='#footer'>
                     Formulario Autorizacion
@@ -148,13 +141,6 @@ const Navbar = () => {
                 <Link to={'/contact'} className='link'>
                   <a className='nav-link' href='#footer'>
                     Contacto
-                  </a>
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link to={'/tutorial'} className='link'>
-                  <a className='nav-link' href='#footer'>
-                    Tutorial
                   </a>
                 </Link>
               </li>
