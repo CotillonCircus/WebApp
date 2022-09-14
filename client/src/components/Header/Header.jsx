@@ -10,21 +10,26 @@ import { getProductos } from '../../redux/actions';
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleCLick = ()=>{
-    const search = document.getElementById("search").value
-    dispatch(getProductos(search))
-    navigate("/products")
-  }
+  const handleCLick = () => {
+    const search = document.getElementById('search').value;
+    dispatch(getProductos(search));
+    navigate('/products');
+  };
 
   return (
     <header>
       {isAuthenticated ? (
         <div className='container-fluid text-center'>
           <div className='row'>
-            <div className='col-md column_header'>Search</div>
+            <div className='col-md column_header'>
+              <div id='searchInput'>
+                <input id='search' laceholder='search'></input>
+                <button onClick={handleCLick}>search</button>
+              </div>
+            </div>
             <div className='col-md'>
               <img src={Logo} className='d-block w-50 mx-auto' alt='logo' />
             </div>
@@ -45,8 +50,8 @@ const Header = () => {
       ) : (
         <div className='container-fluid text-center'>
           <div className='row'>
-            <div id="searchInput">
-              <input id="search" laceholder='search'></input>
+            <div id='searchInput'>
+              <input id='search' laceholder='search'></input>
               <button onClick={handleCLick}>search</button>
             </div>
             <div className='col-md'>
