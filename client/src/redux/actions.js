@@ -69,10 +69,10 @@ export function getProductById (ID) {
 }
 
 
-export function getProductos() {
+export function getProductos(name="",catalogId="") {
   return async function (dispatch) {
     try {
-      const productos = (await axios.get('http://localhost:3001/product'))
+      const productos = (await axios.get('http://localhost:3001/product?name='+name+"&catalogId="+catalogId))
         .data;
       return dispatch({
         type: GET_PRODUCTOS,

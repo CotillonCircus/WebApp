@@ -4,10 +4,20 @@ import { useAuth0 } from '@auth0/auth0-react';
 import LoginButton from '../../components/LoginButton/LoginButton';
 import LogOutButton from '../../components/LogOutButton/LogOutButton';
 import Logo from '../../images/circus_cotillon_logo.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductos } from '../../redux/actions';
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleCLick = ()=>{
+    const search = document.getElementById("search").value
+    dispatch(getProductos(search))
+    navigate("/products")
+  }
 
   return (
     <header>
@@ -35,7 +45,10 @@ const Header = () => {
       ) : (
         <div className='container-fluid text-center'>
           <div className='row'>
-            <div className='col-md column_header'>Search</div>
+            <div id="searchInput">
+              <input id="search" laceholder='search'></input>
+              <button onClick={handleCLick}>search</button>
+            </div>
             <div className='col-md'>
               {' '}
               <img src={Logo} className='d-block w-50 mx-auto' alt='logo' />

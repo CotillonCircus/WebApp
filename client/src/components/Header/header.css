@@ -11,6 +11,30 @@
 .row_log2 {
   margin-top: 6vh;
 }
+
+#searchInput{
+  height: 5vh;
+  width: 20vw;
+  justify-self: center;
+  border-bottom: 1px black solid;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-self: center;
+  justify-content: space-between;
+  margin-left: 10%;
+  background-color:rgb(234, 234, 234);
+}
+
+#searchInput input{
+  border: none;
+  font-size: small;
+}
+
+#searchInput button{
+  background-color:rgb(234, 234, 234);
+}
+
 /* .column_header_log {
   display: flex;
   justify-content: center;

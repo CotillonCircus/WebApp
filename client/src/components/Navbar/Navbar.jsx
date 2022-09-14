@@ -1,10 +1,26 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import './navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getCatalogs, getProductos } from '../../redux/actions';
 
 const Navbar = () => {
   const { isAuthenticated } = useAuth0();
+  const {catalogs} = useSelector(state=>state)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  
+  useEffect(()=>{
+    dispatch(getCatalogs())
+  },[dispatch])
+
+  const handleClick = (e)=>{
+    dispatch(getProductos("",e.target.value))
+    navigate("/")
+    navigate("/products")
+  }
 
   return (
     <nav className='navbar navbar-expand-md bg-light'>
@@ -48,21 +64,16 @@ const Navbar = () => {
                   Productos
                 </a>
                 <ul className='dropdown-menu'>
-                  <li>
-                    <a className='dropdown-item' href='#'>
-                      Globos
-                    </a>
-                  </li>
-                  <li>
-                    <a className='dropdown-item' href='#'>
-                      Cortinas
-                    </a>
-                  </li>
-                  <li>
-                    <a className='dropdown-item' href='#'>
-                      Banderines
-                    </a>
-                  </li>
+                  {
+                    catalogs?.map((c)=>{
+                      console.log(c)
+                      return(
+                        <li className='dropdown-item' onClick={handleClick} value={c.id}>
+                          {c.name}
+                        </li>
+                      )
+                    })
+                  }
                 </ul>
               </li>
               <li className='nav-item'>
@@ -113,21 +124,16 @@ const Navbar = () => {
                   Productos
                 </a>
                 <ul className='dropdown-menu'>
-                  <li>
-                    <a className='dropdown-item' href='#'>
-                      Globos
-                    </a>
-                  </li>
-                  <li>
-                    <a className='dropdown-item' href='#'>
-                      Cortinas
-                    </a>
-                  </li>
-                  <li>
-                    <a className='dropdown-item' href='#'>
-                      Banderines
-                    </a>
-                  </li>
+                {
+                    catalogs?.map((c)=>{
+                      console.log(c)
+                      return(
+                        <li className='dropdown-item' onClick={handleClick} value={c.id}>
+                          {c.name}
+                        </li>
+                      )
+                    })
+                  }
                 </ul>
               </li>
               <li className='nav-item'>
