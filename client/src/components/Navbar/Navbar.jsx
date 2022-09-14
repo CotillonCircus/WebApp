@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav className='navbar navbar-expand-md bg-light'>
       <div className='container-fluid'>
-        <a className='navbar-brand' href='#'></a>
+        {/* <a className='navbar-brand' href='#home'></a> */}
         <button
           className='navbar-toggler'
           type='button'
@@ -29,7 +29,7 @@ const Navbar = () => {
                   <a
                     className='nav-link'
                     aria-current='page'
-                    href='#header'
+                    href='#home'
                     id='as'
                   >
                     Inicio
@@ -40,7 +40,7 @@ const Navbar = () => {
               <li className='nav-item dropdown'>
                 <a
                   className='nav-link dropdown-toggle'
-                  href='#nav'
+                  href='#products'
                   role='button'
                   data-bs-toggle='dropdown'
                   aria-expanded='false'
@@ -67,21 +67,21 @@ const Navbar = () => {
               </li>
               <li className='nav-item'>
                 <Link to='/about' className='link'>
-                  <a className='nav-link' href='#'>
+                  <a className='nav-link' href='#about'>
                     Quienes Somos
                   </a>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to={'/contact'} className='link'>
-                  <a className='nav-link' href='#footer'>
+                  <a className='nav-link' href='#contact'>
                     Contacto
                   </a>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to={'/admin'} className='link'>
-                  <a className='nav-link' href='#footer'>
+                  <a className='nav-link' href='#admin'>
                     Dashboard Admin
                   </a>
                 </Link>
@@ -105,7 +105,7 @@ const Navbar = () => {
               <li className='nav-item dropdown'>
                 <a
                   className='nav-link dropdown-toggle'
-                  href='#nav'
+                  href='#products'
                   role='button'
                   data-bs-toggle='dropdown'
                   aria-expanded='false'
@@ -132,14 +132,14 @@ const Navbar = () => {
               </li>
               <li className='nav-item'>
                 <Link to='/about' className='link'>
-                  <a className='nav-link' href='#'>
+                  <a className='nav-link' href='#about'>
                     Quienes Somos
                   </a>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to={'/contact'} className='link'>
-                  <a className='nav-link' href='#footer'>
+                  <a className='nav-link' href='#contact'>
                     Contacto
                   </a>
                 </Link>
