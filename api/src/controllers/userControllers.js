@@ -3,7 +3,7 @@ const {User} = require("../db")
 const ingress = async (req,res,next) => {
 
     const {sub} = req.body
-
+    console.log(sub)
     try {
         const user = await User.findOrCreate({where:{sub},defaults:req.body})
 
@@ -31,7 +31,7 @@ const editUserStatus = async (req,res,next) => {
 const getAllUsers = async (req,res,next) => {
 
     try {
-        const users = await User.findAll()
+        const users = await User.findAll({where: {status: 'mayorista'}})
 
         res.send(users)
     } catch (error) {
