@@ -3,6 +3,7 @@ const {User} = require("../db")
 const ingress = async (req,res,next) => {
 
     const {sub} = req.body
+
     try {
         const user = await User.findOrCreate({where:{sub},defaults:req.body})
 
