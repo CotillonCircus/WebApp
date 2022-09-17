@@ -19,19 +19,35 @@ const Footer = () => {
             </div>
             <div>
               <MdEmail />
-              <a href='mailto:ventascircuscotillon@gmail.com' target='_blank'>
+              <a
+                href='mailto:ventascircuscotillon@gmail.com'
+                target='_blank'
+                rel='noreferrer'
+              >
                 ventascircuscotillon@gmail.com
               </a>
             </div>
           </div>
           <div className='col-md footer_socials'>
-            <a href='https://www.facebook.com/circus.cotillon' target='_blank'>
+            <a
+              href='https://www.facebook.com/circus.cotillon'
+              target='_blank'
+              rel='noreferrer'
+            >
               <AiFillFacebook size={30} style={{ fill: 'black' }} />
             </a>
-            <a href='https://instagram.com/circus_cotillon' target='_blank'>
+            <a
+              href='https://instagram.com/circus_cotillon'
+              target='_blank'
+              rel='noreferrer'
+            >
               <AiFillInstagram size={30} style={{ fill: 'black' }} />
             </a>
-            <a href='https://wa.me/542616537320' target='_blank'>
+            <a
+              href='https://wa.me/542616537320'
+              target='_blank'
+              rel='noreferrer'
+            >
               <FaWhatsappSquare size={30} style={{ fill: 'black' }} />
             </a>
           </div>

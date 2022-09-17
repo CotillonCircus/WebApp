@@ -19,15 +19,19 @@ const HomeProducts = () => {
       <div id='catalogs'>
         <span>categorias principales</span>
         {catalogs?.map((c) => {
-          let key=c.name.split('_').join(' ')
+          let key = c.name.split('_').join(' ');
           return <span key={key}>{key}</span>;
         })}
       </div>
       <div id='products'>
         {productos?.slice(0, 8).map((p) => {
           return (
-            <Link key={'/details/' + p.id} to={'/details/' + p.id} className='singleProduct'>
-              <img src={p.img} />
+            <Link
+              key={'/details/' + p.id}
+              to={'/details/' + p.id}
+              className='singleProduct'
+            >
+              <img src={p.img} alt={p.name} />
               <span>{p.name}</span>
               <span>${p.price}</span>
             </Link>

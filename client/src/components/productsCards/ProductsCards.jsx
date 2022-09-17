@@ -16,8 +16,6 @@ const ProductsCards = (id) => {
     removeFromCart,
   } = useShoppingCart();
 
-  // const [quantity, setQuantity] = useState([])
-  //   = getItemQuantity(id);
   const dispatch = useDispatch();
   const { productos, catalogs } = useSelector((state) => state);
 
@@ -26,16 +24,15 @@ const ProductsCards = (id) => {
   }, [dispatch]);
 
   return (
-  
-    <div id="Products">
-        <FilterSection/>
-        
+    <div id='Products'>
+      <FilterSection />
+
       <div id='products'>
         {productos?.map((p) => {
           return (
             <div key={p.id}>
               <Link to={'/details/' + p.id} className='singleProduct'>
-                <img src={p.img} />
+                <img src={p.img} alt={p.name} />
                 <span>{p.name}</span>
                 <span>${p.price}</span>
               </Link>

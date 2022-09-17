@@ -5,18 +5,18 @@ import LoginButton from '../../components/LoginButton/LoginButton';
 import LogOutButton from '../../components/LogOutButton/LogOutButton';
 import Logo from '../../images/circus_cotillon_logo.jpg';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getProductos } from '../../redux/actions';
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleCLick = ()=>{
-    const search = document.getElementById("search").value
-    dispatch(getProductos({name:search}))
-    navigate("/products")
-  }
+  const handleCLick = () => {
+    const search = document.getElementById('search').value;
+    dispatch(getProductos({ name: search }));
+    navigate('/products');
+  };
 
   return (
     <header>
@@ -38,9 +38,9 @@ const Header = () => {
               </div>
               <div className='row_log2'>
                 <Link to={'/aform'} className='link'>
-                  <a className='nav-link' href='#aform'>
+                  <span className='nav-link' href='#aform'>
                     Formulario
-                  </a>
+                  </span>
                 </Link>
               </div>
             </div>
