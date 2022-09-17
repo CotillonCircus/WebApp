@@ -69,10 +69,11 @@ export function getProductById (ID) {
 }
 
 
-export function getProductos(name="",catalogId="") {
+export function getProductos({name="",catalogId="",color="",size="",cant="",alf="",price=""}) {
+  console.log(catalogId)
   return async function (dispatch) {
     try {
-      const productos = (await axios.get('http://localhost:3001/product?name='+name+"&catalogId="+catalogId))
+      const productos = (await axios.get('http://localhost:3001/product?name='+name+"&catalogId="+catalogId+"&color="+color+"&size="+size+"&cant="+cant+"&alf="+alf+"&price="+price))
         .data;
       return dispatch({
         type: GET_PRODUCTOS,
@@ -121,4 +122,13 @@ export function getAllAuths () {
       console.log(error.message);
     }
   };
+}
+
+export async function getAllToFilter(setToFilter){
+  try {
+    const toFilter = (await axios.get(`http://localhost:3001/product/toFilter`)).data;
+    setToFilter(toFilter) 
+  } catch (error) {
+    console.log(error.message);
+  }
 }

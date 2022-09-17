@@ -17,7 +17,7 @@ const Navbar = () => {
   },[dispatch])
 
   const handleClick = (e)=>{
-    dispatch(getProductos("",e.target.value))
+    dispatch(getProductos({catalogId:e.target.value}))
     navigate("/")
     navigate("/products")
   }

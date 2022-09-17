@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux"
 import { useEffect } from 'react';
 import { getCatalogs } from '../../redux/actions';
 import {Link} from "react-router-dom" 
+import FilterSection from '../FiltersSection/FiltersSection';
 
 const ProductsCards = () => {
     const dispatch = useDispatch()
@@ -15,14 +16,7 @@ const ProductsCards = () => {
 
   return (
     <div id="Products">
-        <div id="catalogs">
-            <span>categorias principales</span>
-            {catalogs?.map(c=>{
-                return(
-                    <span>{c.name.split("_").join(" ")}</span>
-                )
-            })}
-        </div>
+        <FilterSection/>
         <div id="products">
             {
                 productos?.map(p=>{

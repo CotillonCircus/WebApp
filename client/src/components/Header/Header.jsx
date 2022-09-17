@@ -15,7 +15,7 @@ const Header = () => {
 
   const handleCLick = ()=>{
     const search = document.getElementById("search").value
-    dispatch(getProductos(search))
+    dispatch(getProductos({name:search}))
     navigate("/products")
   }
 
