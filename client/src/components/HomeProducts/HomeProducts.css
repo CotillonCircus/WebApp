@@ -1,70 +1,68 @@
-#homeProducts{
-    width: 90vw;
-    position: relative;
-    left:5vw;
-    border:1px black solid;
-    /* height: 50vh; */
-    display: flex;
-    height: max-content;
-    flex-direction: row;
-    flex-wrap: wrap;
+#homeProducts {
+  width: 90vw;
+  position: relative;
+  left: 5vw;
+  border: 1px black solid;
+  /* height: 50vh; */
+  display: flex;
+  height: max-content;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-#homeProducts div{
-    border:solid black 1px
+#homeProducts div {
+  border: solid black 1px;
 }
 
-#catalogs{
-    width: 10%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-    margin-right: 5%;
+#catalogs {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
-#catalogs span{
-    text-overflow: clip;
-    text-transform:uppercase;
+#catalogs span {
+  text-overflow: clip;
+  text-transform: uppercase;
 }
 
-#products{
-    width: 80%;
-    height: max-content;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+#products {
+  width: 80%;
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.singleProduct{
-    height: max-content;
-    margin: 2%;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color:inherit
+.singleProduct {
+  height: max-content;
+  margin: 2%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
 
-.singleProduct img{
-    height: 100%;
-    width: 100%;
+.singleProduct img {
+  height: 100%;
+  width: 100%;
 }
 
-#productsButton{
-    /* justify-self: center; */
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    
+#productsButton {
+  /* justify-self: center; */
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-#productsButton a{
-    padding: 0.7% 3%;
-    font-size:small;
-    color: white;
-    background-color: #ff009f;
-    text-decoration: none;
+#productsButton a {
+  padding: 0.7% 3%;
+  font-size: small;
+  color: white;
+  background-color: #ff009f;
+  text-decoration: none;
 }
-

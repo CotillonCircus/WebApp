@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCatalogs, getProductos } from '../../redux/actions';
+import Cart from '../Cart/Cart';
 
 const Navbar = () => {
   const { isAuthenticated } = useAuth0();
@@ -98,6 +99,9 @@ const Navbar = () => {
                   </a>
                 </Link>
               </li>
+              <li>
+                <Cart />
+              </li>
             </ul>
           ) : (
             <ul className='navbar-nav gap-4 mx-auto'>
@@ -151,6 +155,9 @@ const Navbar = () => {
                     Contacto
                   </a>
                 </Link>
+              </li>
+              <li>
+                <Cart />
               </li>
             </ul>
           )}
