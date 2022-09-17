@@ -25,6 +25,7 @@ const HomeProducts = () => {
       </div>
       <div id='products'>
         {productos?.slice(0, 8).map((p) => {
+          console.log(p);
           return (
             <Link
               key={'/details/' + p.id}
