@@ -10,8 +10,8 @@ const Admin = () => {
     <div>
       <Header />
       <Navbar />
-      {/* <UserList /> */}
       <AuthList/>
+      <UserList />
       <Footer />
     </div>
   )
