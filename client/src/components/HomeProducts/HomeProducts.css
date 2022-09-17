@@ -14,7 +14,7 @@
     border:solid black 1px
 }
 
-#catalogs{
+#homeProducts #catalogs{
     width: 10%;
     height: 100%;
     display: flex;
@@ -23,7 +23,7 @@
     margin-right: 5%;
 }
 
-#catalogs span{
+#homeProducts #catalogs span{
     text-overflow: clip;
     text-transform:uppercase;
 }
