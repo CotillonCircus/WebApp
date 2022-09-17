@@ -31,7 +31,7 @@ const AuthForm = () => {
       company: input.company,
       cuit: input.cuit,
     };
-    console.log(auth);
+
     axios.post('http://localhost:3001/auth', auth);
     setInput({
       name: '',

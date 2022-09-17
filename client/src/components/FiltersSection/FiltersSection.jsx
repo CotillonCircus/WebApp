@@ -48,26 +48,26 @@ export default function FilterSection(){
             {catalogs?.map(c=>{
                 let value=c.name.split("_").join(" ")
                 return(
-                    <button name="catalogId" onClick={onClick} value={c.id}>{value}</button>
+                    <button key={value} name="catalogId" onClick={onClick} value={c.id}>{value}</button>
                 )
             })}
             </div>
             <div id="colorsFilters" className="filter">
             <span>colores </span>
             {
-                toFilter.colors?.map(c=><button onClick={onClick} value={c} name="color">{c}</button>)
+                toFilter.colors?.map(c=><button key={"color"+c} onClick={onClick} value={c} name="color">{c}</button>)
             }
             </div>  
             <div id="cantsFilters" className="filter">
             <span>por cantidad </span>
             {
-                toFilter.cants?.map(c=><button onClick={onClick} value={c} name="cant">{c}</button>)
+                toFilter.cants?.map(c=><button key={"cant"+c} onClick={onClick} value={c} name="cant">{c}</button>)
             }
             </div>
             <div id="sizesFilters" className="filter">
             <span>tamanio </span>
             {
-                toFilter.sizes?.map(c=><button onClick={onClick} value={c} name="size">{c}</button>)
+                toFilter.sizes?.map(c=><button key={"size"+c} onClick={onClick} value={c} name="size">{c}</button>)
             }
             </div>
             <div>

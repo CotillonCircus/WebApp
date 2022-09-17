@@ -10,7 +10,7 @@ const HomeProducts = () => {
   const { productos, catalogs } = useSelector((state) => state);
 
   useEffect(() => {
-    dispatch(getProductos());
+    dispatch(getProductos({}));
     dispatch(getCatalogs());
   }, [dispatch]);
 
@@ -19,13 +19,14 @@ const HomeProducts = () => {
       <div id='catalogs'>
         <span>categorias principales</span>
         {catalogs?.map((c) => {
-          return <span>{c.name.split('_').join(' ')}</span>;
+          let key=c.name.split('_').join(' ')
+          return <span key={key}>{key}</span>;
         })}
       </div>
       <div id='products'>
         {productos?.slice(0, 8).map((p) => {
           return (
-            <Link to={'/details/' + p.id} className='singleProduct'>
+            <Link key={'/details/' + p.id} to={'/details/' + p.id} className='singleProduct'>
               <img src={p.img} />
               <span>{p.name}</span>
               <span>${p.price}</span>

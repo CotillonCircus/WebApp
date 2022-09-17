@@ -43,14 +43,13 @@ const Navbar = () => {
             <ul className='navbar-nav gap-4 mx-auto'>
               <li className='nav-item'>
                 <Link to={'/home'} className='link'>
-                  <a
+                  <span
                     className='nav-link'
                     aria-current='page'
-                    href='#home'
                     id='as'
                   >
                     Inicio
-                  </a>
+                  </span>
                 </Link>
               </li>
 
@@ -71,6 +70,7 @@ const Navbar = () => {
                         className='dropdown-item'
                         onClick={handleClick}
                         value={c.id}
+                        key={"li"+c.id}
                       >
                         {c.name}
                       </li>
@@ -80,23 +80,23 @@ const Navbar = () => {
               </li>
               <li className='nav-item'>
                 <Link to='/about' className='link'>
-                  <a className='nav-link' href='#about'>
+                  <span className='nav-link'>
                     Quienes Somos
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to={'/contact'} className='link'>
-                  <a className='nav-link' href='#contact'>
+                  <span className='nav-link'>
                     Contacto
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to={'/admin'} className='link'>
-                  <a className='nav-link' href='#admin'>
+                  <span className='nav-link'>
                     Dashboard Admin
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
@@ -107,14 +107,13 @@ const Navbar = () => {
             <ul className='navbar-nav gap-4 mx-auto'>
               <li className='nav-item'>
                 <Link to={'/home'} className='link'>
-                  <a
+                  <span
                     className='nav-link active'
                     aria-current='page'
-                    href='#home'
                     id='as'
                   >
                     Inicio
-                  </a>
+                  </span>
                 </Link>
               </li>
 
@@ -135,6 +134,7 @@ const Navbar = () => {
                         className='dropdown-item'
                         onClick={handleClick}
                         value={c.id}
+                        key={"li2"+c.id}
                       >
                         {c.name}
                       </li>
@@ -144,16 +144,16 @@ const Navbar = () => {
               </li>
               <li className='nav-item'>
                 <Link to='/about' className='link'>
-                  <a className='nav-link' href='#about'>
+                  <span className='nav-link' >
                     Quienes Somos
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to={'/contact'} className='link'>
-                  <a className='nav-link' href='#contact'>
+                  <span className='nav-link'>
                     Contacto
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>

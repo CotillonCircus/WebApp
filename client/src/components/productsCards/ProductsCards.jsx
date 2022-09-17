@@ -33,7 +33,7 @@ const ProductsCards = (id) => {
       <div id='products'>
         {productos?.map((p) => {
           return (
-            <>
+            <div key={p.id}>
               <Link to={'/details/' + p.id} className='singleProduct'>
                 <img src={p.img} />
                 <span>{p.name}</span>
@@ -77,7 +77,7 @@ const ProductsCards = (id) => {
                   </div>
                 )}
               </div>
-            </>
+            </div>
           );
         })}
       </div>

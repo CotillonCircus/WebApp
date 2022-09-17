@@ -9,7 +9,6 @@ const getAllProducts = async (req,res,next) => {
     const sort=[]
     alf&&sort.push(["name",alf])
     price&&sort.push(["price",price])
-    console.log(sort)
 
     condition.name={[Op.iLike]:`%${name||""}`}
     condition.color={[Op.iLike]:`%${color||""}`}

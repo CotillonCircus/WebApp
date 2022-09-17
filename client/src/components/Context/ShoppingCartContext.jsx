@@ -24,7 +24,7 @@ export function ShoppingCartProvider({ children }) {
   }
 
   function increaseCartQuantity(id) {
-    console.log(cartItems);
+
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id) == null) {
         return [...currItems, { id, quantity: 1 }];
