@@ -1,0 +1,15 @@
+.filter{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter button,.filter span{
+    text-overflow: clip;
+    word-break: break-all;
+    text-transform:uppercase;
+    font-size: smal;
+}
+
+

@@ -14,18 +14,18 @@
   border: solid black 1px;
 }
 
-#catalogs {
-  width: 10%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-left: 5%;
-  margin-right: 5%;
+#homeProducts #catalogs{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
-#catalogs span {
-  text-overflow: clip;
-  text-transform: uppercase;
+#homeProducts #catalogs span{
+    text-overflow: clip;
+    text-transform:uppercase;
 }
 
 #products {

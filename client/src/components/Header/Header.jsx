@@ -12,12 +12,11 @@ const Header = () => {
   const { isAuthenticated } = useAuth0();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const handleCLick = () => {
-    const search = document.getElementById('search').value;
-    dispatch(getProductos(search));
-    navigate('/products');
-  };
+  const handleCLick = ()=>{
+    const search = document.getElementById("search").value
+    dispatch(getProductos({name:search}))
+    navigate("/products")
+  }
 
   return (
     <header>

@@ -3,6 +3,7 @@ import './ProductsCards.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCatalogs } from '../../redux/actions';
+import FilterSection from '../FiltersSection/FiltersSection';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useShoppingCart } from '../Context/ShoppingCartContext';
@@ -25,13 +26,10 @@ const ProductsCards = (id) => {
   }, [dispatch]);
 
   return (
-    <div id='Products'>
-      <div id='catalogs'>
-        <span>categorias principales</span>
-        {catalogs?.map((c) => {
-          return <span>{c.name.split('_').join(' ')}</span>;
-        })}
-      </div>
+  
+    <div id="Products">
+        <FilterSection/>
+        
       <div id='products'>
         {productos?.map((p) => {
           return (

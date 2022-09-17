@@ -7,7 +7,7 @@ const GLOBOS = [{
     size:""
 },{
     name:"tuky",
-    price:0,
+    price:1,
     catalogId:1,
     color:"std",
     cant:50,

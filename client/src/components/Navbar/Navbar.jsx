@@ -13,15 +13,15 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const handleClick = (e)=>{
+    dispatch(getProductos({catalogId:e.target.value}))
+    navigate("/")
+    navigate("/products")
+  }
+  
   useEffect(() => {
     dispatch(getCatalogs());
   }, [dispatch]);
-
-  const handleClick = (e) => {
-    dispatch(getProductos('', e.target.value));
-    navigate('/');
-    navigate('/products');
-  };
 
   return (
     <nav className='navbar navbar-expand-md bg-light'>
