@@ -5,27 +5,28 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCatalogs, getProductos } from '../../redux/actions';
+import Cart from '../Cart/Cart';
 
 const Navbar = () => {
   const { isAuthenticated } = useAuth0();
-  const {catalogs} = useSelector(state=>state)
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  
-  useEffect(()=>{
-    dispatch(getCatalogs())
-  },[dispatch])
+  const { catalogs } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = (e)=>{
     dispatch(getProductos({catalogId:e.target.value}))
     navigate("/")
     navigate("/products")
   }
+  
+  useEffect(() => {
+    dispatch(getCatalogs());
+  }, [dispatch]);
 
   return (
     <nav className='navbar navbar-expand-md bg-light'>
       <div className='container-fluid'>
-        <a className='navbar-brand' href='#'></a>
+        {/* <a className='navbar-brand' href='#home'></a> */}
         <button
           className='navbar-toggler'
           type='button'
@@ -45,7 +46,7 @@ const Navbar = () => {
                   <a
                     className='nav-link'
                     aria-current='page'
-                    href='#header'
+                    href='#home'
                     id='as'
                   >
                     Inicio
@@ -56,7 +57,7 @@ const Navbar = () => {
               <li className='nav-item dropdown'>
                 <a
                   className='nav-link dropdown-toggle'
-                  href='#nav'
+                  href='#products'
                   role='button'
                   data-bs-toggle='dropdown'
                   aria-expanded='false'
@@ -64,38 +65,42 @@ const Navbar = () => {
                   Productos
                 </a>
                 <ul className='dropdown-menu'>
-                  {
-                    catalogs?.map((c)=>{
-                      console.log(c)
-                      return(
-                        <li className='dropdown-item' onClick={handleClick} value={c.id}>
-                          {c.name}
-                        </li>
-                      )
-                    })
-                  }
+                  {catalogs?.map((c) => {
+                    return (
+                      <li
+                        className='dropdown-item'
+                        onClick={handleClick}
+                        value={c.id}
+                      >
+                        {c.name}
+                      </li>
+                    );
+                  })}
                 </ul>
               </li>
               <li className='nav-item'>
                 <Link to='/about' className='link'>
-                  <a className='nav-link' href='#'>
+                  <a className='nav-link' href='#about'>
                     Quienes Somos
                   </a>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to={'/contact'} className='link'>
-                  <a className='nav-link' href='#footer'>
+                  <a className='nav-link' href='#contact'>
                     Contacto
                   </a>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to={'/admin'} className='link'>
-                  <a className='nav-link' href='#footer'>
+                  <a className='nav-link' href='#admin'>
                     Dashboard Admin
                   </a>
                 </Link>
+              </li>
+              <li>
+                <Cart />
               </li>
             </ul>
           ) : (
@@ -105,7 +110,7 @@ const Navbar = () => {
                   <a
                     className='nav-link active'
                     aria-current='page'
-                    href='#header'
+                    href='#home'
                     id='as'
                   >
                     Inicio
@@ -116,7 +121,7 @@ const Navbar = () => {
               <li className='nav-item dropdown'>
                 <a
                   className='nav-link dropdown-toggle'
-                  href='#nav'
+                  href='#products'
                   role='button'
                   data-bs-toggle='dropdown'
                   aria-expanded='false'
@@ -124,31 +129,35 @@ const Navbar = () => {
                   Productos
                 </a>
                 <ul className='dropdown-menu'>
-                {
-                    catalogs?.map((c)=>{
-                      console.log(c)
-                      return(
-                        <li className='dropdown-item' onClick={handleClick} value={c.id}>
-                          {c.name}
-                        </li>
-                      )
-                    })
-                  }
+                  {catalogs?.map((c) => {
+                    return (
+                      <li
+                        className='dropdown-item'
+                        onClick={handleClick}
+                        value={c.id}
+                      >
+                        {c.name}
+                      </li>
+                    );
+                  })}
                 </ul>
               </li>
               <li className='nav-item'>
                 <Link to='/about' className='link'>
-                  <a className='nav-link' href='#'>
+                  <a className='nav-link' href='#about'>
                     Quienes Somos
                   </a>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to={'/contact'} className='link'>
-                  <a className='nav-link' href='#footer'>
+                  <a className='nav-link' href='#contact'>
                     Contacto
                   </a>
                 </Link>
+              </li>
+              <li>
+                <Cart />
               </li>
             </ul>
           )}
