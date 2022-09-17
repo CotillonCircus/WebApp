@@ -7,17 +7,18 @@ import { getAllToFilter, getProductos } from "../../redux/actions"
 
 export default function FilterSection(){
     
-    const {catalogs} = useSelector(state=>state)
-    const [toFilter,SetToFilter] = useState({})
-    const dispatch = useDispatch()
-    const [filters,setFilters] = useState({
+    const initialFilter = {
         catalogId:undefined,
         color:"",
         size:"",
         cant:"",
         alf:"",
         price:""
-    })
+    }
+    const {catalogs} = useSelector(state=>state)
+    const [toFilter,SetToFilter] = useState({})
+    const dispatch = useDispatch()
+    const [filters,setFilters] = useState({...initialFilter})
 
     useEffect(()=>{
         getAllToFilter(SetToFilter)
@@ -34,6 +35,7 @@ export default function FilterSection(){
     }
 
     const reset = ()=>{
+        setFilters({...initialFilter})
         dispatch(getProductos({}))
     }
 
