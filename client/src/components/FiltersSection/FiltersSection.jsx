@@ -9,9 +9,9 @@ export default function FilterSection(){
     
     const initialFilter = {
         catalogId:undefined,
-        color:"",
-        size:"",
-        cant:"",
+        color:[],
+        size:[],
+        cant:[],
         alf:"",
         price:""
     }
@@ -26,10 +26,20 @@ export default function FilterSection(){
     },[dispatch])
 
     const onClick = (e) => {
-        let newFilters = {...filters,[e.target.name]:e.target.value}
-        if(e.target.name==="alf"||e.target.name==="price"){
-            newFilters[e.target.name]=e.target.value==="ASC"?"DESC":"ASC"
+        let newFilters = {...filters}
+        let value = e.target.value
+        let name = e.target.name
+        
+        if(name==="alf"||name==="price"){
+            newFilters[name]=value==="ASC"?"DESC":"ASC"
+        }else{
+            if(newFilters[name].includes(value)){
+                newFilters[name]=newFilters[name].filter(f=>f!==value)
+            }else{
+                newFilters[name].push(value)
+            }
         }
+        console.log(newFilters)
         setFilters({...newFilters})
         dispatch(getProductos({...newFilters}))
     }
@@ -55,19 +65,46 @@ export default function FilterSection(){
             <div id="colorsFilters" className="filter">
             <span>colores </span>
             {
-                toFilter.colors?.map(c=><button key={"color"+c} onClick={onClick} value={c} name="color">{c}</button>)
+                toFilter.colors?.map(c=>{
+                    return(
+                        <div key={"color"+c} className="form-check">
+                            <input name="color" className="form-check-input" onClick={onClick} type="checkbox" value={c} id="flexCheckDefault"/>
+                            <label className="form-check-label" for="flexCheckDefault">
+                            {c}
+                            </label>
+                        </div>
+                    )
+                })
             }
             </div>  
             <div id="cantsFilters" className="filter">
             <span>por cantidad </span>
             {
-                toFilter.cants?.map(c=><button key={"cant"+c} onClick={onClick} value={c} name="cant">{c}</button>)
+                toFilter.cants?.map(c=>{
+                    return(
+                        <div key={"cant"+c} className="form-check">
+                            <input name="cant" className="form-check-input" onClick={onClick} type="checkbox" value={c} id="flexCheckDefault"/>
+                            <label className="form-check-label" for="flexCheckDefault">
+                            {c}
+                            </label>
+                        </div>
+                    )
+                })
             }
             </div>
             <div id="sizesFilters" className="filter">
             <span>tamanio </span>
             {
-                toFilter.sizes?.map(c=><button key={"size"+c} onClick={onClick} value={c} name="size">{c}</button>)
+                toFilter.sizes?.map(c=>{
+                    return(
+                        <div key={"size"+c} className="form-check">
+                            <input name="size" className="form-check-input" onClick={onClick} type="checkbox" value={c} id="flexCheckDefault"/>
+                            <label className="form-check-label" for="flexCheckDefault">
+                            {c}
+                            </label>
+                        </div>
+                    )
+                })
             }
             </div>
             <div>

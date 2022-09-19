@@ -10,14 +10,12 @@ const getAllProducts = async (req,res,next) => {
     alf&&sort.push(["name",alf])
     price&&sort.push(["price",price])
 
-    condition.name={[Op.iLike]:`%${name||""}`}
-    condition.color={[Op.iLike]:`%${color||""}`}
-    condition.size={[Op.iLike]:`%${size||""}`}
-    if(cant)condition.cant=parseInt(cant)
-    
+    condition.name={[Op.iLike]:`%${name||""}%`}
+
+    if(color)condition.color=color.split(",")
+    if(size)condition.size=size.split(",")
+    if(cant)condition.cant=cant.split(",")
     if(catalogId)condition.catalogId=catalogId
-
-
 
     try {
         const products = await Product.findAll({where:condition,order:sort})

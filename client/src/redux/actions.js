@@ -99,10 +99,10 @@ export function getCatalogs() {
   };
 }
 
-export async function getRelated(name) {
+export async function getRelated(name,setRelated) {
   try {
     const related = (await axios.get(`http://localhost:3001/product?name=${name}`)).data;
-    return related
+    setRelated(related)
   } catch (error) {
     console.log(error.message);
   }

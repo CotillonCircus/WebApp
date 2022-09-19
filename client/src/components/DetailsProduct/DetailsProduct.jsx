@@ -26,12 +26,12 @@ const DetailsProduct = () => {
   }, [dispatch, ID]);
 
   useEffect(() => {
-    x();
+    productDetails.name&&getRelated(productDetails.name,setRelated)
   }, [productDetails]);
 
-  async function x() {
-    productDetails && setRelated(await getRelated(productDetails.name));
-  }
+  // async function x() {
+  //   productDetails && setRelated(await getRelated(productDetails.name));
+  // }
 
   return (
     productDetails && (
