@@ -5,11 +5,33 @@
     flex-direction: column;
 }
 
-.filter button,.filter span{
+.filter span{
     text-overflow: clip;
-    word-break: break-all;
-    text-transform:uppercase;
-    font-size: smal;
+    /* word-break: break-all; */
+    text-transform:capitalize;
+    font-size:larger;
+    font-weight: bold;
+    margin: 10% 0%;
 }
 
+.filter button{
+    text-overflow: clip;
+    /* word-break: break-all; */
+    text-transform:uppercase;
+    font-size:small;
+    text-align: left;
+    background-color: white;
+}
 
+.filter input{
+    height: 10px;
+    padding: 10%;
+    border-radius:0%;
+    border: black 1px solid;
+}
+
+.filter label{
+    margin-left: 10%;
+    text-transform: capitalize;
+    font-size:small;
+}
