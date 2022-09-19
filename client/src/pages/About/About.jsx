@@ -10,18 +10,16 @@ const About = () => {
       <Header />
       <Navbar />
       <p className='p_about'>
-        Somos una empresa ubicada en la ciudad de Mendoza dedicada desde hace
-        más de 10 años a la venta de artículos y productos de cotillón,
-        repostería, golosinas y descartables.
+        Somos una empresa dedicada a la comercialización de productos de
+        cotillón y afines, focalizados en ofrecer una amplia gama de productos y
+        en asesorar a nuestros clientes de la mejor manera posible, tanto en el
+        canal minorista como en el mayorista.
       </p>
       <p className='p_about'>
-        Las nuevas tecnologías nos permiten lograr estar cerca de nuestros
-        clientes en cualquier momento, a través de nuestra tienda online.
+        Nuestra empresa cuenta con más de 15 años de experiencia en el mercado,
+        posicionándonos como líderes en el oeste del país.
       </p>
-      <p className='p_about'>
-        Nuestro objetivo principal es brindar soluciones prácticas e innovadoras
-        y así hacer de todos sus eventos un momento especial y único.
-      </p>
+      <p className='p_about'>Somos CIRCUS. Hacemos tu vida más feliz!</p>
       <Footer />
     </div>
   );

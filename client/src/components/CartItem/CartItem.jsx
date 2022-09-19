@@ -25,11 +25,12 @@ export function CartItem({ id, quantity }) {
             </span>
           )}
         </div>
+        <div className='text-muted' style={{ fontSize: '0.75rem' }}>
+          $ {item.price}
+        </div>
       </div>
-      <div className='text-muted' style={{ fontSize: '0.75rem' }}>
-        {item.price}
-      </div>
-      <div>{item.price * quantity}</div>
+
+      <div>$ {item.price * quantity}</div>
       <Button
         variant='outlined-danger'
         size='sm'
