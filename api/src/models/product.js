@@ -32,6 +32,10 @@ module.exports = (sequelize) => {
     color:{
         type: DataTypes.STRING,
         allowNull: false
+    },
+    stock:{
+        type:DataTypes.INTEGER,
+        defaultValue:0
     }
   }, {timestamps:false});
 };

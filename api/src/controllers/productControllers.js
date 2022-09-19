@@ -1,4 +1,4 @@
-const { Op } = require("sequelize")
+const { Op,literal } = require("sequelize")
 const {Product} = require("../db") 
 
 const getAllProducts = async (req,res,next) => {
@@ -52,8 +52,40 @@ const getAllToFilter = async (req,res,next) =>{
     })
     res.send(filters)
 }
+
+const buyProducts=(req,res,next)=>{
+    const {productsBuyed} = req.body
+    try {
+        productsBuyed.forEach(async ({id,cantBuyed})=>{
+            const product = await Product.findByPk(id)
+            if(product.stock-cantBuyed<0){
+                let stock = literal('stock - '+cantBuyed) 
+                await Product.update({stock},{where:{id}})
+            }else{
+                res.status(404).send("no stock "+id)
+            }
+        })
+        res.send()
+    } catch (error) {
+        console.log(error)   
+    }
+}
+
+const editProductStock = async (req,res,next) => {
+    const {id,cantStock} = req.body
+    try {
+        let stock = literal('stock + '+cantStock) 
+        await Product.update({stock},{where:{id}})
+        res.send()
+    } catch (error) {
+        res.send(error.message)
+    }
+}
+
 module.exports={
     getAllProducts,
     getProductDetails,
-    getAllToFilter
+    getAllToFilter,
+    editProductStock,
+    buyProducts
 }

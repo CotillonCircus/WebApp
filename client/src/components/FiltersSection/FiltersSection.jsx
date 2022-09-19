@@ -15,7 +15,7 @@ export default function FilterSection(){
         alf:"",
         price:""
     }
-    const {catalogs} = useSelector(state=>state)
+    const {catalogs,productos} = useSelector(state=>state)
     const [toFilter,SetToFilter] = useState({})
     const dispatch = useDispatch()
     const [filters,setFilters] = useState({...initialFilter})
@@ -66,12 +66,15 @@ export default function FilterSection(){
             <span>colores </span>
             {
                 toFilter.colors?.map(c=>{
+                    const stock = productos.filter(product=>product.color===c).length 
+                    if(!stock)return<></>
                     return(
                         <div key={"color"+c} className="form-check">
                             <input name="color" className="form-check-input" onClick={onClick} type="checkbox" value={c} id="flexCheckDefault"/>
                             <label className="form-check-label" for="flexCheckDefault">
                             {c}
                             </label>
+                            <label>{"("+stock+")"}</label>
                         </div>
                     )
                 })
@@ -81,12 +84,15 @@ export default function FilterSection(){
             <span>por cantidad </span>
             {
                 toFilter.cants?.map(c=>{
+                    const stock = productos.filter(product=>product.cant===c).length 
+                    if(!stock)return<></>
                     return(
                         <div key={"cant"+c} className="form-check">
                             <input name="cant" className="form-check-input" onClick={onClick} type="checkbox" value={c} id="flexCheckDefault"/>
                             <label className="form-check-label" for="flexCheckDefault">
                             {c}
                             </label>
+                            <label>{"("+stock+")"}</label>
                         </div>
                     )
                 })
@@ -96,12 +102,15 @@ export default function FilterSection(){
             <span>tamanio </span>
             {
                 toFilter.sizes?.map(c=>{
+                    const stock = productos.filter(product=>product.size===c).length 
+                    if(!stock)return<></>
                     return(
                         <div key={"size"+c} className="form-check">
                             <input name="size" className="form-check-input" onClick={onClick} type="checkbox" value={c} id="flexCheckDefault"/>
                             <label className="form-check-label" for="flexCheckDefault">
                             {c}
                             </label>
+                            <label>{"("+stock+")"}</label>
                         </div>
                     )
                 })

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import  cloudinary from "cloudinary/lib/cloudinary";
 
 export const GET_PRODUCTOS = 'GET_PRODUCTOS';
 export const GET_USER = 'GET_USER';
@@ -7,6 +8,17 @@ export const GET_ALL_USERS = "GET_ALL_USERS"
 export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID"
 export const GET_ALL_CATALOGS = "GET_ALL_CATALOGS"
 export const GET_ALL_AUTHS = "GET_ALL_AUTHS"
+
+
+const cloud_name = "circus-corillon"
+const api_key = "164947681452799"
+const api_secret = "Ii4cdvwbN_kI8YNLnc0xMnAyyjw"
+
+cloudinary.config({
+  cloud_name:cloud_name,
+  api_key: api_key,
+  api_secret: api_secret,
+});
 
 export function getLogin(user) {
   return async function (dispatch) {
@@ -129,5 +141,37 @@ export async function getAllToFilter(setToFilter){
     setToFilter(toFilter) 
   } catch (error) {
     console.log(error.message);
+  }
+}
+
+export async function getCarrouselImgs(set){
+  try {
+    const imgs = (await axios.get(`http://localhost:3001/cloudinary/carrousel`)).data;
+    set(imgs) 
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export async function deleteCarrouselImg(id){
+  try {
+    await cloudinary.uploader.destroy(id,(succes,error)=>console.log({succes,error}))
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export async function addCarrouselImg(e,imgs,setImgs){
+  const file = e.target.files[0]
+  try {
+      if(file){
+          const data = new FormData()
+          data.append('file', file)
+          data.append('upload_preset', 'carrousel')
+          const created  = await axios.post("https://api.cloudinary.com/v1_1/circus-corillon/image/upload",data)
+          setImgs([...imgs,created.data]) 
+      }
+  } catch (error) {
+      console.log(error.message+"2");
   }
 }
