@@ -18,6 +18,8 @@ const ProductsCards = (id) => {
 
   const dispatch = useDispatch();
   const { productos, catalogs } = useSelector((state) => state);
+  const user = useSelector((state)=>state.userLogged[0]);
+
 
   useEffect(() => {
     dispatch(getCatalogs());
@@ -34,7 +36,11 @@ const ProductsCards = (id) => {
               <Link to={'/details/' + p.id} className='singleProduct'>
                 <img src={p.img} alt={p.name} />
                 <span>{p.name}</span>
-                <span>${p.price}</span>
+                {
+                user ? user.status === "mayorista" || user.status === "admin" ? (
+                  <span>${p.price}</span>
+                ) : (<span>Se necesita autorizacion para ver los precios</span>) : (<span>Registrate y autorizate para ver los precios</span>)
+                }
               </Link>
               <div className='mt-auto'>
                 {getItemQuantity(p.id) === 0 ? (
