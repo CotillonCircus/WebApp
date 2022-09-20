@@ -32,17 +32,16 @@ const ProductsCards = (id) => {
       <div id='products'>
         {productos?.map((p) => {
           return (
-            <div key={p.id}>
-              <Link to={'/details/' + p.id} className='singleProduct'>
+            <div key={p.id} className='singleProduct'>
+              <Link to={'/details/' + p.id}>
                 <img src={p.img} alt={p.name} />
+              </Link>
                 <span>{p.name}</span>
                 {
                 user ? user.status === "mayorista" || user.status === "admin" ? (
+                  <>
                   <span>${p.price}</span>
-                ) : (<span>Se necesita autorizacion para ver los precios</span>) : (<span>Registrate y autorizate para ver los precios</span>)
-                }
-              </Link>
-              <div className='mt-auto'>
+                  <div className='mt-auto'>
                 {getItemQuantity(p.id) === 0 ? (
                   <Button
                     className='w-100'
@@ -80,6 +79,9 @@ const ProductsCards = (id) => {
                   </div>
                 )}
               </div>
+              </>
+                ) : (<span>Se necesita autorizacion para ver los precios</span>) : (<span>Registrate y autorizate para ver los precios</span>)
+                }
             </div>
           );
         })}
