@@ -20,6 +20,7 @@ const DetailsProduct = () => {
   const dispatch = useDispatch();
   const { ID } = useParams();
   const [related, setRelated] = useState([]);
+  const user = useSelector((state)=>state.userLogged[0]);
 
   useEffect(() => {
     ID && dispatch(getProductById(ID));
@@ -60,13 +61,24 @@ const DetailsProduct = () => {
                 {productDetails.name} {productDetails.color}{' '}
                 {productDetails.size || 24}" X{productDetails.cant || 20}
               </span>
-              <span id='productPrice'>${productDetails.price}</span>
+              <span id='productPrice'>
+                {
+                    user ? user.status === "mayorista" || user.status === "admin" ? (
+                      <span> ${productDetails.price}</span>
+                    ) : (<span>Se necesita autorizacion para ver los precios</span>) : (<span>Registrate y autorizate para ver los precios</span>)
+                  } 
+                </span>
             </div>
             <div id='payWays'>
               <div>
                 <span className='bold'>24 </span>
                 <span>CUOTAS DE</span>
-                <span className='bold'> ${productDetails.price / 24}</span>
+                <span className='bold'></span>
+                  {
+                    user ? user.status === "mayorista" || user.status === "admin" ? (
+                      <span>${productDetails.price / 24}</span>
+                    ) : (<span>Se necesita autorizacion para ver los precios</span>) : (<span>Registrate y autorizate para ver los precios</span>)
+                  } 
               </div>
               <div id='payIcons'>
                 <FaCcVisa className='payIcon' />

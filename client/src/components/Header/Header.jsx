@@ -5,8 +5,10 @@ import LoginButton from '../../components/LoginButton/LoginButton';
 import LogOutButton from '../../components/LogOutButton/LogOutButton';
 import Logo from '../../images/circus_cotillon_logo.jpg';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getProductos } from '../../redux/actions';
+import Confirmation from '../Confirmation/Confirmation';
+import { changeUserStatus } from '../../redux/actions';
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
@@ -17,6 +19,15 @@ const Header = () => {
     dispatch(getProductos({ name: search }));
     navigate('/products');
   };
+  const user = useSelector((state)=>state.userLogged[0]);
+
+  const textAlert = 'Usted se ha dado de baja';
+
+  const handleDown = (e)=>{
+        e.preventDefault();
+        dispatch(changeUserStatus(user.sub,""));
+        Confirmation({ textAlert });
+  }
 
   return (
     <header>
@@ -42,6 +53,11 @@ const Header = () => {
                     Formulario
                   </span>
                 </Link>
+              </div>
+              <div className='row_log2'>
+                  <span className='nav-link' href='#aform'>
+                    <button onClick={(e)=>handleDown(e)}>Darme de baja</button>
+                  </span>
               </div>
             </div>
           </div>
