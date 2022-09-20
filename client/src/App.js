@@ -9,7 +9,6 @@ import Aform from './pages/AForm/AForm';
 import Contact from './pages/Contact/Contact';
 import Details from './pages/Details/Details';
 import { ShoppingCartProvider } from './components/Context/ShoppingCartContext';
-import EditCloudinary from './components/EditCarrousel/EditCarrousel';
 
 function App() {
   return (
@@ -24,8 +23,6 @@ function App() {
         <Route path='/aform' element={<Aform />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/details/:ID' element={<Details />} />
-        <Route path='/details/:ID' element={<Details />} />
-        <Route path='/test' element={<EditCloudinary/>} />
       </Routes>
     </ShoppingCartProvider>
   );

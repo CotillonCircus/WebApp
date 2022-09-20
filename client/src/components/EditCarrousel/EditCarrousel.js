@@ -17,7 +17,7 @@ cloudinary.config({
   api_secret: api_secret,
 });
 
-export default function EditCloudinary(){
+export default function EditCarrousel(){
     const [carrouselImgs,setImgs] = useState([])
 
     useEffect(()=>{
@@ -39,23 +39,22 @@ export default function EditCloudinary(){
     
     return(
         <div id="editCarrousel">
-            <Header/>
-            <Navbar/>
-            <span>{!carrouselImgs.length?"cargando":"hay "+carrouselImgs.length+" imgs"}</span>
+            <p className='display-6'>Editar carrusel</p>
             <div id="carrouselImgs">
             {
                 carrouselImgs?.map(img=>{
                     return(
                     <div className='carrouselImg'>
-                        {img.public_id?<button onClick={deleteHandler} value={img.public_id}>delete</button>:<span>cargando</span>}
                         <img src={img.url}></img>
+                        {img.public_id?<button onClick={deleteHandler} value={img.public_id}>borar</button>:<span>cargando</span>}
                     </div>
                 )})
             }
+            <div id="addImgInput">
+                <label for="esto">añadir</label>
+                <input id="esto" type="file" accept=".jpg, .jpeg, .png" onChange={handleAdd}></input>
             </div>
-            <label>agregue una imagen</label>
-            <input type="file" accept=".jpg, .jpeg, .png" onChange={handleAdd}></input>
-            <Footer/>
+            </div>
         </div>
     )
 }

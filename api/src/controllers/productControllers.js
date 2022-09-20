@@ -1,6 +1,13 @@
 const { Op,literal } = require("sequelize")
 const {Product} = require("../db") 
 
+const createProduct = async(req,res,next) => {
+
+   const newProduct = await Product.create(req.body)
+
+   res.send(newProduct)
+}
+
 const getAllProducts = async (req,res,next) => {
 
     const {name,catalogId,color,size,cant,alf,price} = req.query
@@ -87,5 +94,6 @@ module.exports={
     getProductDetails,
     getAllToFilter,
     editProductStock,
-    buyProducts
+    buyProducts,
+    createProduct
 }
