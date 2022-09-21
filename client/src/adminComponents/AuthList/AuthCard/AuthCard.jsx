@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { changeUserStatus } from '../../../redux/actions';
 import axios from 'axios';
 
-const AuthCard = ({id,sub,name,email,company,cuit,setAuthFlag}) => {
+const AuthCard = ({id,sub,name,email,company,cuit,address,razon_social,setAuthFlag}) => {
 
     const dispatch = useDispatch();
 
@@ -31,6 +31,8 @@ const AuthCard = ({id,sub,name,email,company,cuit,setAuthFlag}) => {
         <p>Email: {email}</p>
         <p>Compania: {company}</p>
         <p>Cuit: {cuit}</p>
+        <p>Dirección: {address}</p>
+        <p>Razón social: {razon_social}</p>
         <div className={styles.buttonsContainer}>
             <button onClick={(e)=>authorize(e)}>Autorizar</button>
             <button onClick={(e)=>deny(e)}>Denegar</button>

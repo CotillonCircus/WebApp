@@ -28,6 +28,14 @@ module.exports = (sequelize) => {
     cuit:{
       type: DataTypes.STRING,
        allowNull: false
+    },
+    razon_social:{
+      type: DataTypes.STRING,
+       allowNull: false
+    },
+    address:{
+      type: DataTypes.STRING,
+       allowNull: false
     }
   }, {timestamps:false});
 };
