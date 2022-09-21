@@ -13,6 +13,9 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const user = useSelector((state)=>state.userLogged[0])
+  console.log(user)
+
   const handleClick = (e)=>{
     dispatch(getProductos({catalogId:e.target.value}))
     navigate("/")
@@ -92,13 +95,16 @@ const Navbar = () => {
                   </span>
                 </Link>
               </li>
-              <li className='nav-item'>
-                <Link to={'/admin'} className='link'>
-                  <span className='nav-link'>
-                    Dashboard Admin
-                  </span>
-                </Link>
-              </li>
+              {
+                user ? user.status === "admin" ? (
+                <li className='nav-item'>
+                  <Link to={'/admin'} className='link'>
+                    <span className='nav-link'>
+                      Dashboard Admin
+                    </span>
+                  </Link>
+                </li> ) : null : null
+              }
               <li>
                 <Cart />
               </li>

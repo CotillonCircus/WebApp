@@ -19,6 +19,7 @@ export default function FilterSection() {
   const dispatch = useDispatch();
   const [filters, setFilters] = useState({ ...initialFilter });
 
+
   useEffect(() => {
     getAllToFilter(SetToFilter);
     dispatch(getProductos({}));
@@ -48,81 +49,73 @@ export default function FilterSection() {
     dispatch(getProductos({}));
   };
 
-  return (
-    <div id='FiltersSection'>
-      <div id='catalogs' className='filter'>
-        <span>categorias </span>
-        {catalogs?.map((catalog) => {
-          let value = catalog.name.split('_').join(' ');
-          return (
-            <button
-              key={value}
-              name='catalogId'
-              onClick={onClick}
-              value={catalog.id}
-            >
-              {value}
-            </button>
-          );
-        })}
-      </div>
-      <div id='colorsFilters' className='filter'>
-        <span>colores </span>
-        {toFilter.colors?.map((color) => {
-          return (
-            <div key={'color' + color} className='form-check'>
-              <input
-                name='color'
-                className='form-check-input'
-                onClick={onClick}
-                type='checkbox'
-                value={color}
-                id='flexCheckDefault'
-              />
-              {/* <label className='form-check-label' for='flexCheckDefault'> */}
-              <label className='form-check-label'>{color}</label>
+    return(
+        <div id="FiltersSection">
+            <div id="catalogs" className="filter">
+            <span>categorias </span>
+            {catalogs?.map(c=>{
+                let value=c.name.split("_").join(" ")
+                return(
+                    <button key={value} name="catalogId" onClick={onClick} value={c.id}>{value}</button>
+                )
+            })}
             </div>
-          );
-        })}
-      </div>
-      <div id='cantsFilters' className='filter'>
-        <span>por cantidad </span>
-        {toFilter.cants?.map((quantity) => {
-          return (
-            <div key={'cant' + quantity} className='form-check'>
-              <input
-                name='cant'
-                className='form-check-input'
-                onClick={onClick}
-                type='checkbox'
-                value={quantity}
-                id='flexCheckDefault'
-              />
-              {/* <label className="form-check-label" for="flexCheckDefault"> */}
-              <label className='form-check-label'>{quantity}</label>
+            <div id="colorsFilters" className="filter">
+            <span>colores </span>
+            {
+                toFilter.colors?.map(c=>{
+                    const stock = productos.filter(product=>product.color===c).length 
+                    if(!stock)return<></>
+                    return(
+                        <div key={"color"+c} className="form-check">
+                            <input name="color" className="form-check-input" onClick={onClick} type="checkbox" value={c} id="flexCheckDefault"/>
+                            <label className="form-check-label" >
+                            {c}
+                            </label>
+                            <label>{"("+stock+")"}</label>
+                        </div>
+                    )
+                })
+            }
+            </div>  
+            <div id="cantsFilters" className="filter">
+            <span>por cantidad </span>
+            {
+                toFilter.cants?.map(c=>{
+                    const stock = productos.filter(product=>product.cant===c).length 
+                    if(!stock)return<></>
+                    return(
+                        <div key={"cant"+c} className="form-check">
+                            <input name="cant" className="form-check-input" onClick={onClick} type="checkbox" value={c} id="flexCheckDefault"/>
+                            <label className="form-check-label" >
+                            {c}
+                            </label>
+                            <label>{"("+stock+")"}</label>
+                        </div>
+                    )
+                })
+            }
             </div>
-          );
-        })}
-      </div>
-      <div id='sizesFilters' className='filter'>
-        <span>tamanio </span>
-        {toFilter.sizes?.map((size) => {
-          return (
-            <div key={'size' + size} className='form-check'>
-              <input
-                name='size'
-                className='form-check-input'
-                onClick={onClick}
-                type='checkbox'
-                value={size}
-                id='flexCheckDefault'
-              />
-              {/* <label className='form-check-label' for='flexCheckDefault'> */}
-              <label className='form-check-label'>{size}</label>
+            <div id="sizesFilters" className="filter">
+            <span>tamanio </span>
+            {
+                toFilter.sizes?.map(c=>{
+                    const stock = productos.filter(product=>product.size===c).length 
+                    if(!stock)return<></>
+                    return(
+                        <div key={"size"+c} className="form-check">
+                            <input name="size" className="form-check-input" onClick={onClick} type="checkbox" value={c} id="flexCheckDefault"/>
+                            <label className="form-check-label">
+                            {c}
+                            </label>
+                            <label>{"("+stock+")"}</label>
+                        </div>
+                    )
+                })
+            }
+
             </div>
-          );
-        })}
-      </div>
+      
       <div>
         <span>ordernar alfabeticamente</span>
         <button name='alf' onClick={onClick} value={filters.alf || 'ASC'}>
