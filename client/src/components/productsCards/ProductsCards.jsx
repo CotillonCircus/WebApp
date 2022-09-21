@@ -17,7 +17,7 @@ const ProductsCards = (id) => {
   } = useShoppingCart();
 
   const dispatch = useDispatch();
-  const { productos, catalogs } = useSelector((state) => state);
+  const { productos } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(getCatalogs());
