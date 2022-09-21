@@ -13,6 +13,8 @@ const AuthForm = () => {
     email: '',
     company: '',
     cuit: '',
+    razon_social: '',
+    address: ''
   });
 
   const handleChange = (e) => {
@@ -30,6 +32,8 @@ const AuthForm = () => {
       email: input.email,
       company: input.company,
       cuit: input.cuit,
+      razon_social: input.razon_social,
+      address: input.address
     };
 
     axios.post('http://localhost:3001/auth', auth);
@@ -38,6 +42,8 @@ const AuthForm = () => {
       email: '',
       company: '',
       cuit: '',
+      razon_social: '',
+      address: ''
     });
     Confirmation({ textAlert });
   };
@@ -75,6 +81,22 @@ const AuthForm = () => {
         name='cuit'
         value={input.cuit}
         placeholder='CUIT'
+        required
+        onChange={(e) => handleChange(e)}
+      />
+      <input
+        type='text'
+        name='address'
+        value={input.address}
+        placeholder='Direccion'
+        required
+        onChange={(e) => handleChange(e)}
+      />
+      <input
+        type='text'
+        name='razon_social'
+        value={input.razon_social}
+        placeholder='Razón Social'
         required
         onChange={(e) => handleChange(e)}
       />

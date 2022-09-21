@@ -31,6 +31,8 @@ const AuthList = () => {
                             email={auth.email}
                             company={auth.company}
                             cuit={auth.cuit}
+                            address={auth.address}
+                            razon_social={auth.razon_social}
                             setAuthFlag={setAuthFlag}
                             />
                         </div>
