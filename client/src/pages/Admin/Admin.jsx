@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Navbar from '../../components/Navbar/Navbar';
@@ -9,26 +9,29 @@ import EditCarrousel from '../../components/EditCarrousel/EditCarrousel';
 import NewProduct from '../../components/NewProduct/NewProduct';
 
 const Admin = () => {
+  const user = useSelector((state) => state.userLogged[0]);
 
-  const user = useSelector((state)=>state.userLogged[0])
-  
   return (
     <div>
       <Header />
       <Navbar />
-      {
-        user ? user.status == "admin" ? (
+      {user ? (
+        user.status === 'admin' ? (
           <div>
-            <AuthList/>
+            <AuthList />
             <UserList />
             <EditCarrousel />
             <NewProduct />
           </div>
-        ) :(<div>Debes ser administrador para ver esta página</div>):(<div>Debes ser administrador para ver esta página</div>)
-      }
+        ) : (
+          <div>Debes ser administrador para ver esta página</div>
+        )
+      ) : (
+        <div>Debes ser administrador para ver esta página</div>
+      )}
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Admin
+export default Admin;
