@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getAllUsers } from '../../redux/actions';
-import styles from './UserList.module.css';
+//import styles from './UserList.module.css';
 import { UserCard } from './UserCard/UserCard';
 
 const UserList = () => {
@@ -12,7 +12,7 @@ const UserList = () => {
 
   useEffect(() => {
     dispatch(getAllUsers());
-  }, [flag]);
+  }, [flag, dispatch]);
 
   return (
     <div>
