@@ -2,10 +2,12 @@ const { Op,literal } = require("sequelize")
 const {Product} = require("../db") 
 
 const createProduct = async(req,res,next) => {
-
-   const newProduct = await Product.create(req.body)
-
-   res.send(newProduct)
+    try{
+        const newProduct = await Product.create(req.body)
+        res.send(newProduct)
+    }catch(error){
+        console.log(error.message)
+    }
 }
 
 const getAllProducts = async (req,res,next) => {
