@@ -8,6 +8,7 @@ export const GET_ALL_USERS = "GET_ALL_USERS"
 export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID"
 export const GET_ALL_CATALOGS = "GET_ALL_CATALOGS"
 export const GET_ALL_AUTHS = "GET_ALL_AUTHS"
+export const POST_NEW_PRODUCT = "POST_NEW_PRODUCT"
 
 
 const cloud_name = "circus-corillon"
@@ -174,4 +175,33 @@ export async function addCarrouselImg(e,imgs,setImgs){
   } catch (error) {
       console.log(error.message+"2");
   }
+}
+
+export async function newProductImg(file){
+  try {
+      if(file){
+          const data = new FormData()
+          data.append('file', file)
+          data.append('upload_preset', 'products')
+          const created  = await axios.post("https://api.cloudinary.com/v1_1/circus-corillon/image/upload",data)
+          console.log(created.data)
+          return created.data.url
+      }
+  } catch (error) {
+      console.log(error.message+"2");
+  }
+}
+
+export function createProduct (newProduct) {
+  return async function (dispatch) {
+    try {
+      await axios.post('http://localhost:3001/product',newProduct);
+      return dispatch({
+        type: POST_NEW_PRODUCT,
+        payload: "",
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 }

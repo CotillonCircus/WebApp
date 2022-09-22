@@ -1,44 +1,116 @@
 import React, { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import { getAllToFilter } from "../../redux/actions"
+import { useDispatch, useSelector } from "react-redux"
+import { createProduct, getAllToFilter,newProductImg } from "../../redux/actions"
 import "./NewProduct.css"
 
 export default function NewProduct(){
+    const cleanNewProduct={
+        name:"",
+        img:"",
+        price:"",
+        size:"",
+        color:"",
+        catalogId:"",
+        cant:"",
+        stock:""
+    }
     const [showForm,setShowForm] = useState(false)
     const {catalogs} = useSelector(state=>state)
     const [filters,setFilters] = useState({})
-    const [img,setImg] = useState("")
+    const [newProduct,setNewProduct] = useState(cleanNewProduct)
+    const [errors,setErrors] = useState({})
+    const [productImg,setProductImg] = useState()
+    const dispatch = useDispatch()
+
     useEffect(()=>{
         getAllToFilter(setFilters)
     },[])
 
-    function handlechange(e){
+    function handleImgChange(e){
         const file = e.target.files[0]
+        setProductImg(file)
         const url = URL.createObjectURL(file)
-        setImg(url)
+        setNewProduct({...newProduct,img:url})
     }
 
+    function handleChange(e){
+        const {name,value} = e.target
+        const changedNewProduct = {...newProduct,[name]:value}
+        setNewProduct(changedNewProduct)
+        setErrors(validate(changedNewProduct))
+
+    }
+
+    function validate({name,img,price,size,color,catalogId,cant,stock}){
+        const errors = {}
+        if(!name){
+            errors.name="Ingresar nombre"
+        }
+        if(!img.length){
+            errors.img="Ingrese imagen"
+        }else{
+        }
+        if(!price||parseFloat(price)<0){
+            errors.price="Ingrese precio ( mayor a 0 )"
+        }
+        if(!size){
+            errors.size="Ingrese tamaño"
+        }
+        if(!color){
+            errors.color="Ingrese color"
+        }
+        if(!catalogId){
+            errors.catalogId="Ingrese catalogo"
+        }
+        if(!cant){
+            errors.cant="Ingrese cantidad"
+        }
+        if(!stock){
+            errors.stock="Ingrese stock"
+        }
+        return errors
+    }
+
+    async function handleSubmit(e){
+        e.preventDefault()
+        if(Object.entries(validate(newProduct)).length){
+            alert("corriga errores")
+        }else{
+            const cloudImg = await newProductImg(productImg)
+            const cloudProduct = {...newProduct,img:cloudImg}
+            dispatch(createProduct(cloudProduct))
+            setNewProduct({...cleanNewProduct})
+            setErrors(validate(cleanNewProduct))
+            setShowForm(false)
+        }
+    }
+    
+    
     return showForm?(
                 <div >
-                <form id="productForm">
+                <form id="productForm" onSubmit={handleSubmit}>
                     <div id="x">
                         <label>nombre</label>
-                        <input placeholder="ej:globo tuky"></input>
+                        <input name="name" value={newProduct.name} onChange={handleChange} placeholder="ej:globo tuky"></input>
+                        {errors.name&&<span>{errors.name}</span>}
                     </div>
                     <div id="newPRoductImg">
                         <label id="imgLabel" for="productImgInput">{">imagen<"}</label>
-                        <input onChange={(e)=>handlechange(e)} className="hidden" id="productImgInput" type="file"></input>
+                        <input onChange={(e)=>handleImgChange(e)} className="hidden" id="productImgInput" type="file"></input>
                         {
-                            img?<img src={img}/>:<></>
+                            newProduct.img?<img src={newProduct.img}/>
+                            :<span>{errors.img}</span>
                         }
                     </div>
                     <div>
                         <label>precio</label>
-                        <input placeholder="ej:10.2"></input>
+                        <input type={"number"} min="0" name="price" value={newProduct.price} onChange={handleChange} placeholder="ej:10.2"></input>
+                        {errors.price&&<span>{errors.price}</span>}
                     </div>
                     <div>
                         <label>tamaño</label>
-                        <input list="sizesList" placeholder={`ej:10"`}></input>
+                        <input name="size" value={newProduct.size} onChange={handleChange} list="sizesList" placeholder={`ej:10"`}></input>
+                        {errors.size&&<span>{errors.size}</span>}
                         <datalist id="sizesList">
                         {
                             filters.sizes?.map(size=>{
@@ -51,7 +123,8 @@ export default function NewProduct(){
                     </div>
                     <div>
                         <label>color</label>
-                        <input list="colorsList" placeholder={`ej:rojo,amarillo`}></input>
+                        <input name="color" value={newProduct.color} onChange={handleChange} list="colorsList" placeholder={`ej:rojo,amarillo`}></input>
+                        {errors.color&&<span>{errors.color}</span>}
                         <datalist id="colorsList">
                         {
                             filters.colors?.map(color=>{
@@ -64,20 +137,22 @@ export default function NewProduct(){
                     </div>
                     <div>
                         <label>catalogo</label>
-                        <select >
+                        <select name="catalogId" value={newProduct.catalogId} onChange={handleChange} >
                             <option selected disabled>elija catalogo/s del producto</option>
                         {
                             catalogs?.map(catalog=>{
                                 return(
-                                    <option>{catalog.name.split("_").join(" ")}</option>
+                                    <option value={catalog.id}>{catalog.name.split("_").join(" ")}</option>
                                 )
                             })
                         }
                         </select>
+                        {errors.catalogId&&<span>{errors.catalogId}</span>}
                     </div>
                     <div>
                         <label>cantidad de unidades</label>
-                        <input list="quantitisList" placeholder={`ej:1`}></input>
+                        <input type={"number"} min="1" name="cant" value={newProduct.cant} onChange={handleChange} list="quantitisList" placeholder={`ej:1`}></input>
+                        {errors.cant&&<span>{errors.cant}</span>}
                         <datalist id="quantitisList">
                         {
                             filters.cants?.map(quantity=>{
@@ -90,10 +165,11 @@ export default function NewProduct(){
                     </div>
                     <div>
                         <label>cantidad de stock disponible</label>
-                        <input placeholder="ej:5"></input>
+                        <input type={"number"} name="stock" value={newProduct.stock} onChange={handleChange} placeholder="ej:5"></input>
+                        {errors.stock&&<span>{errors.stock}</span>}
                     </div>
+                    <button type={"submit"}>dar de alta</button>
                 </form>
-                    <button onClick={()=>setShowForm(false)}>dar de alta</button>
                 </div>
         ):<p className='display-6' onClick={()=>setShowForm(true)}>{">Dar de alta nuevo producto<"}</p>
 }
