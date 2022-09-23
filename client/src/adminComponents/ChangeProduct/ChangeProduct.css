@@ -1,0 +1,37 @@
+.hidden{
+    display: none;
+}
+#productForm{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#productFormDiv{
+    top:20vh;
+    position: fixed;
+    padding: 10vh 0%;
+    background-color: black;
+}
+
+#productForm div {
+    width: 20vw;
+    height: 10vh;
+    margin-top: 3vh;
+}
+
+#imgLabel{
+    background-color: pink;
+    padding: 10%;
+    text-transform: uppercase;
+}
+
+#newPRoductImg{
+    display: flex;
+    flex-direction: row;
+}
+
+
+#newPRoductImg img{
+    height: 8vh;
+}

@@ -2,11 +2,14 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { getProductsAdmin } from "../../redux/actions";
+import ChangeProduct from "../ChangeProduct/ChangeProduct";
 import "./ProductsList.css"
 
 export default function ProductsList(){
     const [list,setList] = useState([])
     const[showList,setShowList] = useState(false)
+    const [showForm,setShowForm] = useState(false)
+    const [productToChange,setProductToChange] = useState({})
 
     useEffect(()=>{
         getProductsAdmin(setList)
@@ -34,11 +37,14 @@ export default function ProductsList(){
                         <span>{product.color}</span>
                         <span>{product.stock}</span>
                         <span>{product.cant}</span>
-                        <button>modificar</button>
+                        <button onClick={()=>{setProductToChange(product);setShowForm(true)}}>modificar</button>
                     </div>
                     )
                 })
             }</div>}
+            {
+                showForm&&<ChangeProduct productToChange={productToChange} setShowForm={setShowForm}/>
+            }
         </div>
     )
 }

@@ -9,6 +9,7 @@ export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID"
 export const GET_ALL_CATALOGS = "GET_ALL_CATALOGS"
 export const GET_ALL_AUTHS = "GET_ALL_AUTHS"
 export const POST_NEW_PRODUCT = "POST_NEW_PRODUCT"
+export const UPDATE_PRODUCT = "UPDATE_PRODUCT"
 
 
 
@@ -214,4 +215,18 @@ export async function getProductsAdmin(setProducts){
   } catch (error) {
     console.log(error.message)
   }
+}
+
+export function updateProduct (updatedProduct) {
+  return async function (dispatch) {
+    try {
+      await axios.put('http://localhost:3001/product',updatedProduct);
+      return dispatch({
+        type: UPDATE_PRODUCT,
+        payload: "",
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 }
