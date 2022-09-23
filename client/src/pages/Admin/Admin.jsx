@@ -7,6 +7,7 @@ import AuthList from '../../adminComponents/AuthList/AuthList';
 import { useSelector } from 'react-redux';
 import EditCarrousel from '../../components/EditCarrousel/EditCarrousel';
 import NewProduct from '../../components/NewProduct/NewProduct';
+import ProductsList from '../../adminComponents/ProductsList/ProductsList';
 
 const Admin = () => {
   const user = useSelector((state) => state.userLogged[0]);
@@ -22,6 +23,7 @@ const Admin = () => {
             <UserList />
             <EditCarrousel />
             <NewProduct />
+            <ProductsList/>
           </div>
         ) : (
           <div>Debes ser administrador para ver esta página</div>
