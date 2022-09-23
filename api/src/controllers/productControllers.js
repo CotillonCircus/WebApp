@@ -80,11 +80,11 @@ const buyProducts=(req,res,next)=>{
     }
 }
 
-const editProductStock = async (req,res,next) => {
-    const {id,cantStock} = req.body
+const editProduct = async (req,res,next) => {
+    const {id,name,catalogId,color,size,cant,alf,price,cantStock} = req.body
     try {
-        let stock = literal('stock + '+cantStock) 
-        await Product.update({stock},{where:{id}})
+        const updatedProduct = {name,catalogId,color,size,cant,alf,price,cantStock}
+        await Product.update(updatedProduct,{where:{id}})
         res.send()
     } catch (error) {
         res.send(error.message)
@@ -95,7 +95,7 @@ module.exports={
     getAllProducts,
     getProductDetails,
     getAllToFilter,
-    editProductStock,
+    editProduct,
     buyProducts,
     createProduct
 }
