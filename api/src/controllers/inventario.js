@@ -1,6 +1,6 @@
 const GLOBOS = [{
     name:"tuky",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:1,
     color:"perlado",
     cant:50,
@@ -14,21 +14,21 @@ const GLOBOS = [{
     size:""
 },{
     name:"party time",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:1,
     color:"std",
     cant:50,
     size:""
 },{
     name:"globox",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:1,
     color:"perlado",
     cant:50,
     size:""
 },{
     name:"party time",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:1,
     color:"perlado",
     cant:25,
@@ -37,567 +37,567 @@ const GLOBOS = [{
 
 const GLOBOS_NUMEROS = [{
     name:"cero",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`16"`
 },{
     name:"uno",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`16"`
 },{
     name:"dos",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`16"`
 },{
     name:"tres",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`16"`
 },{
     name:"cuatro",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`16"`
 },{
     name:"cinco",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`16"`
 },{
     name:"seis",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`16"`
 },{
     name:"siete",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`16"`
 },{
     name:"ocho",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`16"`
 },{
     name:"nueve",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`16"`
 },{
     name:"cero",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`16"`
 },{
     name:"uno",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`16"`
 },{
     name:"dos",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`16"`
 },{
     name:"tres",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`16"`
 },{
     name:"cuatro",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`16"`
 },{
     name:"cinco",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`16"`
 },{
     name:"seis",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`16"`
 },{
     name:"siete",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`16"`
 },{
     name:"ocho",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`16"`
 },{
     name:"nueve",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`16"`
 },{
     name:"cero",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rosa",
     cant:0,
     size:`16"`
 },{
     name:"uno",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rosa",
     cant:0,
     size:`16"`
 },{
     name:"dos",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rosa",
     cant:0,
     size:`16"`
 },{
     name:"tres",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rosa",
     cant:0,
     size:`16"`
 },{
     name:"cuatro",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rosa",
     cant:0,
     size:`16"`
 },{
     name:"cinco",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rosa",
     cant:0,
     size:`16"`
 },{
     name:"seis",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rosa",
     cant:0,
     size:`16"`
 },{
     name:"siete",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rosa",
     cant:0,
     size:`16"`
 },{
     name:"ocho",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rosa",
     cant:0,
     size:`16"`
 },{
     name:"nueve",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rosa",
     cant:0,
     size:`16"`
 },{
     name:"cero",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"negro",
     cant:0,
     size:`16"`
 },{
     name:"uno",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"negro",
     cant:0,
     size:`16"`
 },{
     name:"dos",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"negro",
     cant:0,
     size:`16"`
 },{
     name:"tres",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"negro",
     cant:0,
     size:`16"`
 },{
     name:"cuatro",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"negro",
     cant:0,
     size:`16"`
 },{
     name:"cinco",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"negro",
     cant:0,
     size:`16"`
 },{
     name:"seis",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"negro",
     cant:0,
     size:`16"`
 },{
     name:"siete",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"negro",
     cant:0,
     size:`16"`
 },{
     name:"ocho",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"negro",
     cant:0,
     size:`16"`
 },{
     name:"nueve",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"negro",
     cant:0,
     size:`16"`
 },{
     name:"cero",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`32"`
 },{
     name:"uno",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`32"`
 },{
     name:"dos",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`32"`
 },{
     name:"tres",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`32"`
 },{
     name:"cuatro",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`32"`
 },{
     name:"cinco",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`32"`
 },{
     name:"seis",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`32"`
 },{
     name:"siete",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`32"`
 },{
     name:"ocho",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`32"`
 },{
     name:"nueve",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`32"`
 },{
     name:"cero",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`32"`
 },{
     name:"uno",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`32"`
 },{
     name:"dos",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`32"`
 },{
     name:"tres",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`32"`
 },{
     name:"cuatro",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`32"`
 },{
     name:"cinco",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`32"`
 },{
     name:"seis",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`32"`
 },{
     name:"siete",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`32"`
 },{
     name:"ocho",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`32"`
 },{
     name:"nueve",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"oro",
     cant:0,
     size:`32"`
 },{
     name:"cero",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`40"`
 },{
     name:"uno",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`40"`
 },{
     name:"dos",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`40"`
 },{
     name:"tres",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`40"`
 },{
     name:"cuatro",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`40"`
 },{
     name:"cinco",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`40"`
 },{
     name:"seis",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`40"`
 },{
     name:"siete",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`40"`
 },{
     name:"ocho",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`40"`
 },{
     name:"nueve",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"plata",
     cant:0,
     size:`40"`
 },{
     name:"cero",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rojo",
     cant:0,
     size:`34"`
 },{
     name:"uno",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rojo",
     cant:0,
     size:`34"`
 },{
     name:"dos",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rojo",
     cant:0,
     size:`34"`
 },{
     name:"tres",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rojo",
     cant:0,
     size:`34"`
 },{
     name:"cuatro",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rojo",
     cant:0,
     size:`34"`
 },{
     name:"cinco",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rojo",
     cant:0,
     size:`34"`
 },{
     name:"seis",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rojo",
     cant:0,
     size:`34"`
 },{
     name:"siete",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rojo",
     cant:0,
     size:`34"`
 },{
     name:"ocho",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rojo",
     cant:0,
     size:`34"`
 },{
     name:"nueve",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rojo",
     cant:0,
     size:`34"`
 },{
     name:"diez",
-    price:0,
+    price:Math.floor((Math.random()*100)),
     catalogId:2,
     color:"rojo",
     cant:0,
@@ -607,231 +607,231 @@ const GLOBOS_NUMEROS = [{
 const CORTINAS_METALIZADAS = [
     {
         name:"lluvia",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"plata",
         cant:0,
         size:``
     },{
         name:"lluvia",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"oro",
         cant:0,
         size:``
     },{
         name:"rojo",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"rosa",
         cant:0,
         size:``
     },{
         name:"lluvia",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"rosa gold",
         cant:0,
         size:``
     },{
         name:"lluvia",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"celeste",
         cant:0,
         size:``
     },{
         name:"lluvia",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"pastel",
         cant:0,
         size:``
     },{
         name:"lluvia",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"multicolor",
         cant:0,
         size:``
     },{
         name:"lluvia",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"negro",
         cant:0,
         size:``
     },{
         name:"lluvia",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"fucsia",
         cant:0,
         size:``
     },{
         name:"lluvia",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"verde",
         cant:0,
         size:``
     },{
         name:"lluvia",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"blanco",
         cant:0,
         size:``
     },{
         name:"corazon",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"rojo",
         cant:0,
         size:``
     },{
         name:"corazon",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"plata",
         cant:0,
         size:``
     },{
         name:"corazon",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"oro",
         cant:0,
         size:``
     },{
         name:"corazon",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"azul",
         cant:0,
         size:``
     },{
         name:"corazon",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"rosa gold",
         cant:0,
         size:``
     },{
         name:"corazon",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"celeste",
         cant:0,
         size:``
     },{
         name:"corazon",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"rosa",
         cant:0,
         size:``
     },{
         name:"estrella",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"plata",
         cant:0,
         size:``
     },{
         name:"estrella",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"oro",
         cant:0,
         size:``
     },{
         name:"estrella",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"rojo",
         cant:0,
         size:``
     },{
         name:"estrella",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"azul",
         cant:0,
         size:``
     },{
         name:"estrella",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"celeste",
         cant:0,
         size:``
     },{
         name:"estrella",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"rosa",
         cant:0,
         size:``
     },{
         name:"estrella",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"negro",
         cant:0,
         size:``
     },{
         name:"estrella",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"fucsia",
         cant:0,
         size:``
     },{
         name:"square",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"plata",
         cant:0,
         size:``
     },{
         name:"square",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"oro",
         cant:0,
         size:``
     },{
         name:"square",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"rosa",
         cant:0,
         size:``
     },{
         name:"square",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"celeste",
         cant:0,
         size:``
     },{
         name:"square",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"violeta",
         cant:0,
         size:``
     },{
         name:"square",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"fucsia",
         cant:0,
         size:``
     },{
         name:"square",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:3,
         color:"verde",
         cant:0,
@@ -842,112 +842,112 @@ const CORTINAS_METALIZADAS = [
 const BANDERINES_FC = [
     {
         name:"liso",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"oro",
         cant:0,
         size:``
     },{
         name:"liso",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"plata",
         cant:0,
         size:``
     },{
         name:"liso",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"rosa",
         cant:0,
         size:``
     },{
         name:"liso",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"negro",
         cant:0,
         size:``
     },{
         name:"liso",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"rojo",
         cant:0,
         size:``
     },{
         name:"liso",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"celeste",
         cant:0,
         size:``
     },{
         name:"liso",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"azul",
         cant:0,
         size:``
     },{
         name:"liso",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"pastel",
         cant:0,
         size:``
     },{
         name:"gibreado",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"dorado",
         cant:0,
         size:``
     },{
         name:"gibreado",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"plata",
         cant:0,
         size:``
     },{
         name:"gibreado",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"rosa",
         cant:0,
         size:``
     },{
         name:"gibreado",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"negro",
         cant:0,
         size:``
     },{
         name:"gibreado",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"fucsia",
         cant:0,
         size:``
     },{
         name:"gibreado",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"celeste",
         cant:0,
         size:``
     },{
         name:"gibreado",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"azul",
         cant:0,
         size:``
     },{
         name:"gibreado",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:4,
         color:"rojo",
         cant:0,
@@ -958,112 +958,112 @@ const BANDERINES_FC = [
 const RADHA = [
     {
         name:"polvos",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"verde",
         cant:0,
         size:``
     },{
         name:"polvos",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"verde aqua",
         cant:0,
         size:``
     },{
         name:"polvos",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"amarillo",
         cant:0,
         size:``
     },{
         name:"polvos",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"naranja",
         cant:0,
         size:``
     },{
         name:"polvos",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"violeta",
         cant:0,
         size:``
     },{
         name:"splash",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"celeste",
         cant:0,
         size:``
     },{
         name:"splash",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"verde",
         cant:0,
         size:``
     },{
         name:"splash",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"amarillo",
         cant:0,
         size:``
     },{
         name:"splash",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"rosa",
         cant:0,
         size:``
     },{
         name:"splash",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"violeta",
         cant:0,
         size:``
     },{
         name:"polvos fluo",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"naranja",
         cant:0,
         size:``
     },{
         name:"polvos fluo",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"amarillo",
         cant:0,
         size:``
     },{
         name:"polvos fluo",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"verde",
         cant:0,
         size:``
     },{
         name:"polvos fluo",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"celeste",
         cant:0,
         size:``
     },{
         name:"polvos fluo",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"fucsia",
         cant:0,
         size:``
     },{
         name:"polvos fluo",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:5,
         color:"violeta",
         cant:0,
@@ -1074,28 +1074,28 @@ const RADHA = [
 const LANZA_PAPELES = [
     {
         name:"corazon",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:6,
         color:"rosa gold",
         cant:0,
         size:``
     },{
         name:"corazon",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:6,
         color:"plata",
         cant:0,
         size:``
     },{
         name:"corazon",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:6,
         color:"oro",
         cant:0,
         size:``
     },{
         name:"corazon",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:6,
         color:"multicolor",
         cant:0,
@@ -1106,161 +1106,161 @@ const LANZA_PAPELES = [
 const SET_DE_GLOBOS = [
     {
         name:"set9",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"rosa gold",
         cant:9,
         size:``
     },{
         name:"set9",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"dorado",
         cant:9,
         size:``
     },{
         name:"set9",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"plata",
         cant:9,
         size:``
     },{
         name:"set9",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"dorado/negro",
         cant:9,
         size:``
     },{
         name:"set9",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"rosa",
         cant:9,
         size:``
     },{
         name:"set9",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"violeta",
         cant:9,
         size:``
     },{
         name:"set9",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"rojo",
         cant:9,
         size:``
     },{
         name:"set9",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"azul",
         cant:9,
         size:``
     },{
         name:"set10",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"dorado",
         cant:10,
         size:``
     },{
         name:"set10",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"rosa gold",
         cant:10,
         size:``
     },{
         name:"set10",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"plata",
         cant:10,
         size:``
     },{
         name:"set10",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"rosa",
         cant:10,
         size:``
     },{
         name:"set10",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"rojo",
         cant:10,
         size:``
     },{
         name:"set10",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"azul",
         cant:10,
         size:``
     },{
         name:"set10",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"negro",
         cant:10,
         size:``
     },{
         name:"set14",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"dorado",
         cant:10,
         size:``
     },{
         name:"set14",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"rosa gold",
         cant:10,
         size:``
     },{
         name:"set14",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"dorado/negro",
         cant:10,
         size:``
     },{
         name:"set14",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"rosa",
         cant:10,
         size:``
     },{
         name:"set14",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"violeta",
         cant:10,
         size:``
     },{
         name:"set14",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"rojo",
         cant:10,
         size:``
     },{
         name:"set14",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"verde",
         cant:10,
         size:``
     },{
         name:"set14",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:7,
         color:"negro",
         cant:10,
@@ -1271,77 +1271,77 @@ const SET_DE_GLOBOS = [
 const BURBUJA_CON_CONFETTI = [
     {
         name:"chico",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:8,
         color:"rojo",
         cant:10,
         size:`18"`
     },{
         name:"chico",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:8,
         color:"fucsia",
         cant:10,
         size:`18"`
     },{
         name:"chico",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:8,
         color:"azul",
         cant:10,
         size:`18"`
     },{
         name:"chico",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:8,
         color:"plata",
         cant:10,
         size:`18"`
     },{
         name:"chico",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:8,
         color:"dorado",
         cant:10,
         size:`18"`
     },{
         name:"grande",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:8,
         color:"multicolor",
         cant:10,
         size:`18"`
     },{
         name:"grande",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:8,
         color:"azul",
         cant:10,
         size:`18"`
     },{
         name:"grande",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:8,
         color:"rojo",
         cant:10,
         size:`18"`
     },{
         name:"grande",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:8,
         color:"rosa gold",
         cant:10,
         size:`18"`
     },{
         name:"grande",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:8,
         color:"fucsia",
         cant:10,
         size:`18"`
     },{
         name:"extra grande",
-        price:0,
+        price:Math.floor((Math.random()*100)),
         catalogId:8,
         color:"multicolor",
         cant:10,

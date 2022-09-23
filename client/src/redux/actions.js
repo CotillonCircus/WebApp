@@ -11,6 +11,7 @@ export const GET_ALL_AUTHS = "GET_ALL_AUTHS"
 export const POST_NEW_PRODUCT = "POST_NEW_PRODUCT"
 
 
+
 const cloud_name = "circus-corillon"
 const api_key = "164947681452799"
 const api_secret = "Ii4cdvwbN_kI8YNLnc0xMnAyyjw"
@@ -204,4 +205,13 @@ export function createProduct (newProduct) {
       console.log(error.message);
     }
   };
+}
+
+export async function getProductsAdmin(setProducts){
+  try {
+    const products = (await axios.get('http://localhost:3001/product')).data;
+    setProducts(products)
+  } catch (error) {
+    console.log(error.message)
+  }
 }
