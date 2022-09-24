@@ -12,7 +12,7 @@ const createProduct = async(req,res,next) => {
 
 const getAllProducts = async (req,res,next) => {
 
-    const {name,catalogId,color,size,cant,alf,price} = req.query
+    const {name,catalogId,color,size,cant,alf,price,admin} = req.query
 
     const condition = {}
     const sort=[]
@@ -25,6 +25,10 @@ const getAllProducts = async (req,res,next) => {
     if(size)condition.size=size.split(",")
     if(cant)condition.cant=cant.split(",")
     if(catalogId)condition.catalogId=catalogId
+    if(!admin)condition.status="disponible"
+    if(admin==="true")condition.status=["disponible","no disponible"]    
+    if(admin==="DataBased")condition.status=["disponible","no disponible"]    
+
 
     try {
         const products = await Product.findAll({where:condition,order:sort})
@@ -81,9 +85,9 @@ const buyProducts=(req,res,next)=>{
 }
 
 const editProduct = async (req,res,next) => {
-    const {id,name,img,catalogId,color,size,cant,alf,price,cantStock} = req.body
+    const {id,name,img,catalogId,color,size,cant,alf,price,cantStock,status} = req.body
     try {
-        const updatedProduct = {name,img,catalogId,color,size,cant,alf,price,cantStock}
+        const updatedProduct = {name,img,catalogId,color,size,cant,alf,price,cantStock,status}
         await Product.update(updatedProduct,{where:{id}})
         res.send()
     } catch (error) {
