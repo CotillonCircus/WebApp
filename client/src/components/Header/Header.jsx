@@ -59,6 +59,13 @@ const Header = () => {
                     <button onClick={(e)=>handleDown(e)}>Darme de baja</button>
                   </span>
               </div>
+              <div className='row_log2'>
+                <Link to={'/myOrders'} className='link'>
+                  <span className='nav-link' href='#aform'>
+                    Mis compras
+                  </span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const user = useSelector((state)=>state.userLogged[0])
-  console.log(user)
+
 
   const handleClick = (e)=>{
     dispatch(getProductos({catalogId:e.target.value}))
