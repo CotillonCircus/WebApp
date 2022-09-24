@@ -73,7 +73,7 @@ export default function ChangeProduct({productToChange,setShowForm}){
         }
     }
     
-    
+    console.log({productToChange,changedProduct})
     return( 
                 <div id="productFormDiv">
                 <form id="productForm" onSubmit={handleSubmit}>
@@ -123,7 +123,7 @@ export default function ChangeProduct({productToChange,setShowForm}){
                         }
                         </datalist>
                     </div>
-                    <div>
+                    <div id="catalogEditZone">
                         <label>catalogo</label>
                         <select name="catalogId" value={changedProduct.catalogId} onChange={handleChange} >
                             <option selected disabled>elija catalogo/s del producto</option>
@@ -152,11 +152,14 @@ export default function ChangeProduct({productToChange,setShowForm}){
                         </datalist>
                     </div>
                     <div>
-                        <label>cantidad de stock disponible</label>
+                        <label>stock disponible</label>
                         <input type={"number"} name="stock" value={changedProduct.stock} onChange={handleChange} placeholder="ej:5"></input>
                         {errors.stock&&<span>{errors.stock}</span>}
                     </div>
-                    <button type={"submit"}>actualizar</button>
+                    <div id="editButtons">
+                        <button type={"submit"}>actualizar</button>
+                        <button type={"button"} onClick={()=>setShowForm(false)}>cancelar</button>
+                    </div>
                 </form>
                 </div>
     )

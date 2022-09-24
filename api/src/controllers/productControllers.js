@@ -81,9 +81,9 @@ const buyProducts=(req,res,next)=>{
 }
 
 const editProduct = async (req,res,next) => {
-    const {id,name,catalogId,color,size,cant,alf,price,cantStock} = req.body
+    const {id,name,img,catalogId,color,size,cant,alf,price,cantStock} = req.body
     try {
-        const updatedProduct = {name,catalogId,color,size,cant,alf,price,cantStock}
+        const updatedProduct = {name,img,catalogId,color,size,cant,alf,price,cantStock}
         await Product.update(updatedProduct,{where:{id}})
         res.send()
     } catch (error) {
