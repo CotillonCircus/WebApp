@@ -8,6 +8,7 @@ import Tutorial from './pages/Tutorial/Tutorial';
 import Aform from './pages/AForm/AForm';
 import Contact from './pages/Contact/Contact';
 import Details from './pages/Details/Details';
+import MyOrders from './pages/MyOrders/MyOrders';
 import { ShoppingCartProvider } from './components/Context/ShoppingCartContext';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/aform' element={<Aform />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/details/:ID' element={<Details />} />
+        <Route path='/myOrders' element={<MyOrders/>}/>
       </Routes>
     </ShoppingCartProvider>
   );
