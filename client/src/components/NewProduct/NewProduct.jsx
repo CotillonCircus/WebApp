@@ -87,7 +87,7 @@ export default function NewProduct(){
     
     
     return showForm?(
-                <div >
+                <div id="productFormDiv">
                 <form id="productForm" onSubmit={handleSubmit}>
                     <div id="x">
                         <label>nombre</label>
@@ -135,7 +135,7 @@ export default function NewProduct(){
                         }
                         </datalist>
                     </div>
-                    <div>
+                    <div id="catalogNewZone">
                         <label>catalogo</label>
                         <select name="catalogId" value={newProduct.catalogId} onChange={handleChange} >
                             <option selected disabled>elija catalogo/s del producto</option>
@@ -168,7 +168,10 @@ export default function NewProduct(){
                         <input type={"number"} name="stock" value={newProduct.stock} onChange={handleChange} placeholder="ej:5"></input>
                         {errors.stock&&<span>{errors.stock}</span>}
                     </div>
-                    <button type={"submit"}>dar de alta</button>
+                    <div id="optionsButtons">
+                        <button type={"submit"}>dar de alta</button>
+                        <button type={"button"} onClick={()=>setShowForm(false)}>cancelar</button>
+                    </div>
                 </form>
                 </div>
         ):<p className='display-6' onClick={()=>setShowForm(true)}>{">Dar de alta nuevo producto<"}</p>

@@ -7,7 +7,7 @@ import { getAllToFilter, getProductos } from '../../redux/actions';
 
 export default function FilterSection() {
   const initialFilter = {
-    catalogId: undefined,
+    catalogId: "",
     color: [],
     size: [],
     cant: [],
@@ -21,9 +21,9 @@ export default function FilterSection() {
 
   useEffect(() => {
     getAllToFilter(SetToFilter);
-    dispatch(getProductos({}));
+    !(productos?.length)&&dispatch(getProductos({}));
   }, [dispatch]);
-
+  
   const onClick = (e) => {
     let newFilters = { ...filters };
     let value = e.target.value;
@@ -32,10 +32,14 @@ export default function FilterSection() {
     if (name === 'alf' || name === 'price') {
       newFilters[name] = value === 'ASC' ? 'DESC' : 'ASC';
     } else {
-      if (newFilters[name].includes(value)) {
-        newFilters[name] = newFilters[name].filter((filt) => filt !== value);
-      } else {
-        newFilters[name].push(value);
+      if(name==="catalogId"){
+        newFilters[name]=value
+      }else{
+        if (newFilters[name].includes(value)) {
+          newFilters[name] = newFilters[name].filter((filt) => filt !== value);
+        } else {
+          newFilters[name].push(value);
+        }
       }
     }
     setFilters({ ...newFilters });
