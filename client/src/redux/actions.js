@@ -210,17 +210,18 @@ export function createProduct (newProduct) {
 
 export async function getProductsAdmin(setProducts){
   try {
-    const products = (await axios.get('http://localhost:3001/product')).data;
+    const products = (await axios.get('http://localhost:3001/product?admin=true')).data;
     setProducts(products)
   } catch (error) {
     console.log(error.message)
   }
 }
 
-export function updateProduct (updatedProduct) {
+export function updateProduct (updatedProduct,setList) {
   return async function (dispatch) {
     try {
       await axios.put('http://localhost:3001/product',updatedProduct);
+      setList&&getProductsAdmin(setList)
       return dispatch({
         type: UPDATE_PRODUCT,
         payload: "",
