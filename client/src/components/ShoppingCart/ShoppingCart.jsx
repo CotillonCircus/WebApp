@@ -1,11 +1,23 @@
-import { Offcanvas, Stack } from 'react-bootstrap';
+import { Offcanvas, Stack, Button } from 'react-bootstrap';
 import { CartItem } from '../CartItem/CartItem';
 import { useShoppingCart } from '../Context/ShoppingCartContext';
 import { useSelector } from 'react-redux';
+import { createPreference } from '../../redux/actions';
+import { useDispatch } from 'react-redux';
 
 export function ShoppingCart({ isOpen }) {
   const { closeCart, cartItems } = useShoppingCart();
   const { productos } = useSelector((state) => state);
+
+  const dispatch = useDispatch();
+
+  async function handleSubmit(e) {
+    console.log(cartItems);
+    console.log();
+    e.preventDefault();
+    dispatch(createPreference(cartItems));
+  }
+
   return (
     <Offcanvas show={isOpen} onHide={closeCart} placement='end'>
       <Offcanvas.Header closeButton>
@@ -23,6 +35,9 @@ export function ShoppingCart({ isOpen }) {
               return total + (item?.price || 0) * cartItem.quantity;
             }, 0)}
           </div>
+          <Button onClick={handleSubmit} className='ms-auto'>
+            Pagar
+          </Button>
         </Stack>
       </Offcanvas.Body>
     </Offcanvas>
