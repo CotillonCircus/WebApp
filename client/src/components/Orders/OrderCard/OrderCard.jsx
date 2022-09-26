@@ -2,7 +2,7 @@ import React from 'react'
 
 const OrderCard = ({id,products,totalPrize}) => {
   return (
-    <div>{id}</div>
+    <div>HAY ORDEN</div>
   )
 }
 

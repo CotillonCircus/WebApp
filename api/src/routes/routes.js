@@ -8,6 +8,7 @@ const catalogRoutes = require('./catalogRoutes');
 const authRoutes = require('./authRoutes');
 const cloudinaryRoutes = require('./cloudinaryRoutes');
 const paymentRoutes = require('./paymentRoutes');
+const orderRoutes = require("./orderRoutes");
 
 router.use('/images', static(path.join(__dirname, 'images')));
 
@@ -17,5 +18,6 @@ router.use('/catalog', catalogRoutes);
 router.use('/auth', authRoutes);
 router.use('/cloudinary', cloudinaryRoutes);
 router.use('/payment', paymentRoutes);
+router.use("/order",orderRoutes)
 
 module.exports = router;

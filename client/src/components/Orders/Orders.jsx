@@ -11,34 +11,42 @@ const Orders = () => {
     const user = useSelector((state)=>state.userLogged[0])
     const [orders,setOrders] = useState([]);
 
-    useEffect(()=>{
-        async function getOrders(){
-            const pack = {
-                sub: user.sub
-            }
-            const orders = await axios.get("http://localhost:3001/order/user",pack)
-            setOrders(orders);
-        }
-        
+    async function getOrders(){
+        // const pack = {
+        //     sub: user.sub
+        // }
+        const orders = await axios.get(`http://localhost:3001/order/user/${user.sub}`)
+
+        setOrders(orders.data);
+    }
+
+    useEffect(()=>{    
         if(user){
             getOrders();
         }
 
-    },[])
+    },[user])
+
+    useEffect(()=>{
+        console.log("Estado: ",orders)
+    },[orders])
 
   return (
     <div>
         <h1>Mi historial de compras</h1>
         <br></br>
         {
-            orders && orders?.map((order)=>{
+            orders?.map((order)=>{
+                return (
                 <div key={order.id}>
                     <OrderCard
                     id={order.id}
                     products={order.products}
                     totalPrize={order.totalPrize}
-                    />
+                    />               
                 </div>
+
+                )
             })
         }
     </div>

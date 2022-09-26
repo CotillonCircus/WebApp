@@ -35,7 +35,8 @@ module.exports = (sequelize) => {
     },
     stock:{
         type:DataTypes.INTEGER,
-        defaultValue:0
+
+        defaultValue:50
     },
     status:{
         type: DataTypes.STRING,
