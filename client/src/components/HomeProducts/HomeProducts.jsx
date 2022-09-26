@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const HomeProducts = () => {
   const dispatch = useDispatch();
   const { productos, catalogs } = useSelector((state) => state);
-  const user = useSelector((state)=>state.userLogged[0]);
+  const user = useSelector((state) => state.userLogged[0]);
 
   useEffect(() => {
     dispatch(getProductos({}));
@@ -26,7 +26,6 @@ const HomeProducts = () => {
       </div>
       <div id='products'>
         {productos?.slice(0, 8).map((p) => {
-          console.log(p);
           return (
             <Link
               key={'/details/' + p.id}
@@ -35,11 +34,15 @@ const HomeProducts = () => {
             >
               <img src={p.img} alt={p.name} />
               <span>{p.name}</span>
-              {
-                user ? user.status === "mayorista" || user.status === "admin" ? (
+              {user ? (
+                user.status === 'mayorista' || user.status === 'admin' ? (
                   <span>${p.price}</span>
-                ) : (<span>Se necesita autorizacion para ver los precios</span>) : (<span>Registrate y autorizate para ver los precios</span>)
-              }
+                ) : (
+                  <span>Se necesita autorizacion para ver los precios</span>
+                )
+              ) : (
+                <span>Registrate y autorizate para ver los precios</span>
+              )}
             </Link>
           );
         })}

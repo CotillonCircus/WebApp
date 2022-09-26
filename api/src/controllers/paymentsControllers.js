@@ -1,5 +1,6 @@
 const mercadopago = require('mercadopago');
 const dotenv = require('dotenv');
+const { Product } = require('../db');
 
 dotenv.config();
 
@@ -9,15 +10,19 @@ mercadopago.configure({
 });
 
 const createPreference = async (req, res, next) => {
-  console.log(req.body);
+  let items = req.body.map(async (item) => {
+    const product = await Product.findByPk(item.id);
+    return {
+      title: product.name,
+      unit_price: product.price,
+      quantity: item.quantity,
+    };
+  });
+  items = await Promise.all(items);
+
   let preference = {
-    items: [
-      {
-        title: req.body.title,
-        unit_price: Number(req.body.unit_price),
-        quantity: Number(req.body.quantity),
-      },
-    ],
+    items: items,
+
     back_urls: {
       success: 'http://localhost:3000/success',
       failure: 'http://localhost:3000/failure',

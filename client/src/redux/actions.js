@@ -240,13 +240,16 @@ export function createProduct(newProduct) {
   };
 }
 
-export function createPreference(cartItems) {
+export function createPreference(cartItems, navigate) {
   return async function (dispatch) {
     try {
-      await axios.post(
-        'http://localhost:3001/payment/create_preference',
-        cartItems
-      );
+      const link = (
+        await axios.post(
+          'http://localhost:3001/payment/create_preference',
+          cartItems
+        )
+      ).data.init_point;
+      window.open(link);
       return dispatch({
         type: POST_NEW_PREFERENCE,
         payload: '',
