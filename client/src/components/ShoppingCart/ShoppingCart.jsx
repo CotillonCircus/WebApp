@@ -4,18 +4,18 @@ import { useShoppingCart } from '../Context/ShoppingCartContext';
 import { useSelector } from 'react-redux';
 import { createPreference } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export function ShoppingCart({ isOpen }) {
   const { closeCart, cartItems } = useShoppingCart();
   const { productos } = useSelector((state) => state);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
-    console.log(cartItems);
-    console.log();
     e.preventDefault();
-    dispatch(createPreference(cartItems));
+    dispatch(createPreference(cartItems, navigate));
   }
 
   return (
