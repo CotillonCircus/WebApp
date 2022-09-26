@@ -35,7 +35,12 @@ module.exports = (sequelize) => {
     },
     stock:{
         type:DataTypes.INTEGER,
+
         defaultValue:50
+    },
+    status:{
+        type: DataTypes.STRING,
+        defaultValue: "disponible"
     }
   }, {timestamps:false});
 };
