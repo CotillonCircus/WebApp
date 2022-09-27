@@ -23,7 +23,7 @@ const Admin = () => {
             <UserList />
             <EditCarrousel />
             <NewProduct />
-            <ProductsList/>
+            <ProductsList />
           </div>
         ) : (
           <div>Debes ser administrador para ver esta página</div>
