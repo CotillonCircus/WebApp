@@ -18,7 +18,7 @@ const HomeProducts = () => {
   return (
     <div id='homeProducts'>
       <div id='catalogs'>
-        <span>categorias principales</span>
+        <span className='bold'>categorias principales</span>
         {catalogs?.map((c) => {
           let key = c.name.split('_').join(' ');
           return <span key={key}>{key}</span>;

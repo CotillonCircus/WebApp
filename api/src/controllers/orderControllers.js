@@ -145,8 +145,7 @@ const getOneOrder = async(req,res,next)=>{
 module.exports = {
     postOrder,
     getOrderByUser,
-    filteredOrders
-    getAllOrders,
+    filteredOrders,
     getOrderByUser,
     getOneOrder
 }
