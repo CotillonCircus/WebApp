@@ -74,6 +74,7 @@ export function ShoppingCartProvider({ children }) {
         closeCart,
         cartItems,
         cartQuantity,
+        setCartItems
       }}
     >
       {children}

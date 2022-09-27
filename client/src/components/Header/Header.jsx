@@ -6,14 +6,20 @@ import LogOutButton from '../../components/LogOutButton/LogOutButton';
 import Logo from '../../images/circus_cotillon_logo.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProductos } from '../../redux/actions';
+import { getProductos,getAllProductos } from '../../redux/actions';
 import Confirmation from '../Confirmation/Confirmation';
 import { changeUserStatus } from '../../redux/actions';
+import { useEffect } from 'react';
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    dispatch(getAllProductos())
+  },[dispatch])
+
   const handleCLick = () => {
     const search = document.getElementById('search').value;
     dispatch(getProductos({ name: search }));

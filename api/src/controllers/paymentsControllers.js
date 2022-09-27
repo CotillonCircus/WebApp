@@ -1,6 +1,6 @@
 const mercadopago = require('mercadopago');
 const dotenv = require('dotenv');
-const { Product } = require('../db');
+const { Product,Order,Catalog,User } = require('../db');
 
 dotenv.config();
 
@@ -10,7 +10,13 @@ mercadopago.configure({
 });
 
 const createPreference = async (req, res, next) => {
-  let items = req.body.map(async (item) => {
+  const {sub,products} = req.body;
+
+  const newOrder = await createOrder(products,sub,0)
+
+  console.log(newOrder.id)
+
+  let items = products.map(async (item) => {
     const product = await Product.findByPk(item.id);
     return {
       title: product.name,
@@ -24,7 +30,7 @@ const createPreference = async (req, res, next) => {
     items: items,
 
     back_urls: {
-      success: 'http://localhost:3000/success',
+      success: 'http://localhost:3000/success?orderId='+newOrder.id,
       failure: 'http://localhost:3000/failure',
       pending: 'http://localhost:3000/pending',
     },
@@ -52,5 +58,56 @@ const getFeedback = async (req, res, next) => {
     MerchantOrder: req.query.merchant_order_id,
   });
 };
+
+const createOrder = async(products,sub,totalPrize)=>{
+  const adaptedProducts = await adaptProducts(products);
+
+  const newOrder = await Order.create({totalPrize,products: adaptedProducts});
+  const user = await User.findByPk(sub)
+  newOrder.setUser(user)
+  return(newOrder);
+}
+
+const adaptProducts= async(products)=>{
+  let array = [];
+  console.log(products)
+  const mapeo = products.map(async ({id,quantity}) => {
+      const product = await Product.findOne({where: {id}, include: Catalog});
+      
+      if(!product){
+          console.log("Entre a !product")
+          throw new Error("Producto no encontrado");
+      }
+      if(product.stock-quantity>0){
+          
+          let stock = product.stock - quantity
+          Product.update({stock},{where:{id}})
+          
+          // const catalog = await Catalog.findOne({where: {id: product.catalogId}})
+          
+          let falseProduct = {
+              name: product.name,
+              price: product.price,
+              img: product.img,
+              cant: product.cant,
+              size: product.size,
+              color: product.color,
+              cantBuyed:quantity,
+              catalog: product.catalog.name
+          }
+
+          // await newOrder.addProduct(product);
+          return falseProduct;
+
+      }else{
+          console.log("Entre a no hay stock")
+          throw new Error("No hay stock del producto de ID: " + id);
+      }
+
+  });
+  array = await Promise.all(mapeo);
+  return array;
+}
+
 
 module.exports = { createPreference, getFeedback };

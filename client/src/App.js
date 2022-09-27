@@ -10,6 +10,7 @@ import Contact from './pages/Contact/Contact';
 import Details from './pages/Details/Details';
 import MyOrders from './pages/MyOrders/MyOrders';
 import { ShoppingCartProvider } from './components/Context/ShoppingCartContext';
+import SuccessPage from './pages/SuccessPage/SuccessPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/details/:ID' element={<Details />} />
         <Route path='/myOrders' element={<MyOrders/>}/>
+        <Route path='/success' element={<SuccessPage/>}/>
       </Routes>
     </ShoppingCartProvider>
   );
