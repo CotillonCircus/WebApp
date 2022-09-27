@@ -1,29 +1,34 @@
-import './App.css';
-import {useDispatch,useSelector} from "react-redux"
-import { getProductos } from "./redux/actions"
-import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Landing from './pages/Landing/Landing';
+import About from './pages/About/About';
+import Home from './pages/Home/Home';
+import Admin from './pages/Admin/Admin';
+import Products from './pages/Products/Products';
+import Tutorial from './pages/Tutorial/Tutorial';
+import Aform from './pages/AForm/AForm';
+import Contact from './pages/Contact/Contact';
+import Details from './pages/Details/Details';
+import MyOrders from './pages/MyOrders/MyOrders';
+import { ShoppingCartProvider } from './components/Context/ShoppingCartContext';
+import SuccessPage from './pages/SuccessPage/SuccessPage';
 
 function App() {
-  const dispatch = useDispatch()
-
-  const productos = useSelector(state=>state.productos)
-
-  useEffect(()=>{
-    dispatch(getProductos())
-  }
-  ,[dispatch])
-
   return (
-    <div className="App">
-      {productos?.map((p)=>{
-        return(
-          <div >
-            <span>{p.name}</span>
-            <img src={p.src}></img>
-          </div>
-        )
-      })}
-    </div>
+    <ShoppingCartProvider>
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/tutorial' element={<Tutorial />} />
+        <Route path='/admin' element={<Admin />} />
+        <Route path='/aform' element={<Aform />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/details/:ID' element={<Details />} />
+        <Route path='/myOrders' element={<MyOrders/>}/>
+        <Route path='/success' element={<SuccessPage/>}/>
+      </Routes>
+    </ShoppingCartProvider>
   );
 }
 

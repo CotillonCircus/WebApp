@@ -1,0 +1,53 @@
+.column_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 40vh;
+  display: flex;
+}
+
+.row_log1 {
+  margin-top: 9vh;
+}
+
+.row_log2 {
+  margin-top: 3vh;
+}
+
+.row_log3 {
+  margin-top: 3vh;
+}
+
+.c4 {
+  margin-top: 13vh;
+}
+
+#searchInput {
+  height: 5vh;
+  width: 20vw;
+  justify-self: center;
+  border-bottom: 1px black solid;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-self: center;
+  justify-content: space-between;
+  margin-left: 10%;
+  background-color: rgb(234, 234, 234);
+}
+
+#searchInput input {
+  border: none;
+  font-size: small;
+}
+
+#searchInput button {
+  background-color: rgb(234, 234, 234);
+}
+
+.btn-group {
+  margin-top: 14vh;
+}

@@ -1,0 +1,67 @@
+.hidden{
+    display: none;
+}
+#productForm{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#productFormDiv{
+    top:0vh;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    /* flex-direction: column; */
+    /* padding: 10vh 0%; */
+    background-color: rgba(163, 160, 160, 0.9);
+}
+
+#productForm div {
+    width: 26vw;
+    height: 30vh;
+    /* margin: 0%; */
+    margin-top: 1vh;
+    margin-left:5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px black solid;
+    border-radius: 20px;
+    background-color: bisque;
+    flex-direction: column;
+}
+
+#imgLabel{
+    /* align-self: flex-start; */
+    /* justify-self: flex-start; */
+    background-color: pink;
+    border: 1px solid black;
+    padding: 1%;
+    text-transform: uppercase;
+}
+
+#newPRoductImg{
+    display: flex;
+    flex-direction: row;
+}
+
+
+#newPRoductImg img{
+    height: 20vh;
+}
+
+#catalogEditZone select{
+    font-size: small;
+    background-color: pink;
+    border: 1px solid black;
+}
+
+#editButtons button{
+    margin: 5%;
+    padding: 5%;
+    background-color: pink;
+    border:1px black solid
+}

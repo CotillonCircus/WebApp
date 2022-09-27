@@ -1,0 +1,12 @@
+.contfooter {
+  height: 30vh;
+  border: 1px solid black;
+}
+
+.rowfooter {
+  height: 10vh;
+}
+
+.emailfooter {
+  margin-top: 3vh;
+}

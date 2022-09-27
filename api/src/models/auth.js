@@ -3,31 +3,39 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('producto', {
+  sequelize.define('auth', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement:true,
         primaryKey:true
     },
-    nombre:{
+    name:{
         type: DataTypes.STRING,
         allowNull: false,
     },
-    precio: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-    },
-    imagen: {
-        type: DataTypes.STRING,
-        primaryKey: true,
-    },
-    cantidad: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    tamanio:{
+    sub:{
         type: DataTypes.STRING,
         allowNull: false
+    },
+    company:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    email:{
+      type: DataTypes.STRING,
+        allowNull: false
+    },
+    cuit:{
+      type: DataTypes.STRING,
+       allowNull: false
+    },
+    razon_social:{
+      type: DataTypes.STRING,
+       allowNull: false
+    },
+    address:{
+      type: DataTypes.STRING,
+       allowNull: false
     }
   }, {timestamps:false});
 };

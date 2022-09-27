@@ -1,0 +1,43 @@
+#adminProductsList{
+    display: flex;
+    flex-direction: column;
+}
+
+#listProducts{
+    display: flex;
+    flex-direction: column;
+    /* transform: scaleY(0%); */
+    animation: anim 0.5s;
+    transform-origin: top;
+}
+
+@keyframes anim {
+    0%{transform: scaleY(0%) ;}
+    100%{transform: scaleY(100%);}
+}
+
+.singleListProduct{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+.singleListProduct span,#listProps span{
+    width: 12vw;
+    align-self: center;
+}
+.singleListProduct button{
+    font-size: small;
+    margin: 1% 1%;
+    background-color: pink;
+    border: 1px black solid;
+}
+
+#listProps{
+    font-weight: 900;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+    font-size: larger;
+    text-transform: uppercase;
+}
+
