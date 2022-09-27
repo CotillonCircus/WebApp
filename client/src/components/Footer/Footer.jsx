@@ -4,12 +4,13 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import { ImLocation } from 'react-icons/im';
 import { FaWhatsappSquare } from 'react-icons/fa';
+import './footer.css';
 
 const Footer = () => {
   return (
     <footer>
-      <div className='container-fluid text-center'>
-        <div className='row'>
+      <div className='container-fluid text-center contfooter'>
+        <div className='row rowfooter'>
           <div className='col-md'>
             <ImLocation /> Av. Godoy Cruz 65, Ciudad. Mendoza
           </div>
@@ -17,7 +18,7 @@ const Footer = () => {
             <div>
               <BsFillTelephoneFill /> 0261-4236840
             </div>
-            <div>
+            <div className='emailfooter'>
               <MdEmail />
               <a
                 href='mailto:ventascircuscotillon@gmail.com'
