@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCatalogs, getProductos } from '../../redux/actions';
-import Cart from '../Cart/Cart';
+//import Cart from '../Cart/Cart';
 
 const Navbar = () => {
   const { isAuthenticated } = useAuth0();
@@ -13,15 +13,14 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const user = useSelector((state)=>state.userLogged[0])
+  const user = useSelector((state) => state.userLogged[0]);
 
+  const handleClick = (e) => {
+    dispatch(getProductos({ catalogId: e.target.value }));
+    navigate('/');
+    navigate('/products');
+  };
 
-  const handleClick = (e)=>{
-    dispatch(getProductos({catalogId:e.target.value}))
-    navigate("/")
-    navigate("/products")
-  }
-  
   useEffect(() => {
     dispatch(getCatalogs());
   }, [dispatch]);
@@ -46,11 +45,7 @@ const Navbar = () => {
             <ul className='navbar-nav gap-4 mx-auto'>
               <li className='nav-item'>
                 <Link to={'/home'} className='link'>
-                  <span
-                    className='nav-link'
-                    aria-current='page'
-                    id='as'
-                  >
+                  <span className='nav-link' aria-current='page' id='as'>
                     Inicio
                   </span>
                 </Link>
@@ -73,7 +68,7 @@ const Navbar = () => {
                         className='dropdown-item'
                         onClick={handleClick}
                         value={c.id}
-                        key={"li"+c.id}
+                        key={'li' + c.id}
                       >
                         {c.name}
                       </li>
@@ -83,41 +78,29 @@ const Navbar = () => {
               </li>
               <li className='nav-item'>
                 <Link to='/about' className='link'>
-                  <span className='nav-link'>
-                    Quienes Somos
-                  </span>
+                  <span className='nav-link'>Quienes Somos</span>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to={'/contact'} className='link'>
-                  <span className='nav-link'>
-                    Contacto
-                  </span>
+                  <span className='nav-link'>Contacto</span>
                 </Link>
               </li>
-              {
-                user ? user.status === "admin" ? (
-                <li className='nav-item'>
-                  <Link to={'/admin'} className='link'>
-                    <span className='nav-link'>
-                      Dashboard Admin
-                    </span>
-                  </Link>
-                </li> ) : null : null
-              }
-              <li>
-                <Cart />
-              </li>
+              {user ? (
+                user.status === 'admin' ? (
+                  <li className='nav-item'>
+                    <Link to={'/admin'} className='link'>
+                      <span className='nav-link'>Dashboard Admin</span>
+                    </Link>
+                  </li>
+                ) : null
+              ) : null}
             </ul>
           ) : (
             <ul className='navbar-nav gap-4 mx-auto'>
               <li className='nav-item'>
                 <Link to={'/home'} className='link'>
-                  <span
-                    className='nav-link active'
-                    aria-current='page'
-                    id='as'
-                  >
+                  <span className='nav-link active' aria-current='page' id='as'>
                     Inicio
                   </span>
                 </Link>
@@ -140,7 +123,7 @@ const Navbar = () => {
                         className='dropdown-item'
                         onClick={handleClick}
                         value={c.id}
-                        key={"li2"+c.id}
+                        key={'li2' + c.id}
                       >
                         {c.name}
                       </li>
@@ -150,20 +133,13 @@ const Navbar = () => {
               </li>
               <li className='nav-item'>
                 <Link to='/about' className='link'>
-                  <span className='nav-link' >
-                    Quienes Somos
-                  </span>
+                  <span className='nav-link'>Quienes Somos</span>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to={'/contact'} className='link'>
-                  <span className='nav-link'>
-                    Contacto
-                  </span>
+                  <span className='nav-link'>Contacto</span>
                 </Link>
-              </li>
-              <li>
-                <Cart />
               </li>
             </ul>
           )}
