@@ -3,6 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLogin } from '../../redux/actions';
+import './logoutbutton.css';
 
 const LogOutButton = () => {
   const { user } = useAuth0();
@@ -18,6 +19,7 @@ const LogOutButton = () => {
   return (
     <div>
       <button
+        className='lobutton'
         onClick={() => {
           logout({
             returnTo: window.location.origin,
