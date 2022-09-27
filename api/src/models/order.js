@@ -21,5 +21,5 @@ module.exports = (sequelize) => {
       type:DataTypes.STRING,
       defaultValue:"pending"
     }
-  }, {timestamps:false});
+  }, {timestamps:true});
 };

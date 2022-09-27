@@ -11,9 +11,7 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   async function getOrders() {
-    // const pack = {
-    //     sub: user.sub
-    // }
+
     const orders = await axios.get(
       `http://localhost:3001/order/user/${user.sub}`
     );
@@ -26,10 +24,6 @@ const Orders = () => {
       getOrders();
     }
   }, [user]);
-
-  // useEffect(()=>{
-  //     console.log("Estado: ",orders)
-  // },[orders])
 
   return (
     <div>

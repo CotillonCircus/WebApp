@@ -29,7 +29,6 @@ const getAllProducts = async (req,res,next) => {
     if(admin==="true")condition.status=["disponible","no disponible"]    
     if(admin==="DataBased")condition.status=["disponible","no disponible","deleted"]    
 
-
     try {
         const products = await Product.findAll({where:condition,order:sort})
         res.send(products)
