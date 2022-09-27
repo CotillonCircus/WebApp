@@ -1,5 +1,5 @@
 const {Product,User,Order, Catalog} = require("../db");
-const {literal} = require("sequelize");
+const {literal,Op} = require("sequelize");
 
 const postOrder = async (req,res)=>{
 
@@ -71,19 +71,6 @@ const adaptProducts= async(products)=>{
     return array;
 }
 
-const getAllOrders = async(req,res,next)=>{
-
-    try{
-
-        const orders = await Order.findAll({include: User});
-
-        res.status(200).send(orders);
-
-    }catch(error){
-        res.status(404).send(error.message)
-    }
-}
-
 const getOrderByUser = async(req,res,next)=>{
 
     const {sub} = req.params;
@@ -103,8 +90,43 @@ const getOrderByUser = async(req,res,next)=>{
     }
 }
 
+const filteredOrders = async(req,res,next)=>{
+    const {userName,firstDate,secondDate,productName} = req.body;
+
+
+    try{
+
+                let condition = {};
+                let userCondition = {}
+                // const startedDate = new Date(firstDate+" 00:00:00");
+                // const endDate = new Date(secondDate+" 00:00:00");
+
+                if(userName)userCondition.name={[Op.iLike]: `%${userName}%`};
+                // if(firstDate && secondDate)condition.createdAt= {[Op.between] : [startedDate , endDate ]};
+                    
+
+
+                let orders = await Order.findAll({where: condition, include: {model: User, where: userCondition}});
+
+                if(productName){
+                    orders= orders.filter((order)=>
+                        order.products.find((prod)=>{
+                            return prod.name.includes(productName);
+                        })
+                    );
+                    console.log(orders)
+                }
+
+
+                res.status(200).send(orders);                
+
+    }catch(error){
+        res.status(404).send(error.message)
+    }
+}
+
 module.exports = {
     postOrder,
-    getAllOrders,
-    getOrderByUser
+    getOrderByUser,
+    filteredOrders
 }

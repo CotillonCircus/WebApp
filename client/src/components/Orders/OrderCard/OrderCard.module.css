@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+.bigContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    width: 50vw;
+}
+
+.img{
+    width: 50px;
+    height: 50px;
+}
+
+.name{
+    font-weight: 700;
+}
+
+.id{
+    font-weight: 700;
+    font-size: 18px;
+}
