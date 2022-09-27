@@ -5,8 +5,8 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('order', {
     id: {
-        type: DataTypes.INTEGER,
-        autoIncrement:true,
+        type: DataTypes.UUID,
+        defaultValue:DataTypes.UUIDV4,
         primaryKey:true
     },
     totalPrize: {
@@ -16,6 +16,10 @@ module.exports = (sequelize) => {
     products: {
       type: DataTypes.ARRAY(DataTypes.JSON),
       allowNull: false
+    },
+    status:{
+      type:DataTypes.STRING,
+      defaultValue:"pending"
     }
   }, {timestamps:true});
 };

@@ -25,9 +25,9 @@ const getAllProducts = async (req,res,next) => {
     if(size)condition.size=size.split(",")
     if(cant)condition.cant=cant.split(",")
     if(catalogId)condition.catalogId=catalogId
-    if(!admin)condition.status="disponible"
+    condition.status="disponible"
     if(admin==="true")condition.status=["disponible","no disponible"]    
-    if(admin==="DataBased")condition.status=["disponible","no disponible"]    
+    if(admin==="DataBased")condition.status=["disponible","no disponible","deleted"]    
 
     try {
         const products = await Product.findAll({where:condition,order:sort})

@@ -125,8 +125,28 @@ const filteredOrders = async(req,res,next)=>{
     }
 }
 
+const getOneOrder = async(req,res,next)=>{
+    const id = req.params.id
+
+    try{
+        await Order.update({status:"approved"},{where:{id}});
+        const order = await Order.findByPk(id)
+        
+
+        order?
+        res.status(200).send(order)
+        :res.status(400).send()
+
+    }catch(error){
+        res.status(404).send(error.message)
+    }
+}
+
 module.exports = {
     postOrder,
     getOrderByUser,
     filteredOrders
+    getAllOrders,
+    getOrderByUser,
+    getOneOrder
 }

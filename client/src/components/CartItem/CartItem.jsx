@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 
 export function CartItem({ id, quantity }) {
   const { removeFromCart } = useShoppingCart();
-  const { productos } = useSelector((state) => state);
+  const { allProducts } = useSelector((state) => state);
 
-  const item = productos.find((i) => i.id === id);
+  const item = allProducts.find((i) => i.id === id);
   if (item === null) return null;
 
   return (
