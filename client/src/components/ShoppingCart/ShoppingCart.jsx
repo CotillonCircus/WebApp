@@ -8,14 +8,14 @@ import { useNavigate } from 'react-router-dom';
 
 export function ShoppingCart({ isOpen }) {
   const { closeCart, cartItems } = useShoppingCart();
-  const { productos } = useSelector((state) => state);
+  const { productos,userLogged } = useSelector((state) => state);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
-    dispatch(createPreference(cartItems, navigate));
+    dispatch(createPreference(cartItems, userLogged[0].sub));
   }
 
   return (

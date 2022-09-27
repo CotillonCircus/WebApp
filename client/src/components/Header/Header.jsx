@@ -6,15 +6,21 @@ import LogOutButton from '../../components/LogOutButton/LogOutButton';
 import Logo from '../../images/circus_cotillon_logo.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProductos } from '../../redux/actions';
+import { getProductos,getAllProductos } from '../../redux/actions';
 import Cart from '../Cart/Cart';
 import Confirmation from '../../components/Confirmation/Confirmation';
 import { changeUserStatus } from '../../redux/actions';
+import { useEffect } from 'react';
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    dispatch(getAllProductos())
+  },[dispatch])
+
   const textAlert = 'Usted se ha dado de baja';
 
   const handleDown = (e) => {
@@ -22,6 +28,7 @@ const Header = () => {
     dispatch(changeUserStatus(user.sub, ''));
     Confirmation({ textAlert });
   };
+
 
   const handleCLick = () => {
     const search = document.getElementById('search').value;

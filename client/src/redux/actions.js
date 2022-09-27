@@ -2,6 +2,7 @@ import axios from 'axios';
 import cloudinary from 'cloudinary/lib/cloudinary';
 
 export const GET_PRODUCTOS = 'GET_PRODUCTOS';
+export const GET_ALL_PRODUCTOS = 'GET_ALL_PRODUCTOS';
 export const GET_USER = 'GET_USER';
 export const CHANGE_USER_STATUS = 'CHANGE_USER_STATUS';
 export const GET_ALL_USERS = 'GET_ALL_USERS';
@@ -113,6 +114,23 @@ export function getProductos({
       ).data;
       return dispatch({
         type: GET_PRODUCTOS,
+        payload: productos,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+
+export function getAllProductos() {
+  return async function (dispatch) {
+    try {
+      const productos = (
+        await axios.get(
+          'http://localhost:3001/product')
+      ).data;
+      return dispatch({
+        type: GET_ALL_PRODUCTOS,
         payload: productos,
       });
     } catch (error) {
@@ -240,16 +258,16 @@ export function createProduct(newProduct) {
   };
 }
 
-export function createPreference(cartItems, navigate) {
+export function createPreference(cartItems,sub) {
   return async function (dispatch) {
     try {
       const link = (
         await axios.post(
           'http://localhost:3001/payment/create_preference',
-          cartItems
+          {products:cartItems,sub}
         )
       ).data.init_point;
-      window.open(link);
+      window.location.assign(link)
       return dispatch({
         type: POST_NEW_PREFERENCE,
         payload: '',
@@ -284,4 +302,15 @@ export function updateProduct(updatedProduct, setList) {
       console.log(error.message);
     }
   };
+}
+
+export async function updateOrder(id,setUpdatedOrder,navigate){
+  
+  try {
+    const updated = await axios.put("http://localhost:3001/order/"+id)
+    setUpdatedOrder(updated.data)
+    
+  } catch (error) { 
+    navigate("/home")
+  }
 }
