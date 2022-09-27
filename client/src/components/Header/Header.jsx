@@ -30,7 +30,7 @@ const Header = () => {
   };
 
 
-  const handleCLick = () => {
+  const handleCLick = (e) => {
     const search = document.getElementById('search').value;
     dispatch(getProductos({ name: search }));
     navigate('/products');
@@ -45,7 +45,7 @@ const Header = () => {
             <div className='col-md-3 column_header'>
               <div id='searchInput'>
                 <input id='search' placeholder='Buscar...'></input>
-                <button onClick={handleCLick}></button>
+                <button onClick={handleCLick}>OK</button>
               </div>
             </div>
             <div className='col-md-6 logo'>

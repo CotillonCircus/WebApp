@@ -26,7 +26,7 @@ cloudinary.config({
 export function getLogin(user) {
   return async function (dispatch) {
     try {
-      const userLogged = (await axios.post('http://localhost:3001/user', user))
+      const userLogged = (await axios.post('/user', user))
         .data;
       return dispatch({
         type: GET_USER,
@@ -42,7 +42,7 @@ export function changeUserStatus(sub, status) {
   return async function (dispatch) {
     try {
       const userChanged = (
-        await axios.put('http://localhost:3001/user/status', { sub, status })
+        await axios.put('/user/status', { sub, status })
       ).data;
       return dispatch({
         type: CHANGE_USER_STATUS,
@@ -57,7 +57,7 @@ export function changeUserStatus(sub, status) {
 export function getAllUsers() {
   return async function (dispatch) {
     try {
-      const users = (await axios.get('http://localhost:3001/user')).data;
+      const users = (await axios.get('/user')).data;
       return dispatch({
         type: GET_ALL_USERS,
         payload: users,
@@ -71,7 +71,7 @@ export function getAllUsers() {
 export function getProductById(ID) {
   return async function (dispatch) {
     try {
-      const product = (await axios.get(`http://localhost:3001/product/${ID}`))
+      const product = (await axios.get(`/product/${ID}`))
         .data;
       return dispatch({
         type: GET_PRODUCT_BY_ID,
@@ -96,7 +96,7 @@ export function getProductos({
     try {
       const productos = (
         await axios.get(
-          'http://localhost:3001/product?name=' +
+          '/product?name=' +
             name +
             '&catalogId=' +
             catalogId +
@@ -127,7 +127,7 @@ export function getAllProductos() {
     try {
       const productos = (
         await axios.get(
-          'http://localhost:3001/product')
+          '/product')
       ).data;
       return dispatch({
         type: GET_ALL_PRODUCTOS,
@@ -142,7 +142,7 @@ export function getAllProductos() {
 export function getCatalogs() {
   return async function (dispatch) {
     try {
-      const catalogs = (await axios.get('http://localhost:3001/catalog')).data;
+      const catalogs = (await axios.get('/catalog')).data;
       return dispatch({
         type: GET_ALL_CATALOGS,
         payload: catalogs,
@@ -156,7 +156,7 @@ export function getCatalogs() {
 export async function getRelated(name, setRelated) {
   try {
     const related = (
-      await axios.get(`http://localhost:3001/product?name=${name}`)
+      await axios.get(`/product?name=${name}`)
     ).data;
     setRelated(related);
   } catch (error) {
@@ -167,7 +167,7 @@ export async function getRelated(name, setRelated) {
 export function getAllAuths() {
   return async function (dispatch) {
     try {
-      const auths = (await axios.get('http://localhost:3001/auth')).data;
+      const auths = (await axios.get('/auth')).data;
       return dispatch({
         type: GET_ALL_AUTHS,
         payload: auths,
@@ -180,7 +180,7 @@ export function getAllAuths() {
 
 export async function getAllToFilter(setToFilter) {
   try {
-    const toFilter = (await axios.get(`http://localhost:3001/product/toFilter`))
+    const toFilter = (await axios.get(`/product/toFilter`))
       .data;
     setToFilter(toFilter);
   } catch (error) {
@@ -190,7 +190,7 @@ export async function getAllToFilter(setToFilter) {
 
 export async function getCarrouselImgs(set) {
   try {
-    const imgs = (await axios.get(`http://localhost:3001/cloudinary/carrousel`))
+    const imgs = (await axios.get(`/cloudinary/carrousel`))
       .data;
     set(imgs);
   } catch (error) {
@@ -247,7 +247,7 @@ export async function newProductImg(file) {
 export function createProduct(newProduct) {
   return async function (dispatch) {
     try {
-      await axios.post('http://localhost:3001/product', newProduct);
+      await axios.post('/product', newProduct);
       return dispatch({
         type: POST_NEW_PRODUCT,
         payload: '',
@@ -263,7 +263,7 @@ export function createPreference(cartItems,sub) {
     try {
       const link = (
         await axios.post(
-          'http://localhost:3001/payment/create_preference',
+          '/payment/create_preference',
           {products:cartItems,sub}
         )
       ).data.init_point;
@@ -281,7 +281,7 @@ export function createPreference(cartItems,sub) {
 export async function getProductsAdmin(setProducts) {
   try {
     const products = (
-      await axios.get('http://localhost:3001/product?admin=true')
+      await axios.get('/product?admin=true')
     ).data;
     setProducts(products);
   } catch (error) {
@@ -292,7 +292,7 @@ export async function getProductsAdmin(setProducts) {
 export function updateProduct(updatedProduct, setList) {
   return async function (dispatch) {
     try {
-      await axios.put('http://localhost:3001/product', updatedProduct);
+      await axios.put('/product', updatedProduct);
       setList && getProductsAdmin(setList);
       return dispatch({
         type: UPDATE_PRODUCT,
@@ -307,7 +307,7 @@ export function updateProduct(updatedProduct, setList) {
 export async function updateOrder(id,setUpdatedOrder,navigate){
   
   try {
-    const updated = await axios.put("http://localhost:3001/order/"+id)
+    const updated = await axios.put("/order/"+id)
     setUpdatedOrder(updated.data)
     
   } catch (error) { 

@@ -2,18 +2,11 @@
     width: 90vw;
     position: relative;
     left:5vw;
-    border:1px black solid;
-    /* height: 50vh; */
     display: flex;
     height: max-content;
     flex-direction: row;
     flex-wrap: wrap;
 }
-
-#Products div{
-    border:solid black 1px
-}
-
 #FiltersSection{
     width: 10%;
     height: 100%;
