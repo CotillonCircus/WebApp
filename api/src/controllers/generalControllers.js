@@ -7,10 +7,8 @@ const FS = require("fs")
 const populate = async () => {
 
     await Catalog.bulkCreate(catalogos)
-    const port = process.env.PORT||3001
-    const dbhost = process.env.DB_HOST
-    const security= process.env.PORT!==3001?"s":""
-    const url="http"+security+"://"+dbhost+":"+port+"/images/"
+
+    const url="http://localhost:3001/images/"
 
     let images = FS.readdirSync(path.join(__dirname, '../routes/images'))
     let productos = inventario.map((i)=>{
