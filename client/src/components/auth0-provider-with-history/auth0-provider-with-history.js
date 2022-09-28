@@ -8,7 +8,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
   const history = useNavigate();
-  const port = process.env.REACT_APP_PORT||"https://web-app-client-fqyw-ra7cclqsk-cotilloncircus.vercel.app"
+  const port = process.env.REACT_APP_PORT||"https://web-app-client-fqyw.vercel.app"
   const onRedirectCallback = (appState) => {
     history(appState?.returnTo || window.location.pathname);
   };
