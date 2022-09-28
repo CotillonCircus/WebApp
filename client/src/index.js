@@ -6,9 +6,14 @@ import store from "./redux/store";
 import {Provider} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
 import Auth0ProviderWithHistory from './components/auth0-provider-with-history/auth0-provider-with-history';
+import axios from "axios"
+import dotenv from "dotenv"
+dotenv.config()
 
 const container = document.getElementById("root")
 const root = ReactDOMClient.createRoot(container);
+
+axios.defaults.baseURL= process.env.REACT_APP_API || "http://localhost:3001"
 
 root.render(
   <BrowserRouter>
