@@ -12,9 +12,7 @@ mercadopago.configure({
 const createPreference = async (req, res, next) => {
   const {sub,products} = req.body;
 
-  const newOrder = await createOrder(products,sub,0)
-
-  console.log(newOrder.id)
+  const newOrder = await createOrder(products,sub)
 
   let items = products.map(async (item) => {
     const product = await Product.findByPk(item.id);
@@ -59,18 +57,19 @@ const getFeedback = async (req, res, next) => {
   });
 };
 
-const createOrder = async(products,sub,totalPrize)=>{
-  const adaptedProducts = await adaptProducts(products);
+const createOrder = async(products,sub)=>{
+  const {array,totalPrize} = await adaptProducts(products);
 
-  const newOrder = await Order.create({totalPrize,products: adaptedProducts});
+  const newOrder = await Order.create({totalPrize,products: array});
   const user = await User.findByPk(sub)
   newOrder.setUser(user)
+  
   return(newOrder);
 }
 
 const adaptProducts= async(products)=>{
   let array = [];
-  console.log(products)
+
   const mapeo = products.map(async ({id,quantity}) => {
       const product = await Product.findOne({where: {id}, include: Catalog});
       
@@ -83,9 +82,8 @@ const adaptProducts= async(products)=>{
           let stock = product.stock - quantity
           Product.update({stock},{where:{id}})
           
-          // const catalog = await Catalog.findOne({where: {id: product.catalogId}})
-          
           let falseProduct = {
+              id:product.id,
               name: product.name,
               price: product.price,
               img: product.img,
@@ -96,7 +94,6 @@ const adaptProducts= async(products)=>{
               catalog: product.catalog.name
           }
 
-          // await newOrder.addProduct(product);
           return falseProduct;
 
       }else{
@@ -106,7 +103,13 @@ const adaptProducts= async(products)=>{
 
   });
   array = await Promise.all(mapeo);
-  return array;
+
+  const totalPrize= products.reduce((total, cartItem) => {
+    const item = array.find((i) => i.id === cartItem.id);
+    return total + (item?.price || 0) * cartItem.quantity;
+  }, 0)
+
+  return {array,totalPrize};
 }
 
 
