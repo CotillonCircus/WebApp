@@ -133,18 +133,9 @@ const getOneOrder = async (req, res, next) => {
 };
 
 module.exports = {
-<<<<<<< HEAD
   postOrder,
   getOrderByUser,
   filteredOrders,
   getOrderByUser,
   getOneOrder,
 };
-=======
-    postOrder,
-    getOrderByUser,
-    filteredOrders,
-    getOrderByUser,
-    getOneOrder
-}
->>>>>>> 7950212b97aa68bcac91d896620ff9b2ccaf4696
