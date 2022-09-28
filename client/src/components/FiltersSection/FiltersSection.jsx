@@ -7,7 +7,7 @@ import { getAllToFilter, getProductos } from '../../redux/actions';
 
 export default function FilterSection() {
   const initialFilter = {
-    catalogId: "",
+    catalogId: '',
     color: [],
     size: [],
     cant: [],
@@ -21,9 +21,9 @@ export default function FilterSection() {
 
   useEffect(() => {
     getAllToFilter(SetToFilter);
-    !(productos?.length)&&dispatch(getProductos({}));
+    !productos?.length && dispatch(getProductos({}));
   }, [dispatch]);
-  
+
   const onClick = (e) => {
     let newFilters = { ...filters };
     let value = e.target.value;
@@ -32,9 +32,9 @@ export default function FilterSection() {
     if (name === 'alf' || name === 'price') {
       newFilters[name] = value === 'ASC' ? 'DESC' : 'ASC';
     } else {
-      if(name==="catalogId"){
-        newFilters[name]=value
-      }else{
+      if (name === 'catalogId') {
+        newFilters[name] = value;
+      } else {
         if (newFilters[name].includes(value)) {
           newFilters[name] = newFilters[name].filter((filt) => filt !== value);
         } else {
@@ -54,7 +54,7 @@ export default function FilterSection() {
   return (
     <div id='FiltersSection'>
       <div id='catalogs' className='filter'>
-        <span>categorias </span>
+        <span>Categorías</span>
         {catalogs?.map((catalogo) => {
           let value = catalogo.name.split('_').join(' ');
           return (
@@ -70,7 +70,7 @@ export default function FilterSection() {
         })}
       </div>
       <div id='colorsFilters' className='filter'>
-        <span>colores </span>
+        <span>Colores</span>
         {toFilter.colors?.map((color) => {
           const stock = productos.filter(
             (product) => product.color === color
@@ -93,7 +93,7 @@ export default function FilterSection() {
         })}
       </div>
       <div id='cantsFilters' className='filter'>
-        <span>por cantidad </span>
+        <span>Cantidad</span>
         {toFilter.cants?.map((quantity) => {
           const stock = productos.filter(
             (product) => product.cant === quantity
@@ -116,7 +116,7 @@ export default function FilterSection() {
         })}
       </div>
       <div id='sizesFilters' className='filter'>
-        <span>tamaño </span>
+        <span>Tamaños</span>
         {toFilter.sizes?.map((size) => {
           const stock = productos.filter(
             (product) => product.size === size

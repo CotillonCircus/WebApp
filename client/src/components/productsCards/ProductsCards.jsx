@@ -82,7 +82,7 @@ const ProductsCards = (id) => {
                             size='sm'
                             onClick={() => removeFromCart(p.id)}
                           >
-                            Remove
+                            Quitar
                           </Button>
                         </div>
                       )}
