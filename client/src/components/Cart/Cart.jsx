@@ -10,7 +10,7 @@ const Cart = () => {
         <Button
           onClick={openCart}
           style={{ width: '3.7rem', height: '3.7rem', position: 'relative' }}
-          variant='outline-primary'
+          variant='outline-secondary'
           className='rounded-circle'
         >
           <svg
