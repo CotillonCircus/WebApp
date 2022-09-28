@@ -8,7 +8,6 @@ const Auth0ProviderWithHistory = ({ children }) => {
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
   const history = useNavigate();
-  const port = process.env.REACT_APP_PORT||"https://web-app-client-fqyw.vercel.app"
   const onRedirectCallback = (appState) => {
     history(appState?.returnTo || window.location.pathname);
   };
@@ -17,7 +16,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
     <Auth0Provider
       domain={domain}
       clientId={clientId}
-      redirectUri={window.location.origin}
+      redirectUri={(window.location.origin)+"/home"}
       onRedirectCallback={onRedirectCallback}
     >
       {children}
