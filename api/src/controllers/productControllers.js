@@ -1,4 +1,4 @@
-const { Op,literal } = require("sequelize")
+const { Op,literal, where } = require("sequelize")
 const {Product} = require("../db") 
 
 const createProduct = async(req,res,next) => {
@@ -94,11 +94,23 @@ const editProduct = async (req,res,next) => {
     }
 }
 
+const editProductsGroup = async (req,res,next)=>{
+    const {prop,value,ids} = req.body
+    try {
+        await Product.update({[prop]:literal(prop+"+"+value)},{where:{id:ids}})
+        const updated = await Product.findAll({where:{id:ids}}) 
+        res.send(updated)
+    } catch (error) {
+        res.send(error.message)
+    }
+}
+
 module.exports={
     getAllProducts,
     getProductDetails,
     getAllToFilter,
     editProduct,
     buyProducts,
-    createProduct
+    createProduct,
+    editProductsGroup
 }

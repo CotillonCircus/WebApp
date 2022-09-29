@@ -278,10 +278,35 @@ export function createPreference(cartItems,sub) {
   };
 }
 
-export async function getProductsAdmin(setProducts) {
+export async function getProductsAdmin(setProducts,{
+  name = '',
+  catalogId = "",
+  colors = '',
+  sizes = '',
+  cants = '',
+  alf = '',
+  price = '',
+}) {
+  console.log(catalogId)
   try {
     const products = (
-      await axios.get('/product?admin=true')
+      await axios.get(
+        '/product?name=' +
+          name +
+          '&catalogId=' +
+          catalogId +
+          '&color=' +
+          colors +
+          '&size=' +
+          sizes +
+          '&cant=' +
+          cants +
+          '&alf=' +
+          alf +
+          '&price=' +
+          price +
+          "&admin=true"
+      )
     ).data;
     setProducts(products);
   } catch (error) {
@@ -312,5 +337,18 @@ export async function updateOrder(id,setUpdatedOrder,navigate){
     
   } catch (error) { 
     navigate("/home")
+  }
+}
+
+export async function putProductsGroup(products,prop,value,setList){
+
+  const ids = products.map(product=>product.id)
+
+  try {
+    const updated = await axios.put("/product/group",{ids,prop,value})
+    console.log(updated)
+    setList(updated.data)
+  } catch (error) {
+    console.log(error.message)
   }
 }
