@@ -8,12 +8,11 @@ import { getCarrouselImgs } from '../../redux/actions';
 import { useEffect } from 'react';
 
 const Carousel = () => {
+  const [carrosuelImgs, setCarrosuelImgs] = useState([]);
 
-  const [carrosuelImgs,setCarrosuelImgs] = useState([])  
-
-  useEffect(()=>{
-    getCarrouselImgs(setCarrosuelImgs)
-  },[])
+  useEffect(() => {
+    getCarrouselImgs(setCarrosuelImgs);
+  }, []);
 
   return (
     <section
@@ -45,19 +44,18 @@ const Carousel = () => {
           data-bs-slide-to='2'
           aria-label='Slide 3'
         ></button>
-        {
-          carrosuelImgs?.map((img,i)=>{
-            return(
-              <button
-                type='button'
-                data-bs-target='#carouselExampleIndicators'
-                className='off'
-                data-bs-slide-to={(i+3).toString()}
-                aria-label={'Slide '+((i+4).toString())}
-              ></button>
-            )
-          })
-        }
+        {carrosuelImgs?.map((img, i) => {
+          return (
+            <button
+              type='button'
+              data-bs-target='#carouselExampleIndicators'
+              className='off'
+              data-bs-slide-to={(i + 3).toString()}
+              aria-label={'Slide ' + (i + 4).toString()}
+              key={'img.button' + i}
+            ></button>
+          );
+        })}
       </div>
       {/* ===== Images ===== */}
       <div className='carousel-inner'>
@@ -70,17 +68,19 @@ const Carousel = () => {
         <div className='carousel-item'>
           <img src={Globo} className='d-block w-50 mx-auto' alt='globo' />
         </div>
-        {
-          carrosuelImgs?.map(img=>{
-            return(
-              <div className='carousel-item'>
-                <img src={img.url} className='d-block w-50 mx-auto' alt='cloud img' />
-              </div>
-            )
-          })
-        }
+        {carrosuelImgs?.map((img) => {
+          return (
+            <div className='carousel-item' key={img.url}>
+              <img
+                src={img.url}
+                className='d-block w-50 mx-auto'
+                alt='cloud img'
+              />
+            </div>
+          );
+        })}
       </div>
-      
+
       {/* ===== Lateral controls ===== */}
       <button
         className='carousel-control-prev'

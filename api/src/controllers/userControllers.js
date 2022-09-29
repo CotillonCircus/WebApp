@@ -23,6 +23,7 @@ const checkEmailAdmin = (obj) => {
     'patriciogabrielcolella@gmail.com',
     'tutemaposo2016@gmail.com',
     'cotilloncircusweb@gmail.com',
+    'sebaruvira@gmail.com',
   ];
   return emails.includes(obj.email);
 };
