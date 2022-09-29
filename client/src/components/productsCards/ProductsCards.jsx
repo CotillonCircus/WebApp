@@ -44,7 +44,7 @@ const ProductsCards = (id) => {
                     <div className='mt-auto'>
                       {getItemQuantity(p.id) === 0 ? (
                         <Button
-                          className='w-100'
+                          className='w-100 btn-secondary'
                           onClick={() => increaseCartQuantity(p.id)}
                         >
                           Agregar al Carrito
@@ -58,7 +58,10 @@ const ProductsCards = (id) => {
                             className='d-flex align-items-center justify-content-center'
                             style={{ gap: '0.5rem' }}
                           >
-                            <Button onClick={() => decreaseCartQuantity(p.id)}>
+                            <Button
+                              onClick={() => decreaseCartQuantity(p.id)}
+                              className='btn-secondary'
+                            >
                               -
                             </Button>
                             <div>
@@ -67,7 +70,10 @@ const ProductsCards = (id) => {
                               </span>{' '}
                               en carrito
                             </div>
-                            <Button onClick={() => increaseCartQuantity(p.id)}>
+                            <Button
+                              onClick={() => increaseCartQuantity(p.id)}
+                              className='btn-secondary'
+                            >
                               +
                             </Button>
                           </div>
@@ -76,7 +82,7 @@ const ProductsCards = (id) => {
                             size='sm'
                             onClick={() => removeFromCart(p.id)}
                           >
-                            Remove
+                            Quitar
                           </Button>
                         </div>
                       )}
