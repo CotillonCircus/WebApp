@@ -11,6 +11,10 @@
     transform-origin: top;
 }
 
+#listProducts > div{
+    margin: 1% 0%;
+}
+
 @keyframes anim {
     0%{transform: scaleY(0%) ;}
     100%{transform: scaleY(100%);}
@@ -41,3 +45,60 @@
     text-transform: uppercase;
 }
 
+#groupChange{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#groupChange input{
+    width: min-content;
+    height: 2vh;
+}
+
+#groupChange div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* border:black 1px solid; */
+    height: max-content;
+    width: max-content;
+}
+
+#groupChange div p{
+    font-size: xx-large;
+    transform: translateY(15%);
+}
+
+#groupChange button{
+    border: 1px solid black;
+    background-color: pink;
+    border-radius: 2px;
+}
+
+#filtersSelected span{
+    color:rgb(181, 37, 61);
+    text-transform: capitalize;
+}
+
+#filtersSelected button{
+    border:1px solid rgb(181, 37, 61);
+    background-color: white;
+    margin: 0% 0.5%;
+}
+
+#filtersSelection{
+    display: flex;
+    flex-direction: row;
+}
+
+#filtersSelection div{
+    margin: 0% 1%;
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+#filtersSelection select{
+    border: 1px solid black;
+    border-radius: 10px;
+}

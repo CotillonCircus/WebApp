@@ -12,6 +12,7 @@ export const GET_ALL_AUTHS = 'GET_ALL_AUTHS';
 export const POST_NEW_PRODUCT = 'POST_NEW_PRODUCT';
 export const POST_NEW_PREFERENCE = 'POST_NEW_PREFERENCE';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+export const GET_ALL_ORDERS = "GET_ALL_ORDERS";
 
 const cloud_name = 'circus-corillon';
 const api_key = '164947681452799';
@@ -278,10 +279,35 @@ export function createPreference(cartItems,sub) {
   };
 }
 
-export async function getProductsAdmin(setProducts) {
+export async function getProductsAdmin(setProducts,{
+  name = '',
+  catalogId = "",
+  colors = '',
+  sizes = '',
+  cants = '',
+  alf = '',
+  price = '',
+}) {
+  console.log(catalogId)
   try {
     const products = (
-      await axios.get('/product?admin=true')
+      await axios.get(
+        '/product?name=' +
+          name +
+          '&catalogId=' +
+          catalogId +
+          '&color=' +
+          colors +
+          '&size=' +
+          sizes +
+          '&cant=' +
+          cants +
+          '&alf=' +
+          alf +
+          '&price=' +
+          price +
+          "&admin=true"
+      )
     ).data;
     setProducts(products);
   } catch (error) {
@@ -314,3 +340,32 @@ export async function updateOrder(id,setUpdatedOrder,navigate){
     navigate("/home")
   }
 }
+
+
+export function getAllOrders({userName="",productName="",firstDate="",secondDate=""}){
+  return async function (dispatch) {
+      try{
+        const orders = (await axios.get(`http://localhost:3001/order?userName=${userName}&productName=${productName}&firstDate=${firstDate}&seconDate=${secondDate}`)).data;
+        return dispatch({
+          type: GET_ALL_ORDERS,
+          payload: orders
+        });
+    } catch(error){
+      console.log(error.message)
+    }
+  }
+  }
+
+export async function putProductsGroup(products,prop,value,setList){
+
+  const ids = products.map(product=>product.id)
+
+  try {
+    const updated = await axios.put("/product/group",{ids,prop,value})
+    console.log(updated)
+    setList(updated.data)
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
