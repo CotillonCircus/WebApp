@@ -18,7 +18,7 @@ const HomeProducts = () => {
   return (
     <div id='homeProducts'>
       <div id='catalogs'>
-        <span className='bold'>categorias principales</span>
+        <span className='bold'>Categorías Principales</span>
         {catalogs?.map((c) => {
           let key = c.name.split('_').join(' ');
           return <span key={key}>{key}</span>;
@@ -38,17 +38,17 @@ const HomeProducts = () => {
                 user.status === 'mayorista' || user.status === 'admin' ? (
                   <span>${p.price}</span>
                 ) : (
-                  <span>Se necesita autorizacion para ver los precios</span>
+                  <span>Se necesita autorización para ver los precios</span>
                 )
               ) : (
-                <span>Registrate y autorizate para ver los precios</span>
+                <span>Registrese para ver los precios</span>
               )}
             </Link>
           );
         })}
       </div>
       <div id='productsButton'>
-        <Link to='/products'>VER TODOS LOS PRODUCTOS</Link>
+        <Link to='/products'>Ver todos los productos</Link>
       </div>
     </div>
   );

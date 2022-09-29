@@ -106,15 +106,23 @@ const Header = () => {
       ) : (
         <div className='container-fluid text-center'>
           <div className='row'>
-            <div id='searchInput'>
-              <input id='search' laceholder='search'></input>
-              <button onClick={handleCLick}>search</button>
+            <div className='col-md-3 column_header'>
+              <div id='searchInput'>
+                <input id='search' placeholder='Búsqueda...'></input>
+                <button
+                  onClick={handleCLick}
+                  type='button'
+                  className='btn btn-secondary'
+                >
+                  Buscar
+                </button>
+              </div>
             </div>
-            <div className='col-md'>
+            <div className='col-md-6'>
               {' '}
               <img src={Logo} className='d-block w-50 mx-auto' alt='logo' />
             </div>
-            <div className='col-md column_header'>
+            <div className='col-md-3 column_header'>
               <LoginButton> </LoginButton>
             </div>
           </div>
