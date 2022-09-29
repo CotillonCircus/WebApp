@@ -11,7 +11,7 @@ const AuthCard = ({id,sub,name,email,company,cuit,address,razon_social,setAuthFl
     const authorize = (e)=>{
         e.preventDefault();
         dispatch(changeUserStatus(sub,"mayorista"));
-        axios.delete("http://localhost:3001/auth",{data: {id}})
+        axios.delete("/auth",{data: {id,email,authorized:true}})
         .then(res=>console.log("Usuario autorizado"));
         setAuthFlag((prevFlag)=>!prevFlag);
     }
@@ -19,7 +19,7 @@ const AuthCard = ({id,sub,name,email,company,cuit,address,razon_social,setAuthFl
     const deny = (e)=>{
         e.preventDefault();
         dispatch(changeUserStatus(sub,"unauthorized"));
-        axios.delete("http://localhost:3001/auth",{data: {id}})
+        axios.delete("/auth",{data: {id,email,authorized:false}})
         .then(res=>console.log("Usuario denegado"));
         setAuthFlag((prevFlag)=>!prevFlag);
     }
