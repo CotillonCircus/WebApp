@@ -91,7 +91,7 @@ const getOrderByUser = async(req,res,next)=>{
 }
 
 const filteredOrders = async(req,res,next)=>{
-    const {userName,firstDate,secondDate,productName} = req.body;
+    const {userName,firstDate,secondDate,productName} = req.query;
 
 
     try{
@@ -145,8 +145,7 @@ const getOneOrder = async(req,res,next)=>{
 module.exports = {
     postOrder,
     getOrderByUser,
-    filteredOrders
-    getAllOrders,
+    filteredOrders,
     getOrderByUser,
     getOneOrder
 }

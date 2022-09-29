@@ -12,6 +12,7 @@ export const GET_ALL_AUTHS = 'GET_ALL_AUTHS';
 export const POST_NEW_PRODUCT = 'POST_NEW_PRODUCT';
 export const POST_NEW_PREFERENCE = 'POST_NEW_PREFERENCE';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+export const GET_ALL_ORDERS = "GET_ALL_ORDERS";
 
 const cloud_name = 'circus-corillon';
 const api_key = '164947681452799';
@@ -314,3 +315,17 @@ export async function updateOrder(id,setUpdatedOrder,navigate){
     navigate("/home")
   }
 }
+
+export function getAllOrders({userName="",productName="",firstDate="",secondDate=""}){
+  return async function (dispatch) {
+      try{
+        const orders = (await axios.get(`http://localhost:3001/order?userName=${userName}&productName=${productName}&firstDate=${firstDate}&seconDate=${secondDate}`)).data;
+        return dispatch({
+          type: GET_ALL_ORDERS,
+          payload: orders
+        });
+    } catch(error){
+      console.log(error.message)
+    }
+  }
+  }
