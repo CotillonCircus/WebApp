@@ -1,0 +1,20 @@
+.generalContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.form{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.button{
+    border: 0.5px solid rgb(75, 75, 75);
+    border-radius: 5px;
+}
+
+.input{
+    width: 15vw;
+}
