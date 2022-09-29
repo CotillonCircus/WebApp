@@ -111,15 +111,6 @@ h1 {
   border: 1px solid var(--color-text);
 }
 
-/* .btn-primary {
-  background: var(--color-text);
-  color: var(--color-bg);
-}
-
-.btn-primary:hover {
-  background: var(--color-text-variant);
-} */
-
 img {
   display: block;
   width: 100%;

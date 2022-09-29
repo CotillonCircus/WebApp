@@ -33,9 +33,11 @@ export default function EditCarrousel() {
   };
 
   const handleAdd = (e) => {
-    addCarrouselImg(e, carrouselImgs, setImgs);
-    const objectUrl = URL.createObjectURL(e.target.files[0]);
-    setImgs([...carrouselImgs, { url: objectUrl }]);
+    if (e.target.files[0]) {
+      addCarrouselImg(e, carrouselImgs, setImgs);
+      const objectUrl = URL.createObjectURL(e.target.files[0]);
+      setImgs([...carrouselImgs, { url: objectUrl }]);
+    }
   };
 
   return (
@@ -44,11 +46,11 @@ export default function EditCarrousel() {
       <div id='carrouselImgs'>
         {carrouselImgs?.map((img) => {
           return (
-            <div className='carrouselImg'>
+            <div className='carrouselImg' key={img.url}>
               <img src={img.url} alt={img.url}></img>
               {img.public_id ? (
                 <button onClick={deleteHandler} value={img.public_id}>
-                  borar
+                  borrar
                 </button>
               ) : (
                 <span>cargando</span>
@@ -57,7 +59,7 @@ export default function EditCarrousel() {
           );
         })}
         <div id='addImgInput'>
-          <label for='esto'>añadir</label>
+          <label htmlFor='esto'>añadir</label>
           <input
             id='esto'
             type='file'

@@ -2,30 +2,28 @@
   width: 90vw;
   position: relative;
   left: 5vw;
-  border: 1px black solid;
-  /* height: 50vh; */
   display: flex;
   height: max-content;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 10vh;
+}
+.bold {
+  font-weight: bold;
 }
 
-#homeProducts div {
-  border: solid black 1px;
+#homeProducts #catalogs {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
-#homeProducts #catalogs{
-    width: 10%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-#homeProducts #catalogs span{
-    text-overflow: clip;
-    text-transform:uppercase;
+#homeProducts #catalogs span {
+  text-overflow: clip;
+  text-transform: uppercase;
 }
 
 #products {
@@ -63,6 +61,7 @@
   padding: 0.7% 3%;
   font-size: small;
   color: white;
+  border-radius: 1vh;
   background-color: #ff009f;
   text-decoration: none;
 }

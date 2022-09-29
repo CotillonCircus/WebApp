@@ -1,5 +1,11 @@
-const {Product,User,Order, Catalog} = require("../db");
-const {literal,Op} = require("sequelize");
+const { Product, User, Order, Catalog } = require('../db');
+const { literal, Op } = require('sequelize');
+const { sendMail } = require('./generalControllers');
+const {NODEMAILER_MAIL_USER } = process.env
+
+const subject = "compra realizada"
+const textUser = "su compra a sido realizada exitosamente! con un monto de $"
+const textAdmin = "un usuario ah realizado una compra de $"
 
 const postOrder = async (req,res)=>{
 
@@ -125,27 +131,29 @@ const filteredOrders = async(req,res,next)=>{
     }
 }
 
-const getOneOrder = async(req,res,next)=>{
-    const id = req.params.id
+const getOneOrder = async (req, res, next) => {
+  const id = req.params.id;
+  let text 
+  try {
+    await Order.update({ status: 'approved' }, { where: { id } });
+    const order = await Order.findByPk(id);
+    
+    const to = (await User.findByPk(order.userSub)).email
+    text =  textUser+order.totalPrize
+    sendMail(to,subject,text,"")
+    text = textAdmin+order.totalPrize
+    sendMail(NODEMAILER_MAIL_USER,subject,text,"")
 
-    try{
-        await Order.update({status:"approved"},{where:{id}});
-        const order = await Order.findByPk(id)
-        
-
-        order?
-        res.status(200).send(order)
-        :res.status(400).send()
-
-    }catch(error){
-        res.status(404).send(error.message)
-    }
-}
+    order ? res.status(200).send(order) : res.status(400).send();
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+};
 
 module.exports = {
-    postOrder,
-    getOrderByUser,
-    filteredOrders,
-    getOrderByUser,
-    getOneOrder
-}
+  postOrder,
+  getOrderByUser,
+  filteredOrders,
+  getOrderByUser,
+  getOneOrder,
+};

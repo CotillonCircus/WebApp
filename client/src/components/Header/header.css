@@ -25,11 +25,26 @@
   margin-top: 13vh;
 }
 
+.ddlink {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  cursor: pointer;
+  text-align: center;
+  /* font-weight: bold;
+  width: 30%;
+  font-size: 100%; */
+  text-decoration: none;
+  background-color: white;
+  color: black;
+}
+
 #searchInput {
   height: 5vh;
   width: 20vw;
   justify-self: center;
-  border-bottom: 1px black solid;
+  border: 1px black solid;
+  border-radius: 1vh;
   display: flex;
   flex-direction: row;
   align-self: center;
@@ -41,13 +56,20 @@
 
 #searchInput input {
   border: none;
-  font-size: small;
+  font-size: medium;
 }
 
 #searchInput button {
-  background-color: rgb(234, 234, 234);
+  color: white;
+  background-color: gray;
+  display: inline-flex;
+  align-items: center;
 }
 
 .btn-group {
   margin-top: 14vh;
+}
+
+.headerbaja {
+  cursor: pointer;
 }
