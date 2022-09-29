@@ -14,7 +14,7 @@ const AuthForm = () => {
     company: '',
     cuit: '',
     razon_social: '',
-    address: ''
+    address: '',
   });
 
   const handleChange = (e) => {
@@ -33,7 +33,7 @@ const AuthForm = () => {
       company: input.company,
       cuit: input.cuit,
       razon_social: input.razon_social,
-      address: input.address
+      address: input.address,
     };
 
     axios.post('http://localhost:3001/auth', auth);
@@ -43,7 +43,7 @@ const AuthForm = () => {
       company: '',
       cuit: '',
       razon_social: '',
-      address: ''
+      address: '',
     });
     Confirmation({ textAlert });
   };
@@ -56,7 +56,7 @@ const AuthForm = () => {
         type='text'
         name='name'
         value={input.name}
-        placeholder='Nombre completo'
+        placeholder='Nombre contacto'
         required
         onChange={(e) => handleChange(e)}
       />
@@ -72,7 +72,7 @@ const AuthForm = () => {
         type='text'
         name='company'
         value={input.company}
-        placeholder='Compañia'
+        placeholder='Compañía'
         required
         onChange={(e) => handleChange(e)}
       />
@@ -88,7 +88,7 @@ const AuthForm = () => {
         type='text'
         name='address'
         value={input.address}
-        placeholder='Direccion'
+        placeholder='Domicilio de entrega'
         required
         onChange={(e) => handleChange(e)}
       />
@@ -112,4 +112,3 @@ const AuthForm = () => {
 };
 
 export default AuthForm;
-
