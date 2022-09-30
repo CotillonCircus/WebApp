@@ -16,6 +16,10 @@ const getCarrouselImgs = async(req,res,next)=>{
     }
 }
 
+const destroyImg = async()=>{
+
+}
+
 module.exports={
     getCarrouselImgs,
     cloudinary

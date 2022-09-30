@@ -1,5 +1,5 @@
 import axios from 'axios';
-import cloudinary from '../components/cloudinary/cloudinary';
+import cloudinary from "../components/cloudinary/cloudinary"
 export const GET_PRODUCTOS = 'GET_PRODUCTOS';
 export const GET_ALL_PRODUCTOS = 'GET_ALL_PRODUCTOS';
 export const GET_USER = 'GET_USER';
@@ -12,6 +12,7 @@ export const POST_NEW_PRODUCT = 'POST_NEW_PRODUCT';
 export const POST_NEW_PREFERENCE = 'POST_NEW_PREFERENCE';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const GET_ALL_ORDERS = "GET_ALL_ORDERS";
+
 
 export function getLogin(user) {
   return async function (dispatch) {
@@ -266,19 +267,18 @@ export function createPreference(cartItems,sub,redirectUrl) {
   };
 }
 
-export async function getProductsAdmin(setProducts,{
-  name = '',
+export async function getProductsAdmin({
   catalogId = "",
   colors = '',
   sizes = '',
   cants = '',
   order = ""
-}) {
+},setProducts) {
   try {
     const products = (
       await axios.get(
         '/product?name=' +
-          name +
+          "" +
           '&catalogId=' +
           catalogId +
           '&color=' +
@@ -302,7 +302,7 @@ export function updateProduct(updatedProduct, setList) {
   return async function (dispatch) {
     try {
       await axios.put('/product', updatedProduct);
-      setList && getProductsAdmin(setList);
+      setList && getProductsAdmin({},setList);
       return dispatch({
         type: UPDATE_PRODUCT,
         payload: '',

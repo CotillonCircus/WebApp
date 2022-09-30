@@ -13,7 +13,7 @@ export default function ProductsList(){
     const [productToChange,setProductToChange] = useState({})
     const dispatch = useDispatch()
     const [toFilter,setToFilter] = useState()
-    const [filters,setFilters] = useState({colors:[],sizes:[],cants:[],catalogId:{id:""},order:"name ASC"})
+    const [filters,setFilters] = useState({colors:[],sizes:[],cants:[],catalogId:{id:""},order:"name ASC",name:""})
     const [groupEdit,setGroupEdit] = useState(["price",0])
     const {catalogs} = useSelector(state=>state)
     useEffect(()=>{
@@ -21,7 +21,7 @@ export default function ProductsList(){
     },[dispatch])
 
     useEffect(()=>{
-        getProductsAdmin(setList,{...filters,catalogId:filters.catalogId.id})
+        getProductsAdmin({...filters,catalogId:filters.catalogId.id},setList)
     },[showForm,showList,filters])
 
     useEffect(()=>{

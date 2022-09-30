@@ -25,6 +25,7 @@ export default function EditCarrousel() {
   }, []);
 
   const deleteHandler = (e) => {
+    console.log(e.target.value)
     deleteCarrouselImg(e.target.value);
     const filtered = carrouselImgs.filter(
       (img) => img.public_id !== e.target.value

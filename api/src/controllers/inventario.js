@@ -5,7 +5,7 @@ const GLOBOS = [{
     color:"perlado",
     cant:50,
     size:"",
-    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/v7jjpvpymvb0e6ypa24f.png"
+    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/sza86x79iuvwk37fuft0.png"
 },{
     name:"tuky",
     price:1,
@@ -13,7 +13,7 @@ const GLOBOS = [{
     color:"std",
     cant:50,
     size:"",
-    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/zp5dlll4w5eriqaj1xcs.png"
+    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/kfxfbxyn5pbldyxoxo6y.png"
 },{
     name:"party time",
     price:Math.floor((Math.random()*100)),
@@ -21,7 +21,7 @@ const GLOBOS = [{
     color:"std",
     cant:50,
     size:"",
-    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/yazkjjg6pkfkeolsbphv.png"
+    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/u23wsojkbmts3rhe9ttx.png"
 },{
     name:"globox",
     price:Math.floor((Math.random()*100)),
@@ -29,7 +29,7 @@ const GLOBOS = [{
     color:"perlado",
     cant:50,
     size:"",
-    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/g9kygzarkzdidlbqyoso.png"
+    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/hgci3yiii2knrkmgdnbd.png"
 },{
     name:"party time",
     price:Math.floor((Math.random()*100)),
@@ -37,7 +37,7 @@ const GLOBOS = [{
     color:"perlado",
     cant:25,
     size:"",
-    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/oghi9ouyiyz6cxvrlhpp.png"
+    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/aeiqswwqohgmwdwfwfe6.png"
 }]
 
 const GLOBOS_NUMEROS = [{
@@ -47,7 +47,7 @@ const GLOBOS_NUMEROS = [{
     color:"plata",
     cant:0,
     size:`16"`,
-    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/upf09q3p4xkhdzwnjjpc.png"
+    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/byrdwcbjsxtcj8wuyq0n.png"
 },{
     name:"uno",
     price:Math.floor((Math.random()*100)),

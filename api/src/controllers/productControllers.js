@@ -1,6 +1,6 @@
 const { Op,literal, where } = require("sequelize")
 const {Product} = require("../db") 
-const cloudinary = require("./cloudinaryControllers")
+const {cloudinary} = require("./cloudinaryControllers")
 
 const createProduct = async(req,res,next) => {
     try{
@@ -86,10 +86,11 @@ const buyProducts=(req,res,next)=>{
 
 const editProduct = async (req,res,next) => {
     const {id,name,img,catalogId,color,size,cant,alf,price,cantStock,status} = req.body
-    if(status==="deleted"){
-        const public_id=img.split("/")
-        const length = public_id.length
-        await cloudinary.uploader.destroy(public_id[length-1]+"/"+public_id[length-2].split(".")[0], (succes, error) =>
+    if(status==="deleted"&&img){
+        const url=img.split("/")
+        const length = url.length
+        const public_id = url[length-1].split(".")[0]
+        await cloudinary.uploader.destroy("products/"+public_id, (succes, error) =>
       console.log({ succes, error })
     );
     }
