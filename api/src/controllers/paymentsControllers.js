@@ -10,8 +10,7 @@ mercadopago.configure({
 });
 
 const createPreference = async (req, res, next) => {
-  const {sub,products} = req.body;
-
+  const {sub,products,redirectUrl} = req.body;
   const newOrder = await createOrder(products,sub)
 
   let items = products.map(async (item) => {
@@ -28,9 +27,9 @@ const createPreference = async (req, res, next) => {
     items: items,
 
     back_urls: {
-      success: 'http://localhost:3000/success?orderId='+newOrder.id,
-      failure: 'http://localhost:3000/failure',
-      pending: 'http://localhost:3000/pending',
+      success: redirectUrl+'/success?orderId='+newOrder.id,
+      failure: redirectUrl+'/failure',
+      pending: redirectUrl+'/pending',
     },
     auto_return: 'approved',
   };

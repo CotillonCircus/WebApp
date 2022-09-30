@@ -11,8 +11,7 @@ export default function FilterSection() {
     color: [],
     size: [],
     cant: [],
-    alf: '',
-    price: '',
+    order: "name ASC"
   };
   const { catalogs, productos } = useSelector((state) => state);
   const [toFilter, SetToFilter] = useState({});
@@ -29,19 +28,16 @@ export default function FilterSection() {
     let value = e.target.value;
     let name = e.target.name;
 
-    if (name === 'alf' || name === 'price') {
-      newFilters[name] = value === 'ASC' ? 'DESC' : 'ASC';
+    if (name === 'catalogId') {
+      newFilters[name] = value;
     } else {
-      if (name === 'catalogId') {
-        newFilters[name] = value;
+      if (newFilters[name].includes(value)) {
+        newFilters[name] = newFilters[name].filter((filt) => filt !== value);
       } else {
-        if (newFilters[name].includes(value)) {
-          newFilters[name] = newFilters[name].filter((filt) => filt !== value);
-        } else {
-          newFilters[name].push(value);
-        }
+        newFilters[name].push(value);
       }
     }
+  
     setFilters({ ...newFilters });
     dispatch(getProductos({ ...newFilters }));
   };
@@ -50,6 +46,24 @@ export default function FilterSection() {
     setFilters({ ...initialFilter });
     dispatch(getProductos({}));
   };
+  
+  const deleteFilter = (e)=>{
+      const {name,value} = e.target
+      const filtered = filters[name].filter(filt=>filt!==value)
+      const newFilters = {...filters,[name]:filtered}
+      setFilters(newFilters)
+      dispatch(getProductos({ ...newFilters })); 
+      const cheks = document.getElementsByName(name)
+      cheks.forEach(check=>{
+        if(check.value===value)check.checked=false
+      })
+  }
+
+  const handleOrder=(e)=>{
+    const newFilters = {...filters,order:e.target.value}
+    setFilters(newFilters)
+    dispatch(getProductos({ ...newFilters }));
+  }
 
   return (
     <div id='FiltersSection'>
@@ -61,6 +75,7 @@ export default function FilterSection() {
             <button
               key={value}
               name='catalogId'
+              className={(parseInt(filters.catalogId)===catalogo.id)?"catalogSelected":""}
               onClick={onClick}
               value={catalogo.id}
             >
@@ -69,13 +84,35 @@ export default function FilterSection() {
           );
         })}
       </div>
+      <div id="filtersApplied">
+        <b>FILTROS APLICADOS</b>
+        {
+          filters.color.map((color)=><button onClick={deleteFilter} name="color" value={color}><span>{color}</span> x</button>)
+        }
+        {
+          filters.cant.map((cant)=><button onClick={deleteFilter} name="cant" value={cant}><span>{cant}</span> x</button>)
+        }
+        {
+          filters.size.map((size)=><button onClick={deleteFilter} name="size" value={size}><span>{size}</span> x</button>)
+        }
+      </div>
+
+      <div>
+        <b>ORDEN</b>
+        <select onChange={handleOrder} id="orderSection">
+          <option value={"name ASC"}>{"nombre-> A-Z"}</option>
+          <option value={"name DESC"}>{"nombre-> Z-A"}</option>
+          <option value={"price ASC"}>{"precio-> menor↑"}</option>
+          <option value={"price DESC"}>{"precio-> mayor↓"}</option>
+        </select>
+      </div>
+
       <div id='colorsFilters' className='filter'>
         <span>Colores</span>
         {toFilter.colors?.map((color) => {
           const stock = productos.filter(
             (product) => product.color === color
           ).length;
-          if (!stock) return <></>;
           return (
             <div key={'color' + color} className='form-check'>
               <input
@@ -98,7 +135,6 @@ export default function FilterSection() {
           const stock = productos.filter(
             (product) => product.cant === quantity
           ).length;
-          if (!stock) return <></>;
           return (
             <div key={'cant' + quantity} className='form-check'>
               <input
@@ -121,7 +157,6 @@ export default function FilterSection() {
           const stock = productos.filter(
             (product) => product.size === size
           ).length;
-          if (!stock) return <></>;
           return (
             <div key={'size' + size} className='form-check'>
               <input
@@ -137,19 +172,6 @@ export default function FilterSection() {
             </div>
           );
         })}
-      </div>
-
-      <div>
-        <span>ordernar alfabeticamente</span>
-        <button name='alf' onClick={onClick} value={filters.alf || 'ASC'}>
-          {filters.alf || 'ASC'}
-        </button>
-      </div>
-      <div>
-        <span>ordernar por precios</span>
-        <button name='price' onClick={onClick} value={filters.price || 'ASC'}>
-          {filters.price || 'ASC'}
-        </button>
       </div>
       <button onClick={reset}>reset</button>
     </div>

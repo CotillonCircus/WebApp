@@ -13,7 +13,7 @@ export default function ProductsList(){
     const [productToChange,setProductToChange] = useState({})
     const dispatch = useDispatch()
     const [toFilter,setToFilter] = useState()
-    const [filters,setFilters] = useState({colors:[],sizes:[],cants:[],catalogId:{id:""}})
+    const [filters,setFilters] = useState({colors:[],sizes:[],cants:[],catalogId:{id:""},order:"name ASC"})
     const [groupEdit,setGroupEdit] = useState(["price",0])
     const {catalogs} = useSelector(state=>state)
     useEffect(()=>{
@@ -33,8 +33,8 @@ export default function ProductsList(){
         dispatch(updateProduct({status:newStatus,id},setList))
     }
 
-    function deleteProduct(id){
-        dispatch(updateProduct({status:"deleted",id},setList))
+    function deleteProduct(id,img){
+        dispatch(updateProduct({status:"deleted",id,img},setList))
     }
 
     function deleteFilter(e){
@@ -73,6 +73,10 @@ export default function ProductsList(){
     function updateProductsGroup(){
         const [prop,value] = groupEdit
         putProductsGroup(list,prop,value,setList)
+    }
+
+    function handleOrder(value){
+        setFilters({...filters,order:value})
     }
 
     return(
@@ -144,13 +148,13 @@ export default function ProductsList(){
             </div>
             <div>
             <div id="listProps">
-                <span>nombre</span>
-                <span>precio</span>
-                <span>tamaño</span>
-                <span>color</span>
-                <span>stock</span>
-                <span>cant</span>
-                <span>status</span>
+                <span onClick={()=>handleOrder("name ASC")}>nombre</span>
+                <span onClick={()=>handleOrder("price ASC")}>precio</span>
+                <span onClick={()=>handleOrder("size ASC")}>tamaño</span>
+                <span onClick={()=>handleOrder("color ASC")}>color</span>
+                <span onClick={()=>handleOrder("stock ASC")}>stock</span>
+                <span onClick={()=>handleOrder("cant ASC")}>cant</span>
+                <span >status</span>
                 <span>editar</span>
                 {/* <span></span> */}
             </div>
@@ -166,7 +170,7 @@ export default function ProductsList(){
                         <span>{product.cant}</span>
                         <span onClick={()=>editProductStatus(product)}>{product.status}</span>
                         <button onClick={()=>{setProductToChange(product);setShowForm(true)}}>modificar</button>
-                        <button onClick={()=>{deleteProduct(product.id)}}>eliminar</button>
+                        <button onClick={()=>{deleteProduct(product.id,product.img)}}>eliminar</button>
                     </div>
                     )
                 })

@@ -4,35 +4,40 @@ const GLOBOS = [{
     catalogId:1,
     color:"perlado",
     cant:50,
-    size:""
+    size:"",
+    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/v7jjpvpymvb0e6ypa24f.png"
 },{
     name:"tuky",
     price:1,
     catalogId:1,
     color:"std",
     cant:50,
-    size:""
+    size:"",
+    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/zp5dlll4w5eriqaj1xcs.png"
 },{
     name:"party time",
     price:Math.floor((Math.random()*100)),
     catalogId:1,
     color:"std",
     cant:50,
-    size:""
+    size:"",
+    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/yazkjjg6pkfkeolsbphv.png"
 },{
     name:"globox",
     price:Math.floor((Math.random()*100)),
     catalogId:1,
     color:"perlado",
     cant:50,
-    size:""
+    size:"",
+    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/g9kygzarkzdidlbqyoso.png"
 },{
     name:"party time",
     price:Math.floor((Math.random()*100)),
     catalogId:1,
     color:"perlado",
     cant:25,
-    size:""
+    size:"",
+    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/oghi9ouyiyz6cxvrlhpp.png"
 }]
 
 const GLOBOS_NUMEROS = [{
@@ -41,7 +46,8 @@ const GLOBOS_NUMEROS = [{
     catalogId:2,
     color:"plata",
     cant:0,
-    size:`16"`
+    size:`16"`,
+    img:"http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/upf09q3p4xkhdzwnjjpc.png"
 },{
     name:"uno",
     price:Math.floor((Math.random()*100)),

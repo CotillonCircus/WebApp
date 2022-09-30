@@ -1,5 +1,6 @@
 const { Op,literal, where } = require("sequelize")
 const {Product} = require("../db") 
+const cloudinary = require("./cloudinaryControllers")
 
 const createProduct = async(req,res,next) => {
     try{
@@ -12,12 +13,12 @@ const createProduct = async(req,res,next) => {
 
 const getAllProducts = async (req,res,next) => {
 
-    const {name,catalogId,color,size,cant,alf,price,admin} = req.query
+    const {name,catalogId,color,size,cant,order,admin} = req.query
 
     const condition = {}
     const sort=[]
-    alf&&sort.push(["name",alf])
-    price&&sort.push(["price",price])
+    
+    order&&sort.push(order.split(" "))
 
     condition.name={[Op.iLike]:`%${name||""}%`}
 
@@ -85,6 +86,13 @@ const buyProducts=(req,res,next)=>{
 
 const editProduct = async (req,res,next) => {
     const {id,name,img,catalogId,color,size,cant,alf,price,cantStock,status} = req.body
+    if(status==="deleted"){
+        const public_id=img.split("/")
+        const length = public_id.length
+        await cloudinary.uploader.destroy(public_id[length-1]+"/"+public_id[length-2].split(".")[0], (succes, error) =>
+      console.log({ succes, error })
+    );
+    }
     try {
         const updatedProduct = {name,img,catalogId,color,size,cant,alf,price,cantStock,status}
         await Product.update(updatedProduct,{where:{id}})
