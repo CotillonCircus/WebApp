@@ -28,9 +28,11 @@ export default function NewProduct(){
 
     function handleImgChange(e){
         const file = e.target.files[0]
-        setProductImg(file)
-        const url = URL.createObjectURL(file)
-        setNewProduct({...newProduct,img:url})
+        if(file){
+            setProductImg(file)
+            const url = URL.createObjectURL(file)
+            setNewProduct({...newProduct,img:url})
+        }
     }
 
     function handleChange(e){

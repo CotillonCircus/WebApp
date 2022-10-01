@@ -5,7 +5,6 @@
 }
 
 .logo {
-  height: 40vh;
   display: flex;
 }
 
@@ -21,7 +20,7 @@
   margin-top: 3vh;
 }
 
-.c4 {
+.cartinheader {
   margin-top: 13vh;
 }
 
@@ -72,4 +71,30 @@
 
 .headerbaja {
   cursor: pointer;
+}
+
+/* ========== MEDIA QUERIES (MEDIUM DEVICES) ========== */
+
+@media screen and (max-width: 1024px) {
+  .btn-group {
+    margin-top: 0vh;
+  }
+  .cartinheader {
+    margin-top: 10vh;
+    margin-bottom: 4vh;
+  }
+  .logo {
+    height: 35vh;
+  }
+  .loginbutton {
+    margin-bottom: 4vh;
+  }
+}
+
+/* ========== MEDIA QUERIES (SMALL DEVICES) ========== */
+
+@media screen and (max-width: 600px) {
+  .logo {
+    height: 32vh;
+  }
 }

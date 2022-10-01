@@ -21,22 +21,46 @@ const AdminOrders = () => {
     dispatch(getAllOrders(input))
   },[dispatch])
 
+  const handleChange = (e)=>{
+    e.preventDefault();
+    setInput({
+      ...input,
+      [e.target.name] : e.target.value
+    })
+  }
+
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    dispatch(getAllOrders(input))
+  }
+
+  const handleRefresh = (e)=>{
+    e.preventDefault();
+    setInput({
+      userName: "",
+      productName: "",
+      firstDate: "",
+      secondDate: ""
+    });
+    dispatch(getAllOrders(input))
+  }
+
   return (
     <div className={style.generalContainer}>
         <p className='display-6'>Historial de compras</p>
         <div>
             <form className={style.form}>
-              <input type="text" placeholder='Usuario...' className={style.input}></input>
-              <input type="text" placeholder='Producto...' className={style.input}></input>
+              <input type="text" placeholder='Usuario...' name="userName" onChange={(e)=>handleChange(e)} className={style.input}></input>
+              <input type="text" placeholder='Producto...' name="productName" onChange={(e)=>handleChange(e)} className={style.input}></input>
               <label>
                 Entre
               </label>
-              <input type="date" placeholder='Fecha...' className={style.input}></input>
+              <input type="date" placeholder='Fecha...' disabled={true} className={style.input}></input>
               <label>
                 y
               </label>
-              <input type="date" placeholder='Fecha...' className={style.input}></input>
-              <button type='submit' className={style.button}>Buscar</button>
+              <input type="date" placeholder='Fecha...'  disabled={true} className={style.input}></input>
+              <button type='submit' className={style.button} onClick={(e)=>handleSubmit(e)}>Buscar</button>
               <button className={style.button}>Refresh</button>
             </form>
         </div>
@@ -46,6 +70,11 @@ const AdminOrders = () => {
               return(
                 <AdminOrderCard
                 key={order.id}
+                id={order.id}
+                products={order.products}
+                userName={order.user.name}
+                fecha={order.createdAt}
+                totalPrize={order.totalPrize}
                 />
               )
             })

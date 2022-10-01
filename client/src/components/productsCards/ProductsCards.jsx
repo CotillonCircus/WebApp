@@ -7,6 +7,7 @@ import FilterSection from '../FiltersSection/FiltersSection';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useShoppingCart } from '../Context/ShoppingCartContext';
+import default_img from "../../images/imagen_no_disponible.jpg"
 
 const ProductsCards = (id) => {
   const {
@@ -26,7 +27,7 @@ const ProductsCards = (id) => {
   }, [dispatch]);
 
   return (
-    <div id='Products'>
+    <div id='productscards'>
       <FilterSection />
 
       <div id='products'>
@@ -34,7 +35,7 @@ const ProductsCards = (id) => {
           return (
             <div key={p.id} className='singleProduct'>
               <Link to={'/details/' + p.id}>
-                <img src={p.img} alt={p.name} />
+                <img src={p.img||default_img} alt={p.name} />
               </Link>
               <span>{p.name}</span>
               {user ? (

@@ -41,22 +41,22 @@ const Header = () => {
       {isAuthenticated ? (
         <div className='container-fluid text-center'>
           <div className='row'>
-            <div className='col-md-3 column_header'>
+            <div className='col-lg-3 column_header'>
               <div id='searchInput'>
-                <input id='search' placeholder='Búsqueda...'></input>
+                <input id='search' placeholder='Buscar...'></input>
                 <button
                   onClick={handleCLick}
                   type='button'
                   className='btn btn-secondary'
                 >
-                  Buscar
+                  Ir
                 </button>
               </div>
             </div>
-            <div className='col-md-6 logo'>
+            <div className='col-lg-6 logo'>
               <img src={Logo} className='d-block w-50 mx-auto' alt='logo' />
             </div>
-            <div className='col-md-2'>
+            <div className='col-lg-2'>
               <div className='btn-group'>
                 <button
                   type='button'
@@ -98,7 +98,7 @@ const Header = () => {
                 </ul>
               </div>
             </div>
-            <div className='col-md-1 c4'>
+            <div className='col-lg-1 cartinheader'>
               <Cart />
             </div>
           </div>
@@ -106,23 +106,23 @@ const Header = () => {
       ) : (
         <div className='container-fluid text-center'>
           <div className='row'>
-            <div className='col-md-3 column_header'>
+            <div className='col-lg-3 column_header'>
               <div id='searchInput'>
-                <input id='search' placeholder='Búsqueda...'></input>
+                <input id='search' placeholder='Buscar...'></input>
                 <button
                   onClick={handleCLick}
                   type='button'
                   className='btn btn-secondary'
                 >
-                  Buscar
+                  Ir
                 </button>
               </div>
             </div>
-            <div className='col-md-6'>
+            <div className='col-lg-6'>
               {' '}
               <img src={Logo} className='d-block w-50 mx-auto' alt='logo' />
             </div>
-            <div className='col-md-3 column_header'>
+            <div className='col-lg-3 column_header loginbutton'>
               <LoginButton> </LoginButton>
             </div>
           </div>
