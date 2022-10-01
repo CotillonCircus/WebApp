@@ -11,6 +11,8 @@ import Cart from '../Cart/Cart';
 import Confirmation from '../../components/Confirmation/Confirmation';
 import { changeUserStatus } from '../../redux/actions';
 import { useEffect } from 'react';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
@@ -35,6 +37,22 @@ const Header = () => {
     navigate('/products');
   };
   const user = useSelector((state) => state.userLogged[0]);
+
+  const confirmChange = (e) => {
+    confirmAlert({
+      title: 'Se dará de baja como usuario',
+      message: '¿Está seguro?',
+      buttons: [
+        {
+          label: 'Sí',
+          onClick: () => handleDown(e),
+        },
+        {
+          label: 'No',
+        },
+      ],
+    });
+  };
 
   return (
     <header>
@@ -84,7 +102,7 @@ const Header = () => {
                   <li>
                     <span
                       className='ddlink nav-link'
-                      onClick={(e) => handleDown(e)}
+                      onClick={(e) => confirmChange(e)}
                     >
                       Darme de baja
                     </span>
@@ -108,7 +126,7 @@ const Header = () => {
           <div className='row'>
             <div className='col-lg-3 column_header'>
               <div id='searchInput'>
-                <input id='search' placeholder='Buscar...'></input>
+                <input id='searchheader' placeholder='Buscar...'></input>
                 <button
                   onClick={handleCLick}
                   type='button'
