@@ -1,9 +1,11 @@
 import { Button, Stack } from 'react-bootstrap';
 import { useShoppingCart } from '../Context/ShoppingCartContext';
 import { useSelector } from 'react-redux';
+import './cartitem.css';
 
 export function CartItem({ id, quantity }) {
-  const { removeFromCart } = useShoppingCart();
+  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } =
+    useShoppingCart();
   const { allProducts } = useSelector((state) => state);
 
   const item = allProducts.find((i) => i.id === id);
@@ -31,9 +33,25 @@ export function CartItem({ id, quantity }) {
       </div>
 
       <div>$ {item.price * quantity}</div>
+      <div>
+        <Button
+          onClick={() => decreaseCartQuantity(item.id)}
+          className='btn-secondary cartbutton'
+        >
+          -
+        </Button>
+
+        <Button
+          onClick={() => increaseCartQuantity(item.id)}
+          className='btn-secondary cartbutton'
+        >
+          +
+        </Button>
+      </div>
       <Button
         variant='outlined-danger'
         size='sm'
+        className='btn-danger'
         onClick={() => removeFromCart(item.id)}
       >
         &times;

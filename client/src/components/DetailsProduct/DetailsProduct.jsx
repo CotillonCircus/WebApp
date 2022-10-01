@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getProductById, getRelated, getProductos } from '../../redux/actions';
+import { getProductById, getRelated } from '../../redux/actions';
 import './detailsProduct.css';
 // import {
 //   FaFacebookF,
@@ -29,15 +29,10 @@ const DetailsProduct = () => {
     decreaseCartQuantity,
     removeFromCart,
   } = useShoppingCart();
-  const { productos } = useSelector((state) => state);
 
   useEffect(() => {
     ID && dispatch(getProductById(ID));
   }, [dispatch, ID]);
-
-  useEffect(() => {
-    dispatch(getProductos({}));
-  }, [dispatch]);
 
   useEffect(() => {
     productDetails.name && getRelated(productDetails.name, setRelated);
@@ -79,7 +74,7 @@ const DetailsProduct = () => {
                   user.status === 'mayorista' || user.status === 'admin' ? (
                     <span> ${productDetails.price}</span>
                   ) : (
-                    <span>Se necesita autorizacion para ver los precios</span>
+                    <span>Se necesita autorización para ver los precios</span>
                   )
                 ) : (
                   <span>Registrate y autorizate para ver los precios</span>

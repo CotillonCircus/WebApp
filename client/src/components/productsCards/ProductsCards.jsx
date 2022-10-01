@@ -27,7 +27,7 @@ const ProductsCards = (id) => {
   }, [dispatch]);
 
   return (
-    <div id='Products'>
+    <div id='productscards'>
       <FilterSection />
 
       <div id='products'>
