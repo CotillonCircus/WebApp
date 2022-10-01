@@ -8,20 +8,8 @@
   display: flex;
 }
 
-.row_log1 {
-  margin-top: 9vh;
-}
-
-.row_log2 {
-  margin-top: 3vh;
-}
-
-.row_log3 {
-  margin-top: 3vh;
-}
-
 .cartinheader {
-  margin-top: 13vh;
+  margin-top: 19vh;
 }
 
 .ddlink {
@@ -56,6 +44,8 @@
 #searchInput input {
   border: none;
   font-size: medium;
+  text-align: center;
+  vertical-align: center;
 }
 
 #searchInput button {
@@ -66,7 +56,7 @@
 }
 
 .btn-group {
-  margin-top: 14vh;
+  margin-top: 20vh;
 }
 
 .headerbaja {
@@ -91,6 +81,8 @@
   }
   #searchInput {
     width: 30vw;
+    margin-top: 5vh;
+    margin-left: 0;
   }
 }
 
