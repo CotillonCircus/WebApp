@@ -71,7 +71,8 @@ export default function FilterSection() {
       <div id='catalogs' className='filter'>
         <span>Categorías</span>
         {catalogs?.map((catalogo) => {
-          let value = catalogo.name.split('_').join(' ');
+          let value = catalogo.name;
+          // let value = catalogo.name.split('_').join(' ');
           return (
             <button
               key={value}

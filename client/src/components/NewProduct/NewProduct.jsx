@@ -176,7 +176,8 @@ export default function NewProduct() {
             {catalogs?.map((catalog) => {
               return (
                 <option value={catalog.id}>
-                  {catalog.name.split('_').join(' ')}
+                  {catalog.name}
+                  {/* {catalog.name.split('_').join(' ')} */}
                 </option>
               );
             })}
