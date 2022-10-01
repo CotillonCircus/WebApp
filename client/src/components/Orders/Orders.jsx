@@ -13,7 +13,7 @@ const Orders = () => {
   async function getOrders() {
 
     const orders = await axios.get(
-      `http://localhost:3001/order/user/${user.sub}`
+      `order/user/${user.sub}`
     );
 
     setOrders(orders.data);
@@ -30,12 +30,16 @@ const Orders = () => {
       <h1>Mi historial de compras</h1>
       <br></br>
       {orders?.map((order) => {
+        const actualDate = ((new Date()).getTime())
+        const orderDate = ((new Date(order.createdAt)).getTime())
+        const diference = (((actualDate-orderDate)/1000)/360)-360
         return (
           <div key={order.id}>
             <OrderCard
               id={order.id}
               products={order.products}
               totalPrize={order.totalPrize}
+              diference={diference}
             />
           </div>
         );

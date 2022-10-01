@@ -36,7 +36,7 @@ const AuthForm = () => {
       address: input.address,
     };
 
-    axios.post('http://localhost:3001/auth', auth);
+    axios.post('/auth', auth);
     setInput({
       name: '',
       email: '',

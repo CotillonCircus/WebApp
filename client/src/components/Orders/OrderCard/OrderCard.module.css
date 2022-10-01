@@ -5,6 +5,12 @@
     align-items: center;
 }
 
+.deleteOrderButton{
+    background-color:"red";
+    padding:0px 2%;
+    border:black 1px solid
+}
+
 .bigContainer{
     display: flex;
     flex-direction: column;
