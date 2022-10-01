@@ -17,7 +17,7 @@ const Carousel = () => {
   return (
     <section
       id='carouselExampleIndicators'
-      className='carousel slide carousel-fade'
+      className='carousel carousel-dark slide carousel-fade'
       data-bs-ride='true'
     >
       {/* ===== Indicators ===== */}
