@@ -89,12 +89,18 @@
   .loginbutton {
     margin-bottom: 4vh;
   }
+  #searchInput {
+    width: 30vw;
+  }
 }
 
 /* ========== MEDIA QUERIES (SMALL DEVICES) ========== */
 
 @media screen and (max-width: 600px) {
   .logo {
-    height: 32vh;
+    height: 25vh;
+  }
+  #searchInput {
+    width: 45vw;
   }
 }
