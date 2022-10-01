@@ -1,6 +1,5 @@
 import axios from 'axios';
-import cloudinary from 'cloudinary/lib/cloudinary';
-
+import cloudinary from "../components/cloudinary/cloudinary"
 export const GET_PRODUCTOS = 'GET_PRODUCTOS';
 export const GET_ALL_PRODUCTOS = 'GET_ALL_PRODUCTOS';
 export const GET_USER = 'GET_USER';
@@ -14,15 +13,6 @@ export const POST_NEW_PREFERENCE = 'POST_NEW_PREFERENCE';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const GET_ALL_ORDERS = "GET_ALL_ORDERS";
 
-const cloud_name = 'circus-corillon';
-const api_key = '164947681452799';
-const api_secret = 'Ii4cdvwbN_kI8YNLnc0xMnAyyjw';
-
-cloudinary.config({
-  cloud_name: cloud_name,
-  api_key: api_key,
-  api_secret: api_secret,
-});
 
 export function getLogin(user) {
   return async function (dispatch) {
@@ -90,8 +80,7 @@ export function getProductos({
   color = '',
   size = '',
   cant = '',
-  alf = '',
-  price = '',
+  order = "name ASC"
 }) {
   return async function (dispatch) {
     try {
@@ -107,10 +96,8 @@ export function getProductos({
             size +
             '&cant=' +
             cant +
-            '&alf=' +
-            alf +
-            '&price=' +
-            price
+            '&order=' +
+            order
         )
       ).data;
       return dispatch({
@@ -259,13 +246,14 @@ export function createProduct(newProduct) {
   };
 }
 
-export function createPreference(cartItems,sub) {
+export function createPreference(cartItems,sub,redirectUrl) {
+
   return async function (dispatch) {
     try {
       const link = (
         await axios.post(
           '/payment/create_preference',
-          {products:cartItems,sub}
+          {products:cartItems,sub,redirectUrl}
         )
       ).data.init_point;
       window.location.assign(link)
@@ -279,21 +267,18 @@ export function createPreference(cartItems,sub) {
   };
 }
 
-export async function getProductsAdmin(setProducts,{
-  name = '',
+export async function getProductsAdmin({
   catalogId = "",
   colors = '',
   sizes = '',
   cants = '',
-  alf = '',
-  price = '',
-}) {
-  console.log(catalogId)
+  order = ""
+},setProducts) {
   try {
     const products = (
       await axios.get(
         '/product?name=' +
-          name +
+          "" +
           '&catalogId=' +
           catalogId +
           '&color=' +
@@ -302,10 +287,8 @@ export async function getProductsAdmin(setProducts,{
           sizes +
           '&cant=' +
           cants +
-          '&alf=' +
-          alf +
-          '&price=' +
-          price +
+          '&order=' +
+          order +
           "&admin=true"
       )
     ).data;
@@ -319,7 +302,7 @@ export function updateProduct(updatedProduct, setList) {
   return async function (dispatch) {
     try {
       await axios.put('/product', updatedProduct);
-      setList && getProductsAdmin(setList);
+      setList && getProductsAdmin({},setList);
       return dispatch({
         type: UPDATE_PRODUCT,
         payload: '',
