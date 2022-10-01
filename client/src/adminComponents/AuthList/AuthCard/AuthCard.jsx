@@ -17,23 +17,22 @@ const AuthCard = ({
 }) => {
   const dispatch = useDispatch();
 
-  const authorize = (e) => {
-    e.preventDefault();
-    dispatch(changeUserStatus(sub, 'mayorista'));
-    axios
-      .delete('http://localhost:3001/auth', { data: { id } })
-      .then((res) => console.log('Usuario autorizado'));
-    setAuthFlag((prevFlag) => !prevFlag);
-  };
+ 
+    const authorize = (e)=>{
+        e.preventDefault();
+        dispatch(changeUserStatus(sub,"mayorista"));
+        axios.delete("/auth",{data: {id,email,authorized:true}})
+        .then(res=>console.log("Usuario autorizado"));
+        setAuthFlag((prevFlag)=>!prevFlag);
+    }
 
-  const deny = (e) => {
-    e.preventDefault();
-    dispatch(changeUserStatus(sub, 'unauthorized'));
-    axios
-      .delete('http://localhost:3001/auth', { data: { id } })
-      .then((res) => console.log('Usuario denegado'));
-    setAuthFlag((prevFlag) => !prevFlag);
-  };
+    const deny = (e)=>{
+        e.preventDefault();
+        dispatch(changeUserStatus(sub,"unauthorized"));
+        axios.delete("/auth",{data: {id,email,authorized:false}})
+        .then(res=>console.log("Usuario denegado"));
+        setAuthFlag((prevFlag)=>!prevFlag);
+    }
 
   return (
     <div className={styles.authCardContainer}>

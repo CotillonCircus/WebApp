@@ -35,3 +35,32 @@
     text-transform: capitalize;
     font-size:small;
 }
+
+#filtersApplied span{
+    color:rgb(181, 37, 61);
+    text-transform: capitalize;
+    /* display: flex; */
+}
+
+#filtersApplied button{
+    border:1px solid rgb(181, 37, 61);
+    background-color: white;
+    margin: 5% 0%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.catalogSelected{
+    border-bottom: double black 1px;
+    color: rgb(181, 37, 61);
+}
+
+#filtersApplied{
+    display: flex;
+    flex-direction: column;
+    margin: 10% 0%;
+}
+#orderSection{
+    /* font-size: small; */
+    text-align: left;
+}

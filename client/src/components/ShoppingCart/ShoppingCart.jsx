@@ -15,7 +15,7 @@ export function ShoppingCart({ isOpen }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    dispatch(createPreference(cartItems, userLogged[0].sub));
+    dispatch(createPreference(cartItems, userLogged[0].sub,window.location.origin));
   }
 
   return (

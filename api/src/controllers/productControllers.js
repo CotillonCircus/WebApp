@@ -1,5 +1,6 @@
-const { Op,literal } = require("sequelize")
+const { Op,literal, where } = require("sequelize")
 const {Product} = require("../db") 
+const {cloudinary} = require("./cloudinaryControllers")
 
 const createProduct = async(req,res,next) => {
     try{
@@ -12,12 +13,12 @@ const createProduct = async(req,res,next) => {
 
 const getAllProducts = async (req,res,next) => {
 
-    const {name,catalogId,color,size,cant,alf,price,admin} = req.query
+    const {name,catalogId,color,size,cant,order,admin} = req.query
 
     const condition = {}
     const sort=[]
-    alf&&sort.push(["name",alf])
-    price&&sort.push(["price",price])
+    
+    order&&sort.push(order.split(" "))
 
     condition.name={[Op.iLike]:`%${name||""}%`}
 
@@ -85,10 +86,29 @@ const buyProducts=(req,res,next)=>{
 
 const editProduct = async (req,res,next) => {
     const {id,name,img,catalogId,color,size,cant,alf,price,cantStock,status} = req.body
+    if(status==="deleted"&&img){
+        const url=img.split("/")
+        const length = url.length
+        const public_id = url[length-1].split(".")[0]
+        await cloudinary.uploader.destroy("products/"+public_id, (succes, error) =>
+      console.log({ succes, error })
+    );
+    }
     try {
         const updatedProduct = {name,img,catalogId,color,size,cant,alf,price,cantStock,status}
         await Product.update(updatedProduct,{where:{id}})
         res.send()
+    } catch (error) {
+        res.send(error.message)
+    }
+}
+
+const editProductsGroup = async (req,res,next)=>{
+    const {prop,value,ids} = req.body
+    try {
+        await Product.update({[prop]:literal(prop+"+"+value)},{where:{id:ids}})
+        const updated = await Product.findAll({where:{id:ids}}) 
+        res.send(updated)
     } catch (error) {
         res.send(error.message)
     }
@@ -100,5 +120,6 @@ module.exports={
     getAllToFilter,
     editProduct,
     buyProducts,
-    createProduct
+    createProduct,
+    editProductsGroup
 }

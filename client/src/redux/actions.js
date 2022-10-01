@@ -1,6 +1,5 @@
 import axios from 'axios';
-import cloudinary from 'cloudinary/lib/cloudinary';
-
+import cloudinary from "../components/cloudinary/cloudinary"
 export const GET_PRODUCTOS = 'GET_PRODUCTOS';
 export const GET_ALL_PRODUCTOS = 'GET_ALL_PRODUCTOS';
 export const GET_USER = 'GET_USER';
@@ -12,16 +11,8 @@ export const GET_ALL_AUTHS = 'GET_ALL_AUTHS';
 export const POST_NEW_PRODUCT = 'POST_NEW_PRODUCT';
 export const POST_NEW_PREFERENCE = 'POST_NEW_PREFERENCE';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+export const GET_ALL_ORDERS = "GET_ALL_ORDERS";
 
-const cloud_name = 'circus-corillon';
-const api_key = '164947681452799';
-const api_secret = 'Ii4cdvwbN_kI8YNLnc0xMnAyyjw';
-
-cloudinary.config({
-  cloud_name: cloud_name,
-  api_key: api_key,
-  api_secret: api_secret,
-});
 
 export function getLogin(user) {
   return async function (dispatch) {
@@ -89,8 +80,7 @@ export function getProductos({
   color = '',
   size = '',
   cant = '',
-  alf = '',
-  price = '',
+  order = "name ASC"
 }) {
   return async function (dispatch) {
     try {
@@ -106,10 +96,8 @@ export function getProductos({
             size +
             '&cant=' +
             cant +
-            '&alf=' +
-            alf +
-            '&price=' +
-            price
+            '&order=' +
+            order
         )
       ).data;
       return dispatch({
@@ -258,13 +246,14 @@ export function createProduct(newProduct) {
   };
 }
 
-export function createPreference(cartItems,sub) {
+export function createPreference(cartItems,sub,redirectUrl) {
+
   return async function (dispatch) {
     try {
       const link = (
         await axios.post(
           '/payment/create_preference',
-          {products:cartItems,sub}
+          {products:cartItems,sub,redirectUrl}
         )
       ).data.init_point;
       window.location.assign(link)
@@ -278,10 +267,30 @@ export function createPreference(cartItems,sub) {
   };
 }
 
-export async function getProductsAdmin(setProducts) {
+export async function getProductsAdmin({
+  catalogId = "",
+  colors = '',
+  sizes = '',
+  cants = '',
+  order = ""
+},setProducts) {
   try {
     const products = (
-      await axios.get('/product?admin=true')
+      await axios.get(
+        '/product?name=' +
+          "" +
+          '&catalogId=' +
+          catalogId +
+          '&color=' +
+          colors +
+          '&size=' +
+          sizes +
+          '&cant=' +
+          cants +
+          '&order=' +
+          order +
+          "&admin=true"
+      )
     ).data;
     setProducts(products);
   } catch (error) {
@@ -293,7 +302,7 @@ export function updateProduct(updatedProduct, setList) {
   return async function (dispatch) {
     try {
       await axios.put('/product', updatedProduct);
-      setList && getProductsAdmin(setList);
+      setList && getProductsAdmin({},setList);
       return dispatch({
         type: UPDATE_PRODUCT,
         payload: '',
@@ -314,3 +323,32 @@ export async function updateOrder(id,setUpdatedOrder,navigate){
     navigate("/home")
   }
 }
+
+
+export function getAllOrders({userName="",productName="",firstDate="",secondDate=""}){
+  return async function (dispatch) {
+      try{
+        const orders = (await axios.get(`http://localhost:3001/order?userName=${userName}&productName=${productName}&firstDate=${firstDate}&seconDate=${secondDate}`)).data;
+        return dispatch({
+          type: GET_ALL_ORDERS,
+          payload: orders
+        });
+    } catch(error){
+      console.log(error.message)
+    }
+  }
+  }
+
+export async function putProductsGroup(products,prop,value,setList){
+
+  const ids = products.map(product=>product.id)
+
+  try {
+    const updated = await axios.put("/product/group",{ids,prop,value})
+    console.log(updated)
+    setList(updated.data)
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+

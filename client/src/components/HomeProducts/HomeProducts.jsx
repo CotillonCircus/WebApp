@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { getCatalogs, getProductos } from '../../redux/actions';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import default_img from "../../images/imagen_no_disponible.jpg";
 
 const HomeProducts = () => {
   const dispatch = useDispatch();
@@ -40,33 +41,7 @@ const HomeProducts = () => {
               </li>
             );
           })}
-          {/* {catalogs?.map((c) => {
-            let key = c.name.split('_').join(' ');
-            return <span key={key}>{key}</span>;
-          })} */}
         </div>
-        {/* <ul className='products'>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>11</li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>20</li>
-      </ul> */}
         <div id='products'>
           {productos?.slice(0, 8).map((p) => {
             return (
@@ -83,6 +58,7 @@ const HomeProducts = () => {
                   ) : (
                     <span>Se necesita autorización para ver los precios</span>
                   )
+
                 ) : (
                   <span>Registrese para ver los precios</span>
                 )}
