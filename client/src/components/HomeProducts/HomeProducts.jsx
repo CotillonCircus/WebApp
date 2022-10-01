@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { getCatalogs, getProductos } from '../../redux/actions';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import default_img from "../../images/imagen_no_disponible.jpg";
+import default_img from '../../images/imagen_no_disponible.jpg';
 
 const HomeProducts = () => {
   const dispatch = useDispatch();
@@ -50,7 +50,7 @@ const HomeProducts = () => {
                 to={'/details/' + p.id}
                 className='singleProduct'
               >
-                <img src={p.img} alt={p.name} />
+                <img src={p.img || default_img} alt={p.name} />
                 <span>{p.name}</span>
                 {user ? (
                   user.status === 'mayorista' || user.status === 'admin' ? (
@@ -58,7 +58,6 @@ const HomeProducts = () => {
                   ) : (
                     <span>Se necesita autorización para ver los precios</span>
                   )
-
                 ) : (
                   <span>Registrese para ver los precios</span>
                 )}
