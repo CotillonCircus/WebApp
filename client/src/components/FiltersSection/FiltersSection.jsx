@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllToFilter, getProductos } from '../../redux/actions';
+import { Stack } from 'react-bootstrap';
 
 export default function FilterSection() {
   const initialFilter = {
@@ -11,7 +12,7 @@ export default function FilterSection() {
     color: [],
     size: [],
     cant: [],
-    order: "name ASC"
+    order: 'name ASC',
   };
   const { catalogs, productos } = useSelector((state) => state);
   const [toFilter, SetToFilter] = useState({});
@@ -37,7 +38,7 @@ export default function FilterSection() {
         newFilters[name].push(value);
       }
     }
-  
+
     setFilters({ ...newFilters });
     dispatch(getProductos({ ...newFilters }));
   };
@@ -46,24 +47,24 @@ export default function FilterSection() {
     setFilters({ ...initialFilter });
     dispatch(getProductos({}));
   };
-  
-  const deleteFilter = (e)=>{
-      const {name,value} = e.target
-      const filtered = filters[name].filter(filt=>filt!==value)
-      const newFilters = {...filters,[name]:filtered}
-      setFilters(newFilters)
-      dispatch(getProductos({ ...newFilters })); 
-      const cheks = document.getElementsByName(name)
-      cheks.forEach(check=>{
-        if(check.value===value)check.checked=false
-      })
-  }
 
-  const handleOrder=(e)=>{
-    const newFilters = {...filters,order:e.target.value}
-    setFilters(newFilters)
+  const deleteFilter = (e) => {
+    const { name, value } = e.target;
+    const filtered = filters[name].filter((filt) => filt !== value);
+    const newFilters = { ...filters, [name]: filtered };
+    setFilters(newFilters);
     dispatch(getProductos({ ...newFilters }));
-  }
+    const cheks = document.getElementsByName(name);
+    cheks.forEach((check) => {
+      if (check.value === value) check.checked = false;
+    });
+  };
+
+  const handleOrder = (e) => {
+    const newFilters = { ...filters, order: e.target.value };
+    setFilters(newFilters);
+    dispatch(getProductos({ ...newFilters }));
+  };
 
   return (
     <div id='FiltersSection'>
@@ -75,7 +76,11 @@ export default function FilterSection() {
             <button
               key={value}
               name='catalogId'
-              className={(parseInt(filters.catalogId)===catalogo.id)?"catalogSelected":""}
+              className={
+                parseInt(filters.catalogId) === catalogo.id
+                  ? 'catalogSelected'
+                  : ''
+              }
               onClick={onClick}
               value={catalogo.id}
             >
@@ -84,26 +89,32 @@ export default function FilterSection() {
           );
         })}
       </div>
-      <div id="filtersApplied">
+      <div id='filtersApplied'>
         <b>FILTROS APLICADOS</b>
-        {
-          filters.color.map((color)=><button onClick={deleteFilter} name="color" value={color}><span>{color}</span> x</button>)
-        }
-        {
-          filters.cant.map((cant)=><button onClick={deleteFilter} name="cant" value={cant}><span>{cant}</span> x</button>)
-        }
-        {
-          filters.size.map((size)=><button onClick={deleteFilter} name="size" value={size}><span>{size}</span> x</button>)
-        }
+        {filters.color.map((color) => (
+          <button onClick={deleteFilter} name='color' value={color}>
+            <span>{color}</span> x
+          </button>
+        ))}
+        {filters.cant.map((cant) => (
+          <button onClick={deleteFilter} name='cant' value={cant}>
+            <span>{cant}</span> x
+          </button>
+        ))}
+        {filters.size.map((size) => (
+          <button onClick={deleteFilter} name='size' value={size}>
+            <span>{size}</span> x
+          </button>
+        ))}
       </div>
 
       <div>
         <b>ORDEN</b>
-        <select onChange={handleOrder} id="orderSection">
-          <option value={"name ASC"}>{"nombre-> A-Z"}</option>
-          <option value={"name DESC"}>{"nombre-> Z-A"}</option>
-          <option value={"price ASC"}>{"precio-> menor↑"}</option>
-          <option value={"price DESC"}>{"precio-> mayor↓"}</option>
+        <select onChange={handleOrder} id='orderSection'>
+          <option value={'name ASC'}>{'nombre-> A-Z'}</option>
+          <option value={'name DESC'}>{'nombre-> Z-A'}</option>
+          <option value={'price ASC'}>{'precio-> menor↑'}</option>
+          <option value={'price DESC'}>{'precio-> mayor↓'}</option>
         </select>
       </div>
 
@@ -123,8 +134,14 @@ export default function FilterSection() {
                 value={color}
                 id='flexCheckDefault'
               />
-              <label className='form-check-label'>{color}</label>
-              <label>{'(' + stock + ')'}</label>
+              <Stack
+                direction='horizontal'
+                gap={2}
+                className='d-flex align-items-center'
+              >
+                <label className='form-check-label'>{color}</label>
+                <label>{'(' + stock + ')'}</label>
+              </Stack>
             </div>
           );
         })}
@@ -145,8 +162,14 @@ export default function FilterSection() {
                 value={quantity}
                 id='flexCheckDefault'
               />
-              <label className='form-check-label'>{quantity}</label>
-              <label>{'(' + stock + ')'}</label>
+              <Stack
+                direction='horizontal'
+                gap={2}
+                className='d-flex align-items-center'
+              >
+                <label className='form-check-label'>{quantity}</label>
+                <label>{'(' + stock + ')'}</label>
+              </Stack>
             </div>
           );
         })}
@@ -167,8 +190,14 @@ export default function FilterSection() {
                 value={size}
                 id='flexCheckDefault'
               />
-              <label className='form-check-label'>{size}</label>
-              <label>{'(' + stock + ')'}</label>
+              <Stack
+                direction='horizontal'
+                gap={2}
+                className='d-flex align-items-center'
+              >
+                <label className='form-check-label'>{size}</label>
+                <label>{'(' + stock + ')'}</label>
+              </Stack>
             </div>
           );
         })}

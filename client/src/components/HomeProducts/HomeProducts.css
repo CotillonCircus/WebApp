@@ -99,7 +99,7 @@
 @media screen and (max-width: 600px) {
   #homeProducts {
     display: grid;
-    grid-template-columns: 200px minmax(50%, auto);
+    grid-template-columns: 175px minmax(40%, auto);
   }
 }
 
