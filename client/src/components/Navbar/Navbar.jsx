@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCatalogs, getProductos } from '../../redux/actions';
-//import Cart from '../Cart/Cart';
 
 const Navbar = () => {
   const { isAuthenticated } = useAuth0();
