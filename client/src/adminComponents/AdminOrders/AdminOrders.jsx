@@ -19,7 +19,7 @@ const AdminOrders = () => {
 
   useEffect(()=>{
     dispatch(getAllOrders(input))
-  },[dispatch])
+  },[dispatch,input])
 
   const handleChange = (e)=>{
     e.preventDefault();
@@ -34,16 +34,16 @@ const AdminOrders = () => {
     dispatch(getAllOrders(input))
   }
 
-  const handleRefresh = (e)=>{
-    e.preventDefault();
-    setInput({
-      userName: "",
-      productName: "",
-      firstDate: "",
-      secondDate: ""
-    });
-    dispatch(getAllOrders(input))
-  }
+  // const handleRefresh = (e)=>{
+  //   e.preventDefault();
+  //   setInput({
+  //     userName: "",
+  //     productName: "",
+  //     firstDate: "",
+  //     secondDate: ""
+  //   });
+  //   dispatch(getAllOrders(input))
+  // }
 
   return (
     <div className={style.generalContainer}>

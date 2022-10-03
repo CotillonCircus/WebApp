@@ -81,7 +81,7 @@ export function getProductos({
   size = '',
   cant = '',
   order = "name ASC"
-}) {
+},setProductsLoading) {
   return async function (dispatch) {
     try {
       const productos = (
@@ -100,6 +100,7 @@ export function getProductos({
             order
         )
       ).data;
+      setProductsLoading&&setProductsLoading(false)
       return dispatch({
         type: GET_PRODUCTOS,
         payload: productos,

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllToFilter, getProductos } from '../../redux/actions';
 import { Stack } from 'react-bootstrap';
 
-export default function FilterSection() {
+export default function FilterSection({setProductsLoading}) {
   const initialFilter = {
     catalogId: '',
     color: [],
@@ -21,8 +21,8 @@ export default function FilterSection() {
 
   useEffect(() => {
     getAllToFilter(SetToFilter);
-    !productos?.length && dispatch(getProductos({}));
-  }, [dispatch]);
+    !productos?.length && dispatch(getProductos({},setProductsLoading));
+  }, [dispatch,productos,setProductsLoading]);
 
   const onClick = (e) => {
     let newFilters = { ...filters };
@@ -40,12 +40,14 @@ export default function FilterSection() {
     }
 
     setFilters({ ...newFilters });
-    dispatch(getProductos({ ...newFilters }));
+    setProductsLoading(true)
+    dispatch(getProductos({ ...newFilters },setProductsLoading));
   };
 
   const reset = () => {
     setFilters({ ...initialFilter });
-    dispatch(getProductos({}));
+    setProductsLoading(true)
+    dispatch(getProductos({},setProductsLoading));
   };
 
   const deleteFilter = (e) => {
@@ -63,10 +65,11 @@ export default function FilterSection() {
   const handleOrder = (e) => {
     const newFilters = { ...filters, order: e.target.value };
     setFilters(newFilters);
-    dispatch(getProductos({ ...newFilters }));
+    setProductsLoading(true)
+    dispatch(getProductos({ ...newFilters },setProductsLoading));
   };
 
-  return (
+  return(
     <div id='FiltersSection'>
       <div id='catalogs' className='filter'>
         <span>Categorías</span>
@@ -89,32 +92,32 @@ export default function FilterSection() {
           );
         })}
       </div>
-      <div id='filtersApplied'>
+      <div id='filtersApplied' className='filter'>
         <b>FILTROS APLICADOS</b>
         {filters.color.map((color) => (
-          <button onClick={deleteFilter} name='color' value={color}>
+          <button key={"appliedColor" + color} onClick={deleteFilter} name='color' value={color}>
             <span>{color}</span> x
           </button>
         ))}
         {filters.cant.map((cant) => (
-          <button onClick={deleteFilter} name='cant' value={cant}>
+          <button key={"appliedCant" + cant} onClick={deleteFilter} name='cant' value={cant}>
             <span>{cant}</span> x
           </button>
         ))}
         {filters.size.map((size) => (
-          <button onClick={deleteFilter} name='size' value={size}>
+          <button key={"appliedSize" + size} onClick={deleteFilter} name='size' value={size}>
             <span>{size}</span> x
           </button>
         ))}
       </div>
 
-      <div>
+      <div className='filter'>
         <b>ORDEN</b>
         <select onChange={handleOrder} id='orderSection'>
-          <option value={'name ASC'}>{'nombre-> A-Z'}</option>
-          <option value={'name DESC'}>{'nombre-> Z-A'}</option>
-          <option value={'price ASC'}>{'precio-> menor↑'}</option>
-          <option value={'price DESC'}>{'precio-> mayor↓'}</option>
+          <option key="name ASC" value={'name ASC'}>{'nombre-> A-Z'}</option>
+          <option key="name DESC" value={'name DESC'}>{'nombre-> Z-A'}</option>
+          <option key="price ASC" value={'price ASC'}>{'precio-> menor↑'}</option>
+          <option key="price DESC" value={'price DESC'}>{'precio-> mayor↓'}</option>
         </select>
       </div>
 
@@ -124,6 +127,7 @@ export default function FilterSection() {
           const stock = productos.filter(
             (product) => product.color === color
           ).length;
+          if(!stock)return<></>
           return (
             <div key={'color' + color} className='form-check'>
               <input
@@ -152,6 +156,7 @@ export default function FilterSection() {
           const stock = productos.filter(
             (product) => product.cant === quantity
           ).length;
+          if(!stock)return<></>
           return (
             <div key={'cant' + quantity} className='form-check'>
               <input
@@ -180,6 +185,7 @@ export default function FilterSection() {
           const stock = productos.filter(
             (product) => product.size === size
           ).length;
+          if(!stock)return<></>
           return (
             <div key={'size' + size} className='form-check'>
               <input

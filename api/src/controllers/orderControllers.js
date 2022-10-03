@@ -83,7 +83,7 @@ const getOrderByUser = async(req,res,next)=>{
 
     try{
 
-        const order = await Order.findAll({where: {userSub: sub}, include: User});
+        const order = await Order.findAll({where: {userSub: sub,status:"approved"}, include: User});
 
         if(!order){
             throw new Error("Este usuario no tiene ordenes");
@@ -102,7 +102,7 @@ const filteredOrders = async(req,res,next)=>{
 
     try{
 
-                let condition = {};
+                let condition = {status:"approved"};
                 let userCondition = {}
                 // const startedDate = new Date(firstDate+" 00:00:00");
                 // const endDate = new Date(secondDate+" 00:00:00");

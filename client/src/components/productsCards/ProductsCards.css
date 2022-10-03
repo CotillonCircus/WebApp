@@ -10,6 +10,7 @@
   grid-template-columns: 200px minmax(80%, auto);
   margin-left: 5vw;
   margin-right: 5vw;
+  height: max-content;
 }
 
 #FiltersSection {
@@ -63,6 +64,12 @@
   text-decoration: none;
 }
 
+#loadingProducts{
+  display: flex;
+  justify-self: center;
+  top:0%;
+  transform: scale(10%);
+}
 /* ========== MEDIA QUERIES (MEDIUM DEVICES) ========== */
 
 @media screen and (max-width: 1024px) {

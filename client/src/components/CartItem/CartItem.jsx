@@ -2,6 +2,7 @@ import { Button, Stack } from 'react-bootstrap';
 import { useShoppingCart } from '../Context/ShoppingCartContext';
 import { useSelector } from 'react-redux';
 import './cartitem.css';
+import noDisponible from "../../images/imagen_no_disponible.jpg"
 
 export function CartItem({ id, quantity }) {
   const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } =
@@ -14,7 +15,7 @@ export function CartItem({ id, quantity }) {
   return (
     <Stack direction='horizontal' gap={2} className='d-flex align-items-center'>
       <img
-        src={item.img}
+        src={item.img||noDisponible}
         style={{ width: '125px', height: '75px', objectFit: 'cover' }}
         alt={item.name}
       />

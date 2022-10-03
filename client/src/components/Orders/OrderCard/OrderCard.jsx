@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { cancelOrder } from '../../../redux/actions'
 import styles from "./OrderCard.module.css"
+import noDisponible from "../../../images/imagen_no_disponible.jpg"
 
 
 const OrderCard = ({id,products,totalPrize,diference}) => {
@@ -20,7 +21,7 @@ const OrderCard = ({id,products,totalPrize,diference}) => {
         products?.map((product)=>{
           return(
             <div key={product.name} className={styles.container}>
-              <img src={product.img} alt={product.name} className={styles.img}/>
+              <img src={product.img||noDisponible} alt={product.name} className={styles.img}/>
               <p className={styles.name}>{product.name}</p>
               <p>Precio unitario: {product.price + "$"}</p>
               <p>Cantidad: {product.cantBuyed}</p>

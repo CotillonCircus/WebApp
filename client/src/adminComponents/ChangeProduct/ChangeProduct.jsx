@@ -38,7 +38,7 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
     if (!name) {
       errors.name = 'Ingresar nombre';
     }
-    if (!img.length) {
+    if (!img||!img.length) {
       errors.img = 'Ingrese imagen';
     } else {
     }
@@ -127,8 +127,8 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
           ></input>
           {errors.size && <span>{errors.size}</span>}
           <datalist id='sizesList'>
-            {filters.sizes?.map((size) => {
-              return <option>{size}</option>;
+            {filters.sizes?.map((size,i) => {
+              return <option key={"changeSize" + size + i} >{size}</option>;
             })}
           </datalist>
         </div>
@@ -143,8 +143,8 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
           ></input>
           {errors.color && <span>{errors.color}</span>}
           <datalist id='colorsList'>
-            {filters.colors?.map((color) => {
-              return <option>{color}</option>;
+            {filters.colors?.map((color,i) => {
+              return <option key={"changeColor" + color + i}>{color}</option>;
             })}
           </datalist>
         </div>
@@ -155,12 +155,9 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             value={changedProduct.catalogId}
             onChange={handleChange}
           >
-            <option selected disabled>
-              elija catalogo/s del producto
-            </option>
             {catalogs?.map((catalog) => {
               return (
-                <option value={catalog.id}>
+                <option key={"changeCatalog" + catalog.name + catalog.id} value={catalog.id}>
                   {catalog.name.split('_').join(' ')}
                 </option>
               );
@@ -181,8 +178,8 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
           ></input>
           {errors.cant && <span>{errors.cant}</span>}
           <datalist id='quantitisList'>
-            {filters.cants?.map((quantity) => {
-              return <option>{quantity}</option>;
+            {filters.cants?.map((quantity,i) => {
+              return <option key={"changeQuantity" + quantity + i}>{quantity}</option>;
             })}
           </datalist>
         </div>
