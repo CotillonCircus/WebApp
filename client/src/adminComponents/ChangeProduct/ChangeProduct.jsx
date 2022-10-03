@@ -158,7 +158,7 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             {catalogs?.map((catalog) => {
               return (
                 <option key={"changeCatalog" + catalog.name + catalog.id} value={catalog.id}>
-                  {catalog.name.split('_').join(' ')}
+                  {catalog.name}
                 </option>
               );
             })}

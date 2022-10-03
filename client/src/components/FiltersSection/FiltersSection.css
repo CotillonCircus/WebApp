@@ -1,73 +1,70 @@
-.filter{
-    width: 100%;
-    height: max-content;
-    display: flex;
-    flex-direction: column;
-    margin-top: 2vh;
+
+.filter {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
 }
 
-.filter span{
-    text-overflow: clip;
-    /* word-break: break-all; */
-    text-transform:capitalize;
-    font-size:larger;
-    font-weight: bold;
-    margin: 10% 0%;
+.filter span {
+  text-overflow: clip;
+  /* word-break: break-all; */
+  text-transform: capitalize;
+  font-size: larger;
+  font-weight: bold;
+  margin: 10% 0%;
 }
 
-.filter button{
-    text-overflow: clip;
-    /* word-break: break-all; */
-    text-transform:uppercase;
-    font-size:small;
-    text-align: left;
-    background-color: white;
+.filter button {
+  text-overflow: clip;
+  /* word-break: break-all; */
+  text-transform: uppercase;
+  font-size: small;
+  text-align: left;
+  background-color: white;
 }
 
-.filter input{
-    height: 10px;
-    padding: 10%;
-    border-radius:0%;
-    border: black 1px solid;
+.filter input {
+  height: 10px;
+  padding: 10%;
+  border-radius: 0%;
+  border: black 1px solid;
 }
 
-.filter label{
-    margin-left: 10%;
-    text-transform: capitalize;
-    font-size:small;
+.filter label {
+  margin-left: 10%;
+  text-transform: capitalize;
+  font-size: small;
 }
 
-#filtersApplied span{
-    color:rgb(181, 37, 61);
-    text-transform: capitalize;
-    margin-right: 10%;
-    /* display: flex; */
+#filtersApplied span {
+  color: rgb(181, 37, 61);
+  text-transform: capitalize;
+  margin-right: 10%;
 }
 
-#filtersApplied button{
-    border:1px solid rgb(181, 37, 61);
-    background-color: white;
-    margin: 5% 0%;
-    width:max-content;
-    display: flex;
-    padding: 0% 50%;
-    /* align-self: center; */
-    justify-content: space-around;
+#filtersApplied button {
+  border: 1px solid rgb(181, 37, 61);
+  background-color: white;
+  margin: 5% 0%;
+  width:max-content;
+  display: flex;
+  padding: 0% 50%;
+  justify-content: space-around;
 }
 
-.catalogSelected{
-    border-bottom: double black 1px;
-    color: rgb(181, 37, 61);
+.catalogSelected {
+  border-bottom: double black 1px;
+  color: rgb(181, 37, 61);
 }
 
-#filtersApplied{
-    display: flex;
-    flex-direction: column;
-    margin: 10% 0%;
-    /* width: max-content; */
-    /* align-self: center; */
+#filtersApplied {
+  display: flex;
+  flex-direction: column;
+  margin: 10% 0%;
 }
-#orderSection{
-    /* font-size: small; */
-    text-align: left;
+
+#orderSection {
+  text-align: left;
 }

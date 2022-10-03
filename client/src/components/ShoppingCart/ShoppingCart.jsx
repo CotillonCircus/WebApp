@@ -8,18 +8,20 @@ import { useState } from 'react';
 import loadingGIf from "../../images/cargando.gif"
 import "./ShoppingCart.css"
 
+
 export function ShoppingCart({ isOpen }) {
   const { closeCart, cartItems } = useShoppingCart();
   const { productos, userLogged } = useSelector((state) => state);
   const [loading,setLoading] = useState(false)
 
   const dispatch = useDispatch();
-  //const navigate = useNavigate();
 
   async function handleSubmit(e) {
     setLoading(true)
     e.preventDefault();
-    dispatch(createPreference(cartItems, userLogged[0].sub,window.location.origin));
+    dispatch(
+      createPreference(cartItems, userLogged[0].sub, window.location.origin)
+    );
   }
 
   return (
@@ -35,6 +37,7 @@ export function ShoppingCart({ isOpen }) {
           <div className='ms-auto fw-bold fs-5'>
             Total ${' '}
             {cartItems.reduce((total, cartItem) => {
+              console.log(productos);
               const item = productos.find((i) => i.id === cartItem.id);
               return total + (item?.price || 0) * cartItem.quantity;
             }, 0)}

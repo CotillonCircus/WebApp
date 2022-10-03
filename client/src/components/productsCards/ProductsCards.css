@@ -1,11 +1,4 @@
 #productscards {
-  /* width: 90vw;
-  position: relative;
-  left: 5vw;
-  display: flex;
-  height: max-content;
-  flex-direction: row;
-  flex-wrap: wrap; */
   display: grid;
   grid-template-columns: 200px minmax(80%, auto);
   margin-left: 5vw;
@@ -23,11 +16,6 @@
 }
 
 #products {
-  /* width: 80%;
-  height: max-content;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 10px;
