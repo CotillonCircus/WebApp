@@ -1,15 +1,14 @@
 const { User } = require('../db');
 
 const ingress = async (req, res, next) => {
-  const { sub } = req.body;
+  const { sub,name,nickname,email,locale } = req.body;
   const status = checkEmailAdmin(req.body) ? 'admin' : '';
   try {
     const user = await User.findOrCreate({
       where: { sub },
-      defaults: { ...req.body, status },
+      defaults: { sub,name,nickname,email,locale, status },
     });
 
-    console.log(user);
     res.send(user);
   } catch (error) {
     console.log(error.message);

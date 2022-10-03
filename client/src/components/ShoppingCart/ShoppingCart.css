@@ -1,0 +1,6 @@
+#loadingCart{
+    display: flex;
+    justify-self: center;
+    height: 10vw;
+    width: 10vw;
+}

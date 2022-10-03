@@ -4,16 +4,20 @@ import { useShoppingCart } from '../Context/ShoppingCartContext';
 import { useSelector } from 'react-redux';
 import { createPreference } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import loadingGIf from "../../images/cargando.gif"
+import "./ShoppingCart.css"
+
 
 export function ShoppingCart({ isOpen }) {
   const { closeCart, cartItems } = useShoppingCart();
   const { productos, userLogged } = useSelector((state) => state);
-  console.log(productos);
-  console.log(userLogged);
+  const [loading,setLoading] = useState(false)
 
   const dispatch = useDispatch();
 
   async function handleSubmit(e) {
+    setLoading(true)
     e.preventDefault();
     dispatch(
       createPreference(cartItems, userLogged[0].sub, window.location.origin)
@@ -38,9 +42,11 @@ export function ShoppingCart({ isOpen }) {
               return total + (item?.price || 0) * cartItem.quantity;
             }, 0)}
           </div>
+          {!loading?
           <Button onClick={handleSubmit} className='ms-auto'>
             Pagar
           </Button>
+          :<img id="loadingCart" src={loadingGIf} alt="cargando.gif"/>}
         </Stack>
       </Offcanvas.Body>
     </Offcanvas>

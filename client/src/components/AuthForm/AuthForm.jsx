@@ -48,8 +48,6 @@ const AuthForm = () => {
     Confirmation({ textAlert });
   };
 
-  const validate = () => {};
-
   return (
     <form>
       <input

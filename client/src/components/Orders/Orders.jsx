@@ -9,18 +9,11 @@ const Orders = () => {
   const user = useSelector((state) => state.userLogged[0]);
   const [orders, setOrders] = useState([]);
 
-  async function getOrders() {
-    const orders = await axios.get(
-      `order/user/${user.sub}`
-    );
-
-    setOrders(orders.data);
-  }
-
   useEffect(() => {
-    if (user) {
-      getOrders();
-    }
+    user&&axios.get(
+      `order/user/${user.sub}`
+    ).then(orders=>setOrders(orders.data))
+
   }, [user]);
 
   return (
