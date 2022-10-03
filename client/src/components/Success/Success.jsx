@@ -5,19 +5,19 @@ import {updateOrder} from "../../redux/actions"
 import {useShoppingCart} from "../Context/ShoppingCartContext"
 
 
-export default function Succes(){
-    const [searchParams, setSearchParams] = useSearchParams();
+export default function Success(){
+    const searchParams = useSearchParams()[0];
     const [order,setOrder] = useState()
     const navigate = useNavigate()
     const {setCartItems} = useShoppingCart()
     
     useEffect(()=>{
         updateOrder(searchParams.get("orderId"),setOrder,navigate)
-    },[searchParams])
+    },[searchParams,navigate])
 
     useEffect(()=>{
         order&&setCartItems([])
-    },[order])
+    },[order,setCartItems])
 
     return order&&(
         <div>

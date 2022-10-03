@@ -2,14 +2,14 @@ import React from 'react'
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Navbar from '../../components/Navbar/Navbar';
-import Succes from '../../components/Succes/Succes';
+import Success from '../../components/Success/Success';
 
 const SuccessPage = () => {
   return (
     <div>
       <Header />
       <Navbar />
-      <Succes/>
+      <Success/>
       <Footer />
     </div>
   )

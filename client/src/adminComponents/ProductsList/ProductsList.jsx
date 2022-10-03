@@ -89,7 +89,7 @@ export default function ProductsList(){
                     <label>color</label>
                     <select name="colors" onChange={updateFilter}>
                         {
-                            toFilter?.colors?.map((color)=><option value={color}>{color}</option>)
+                            toFilter?.colors?.map((color)=><option key={"adminColor" + color} value={color}>{color}</option>)
                         }
                     </select>
                 </div>
@@ -97,7 +97,7 @@ export default function ProductsList(){
                     <label>cantidad</label>
                     <select name="cants" onChange={updateFilter}>
                         {
-                            toFilter?.cants?.map((quantity)=><option value={quantity}>{quantity}</option>)
+                            toFilter?.cants?.map((quantity)=><option key={"adminQuantity" + quantity} value={quantity}>{quantity}</option>)
                         }
                     </select>
                 </div>
@@ -105,7 +105,7 @@ export default function ProductsList(){
                     <label>tamaño</label>
                     <select name="sizes" onChange={updateFilter}>
                         {
-                            toFilter?.sizes?.map((size)=><option value={size}>{size}</option>)
+                            toFilter?.sizes?.map((size)=><option key={"adminSize" + size} value={size}>{size}</option>)
                         }
                     </select>
                 </div>
@@ -113,7 +113,7 @@ export default function ProductsList(){
                     <label>catalogo</label>
                     <select name="catalogId" onChange={updateFilter}>
                         {
-                            catalogs?.map((catalog)=><option value={catalog.id}>{catalog.name}</option>)  
+                            catalogs?.map((catalog)=><option key={"adminCatalog" + catalog.id} value={catalog.id}>{catalog.name}</option>)  
                         }
                     </select>
                 </div>
@@ -122,13 +122,13 @@ export default function ProductsList(){
             <div id="filtersSelected">
             <b>filtros aplicados: </b>
             {
-                filters.colors.map((color)=><button onClick={deleteFilter} name="colors" value={color}><span>{color}</span> x</button>)
+                filters.colors.map((color)=><button key={"adminSelected" + color} onClick={deleteFilter} name="colors" value={color}><span>{color}</span> x</button>)
             }
             {
-                filters.cants.map((quantity)=><button onClick={deleteFilter} name="cants" value={quantity}><span>{quantity}</span> x</button>)
+                filters.cants.map((quantity)=><button key={"adminSelected" + quantity} onClick={deleteFilter} name="cants" value={quantity}><span>{quantity}</span> x</button>)
             }
             {
-                filters.sizes.map((size)=><button onClick={deleteFilter} name="sizes" value={size}><span>{size}</span> x</button>)
+                filters.sizes.map((size)=><button key={"adminSelected" + size}  onClick={deleteFilter} name="sizes" value={size}><span>{size}</span> x</button>)
             }
             {
                 filters.catalogId.id&&<button onClick={deleteFilter} name="catalogId" ><span>{filters.catalogId.name}</span> x</button>
@@ -159,9 +159,9 @@ export default function ProductsList(){
                 {/* <span></span> */}
             </div>
             {   
-                list?.map(product=>{
+                list?.map((product,i)=>{
                     return(
-                    <div className="singleListProduct">
+                    <div key={"adminProduct" + product.name + i}  className="singleListProduct">
                         <span>{product.name}</span>
                         <span>{product.price}</span>
                         <span>{product.size}</span>
