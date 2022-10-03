@@ -1,7 +1,18 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { cancelOrder } from '../../../redux/actions'
 import styles from "./OrderCard.module.css"
 
-const OrderCard = ({id,products,totalPrize}) => {
+
+const OrderCard = ({id,products,totalPrize,diference}) => {
+  
+  const userLogged  = useSelector(state=>state.userLogged)
+
+  function deleteOrder(id){
+    const {name,email} = userLogged[0]
+    cancelOrder(name,email,id,window.location.origin)  
+  }
+
   return (
     <div className={styles.bigContainer}>
       <p className={styles.id}>Id de orden: {id}</p>
@@ -17,7 +28,10 @@ const OrderCard = ({id,products,totalPrize}) => {
           )
         })
       }
-      <p className={styles.id}>Precio total: {totalPrize + "$"}</p>
+      <div>
+        <p className={styles.id}>Precio total: {totalPrize + "$"}</p>
+        {diference<0&&<button id="deletedOrderbutton" onClick={()=>deleteOrder(id)}>cancel order</button>}
+      </div>
     </div>
   )
 }

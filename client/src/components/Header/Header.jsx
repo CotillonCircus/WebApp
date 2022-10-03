@@ -8,11 +8,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductos, getAllProductos } from '../../redux/actions';
 import Cart from '../Cart/Cart';
-import Confirmation from '../../components/Confirmation/Confirmation';
 import { changeUserStatus } from '../../redux/actions';
 import { useEffect } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
@@ -23,12 +21,10 @@ const Header = () => {
     dispatch(getAllProductos());
   }, [dispatch]);
 
-  const textAlert = 'Usted se ha dado de baja';
-
   const handleDown = (e) => {
+    console.log('Down');
     e.preventDefault();
     dispatch(changeUserStatus(user.sub, ''));
-    Confirmation({ textAlert });
   };
 
   const handleCLick = () => {

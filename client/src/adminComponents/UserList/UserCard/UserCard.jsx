@@ -9,7 +9,7 @@ export const UserCard = ({ sub, name, email, setFlag }) => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const user = await axios.post('http://localhost:3001/user', { sub });
+    const user = await axios.post('/user', { sub });
     if (user.data[0].status === 'mayorista') {
       dispatch(changeUserStatus(sub, 'banned'));
     } else {

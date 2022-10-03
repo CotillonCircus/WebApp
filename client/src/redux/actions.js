@@ -328,7 +328,7 @@ export async function updateOrder(id,setUpdatedOrder,navigate){
 export function getAllOrders({userName="",productName="",firstDate="",secondDate=""}){
   return async function (dispatch) {
       try{
-        const orders = (await axios.get(`http://localhost:3001/order?userName=${userName}&productName=${productName}&firstDate=${firstDate}&seconDate=${secondDate}`)).data;
+        const orders = (await axios.get(`/order?userName=${userName}&productName=${productName}&firstDate=${firstDate}&seconDate=${secondDate}`)).data;
         return dispatch({
           type: GET_ALL_ORDERS,
           payload: orders
@@ -345,10 +345,17 @@ export async function putProductsGroup(products,prop,value,setList){
 
   try {
     const updated = await axios.put("/product/group",{ids,prop,value})
-    console.log(updated)
     setList(updated.data)
   } catch (error) {
     console.log(error.message)
   }
 }
 
+export async function cancelOrder(name,email,orderId,urlOrigin){
+    try {
+      await axios.post("/order/cancel",{name,email,orderId,urlOrigin})
+      alert("el pedido de cancelacion de su orden ah sido enviado correctamente")
+    } catch (error) {
+      console.log(error)
+    }
+}

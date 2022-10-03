@@ -5,7 +5,7 @@ const {NODEMAILER_MAIL_USER } = process.env
 
 const subject = "compra realizada"
 const textUser = "su compra a sido realizada exitosamente! con un monto de $"
-const textAdmin = "un usuario ah realizado una compra de $"
+const textAdmin = "ha realizado una compra de $"
 
 const postOrder = async (req,res)=>{
 
@@ -138,10 +138,10 @@ const getOneOrder = async (req, res, next) => {
     await Order.update({ status: 'approved' }, { where: { id } });
     const order = await Order.findByPk(id);
     
-    const to = (await User.findByPk(order.userSub)).email
-    text =  textUser+order.totalPrize
-    sendMail(to,subject,text,"")
-    text = textAdmin+order.totalPrize
+    const {email,name} = await User.findByPk(order.userSub)
+    text = textUser+order.totalPrize
+    sendMail(email,subject,text,"")
+    text = name+" "+textAdmin+order.totalPrize
     sendMail(NODEMAILER_MAIL_USER,subject,text,"")
 
     order ? res.status(200).send(order) : res.status(400).send();
@@ -150,10 +150,26 @@ const getOneOrder = async (req, res, next) => {
   }
 };
 
+const cancelOrder = async (req,res,next)=>{
+    const {name,email,orderId,urlOrigin} = req.body
+    console.log({name,email,orderId,urlOrigin})
+    try {
+        const subject = "CANCELAR PAGO"
+        const text = "El usuario "+name+" quiere cancelar una compra. Puede comunicarse con el en su correo: "+email
+        const html = "<div> <span>"+text+"</span> <br/> <a href="+urlOrigin+"/admin"+">CLICK AQUI PARA IR A ZONA ADMIN </a> <br/> <span>busque la orden por la id: "+orderId+" </div>" 
+        await sendMail(NODEMAILER_MAIL_USER,subject,"",html)
+        res.send()
+    } catch (error) {
+        console.log(error.message)
+        res.send(error)
+    }
+}
+
 module.exports = {
   postOrder,
   getOrderByUser,
   filteredOrders,
   getOrderByUser,
   getOneOrder,
+  cancelOrder
 };

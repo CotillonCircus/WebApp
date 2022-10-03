@@ -15,7 +15,6 @@ const LogOutButton = () => {
   }, [dispatch, user]);
 
   const { logout } = useAuth0();
-  //console.log(userLogged);
   return (
     <div>
       <button
