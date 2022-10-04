@@ -1,0 +1,21 @@
+#routesLinksAdmin{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 10vh;
+    margin-bottom: 5vh;
+}
+
+#routesLinksAdmin a{
+    text-decoration: none;
+    color: inherit;
+    border: black 1px solid;
+    padding: 0.3%;
+}
+
+#linkSelected{
+    transform: scale(120%);
+    background-color: pink;
+}

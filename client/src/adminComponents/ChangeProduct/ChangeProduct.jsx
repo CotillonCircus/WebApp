@@ -6,6 +6,7 @@ import {
   newProductImg,
 } from '../../redux/actions';
 import './ChangeProduct.css';
+import loading from "../../images/cargando.gif"
 
 export default function ChangeProduct({ productToChange, setShowForm }) {
   const { catalogs } = useSelector((state) => state);
@@ -13,6 +14,7 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
   const [changedProduct, setChangedProduct] = useState(productToChange);
   const [errors, setErrors] = useState({});
   const [productImg, setProductImg] = useState();
+  const [changeLoading,setChangeLoading] = useState(false)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -64,16 +66,19 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
   }
 
   async function handleSubmit(e) {
+    setChangeLoading(true)
     e.preventDefault();
     if (Object.entries(validate(changedProduct)).length) {
       alert('corriga errores');
     } else {
       const cloudImg = await newProductImg(productImg);
       const cloudProduct = { ...changedProduct, img: cloudImg };
-      dispatch(updateProduct(cloudProduct));
+      dispatch(updateProduct(cloudProduct,undefined,setChangeLoading));
       setShowForm(false);
     }
   }
+
+  // useEffect()
 
   return (
     <div id='productFormDiv'>
@@ -194,12 +199,19 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
           ></input>
           {errors.stock && <span>{errors.stock}</span>}
         </div>
-        <div id='editButtons'>
-          <button type={'submit'}>actualizar</button>
-          <button type={'button'} onClick={() => setShowForm(false)}>
-            cancelar
-          </button>
-        </div>
+        {
+          !changeLoading?
+          <div id='editButtons'>
+            <button type={'submit'}>actualizar</button>
+            <button type={'button'} onClick={() => setShowForm(false)}>
+              cancelar
+            </button>
+          </div>
+          :
+          <div id='editButtons'>
+            <img src={loading} alt="loading.gif"/>  
+          </div>
+        }
       </form>
     </div>
   );
