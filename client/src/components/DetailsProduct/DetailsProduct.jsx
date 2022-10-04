@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useShoppingCart } from '../Context/ShoppingCartContext';
 import default_img from '../../images/imagen_no_disponible.jpg';
+import ReactImageMagnify from 'react-image-magnify';
 
 const DetailsProduct = () => {
   const { productDetails } = useSelector((state) => state);
@@ -34,10 +35,26 @@ const DetailsProduct = () => {
       <div id='detailsPage'>
         <div id='detailsContainer'>
           <div id='leftDetails'>
-            <div id='productImg'>
+            {/* <div id='productImg left_1'>
               <img
                 src={productDetails.img || default_img}
                 alt='productDetails.img'
+              />
+            </div> */}
+            <div id='left_2'>
+              <ReactImageMagnify
+                {...{
+                  smallImage: {
+                    alt: 'image',
+                    isFluidWidth: true,
+                    src: productDetails.img,
+                  },
+                  largeImage: {
+                    src: productDetails.img,
+                    width: 1200,
+                    height: 1800,
+                  },
+                }}
               />
             </div>
           </div>
