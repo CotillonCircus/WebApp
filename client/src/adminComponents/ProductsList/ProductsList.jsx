@@ -8,7 +8,6 @@ import "./ProductsList.css"
 
 export default function ProductsList(){
     const [list,setList] = useState([])
-    const[showList,setShowList] = useState(false)
     const [showForm,setShowForm] = useState(false)
     const [productToChange,setProductToChange] = useState({})
     const dispatch = useDispatch()
@@ -22,7 +21,7 @@ export default function ProductsList(){
 
     useEffect(()=>{
         getProductsAdmin({...filters,catalogId:filters.catalogId.id},setList)
-    },[showForm,showList,filters])
+    },[showForm,filters])
 
     useEffect(()=>{
         !toFilter&&getAllToFilter(setToFilter)
@@ -81,18 +80,17 @@ export default function ProductsList(){
 
     return(
         <div id="adminProductsList">
-            <p onClick={()=>setShowList(!showList)} className='display-6'>Lista de productos</p>
-            {showList&&<div id="listProducts">
-            <div id="filtersSelection">
-                <b>FILTROS</b>
-                <div>
-                    <label>color</label>
-                    <select name="colors" onChange={updateFilter}>
-                        {
-                            toFilter?.colors?.map((color)=><option key={"adminColor" + color} value={color}>{color}</option>)
-                        }
-                    </select>
-                </div>
+            <div id="listProducts">
+                <div id="filtersSelection">
+                    <b>FILTROS</b>
+                    <div>
+                        <label>color</label>
+                        <select name="colors" onChange={updateFilter}>
+                            {
+                                toFilter?.colors?.map((color)=><option key={"adminColor" + color} value={color}>{color}</option>)
+                            }
+                        </select>
+                    </div>
                 <div>
                     <label>cantidad</label>
                     <select name="cants" onChange={updateFilter}>
@@ -176,7 +174,7 @@ export default function ProductsList(){
                 })
             }
             </div>
-            </div>}
+            </div>
             {
                 showForm&&<ChangeProduct productToChange={productToChange} setShowForm={setShowForm}/>
             }

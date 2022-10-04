@@ -15,7 +15,6 @@ const UserList = () => {
 
   return (
     <div>
-      <p className='display-6'>Usuarios autorizados</p>
       {users?.map((user) => {
         return (
           <div key={user.sub}>
