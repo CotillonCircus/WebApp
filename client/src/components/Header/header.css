@@ -24,7 +24,7 @@
 }
 
 #searchInput {
-  height: 5vh;
+  height: 40px;
   width: 20vw;
   justify-self: center;
   border: 1px black solid;
@@ -43,6 +43,7 @@
   font-size: medium;
   text-align: center;
   padding-top: 20px;
+  height: 30px;
 }
 
 #searchInput button {

@@ -293,17 +293,18 @@ export async function getProductsAdmin({
           "&admin=true"
       )
     ).data;
-    setProducts(products);
+    setProducts&&setProducts(products);
   } catch (error) {
     console.log(error.message);
   }
 }
 
-export function updateProduct(updatedProduct, setList) {
+export function updateProduct(updatedProduct, setList,setLoading) {
   return async function (dispatch) {
     try {
       await axios.put('/product', updatedProduct);
       setList && getProductsAdmin({},setList);
+      setLoading&&setLoading(false)
       return dispatch({
         type: UPDATE_PRODUCT,
         payload: '',

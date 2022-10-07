@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .buttonContainer{
@@ -15,10 +16,11 @@
     height: 4rem;
     width:12rem;
     border-radius: 10px;
-    background-color: rgb(148, 90, 207);
+    background-color: rgb(240, 94, 250);
     font-size: 25px;
-    border: 1px solid black;
-    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    font-weight: 700;
+    border: 1px solid rgb(234, 99, 246);
+    box-shadow: 7px 10px 28px 5px rgba(245, 88, 88, 0.24);
 }
 
 .button:active{

@@ -18,10 +18,9 @@ const AuthList = () => {
 
   return (
     <div>
-        <p className='display-6'>Pedidos de autorización</p>
         <div className={styles.cardsContainer}>
             {
-                auths && auths?.map((auth)=>{
+                auths.length? auths.map((auth)=>{
                     return(
                         <div key={auth.id}>
                             <AuthCard                           
@@ -38,6 +37,7 @@ const AuthList = () => {
                         </div>
                     )
                 })
+                :<span>no hay pedidos de autorizacion pendientes</span>
             }
         </div>
     </div>

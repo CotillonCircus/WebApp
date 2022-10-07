@@ -42,7 +42,6 @@ export default function EditCarrousel() {
 
   return (
     <div id='editCarrousel'>
-      <p className='display-6'>Editar carrusel</p>
       <div id='carrouselImgs'>
         {carrouselImgs?.map((img) => {
           return (

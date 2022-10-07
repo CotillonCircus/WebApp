@@ -11,6 +11,12 @@ import Details from './pages/Details/Details';
 import MyOrders from './pages/MyOrders/MyOrders';
 import { ShoppingCartProvider } from './components/Context/ShoppingCartContext';
 import SuccessPage from './pages/SuccessPage/SuccessPage';
+import AuthList from './adminComponents/AuthList/AuthList';
+import UserList from './adminComponents/UserList/UserList';
+import EditCarrousel from './components/EditCarrousel/EditCarrousel';
+import NewProduct from './components/NewProduct/NewProduct';
+import ProductsList from './adminComponents/ProductsList/ProductsList';
+import AdminOrders from './adminComponents/AdminOrders/AdminOrders';
 
 function App() {
   return (
@@ -21,12 +27,19 @@ function App() {
         <Route path='/products' element={<Products />} />
         <Route path='/about' element={<About />} />
         <Route path='/tutorial' element={<Tutorial />} />
-        <Route path='/admin' element={<Admin />} />
         <Route path='/aform' element={<Aform />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/details/:ID' element={<Details />} />
         <Route path='/myOrders' element={<MyOrders/>}/>
         <Route path='/success' element={<SuccessPage/>}/>
+        <Route path='/admin/' element={<Admin />}>
+          <Route path="auth" element={<AuthList />}/>
+          <Route path="users" element={<UserList/>}/>
+          <Route path="carrousell" element={<EditCarrousel/>}/>
+          <Route path="prods" element={<ProductsList/>}/>
+          <Route path="newProd" element={<NewProduct/>}/>
+          <Route path="sells" element={<AdminOrders/>}/>
+        </Route>
       </Routes>
     </ShoppingCartProvider>
   );
