@@ -47,12 +47,12 @@ const DetailsProduct = () => {
                   smallImage: {
                     alt: 'image',
                     isFluidWidth: true,
-                    src: productDetails.img,
+                    src: productDetails.img || default_img,
                   },
                   largeImage: {
-                    src: productDetails.img,
+                    src: productDetails.img || default_img,
                     width: 1200,
-                    height: 1800,
+                    height: 1200,
                   },
                 }}
               />
