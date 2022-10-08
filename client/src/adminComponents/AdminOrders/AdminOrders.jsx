@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import AdminOrderCard from './AdminOrderCard/AdminOrderCard';
 import { useState } from 'react';
+import Pagination from '../../components/pagination/pagination';
 
 const AdminOrders = () => {
 
@@ -16,6 +17,7 @@ const AdminOrders = () => {
     firstDate: "",
     secondDate: ""
   })
+  const [page,setPage] = useState(1)
 
   useEffect(()=>{
     dispatch(getAllOrders(input))
@@ -65,20 +67,23 @@ const AdminOrders = () => {
             </form>
         </div>
         <div>
-            { 
-             orders?.map((order)=>{
-              return(
-                <AdminOrderCard
-                key={order.id}
-                id={order.id}
-                products={order.products}
-                userName={order.user.name}
-                fecha={order.createdAt}
-                totalPrize={order.totalPrize}
-                />
-              )
-            })
-            }
+          <div>
+              { 
+              orders?.slice((page-1)*8,(page)*8).map((order)=>{
+                return(
+                  <AdminOrderCard
+                  key={order.id}
+                  id={order.id}
+                  products={order.products}
+                  userName={order.user.name}
+                  fecha={order.createdAt}
+                  totalPrize={order.totalPrize}
+                  />
+                  )
+                })
+              }
+          </div>
+          <Pagination array={orders} limit={8} page={page} setPage={setPage}/>
         </div>
     </div>
   )
