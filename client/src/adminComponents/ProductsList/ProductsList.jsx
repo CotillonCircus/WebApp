@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Pagination from "../../components/pagination/pagination";
 import { getAllToFilter, getCatalogs, getProductsAdmin,putProductsGroup,updateProduct } from "../../redux/actions";
 import ChangeProduct from "../ChangeProduct/ChangeProduct";
 import "./ProductsList.css"
@@ -15,6 +16,7 @@ export default function ProductsList(){
     const [filters,setFilters] = useState({colors:[],sizes:[],cants:[],catalogId:{id:""},order:"name ASC",name:""})
     const [groupEdit,setGroupEdit] = useState(["price",0])
     const {catalogs} = useSelector(state=>state)
+    const [page,setPage] = useState(1)
     useEffect(()=>{
         dispatch(getCatalogs())
     },[dispatch])
@@ -145,34 +147,35 @@ export default function ProductsList(){
                 </div>
             </div>
             <div>
-            <div id="listProps">
-                <span onClick={()=>handleOrder("name ASC")}>nombre</span>
-                <span onClick={()=>handleOrder("price ASC")}>precio</span>
-                <span onClick={()=>handleOrder("size ASC")}>tamaño</span>
-                <span onClick={()=>handleOrder("color ASC")}>color</span>
-                <span onClick={()=>handleOrder("stock ASC")}>stock</span>
-                <span onClick={()=>handleOrder("cant ASC")}>cant</span>
-                <span >status</span>
-                <span>editar</span>
-                {/* <span></span> */}
-            </div>
-            {   
-                list?.map((product,i)=>{
-                    return(
-                    <div key={"adminProduct" + product.name + i}  className="singleListProduct">
-                        <span>{product.name}</span>
-                        <span>{product.price}</span>
-                        <span>{product.size}</span>
-                        <span>{product.color}</span>
-                        <span>{product.stock}</span>
-                        <span>{product.cant}</span>
-                        <span onClick={()=>editProductStatus(product)}>{product.status}</span>
-                        <button onClick={()=>{setProductToChange(product);setShowForm(true)}}>modificar</button>
-                        <button onClick={()=>{deleteProduct(product.id,product.img)}}>eliminar</button>
-                    </div>
-                    )
-                })
-            }
+                <div id="listProps">
+                    <span onClick={()=>handleOrder("name ASC")}>nombre</span>
+                    <span onClick={()=>handleOrder("price ASC")}>precio</span>
+                    <span onClick={()=>handleOrder("size ASC")}>tamaño</span>
+                    <span onClick={()=>handleOrder("color ASC")}>color</span>
+                    <span onClick={()=>handleOrder("stock ASC")}>stock</span>
+                    <span onClick={()=>handleOrder("cant ASC")}>cant</span>
+                    <span >status</span>
+                    <span>editar</span>
+                    {/* <span></span> */}
+                </div>
+                {   
+                    list?.slice((page-1)*8,(page)*8).map((product,i)=>{
+                        return(
+                        <div key={"adminProduct" + product.name + i}  className="singleListProduct">
+                            <span>{product.name}</span>
+                            <span>{product.price}</span>
+                            <span>{product.size}</span>
+                            <span>{product.color}</span>
+                            <span>{product.stock}</span>
+                            <span>{product.cant}</span>
+                            <span onClick={()=>editProductStatus(product)}>{product.status}</span>
+                            <button onClick={()=>{setProductToChange(product);setShowForm(true)}}>modificar</button>
+                            <button onClick={()=>{deleteProduct(product.id,product.img)}}>eliminar</button>
+                        </div>
+                        )
+                    })
+                }
+                <Pagination array={list} limit={8} page={page} setPage={setPage}/>
             </div>
             </div>
             {

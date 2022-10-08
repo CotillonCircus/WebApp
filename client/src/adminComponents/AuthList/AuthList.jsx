@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllAuths } from '../../redux/actions';
 import styles from "./AuthList.module.css";
 import AuthCard from "./AuthCard/AuthCard";
+import Pagination from '../../components/pagination/pagination';
 
 
 const AuthList = () => {
@@ -11,6 +12,7 @@ const AuthList = () => {
     const dispatch = useDispatch();
     const auths = useSelector((state)=>state.auths);
     const [authFlag, setAuthFlag] = useState(true);
+    const [page,setPage] = useState(1)
 
     useEffect(()=>{
         dispatch(getAllAuths());
@@ -20,7 +22,7 @@ const AuthList = () => {
     <div>
         <div className={styles.cardsContainer}>
             {
-                auths.length? auths.map((auth)=>{
+                auths.length? auths.slice((page-1)*8,(page)*8).map((auth)=>{
                     return(
                         <div key={auth.id}>
                             <AuthCard                           
@@ -40,6 +42,7 @@ const AuthList = () => {
                 :<span>no hay pedidos de autorizacion pendientes</span>
             }
         </div>
+        <Pagination array={auths} limit={8} page={page} setPage={setPage}/>
     </div>
   )
 }

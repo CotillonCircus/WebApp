@@ -37,7 +37,6 @@ export function ShoppingCart({ isOpen }) {
           <div className='ms-auto fw-bold fs-5'>
             Total ${' '}
             {cartItems.reduce((total, cartItem) => {
-              console.log(productos);
               const item = productos.find((i) => i.id === cartItem.id);
               return total + (item?.price || 0) * cartItem.quantity;
             }, 0)}
