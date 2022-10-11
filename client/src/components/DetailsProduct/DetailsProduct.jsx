@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getProductById, getRelated } from '../../redux/actions';
 import './detailsProduct.css';
 import { useState } from 'react';
@@ -124,7 +124,9 @@ const DetailsProduct = () => {
             .slice(0, 4)
             .map((rel) => {
               return (
-                <img src={rel.img || default_img} alt={rel} key={rel.id} />
+                <Link to={'/details/' + rel.id}>
+                 <img src={rel.img || default_img} alt={rel} key={rel.id} />
+                </Link>
               );
             })}
         </div>
