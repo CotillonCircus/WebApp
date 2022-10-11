@@ -26,22 +26,21 @@
 #searchInput {
   height: 40px;
   width: 20vw;
-  justify-self: center;
-  border: 1px black solid;
-  border-radius: 1vh;
+  border-bottom: 1px black solid;
+  /* border-radius: 1vh; */
   display: flex;
   flex-direction: row;
   align-self: center;
   justify-self: center;
   justify-content: space-between;
   margin-left: 10%;
-  background-color: rgb(234, 234, 234);
+  /* background-color: rgb(234, 234, 234); */
 }
 
 #searchInput input {
   border: none;
   font-size: medium;
-  text-align: center;
+  text-align: left;
   padding-top: 20px;
   height: 30px;
 }
