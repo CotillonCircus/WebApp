@@ -89,13 +89,15 @@ const Header = () => {
                     </Link>
                   </li>
                   <li>
-                    {
-                      user ? (user.status === "mayorista" ? (<Link to={'/myOrders'} className='ddlink'>
-                      <span className='nav-link' href='#aform'>
-                        Mis compras
-                      </span>
-                    </Link>) : null) : null
-                    }  
+                    {user ? (
+                      user.status === 'mayorista' ? (
+                        <Link to={'/myOrders'} className='ddlink'>
+                          <span className='nav-link' href='#aform'>
+                            Mis compras
+                          </span>
+                        </Link>
+                      ) : null
+                    ) : null}
                   </li>
                   <li>
                     <span
