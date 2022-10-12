@@ -14,7 +14,7 @@
 :root {
   --color-bg: #fff;
   --color-text: #6d6c6c;
-  --color-text-variant: #ff009f;
+  --color-text-variant: rgb(232,61,140);
   --transition: all 400ms ease;
 }
 
