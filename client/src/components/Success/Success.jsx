@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import {updateOrder} from "../../redux/actions"
 import {useShoppingCart} from "../Context/ShoppingCartContext"
-
+import "./Success.css"
 
 export default function Success(){
     const searchParams = useSearchParams()[0];
@@ -20,10 +21,12 @@ export default function Success(){
     },[order,setCartItems])
 
     return order&&(
-        <div>
+        <div id="successDiv">
             <span>compra realizada correctamente, desea ver el resumen?</span>
-            <button onClick={()=>navigate("/myOrders")}>si</button>
-            <button onClick={()=>navigate("/home")}>no</button>
+            <div id="successButtonsDiv">
+                <Button onClick={()=>navigate("/myOrders")}>si</Button>
+                <Button onClick={()=>navigate("/home")}>no</Button>
+            </div>
         </div>
     )
 }

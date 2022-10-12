@@ -214,7 +214,7 @@ export default function NewProduct() {
           {errors.stock && <span>{errors.stock}</span>}
         </div>
         <div id='optionsButtons'>
-          <button type={'submit'}>dar de alta</button>
+          <button type={'submit'}>listo</button>
           <button type={'button'} onClick={() => setShowForm(false)}>
             cancelar
           </button>
