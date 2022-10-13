@@ -3,8 +3,8 @@
 }
 #productForm{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
 }
 
 #productFormDiv{
@@ -16,22 +16,23 @@
     justify-content: center;
     /* flex-direction: column; */
     /* padding: 10vh 0%; */
+    width: 100vw;
     background-color: rgba(163, 160, 160, 0.9);
 }
 
 #productForm div {
-    width: 26vw;
-    height: 30vh;
+    width: 50vw;
+    height: 8vh;
     /* margin: 0%; */
     margin-top: 1vh;
     margin-left:5%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border: 1px black solid;
     border-radius: 20px;
     background-color: bisque;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 #imgLabel{
@@ -50,23 +51,40 @@
 
 
 #newPRoductImg img{
-    height: 20vh;
+    height: 10vh;
+    transform: scale(80%);
 }
 
 #catalogEditZone select{
     font-size: small;
     background-color: pink;
     border: 1px solid black;
+    /* height: 20%; */
 }
 
 #editButtons button{
-    margin: 5%;
-    padding: 5%;
+    margin: 5% 15%;
+    padding: 2%;
     background-color: pink;
     border:1px black solid
+}
+
+#productForm div input{
+    height: 2vh;
+   margin: 0% 1%;
+   width: 30%;
+}
+
+#productForm div label{
+   margin: 0% 2%;
 }
 
 #editButtons img{
     height: 10vh;
     width: 10vh;
 }
+
+#productForm div span{
+    color: red;
+    padding: 0%;
+ }
