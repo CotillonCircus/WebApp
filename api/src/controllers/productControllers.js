@@ -85,17 +85,23 @@ const buyProducts=(req,res,next)=>{
 }
 
 const editProduct = async (req,res,next) => {
-    const {id,name,img,catalogId,color,size,cant,alf,price,cantStock,status} = req.body
+    const {id,name,img,secondaryImg,catalogId,color,size,cant,alf,price,cantStock,status} = req.body
     if(status==="deleted"&&img){
         const url=img.split("/")
         const length = url.length
         const public_id = url[length-1].split(".")[0]
         await cloudinary.uploader.destroy("products/"+public_id, (succes, error) =>
       console.log({ succes, error })
-    );
-    }
+    );}
+    if(status==="deleted"&&secondaryImg){
+        const url=secondaryImg.split("/")
+        const length = url.length
+        const public_id = url[length-1].split(".")[0]
+        await cloudinary.uploader.destroy("products/"+public_id, (succes, error) =>
+      console.log({ succes, error })
+    );}
     try {
-        const updatedProduct = {name,img,catalogId,color,size,cant,alf,price,cantStock,status}
+        const updatedProduct = {name,img,secondaryImg,catalogId,color,size,cant,alf,price,cantStock,status}
         await Product.update(updatedProduct,{where:{id}})
         res.send()
     } catch (error) {

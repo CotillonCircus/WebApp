@@ -119,6 +119,22 @@ export default function NewProduct() {
             <span>{errors.img}</span>
           )}
         </div>
+        {/* <div id='newPRoductImg'>
+          <label id='imgLabel' for='productImgInput'>
+            {'>imagen<'}
+          </label>
+          <input
+            onChange={(e) => handleImgChange(e)}
+            className='hidden'
+            id='productImgInput'
+            type='file'
+          ></input>
+          {newProduct.img ? (
+            <img src={newProduct.img} alt='newProduct.img' />
+          ) : (
+            <span>{errors.img}</span>
+          )}
+        </div> */}
         <div>
           <label>precio</label>
           <input
