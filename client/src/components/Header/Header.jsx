@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   const handleCLick = () => {
-    const search = document.getElementById('search').value;
+    const search = document.getElementById("searchheader").value
     dispatch(getProductos({ name: search }));
     navigate('/products');
   };
@@ -57,7 +57,7 @@ const Header = () => {
           <div className='row'>
             <div className='col-lg-3 column_header'>
               <div id='searchInput'>
-                <input id='search' placeholder='Buscar...'></input>
+                <input id='searchheader' placeholder='Buscar...'></input>
                 <button
                   onClick={handleCLick}
                   type='button'
