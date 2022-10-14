@@ -1,31 +1,11 @@
-.hidden{
-    display: none;
-}
 #productForm{
     display: flex;
     flex-direction: column;
-    /* flex-wrap: wrap; */
-    /* width: 1%; */
+} 
 
-}
-
-#productFormDiv{
-    top:0vh;
-    height: 100vh;
-    position: fixed;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    /* flex-direction: column; */
-    /* padding: 10vh 0%; */
-    background-color: rgba(163, 160, 160, 0.9);
-    width: 100vw;
-}
-
-#productForm div {
-    width: 26vw;
-    height: 8vh;
-    /* margin: 0%; */
+#productForm .simpleProp{
+    width: 30vw;
+    height: 10vh;
     margin-top: 1vh;
     margin-left:5%;
     display: flex;
@@ -37,49 +17,59 @@
     flex-direction: row;
 }
 
-#imgLabel{
-    background-color: pink;
-    border: 1px solid black;
-    padding: 1%;
-    text-transform: uppercase;
-}
-
-#newPRoductImg{
-    display: flex;
-    flex-direction: row;
-}
-
-
-#newPRoductImg img{
-    height: 10vh;
-    transform: scale(80%);
-}
-
-
-
 #catalogNewZone select{
     font-size: small;
     background-color: pink;
     border: 1px solid black;
-    /* height: 100%; */
 }
 
 #optionsButtons button{
-    margin: 5% 15%;
-    padding: 2%;
     background-color: pink;
-    border:1px black solid
+    margin-left: 50%;
 }
 
-#productForm div input{
+#productForm div label{
+   margin: 0% 2%;
+}
+#productForm span{
+    color: red;
+    padding: 0%;
+}
+
+#productForm div input  {
     height: 2vh;
    margin: 0% 1%;
    width: 30%;
 }
-#productForm div label{
-   margin: 0% 2%;
+.hidden{
+    display:none;
 }
-#productForm div span{
-    color: red;
-    padding: 0%;
- }
+ 
+#imgLabel{
+    background-color: pink;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 10%;
+    padding: 1%;
+    text-transform: uppercase;
+}
+
+#newProductImg,#newProductSecondaryImg{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 40vh;
+    margin-top: 1vh;
+    margin-left:5%;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px black solid;
+    border-radius: 20px;
+    background-color: bisque;
+}
+
+#newProductImg img,#newProductSecondaryImg img{
+    height: 70%;
+    width: 80%;
+    margin-top: 5%;
+}

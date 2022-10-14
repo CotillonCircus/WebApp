@@ -6,6 +6,7 @@ import {
   newProductImg,
 } from '../../redux/actions';
 import './ChangeProduct.css';
+import { Button } from "react-bootstrap";
 import loading from "../../images/cargando.gif"
 
 export default function ChangeProduct({ productToChange, setShowForm }) {
@@ -14,6 +15,7 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
   const [changedProduct, setChangedProduct] = useState(productToChange);
   const [errors, setErrors] = useState({});
   const [productImg, setProductImg] = useState();
+  const [productSecondaryImg, setProductSecondaryImg] = useState();
   const [changeLoading,setChangeLoading] = useState(false)
   const dispatch = useDispatch();
 
@@ -28,6 +30,15 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
     setChangedProduct({ ...changedProduct, img: url });
   }
 
+  function handleSecondaryImgChange(e) {
+    const file = e.target.files[0];
+    if (file) {
+      setProductSecondaryImg(file);
+      const url = URL.createObjectURL(file);
+      setChangedProduct({ ...changedProduct, secondaryImg: url });
+    }
+  }
+
   function handleChange(e) {
     const { name, value } = e.target;
     const modifiedProduct = { ...changedProduct, [name]: value };
@@ -35,13 +46,17 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
     setErrors(validate(modifiedProduct));
   }
 
-  function validate({ name, img, price, size, color, catalogId, cant, stock }) {
+  function validate({ name, img,secondaryImg, price, size, color, catalogId, cant, stock }) {
     const errors = {};
     if (!name) {
       errors.name = 'Ingresar nombre';
     }
     if (!img||!img.length) {
       errors.img = 'Ingrese imagen';
+    } else {
+    }
+    if (!secondaryImg.length) {
+      errors.secondaryImg = 'opcional';
     } else {
     }
     if (!price || parseFloat(price) < 0) {
@@ -72,7 +87,8 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
       alert('corriga errores');
     } else {
       const cloudImg = await newProductImg(productImg);
-      const cloudProduct = { ...changedProduct, img: cloudImg };
+      const cloudSecondaryImg = await newProductImg(productSecondaryImg);
+      const cloudProduct = { ...changedProduct, img: cloudImg, secondaryImg: cloudSecondaryImg  };
       dispatch(updateProduct(cloudProduct,undefined,setChangeLoading));
       setShowForm(false);
     }
@@ -83,7 +99,7 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
   return (
     <div id='productFormDiv'>
       <form id='productForm' onSubmit={handleSubmit}>
-        <div id='x'>
+        <div className='simpleProp'>
           <label>nombre</label>
           <input
             name='name'
@@ -91,25 +107,9 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             onChange={handleChange}
             placeholder='ej:globo tuky'
           ></input>
-          {errors.name && <span>{errors.name}</span>}
         </div>
-        <div id='newPRoductImg'>
-          <label id='imgLabel' for='productImgInput'>
-            {'>imagen<'}
-          </label>
-          <input
-            onChange={(e) => handleImgChange(e)}
-            className='hidden'
-            id='productImgInput'
-            type='file'
-          ></input>
-          {changedProduct.img ? (
-            <img src={changedProduct.img} alt='changedProduct.img' />
-          ) : (
-            <span>{errors.img}</span>
-          )}
-        </div>
-        <div>
+        <span>{errors.name||" "}</span>
+        <div className='simpleProp'>
           <label>precio</label>
           <input
             type={'number'}
@@ -118,10 +118,10 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             value={changedProduct.price}
             onChange={handleChange}
             placeholder='ej:10.2'
-          ></input>
-          {errors.price && <span>{errors.price}</span>}
+          ></input>  
         </div>
-        <div>
+        <span>{errors.price||" "}</span>
+        <div className='simpleProp'>
           <label>tamaño</label>
           <input
             name='size'
@@ -130,14 +130,14 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             list='sizesList'
             placeholder={`ej:10"`}
           ></input>
-          {errors.size && <span>{errors.size}</span>}
           <datalist id='sizesList'>
             {filters.sizes?.map((size,i) => {
               return <option key={"changeSize" + size + i} >{size}</option>;
             })}
           </datalist>
         </div>
-        <div>
+        <span>{errors.size||" "}</span>
+        <div className='simpleProp'>
           <label>color</label>
           <input
             name='color'
@@ -146,14 +146,14 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             list='colorsList'
             placeholder={`ej:rojo,amarillo`}
           ></input>
-          {errors.color && <span>{errors.color}</span>}
           <datalist id='colorsList'>
             {filters.colors?.map((color,i) => {
               return <option key={"changeColor" + color + i}>{color}</option>;
             })}
           </datalist>
         </div>
-        <div id='catalogEditZone'>
+        <span>{errors.color||" "}</span>
+        <div id='catalogEditZone' className='simpleProp'>
           <label>catalogo</label>
           <select
             name='catalogId'
@@ -168,9 +168,9 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
               );
             })}
           </select>
-          {errors.catalogId && <span>{errors.catalogId}</span>}
-        </div>
-        <div>
+       </div>
+       <span>{errors.catalogId||" "}</span>
+        <div className='simpleProp'>
           <label>cantidad de unidades</label>
           <input
             type={'number'}
@@ -181,14 +181,14 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             list='quantitisList'
             placeholder={`ej:1`}
           ></input>
-          {errors.cant && <span>{errors.cant}</span>}
           <datalist id='quantitisList'>
             {filters.cants?.map((quantity,i) => {
               return <option key={"changeQuantity" + quantity + i}>{quantity}</option>;
             })}
           </datalist>
         </div>
-        <div>
+        <span>{errors.cant||" "}</span>
+        <div className='simpleProp'>
           <label>stock disponible</label>
           <input
             type={'number'}
@@ -197,15 +197,47 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             onChange={handleChange}
             placeholder='ej:5'
           ></input>
-          {errors.stock && <span>{errors.stock}</span>}
         </div>
+        <span>{errors.stock||" "}</span>
+        <div id='newProductImg' >
+              <label id='imgLabel' for='productImgInput'>
+                {'imagen'}<br></br>{"principal"}
+              </label>
+              <input
+                onChange={(e) => handleImgChange(e)}
+                className='hidden'
+                id='productImgInput'
+                type='file'
+              ></input>
+              {productToChange.img ? (
+                <img src={productToChange.img} alt='newProduct.img' />
+              ) : (
+                <span>{errors.img}</span>
+              )}
+            </div>
+            <div id='newProductSecondaryImg'>
+              <label id='imgLabel' for='productSecondaryImgInput'>
+                {'imagen'}<br></br>{"secundaria"}
+              </label>
+              <input
+                onChange={(e) => handleSecondaryImgChange(e)}
+                className='hidden'
+                id='productSecondaryImgInput'
+                type='file'
+              ></input>
+              {productToChange.secondaryImg ? (
+                <img src={productToChange.secondaryImg} alt='newProduct.img' />
+              ) : (
+                <span>{errors.secondaryImg}</span>
+              )}
+          </div>
         {
           !changeLoading?
           <div id='editButtons'>
-            <button type={'submit'}>actualizar</button>
-            <button type={'button'} onClick={() => setShowForm(false)}>
+            <Button type={'submit'}>actualizar</Button>
+            <Button type={'button'} onClick={() => setShowForm(false)}>
               cancelar
-            </button>
+            </Button>
           </div>
           :
           <div id='editButtons'>
