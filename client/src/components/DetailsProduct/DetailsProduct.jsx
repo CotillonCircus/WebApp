@@ -15,12 +15,17 @@ const DetailsProduct = () => {
   const { ID } = useParams();
   const [related, setRelated] = useState([]);
   const user = useSelector((state) => state.userLogged[0]);
+  const [image, setImage] = useState(productDetails.img || default_img);
   const {
     getItemQuantity,
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
   } = useShoppingCart();
+
+  const hoverHandle = (img) => {
+    setImage(img);
+  };
 
   useEffect(() => {
     ID && dispatch(getProductById(ID));
@@ -35,24 +40,36 @@ const DetailsProduct = () => {
       <div id='detailsPage'>
         <div id='detailsContainer'>
           <div id='leftDetails'>
-            {/* <div id='productImg left_1'>
+            <div id='left_1'>
               <img
+                id='left_1_top'
                 src={productDetails.img || default_img}
                 alt='productDetails.img'
+                onMouseOver={() =>
+                  hoverHandle(productDetails.img || default_img)
+                }
               />
-            </div> */}
+              <img
+                id='left_1_bottom'
+                src={productDetails.secondaryImg || default_img}
+                alt='productDetails.img'
+                onMouseOver={() =>
+                  hoverHandle(productDetails.secondaryImg || default_img)
+                }
+              />
+            </div>
             <div id='left_2'>
               <ReactImageMagnify
                 {...{
                   smallImage: {
                     alt: 'image',
                     isFluidWidth: true,
-                    src: productDetails.img || default_img,
+                    src: image,
                   },
                   largeImage: {
-                    src: productDetails.img || default_img,
-                    width: 1200,
-                    height: 1200,
+                    src: image,
+                    width: 1500,
+                    height: 1500,
                   },
                 }}
               />
@@ -67,54 +84,58 @@ const DetailsProduct = () => {
               <span id='productPrice'>
                 {user ? (
                   user.status === 'mayorista' || user.status === 'admin' ? (
-                    <span> ${productDetails.price}</span>
+                    <div id='cartcontrols'>
+                      <span> ${productDetails.price}</span>
+                      {productDetails && (
+                        <div
+                          className='d-flex align-items-center flex-column'
+                          style={{ gap: '0.5rem' }}
+                          key={productDetails.id}
+                        >
+                          <div
+                            className='d-flex align-items-center justify-content-center'
+                            style={{ gap: '0.5rem' }}
+                          >
+                            <Button
+                              onClick={() =>
+                                decreaseCartQuantity(productDetails.id)
+                              }
+                              className='btn-secondary'
+                            >
+                              -
+                            </Button>
+                            <div>
+                              <span className='fs-3'>
+                                {getItemQuantity(productDetails.id)}
+                              </span>{' '}
+                              en carrito
+                            </div>
+                            <Button
+                              onClick={() =>
+                                increaseCartQuantity(productDetails.id)
+                              }
+                              className='btn-secondary'
+                            >
+                              +
+                            </Button>
+                          </div>
+                          <Button
+                            variant='danger'
+                            size='sm'
+                            onClick={() => removeFromCart(productDetails.id)}
+                          >
+                            Quitar
+                          </Button>
+                        </div>
+                      )}
+                    </div>
                   ) : (
                     <span>Se necesita autorización para ver los precios</span>
                   )
                 ) : (
-                  <span>Registrate y autorizate para ver los precios</span>
+                  <span>Registrate para ver los precios</span>
                 )}
               </span>
-            </div>
-            <div id='cartcontrols'>
-              {productDetails && (
-                <div
-                  className='d-flex align-items-center flex-column'
-                  style={{ gap: '0.5rem' }}
-                  key={productDetails.id}
-                >
-                  <div
-                    className='d-flex align-items-center justify-content-center'
-                    style={{ gap: '0.5rem' }}
-                  >
-                    <Button
-                      onClick={() => decreaseCartQuantity(productDetails.id)}
-                      className='btn-secondary'
-                    >
-                      -
-                    </Button>
-                    <div>
-                      <span className='fs-3'>
-                        {getItemQuantity(productDetails.id)}
-                      </span>{' '}
-                      en carrito
-                    </div>
-                    <Button
-                      onClick={() => increaseCartQuantity(productDetails.id)}
-                      className='btn-secondary'
-                    >
-                      +
-                    </Button>
-                  </div>
-                  <Button
-                    variant='danger'
-                    size='sm'
-                    onClick={() => removeFromCart(productDetails.id)}
-                  >
-                    Quitar
-                  </Button>
-                </div>
-              )}
             </div>
           </div>
         </div>
@@ -124,8 +145,8 @@ const DetailsProduct = () => {
             .slice(0, 4)
             .map((rel) => {
               return (
-                <Link to={'/details/' + rel.id}>
-                 <img src={rel.img || default_img} alt={rel} key={rel.id} />
+                <Link key={rel.id} to={'/details/' + rel.id}>
+                  <img src={rel.img || default_img} alt={rel} key={rel.id} />
                 </Link>
               );
             })}
