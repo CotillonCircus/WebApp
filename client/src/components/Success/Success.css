@@ -1,0 +1,22 @@
+#successDiv{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* background-color: red; */
+    align-items: center;
+}
+
+#successButtonsDiv{
+    margin-top: 2%;
+    background-color: grey;
+    padding: 1%;
+    padding-right: 2%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+#successButtonsDiv button{
+    margin: 0% 2%;
+}

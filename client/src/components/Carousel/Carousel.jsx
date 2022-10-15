@@ -44,7 +44,7 @@ const Carousel = () => {
           data-bs-slide-to='2'
           aria-label='Slide 3'
         ></button>
-        {carrosuelImgs?.map((img, i) => {
+        {/* {carrosuelImgs?.map((img, i) => {
           return (
             <button
               type='button'
@@ -55,7 +55,7 @@ const Carousel = () => {
               key={'img.button' + i}
             ></button>
           );
-        })}
+        })} */}
       </div>
       {/* ===== Images ===== */}
       <div className='carousel-inner'>

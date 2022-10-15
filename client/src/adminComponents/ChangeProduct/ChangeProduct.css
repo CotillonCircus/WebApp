@@ -3,54 +3,50 @@
 }
 #productForm{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
-#productFormDiv{
-    top:0vh;
-    height: 100vh;
-    position: fixed;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    /* flex-direction: column; */
-    /* padding: 10vh 0%; */
-    background-color: rgba(163, 160, 160, 0.9);
-}
-
-#productForm div {
-    width: 26vw;
-    height: 30vh;
-    /* margin: 0%; */
+#productForm .simpleProp{
+    width: 30vw;
+    height: 10vh;
     margin-top: 1vh;
     margin-left:5%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border: 1px black solid;
     border-radius: 20px;
     background-color: bisque;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 #imgLabel{
-    /* align-self: flex-start; */
-    /* justify-self: flex-start; */
     background-color: pink;
     border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 10%;
     padding: 1%;
     text-transform: uppercase;
 }
 
-#newPRoductImg{
+#newProductImg,#newProductSecondaryImg{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 30vw;
+    height: 40vh;
+    margin-top: 1vh;
+    margin-left:5%;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px black solid;
+    border-radius: 20px;
+    background-color: bisque;
 }
 
-
-#newPRoductImg img{
-    height: 20vh;
+#newProductImg img,#newProductSecondaryImg img{
+    height: 70%;
+    width: 80%;
+    margin-top: 5%;
 }
 
 #catalogEditZone select{
@@ -60,13 +56,32 @@
 }
 
 #editButtons button{
-    margin: 5%;
-    padding: 5%;
     background-color: pink;
-    border:1px black solid
+}
+
+#productForm div input{
+    height: 2vh;
+   margin: 0% 1%;
+   width: 30%;
+}
+
+#productForm div label{
+   margin: 0% 2%;
 }
 
 #editButtons img{
     height: 10vh;
     width: 10vh;
+}
+
+#productForm span{
+    color: red;
+    padding: 0%;
+}
+
+#editButtons{
+    width: 30vw;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 5%;
 }

@@ -10,6 +10,7 @@ import { useShoppingCart } from '../Context/ShoppingCartContext';
 import default_img from "../../images/imagen_no_disponible.jpg"
 import { useState } from 'react';
 import loading from "../../images/cargando.gif"
+import Pagination from '../pagination/pagination';
 
 const ProductsCards = (id) => {
   const {
@@ -24,6 +25,7 @@ const ProductsCards = (id) => {
   const { productos } = useSelector((state) => state);
   const user = useSelector((state) => state.userLogged[0]);
   const [productsLoading,setProductsLoading] = useState(false)
+  const [page,setPage] = useState(1)
 
   useEffect(() => {
     dispatch(getCatalogs());
@@ -33,8 +35,9 @@ const ProductsCards = (id) => {
     <div id='productscards'>
       <FilterSection setProductsLoading={setProductsLoading}/>
       {!productsLoading?
+      <div>
         <div id='products'>
-          {productos?.map((p) => {
+          {productos?.slice((page-1)*8,(page)*8).map((p) => {
             return (
               <div key={p.id} className='singleProduct'>
                 <Link to={'/details/' + p.id}>
@@ -101,6 +104,8 @@ const ProductsCards = (id) => {
               </div>
             );
           })}
+        </div>
+        <Pagination array={productos} limit={8} page={page} setPage={setPage}/>
         </div>
         :<img id="loadingProducts" src={loading} alt="cargando.gif"/>}
     </div>

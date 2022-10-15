@@ -5,7 +5,9 @@ import {
   getAllToFilter,
   newProductImg,
 } from '../../redux/actions';
+import { Button } from "react-bootstrap";
 import './NewProduct.css';
+
 
 export default function NewProduct() {
   const cleanNewProduct = {
@@ -17,17 +19,21 @@ export default function NewProduct() {
     catalogId: '',
     cant: '',
     stock: '',
+    secondaryImg:""
   };
-  const [showForm, setShowForm] = useState(false);
   const { catalogs } = useSelector((state) => state);
   const [filters, setFilters] = useState({});
   const [newProduct, setNewProduct] = useState(cleanNewProduct);
   const [errors, setErrors] = useState({});
   const [productImg, setProductImg] = useState();
+  const [productSecondaryImg, setProductSecondaryImg] = useState();
   const dispatch = useDispatch();
 
   useEffect(() => {
     getAllToFilter(setFilters);
+    // eslint-disable-next-line
+    setErrors(validate(cleanNewProduct));
+    // eslint-disable-next-line
   }, []);
 
   function handleImgChange(e) {
@@ -39,6 +45,15 @@ export default function NewProduct() {
     }
   }
 
+  function handleSecondaryImgChange(e) {
+    const file = e.target.files[0];
+    if (file) {
+      setProductSecondaryImg(file);
+      const url = URL.createObjectURL(file);
+      setNewProduct({ ...newProduct, secondaryImg: url });
+    }
+  }
+
   function handleChange(e) {
     const { name, value } = e.target;
     const changedNewProduct = { ...newProduct, [name]: value };
@@ -46,13 +61,17 @@ export default function NewProduct() {
     setErrors(validate(changedNewProduct));
   }
 
-  function validate({ name, img, price, size, color, catalogId, cant, stock }) {
+  function validate({ name, img, secondaryImg, price, size, color, catalogId, cant, stock }) {
     const errors = {};
     if (!name) {
       errors.name = 'Ingresar nombre';
     }
     if (!img.length) {
       errors.img = 'Ingrese imagen';
+    } else {
+    }
+    if (!secondaryImg.length) {
+      errors.secondaryImg = 'opcional';
     } else {
     }
     if (!price || parseFloat(price) < 0) {
@@ -82,148 +101,159 @@ export default function NewProduct() {
       alert('corriga errores');
     } else {
       const cloudImg = await newProductImg(productImg);
-      const cloudProduct = { ...newProduct, img: cloudImg };
+      const cloudSecondaryImg = await newProductImg(productSecondaryImg);
+      const cloudProduct = { ...newProduct, img: cloudImg,secondaryImg: cloudSecondaryImg };
       dispatch(createProduct(cloudProduct));
       setNewProduct({ ...cleanNewProduct });
       setErrors(validate(cleanNewProduct));
-      setShowForm(false);
     }
   }
 
-  return showForm ? (
+  return (
     <div id='productFormDiv'>
       <form id='productForm' onSubmit={handleSubmit}>
-        <div id='x'>
-          <label>nombre</label>
-          <input
-            name='name'
-            value={newProduct.name}
-            onChange={handleChange}
-            placeholder='ej:globo tuky'
-          ></input>
-          {errors.name && <span>{errors.name}</span>}
-        </div>
-        <div id='newPRoductImg'>
-          <label id='imgLabel' for='productImgInput'>
-            {'>imagen<'}
-          </label>
-          <input
-            onChange={(e) => handleImgChange(e)}
-            className='hidden'
-            id='productImgInput'
-            type='file'
-          ></input>
-          {newProduct.img ? (
-            <img src={newProduct.img} alt='newProduct.img' />
-          ) : (
-            <span>{errors.img}</span>
-          )}
-        </div>
-        <div>
-          <label>precio</label>
-          <input
-            type={'number'}
-            min='0'
-            name='price'
-            value={newProduct.price}
-            onChange={handleChange}
-            placeholder='ej:10.2'
-          ></input>
-          {errors.price && <span>{errors.price}</span>}
-        </div>
-        <div>
-          <label>tamaño</label>
-          <input
-            name='size'
-            value={newProduct.size}
-            onChange={handleChange}
-            list='sizesList'
-            placeholder={`ej:10"`}
-          ></input>
-          {errors.size && <span>{errors.size}</span>}
-          <datalist id='sizesList'>
-            {filters.sizes?.map((size) => {
-              return <option>{size}</option>;
-            })}
-          </datalist>
-        </div>
-        <div>
-          <label>color</label>
-          <input
-            name='color'
-            value={newProduct.color}
-            onChange={handleChange}
-            list='colorsList'
-            placeholder={`ej:rojo,amarillo`}
-          ></input>
-          {errors.color && <span>{errors.color}</span>}
-          <datalist id='colorsList'>
-            {filters.colors?.map((color) => {
-              return <option>{color}</option>;
-            })}
-          </datalist>
-        </div>
-        <div id='catalogNewZone'>
-          <label>catalogo</label>
-          <select
-            name='catalogId'
-            value={newProduct.catalogId}
-            onChange={handleChange}
-          >
-            <option selected disabled>
-              elija catalogo/s del producto
-            </option>
-            {catalogs?.map((catalog) => {
-              return (
-                <option value={catalog.id}>
-                  {catalog.name}
-                  {/* {catalog.name.split('_').join(' ')} */}
+            <div className='simpleProp'>
+              <label>nombre</label>
+              <input
+                id="nameInput"
+                name='name'
+                value={newProduct.name}
+                onChange={handleChange}
+                placeholder='ej:globo tuky'
+              ></input>
+            </div>
+            <span>{errors.name||" "}</span>
+            <div className='simpleProp'>
+              <label>precio</label>
+              <input
+                type={'number'}
+                min='0'
+                name='price'
+                value={newProduct.price}
+                onChange={handleChange}
+                placeholder='ej:10.2'
+              ></input>
+            </div>
+            <span>{errors.price||" "}</span>
+            <div className='simpleProp'>
+              <label>tamaño</label>
+              <input
+                name='size'
+                value={newProduct.size}
+                onChange={handleChange}
+                list='sizesList'
+                placeholder={`ej:10"`}
+              ></input>
+              <datalist id='sizesList'>
+                {filters.sizes?.map((size) => {
+                  return <option>{size}</option>;
+                })}
+              </datalist>
+            </div>
+            <span>{errors.size||" "}</span>
+            <div className='simpleProp'>
+              <label>color</label>
+              <input
+                name='color'
+                value={newProduct.color}
+                onChange={handleChange}
+                list='colorsList'
+                placeholder={`ej:rojo,amarillo`}
+                ></input>
+              <datalist id='colorsList'>
+                {filters.colors?.map((color) => {
+                  return <option>{color}</option>;
+                })}
+              </datalist>
+            </div>
+            <span>{errors.color||" "}</span>
+            <div id='catalogNewZone' className='simpleProp'>
+              <label>catalogo</label>
+              <select
+                name='catalogId'
+                value={newProduct.catalogId}
+                onChange={handleChange}
+                >
+                <option selected disabled>
+                  elija catalogo/s del producto
                 </option>
-              );
-            })}
-          </select>
-          {errors.catalogId && <span>{errors.catalogId}</span>}
-        </div>
-        <div>
-          <label>cantidad de unidades</label>
-          <input
-            type={'number'}
-            min='1'
-            name='cant'
-            value={newProduct.cant}
-            onChange={handleChange}
-            list='quantitisList'
-            placeholder={`ej:1`}
-          ></input>
-          {errors.cant && <span>{errors.cant}</span>}
-          <datalist id='quantitisList'>
-            {filters.cants?.map((quantity) => {
-              return <option>{quantity}</option>;
-            })}
-          </datalist>
-        </div>
-        <div>
-          <label>cantidad de stock disponible</label>
-          <input
-            type={'number'}
-            name='stock'
-            value={newProduct.stock}
-            onChange={handleChange}
-            placeholder='ej:5'
-          ></input>
-          {errors.stock && <span>{errors.stock}</span>}
-        </div>
+                {catalogs?.map((catalog) => {
+                  return (
+                    <option value={catalog.id}>
+                      {catalog.name}
+                      {/* {catalog.name.split('_').join(' ')} */}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            <span>{errors.catalogId||" "}</span>
+            <div className='simpleProp'>
+              <label>cantidad de unidades</label>
+              <input
+                type={'number'}
+                min='1'
+                name='cant'
+                value={newProduct.cant}
+                onChange={handleChange}
+                list='quantitisList'
+                placeholder={`ej:1`}
+                ></input>
+              <datalist id='quantitisList'>
+                {filters.cants?.map((quantity) => {
+                  return <option>{quantity}</option>;
+                })}
+              </datalist>
+            </div>
+            <span>{errors.cant||" "}</span>
+            <div className='simpleProp'>
+              <label>cantidad de stock disponible</label>
+              <input
+                type={'number'}
+                name='stock'
+                value={newProduct.stock}
+                onChange={handleChange}
+                placeholder='ej:5'
+                ></input>
+              
+            </div>
+            <span>{errors.stock||" "}</span>
+            <div id='newProductImg' >
+              <label id='imgLabel' for='productImgInput'>
+                {'imagen'}<br></br>{"principal"}
+              </label>
+              <input
+                onChange={(e) => handleImgChange(e)}
+                className='hidden'
+                id='productImgInput'
+                type='file'
+              ></input>
+              {newProduct.img ? (
+                <img src={newProduct.img} alt='newProduct.img' />
+              ) : (
+                <span>{errors.img}</span>
+              )}
+            </div>
+            <div id='newProductSecondaryImg'>
+              <label id='imgLabel' for='productSecondaryImgInput'>
+                {'imagen'}<br></br>{"secundaria"}
+              </label>
+              <input
+                onChange={(e) => handleSecondaryImgChange(e)}
+                className='hidden'
+                id='productSecondaryImgInput'
+                type='file'
+              ></input>
+              {newProduct.secondaryImg ? (
+                <img src={newProduct.secondaryImg} alt='newProduct.img' />
+              ) : (
+                <span>{errors.secondaryImg}</span>
+              )}
+          </div>
         <div id='optionsButtons'>
-          <button type={'submit'}>dar de alta</button>
-          <button type={'button'} onClick={() => setShowForm(false)}>
-            cancelar
-          </button>
+          <Button type={'submit'}>listo</Button>
         </div>
       </form>
     </div>
-  ) : (
-    <p className='display-6' onClick={() => setShowForm(true)}>
-      {'>Dar de alta nuevo producto<'}
-    </p>
   );
 }

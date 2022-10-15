@@ -20,6 +20,9 @@ module.exports = (sequelize) => {
     img: {
         type: DataTypes.STRING,
     },
+    secondaryImg: {
+        type: DataTypes.STRING,
+    },
     cant: {
         type: DataTypes.INTEGER,
         allowNull: false
