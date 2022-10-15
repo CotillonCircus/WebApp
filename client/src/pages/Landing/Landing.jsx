@@ -10,9 +10,9 @@ const Landing = () => {
         <img src={Logo} className='d-block w-50 mx-auto' alt='logo' />
       </div>
       <div className={style.buttonContainer}>
-        <button className={style.button}>MINORISTAS</button>
+        <button className={style.button}>MINORISTA</button>
         <Link to={'/home'}>
-          <button className={style.button}>MAYORISTAS</button>
+          <button className={style.button}>MAYORISTA</button>
         </Link>
       </div>
     </div>
