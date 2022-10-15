@@ -31,7 +31,9 @@ export default function NewProduct() {
 
   useEffect(() => {
     getAllToFilter(setFilters);
+    // eslint-disable-next-line
     setErrors(validate(cleanNewProduct));
+    // eslint-disable-next-line
   }, []);
 
   function handleImgChange(e) {

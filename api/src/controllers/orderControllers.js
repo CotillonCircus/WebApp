@@ -97,18 +97,25 @@ const getOrderByUser = async(req,res,next)=>{
 }
 
 const filteredOrders = async(req,res,next)=>{
-    const {userName,firstDate,secondDate,productName} = req.query;
+    const {userName,firstDate,secondDate,productName,id} = req.query;
 
 
     try{
-
-                let condition = {status:"approved"};
+                let condition ={}
+                // condition.status="approved";
                 let userCondition = {}
-                // const startedDate = new Date(firstDate+" 00:00:00");
-                // const endDate = new Date(secondDate+" 00:00:00");
+                const startedDate = (new Date(firstDate)).getTime();
+                const endDate = (new Date(secondDate)).getTime();
 
+                if(!(await Order.findAll()).length){
+                    await Order.create({totalPrize:1,products:[],status:"approved",date:(new Date("2022-10-12:00:00.000")).getTime()})
+                    await Order.create({totalPrize:1,products:[],status:"approved",date:(new Date("2022-11-12:00:00.000")).getTime()})
+                    await Order.create({totalPrize:1,products:[],status:"approved",date:(new Date("2022-12-12:00:00.000")).getTime()})
+                }
+                
+                if(id)condition.id=id
                 if(userName)userCondition.name={[Op.iLike]: `%${userName}%`};
-                // if(firstDate && secondDate)condition.createdAt= {[Op.between] : [startedDate , endDate ]};
+                if(firstDate && secondDate)condition.date= {[Op.between] : [startedDate , endDate ]};
                     
 
 
@@ -123,10 +130,12 @@ const filteredOrders = async(req,res,next)=>{
                     console.log(orders)
                 }
 
-
+                orders = await Order.findAll({where:condition});
+                
                 res.status(200).send(orders);                
 
     }catch(error){
+        console.log(error.message)
         res.status(404).send(error.message)
     }
 }

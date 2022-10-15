@@ -20,6 +20,10 @@ module.exports = (sequelize) => {
     status:{
       type:DataTypes.STRING,
       defaultValue:"pending"
+    },
+    date:{
+      type:DataTypes.BIGINT,
+      defaultValue:Date.now()
     }
   }, {timestamps:true});
 };

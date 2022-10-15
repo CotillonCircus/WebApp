@@ -327,10 +327,10 @@ export async function updateOrder(id,setUpdatedOrder,navigate){
 }
 
 
-export function getAllOrders({userName="",productName="",firstDate="",secondDate=""}){
+export function getAllOrders({userName="",productName="",firstDate="",secondDate="",id=""}){
   return async function (dispatch) {
       try{
-        const orders = (await axios.get(`/order?userName=${userName}&productName=${productName}&firstDate=${firstDate}&seconDate=${secondDate}`)).data;
+        const orders = (await axios.get(`/order?userName=${userName}&productName=${productName}&firstDate=${firstDate}&secondDate=${secondDate}&id=${id}`)).data;
         return dispatch({
           type: GET_ALL_ORDERS,
           payload: orders
