@@ -92,7 +92,61 @@ const DetailsProduct = () => {
                           style={{ gap: '0.5rem' }}
                           key={productDetails.id}
                         >
-                          <div
+                          <div className='mt-auto'>
+                            {getItemQuantity(productDetails.id) === 0 ? (
+                              <Button
+                                className='w-100 btn-secondary'
+                                onClick={() =>
+                                  increaseCartQuantity(productDetails.id)
+                                }
+                              >
+                                Agregar al Carrito
+                              </Button>
+                            ) : (
+                              <div
+                                className='d-flex align-items-center flex-column'
+                                style={{ gap: '0.5rem' }}
+                              >
+                                <div
+                                  className='d-flex align-items-center justify-content-center'
+                                  style={{ gap: '0.5rem' }}
+                                >
+                                  <Button
+                                    onClick={() =>
+                                      decreaseCartQuantity(productDetails.id)
+                                    }
+                                    className='btn-secondary'
+                                  >
+                                    -
+                                  </Button>
+                                  <div>
+                                    <span className='fs-3'>
+                                      {getItemQuantity(productDetails.id)}
+                                    </span>{' '}
+                                    en carrito
+                                  </div>
+                                  <Button
+                                    onClick={() =>
+                                      increaseCartQuantity(productDetails.id)
+                                    }
+                                    className='btn-secondary'
+                                  >
+                                    +
+                                  </Button>
+                                </div>
+                                <Button
+                                  variant='danger'
+                                  size='sm'
+                                  onClick={() =>
+                                    removeFromCart(productDetails.id)
+                                  }
+                                >
+                                  Quitar
+                                </Button>
+                              </div>
+                            )}
+                          </div>
+                          {/* <div
                             className='d-flex align-items-center justify-content-center'
                             style={{ gap: '0.5rem' }}
                           >
@@ -125,31 +179,40 @@ const DetailsProduct = () => {
                             onClick={() => removeFromCart(productDetails.id)}
                           >
                             Quitar
-                          </Button>
+                          </Button> */}
                         </div>
                       )}
                     </div>
                   ) : (
-                    <span>Se necesita autorización para ver los precios</span>
+                    <div id='register'>
+                      <p>Se necesita autorización</p>
+                      <p>para ver los precios</p>
+                    </div>
                   )
                 ) : (
-                  <span>Registrate para ver los precios</span>
+                  <div id='register'>
+                    <p>Registrate para</p>
+                    <p>ver los precios</p>
+                  </div>
                 )}
               </span>
             </div>
           </div>
         </div>
         <div id='relacionados'>
-          {related
-            ?.filter((rel) => rel.id !== productDetails.id)
-            .slice(0, 4)
-            .map((rel) => {
-              return (
-                <Link key={rel.id} to={'/details/' + rel.id}>
-                  <img src={rel.img || default_img} alt={rel} key={rel.id} />
-                </Link>
-              );
-            })}
+          <p id='prelacionados'>PRODUCTOS RELACIONADOS</p>
+          <div id='imgrelacionados'>
+            {related
+              ?.filter((rel) => rel.id !== productDetails.id)
+              .slice(0, 4)
+              .map((rel) => {
+                return (
+                  <Link key={rel.id} to={'/details/' + rel.id}>
+                    <img src={rel.img || default_img} alt={rel} key={rel.id} />
+                  </Link>
+                );
+              })}
+          </div>
         </div>
       </div>
     )
