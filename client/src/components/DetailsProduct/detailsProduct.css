@@ -61,9 +61,6 @@
 #rigthDetails {
   width: 37%;
   margin-left: 3%;
-  /* padding: 0; */
-  /* overflow-wrap: break-word; */
-  /* text-overflow:; */
 }
 
 #productDetails {
@@ -86,26 +83,36 @@
   word-wrap: break-word;
 }
 
-#payWays {
-  height: max-content;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  width: 100%;
+#register {
+  font-size: x-large;
+  font-weight: normal;
+  color: red;
 }
 
 .bold {
   font-weight: bold;
 }
 
-/* #payIcons {
-  left: 0;
-} */
-
 #relacionados {
+  display: flex;
   width: 100%;
   min-height: 70vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+#prelacionados {
+  font-size: x-large;
+  font-weight: bold;
+  justify-content: center;
+  display: flex;
+}
+
+#imgrelacionados {
+  margin-top: 2%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  grid-gap: 10px;
 }
 
 #relacionados img {
