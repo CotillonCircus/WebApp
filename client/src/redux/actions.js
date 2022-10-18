@@ -375,3 +375,12 @@ export async function cancelOrder(name,email,orderId,urlOrigin){
       console.log(error)
     }
 }
+
+export async function deleteOrderAction(id){
+  try {
+    await axios.delete("/order/delete/"+id)
+  } catch (error) {
+    console.log(error)
+  }
+}
+

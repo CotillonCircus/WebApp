@@ -17,8 +17,13 @@ import EditCarrousel from './components/EditCarrousel/EditCarrousel';
 import NewProduct from './components/NewProduct/NewProduct';
 import ProductsList from './adminComponents/ProductsList/ProductsList';
 import AdminOrders from './adminComponents/AdminOrders/AdminOrders';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function App() {
+  const {isLoading} = useAuth0()
+
+  if (isLoading) return <div></div>
+  
   return (
     <ShoppingCartProvider>
       <Routes>

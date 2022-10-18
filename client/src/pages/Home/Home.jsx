@@ -4,7 +4,6 @@ import Header from '../../components/Header/Header';
 import Navbar from '../../components/Navbar/Navbar';
 import Carousel from '../../components/Carousel/Carousel';
 import HomeProducts from '../../components/HomeProducts/HomeProducts';
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import {useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -22,6 +21,7 @@ const Home = () => {
         navigate(path)
       }
     }
+    // eslint-disable-next-line
   },[isAuthenticated])
 
   return (

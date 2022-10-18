@@ -32,7 +32,7 @@
 .singleListProduct button{
     font-size: small;
     margin: 1% 1%;
-    background-color: pink;
+    background-color: var(--color-text-variant);
     border: 1px black solid;
 }
 
@@ -72,7 +72,7 @@
 
 #groupChange button{
     border: 1px solid black;
-    background-color: pink;
+    background-color: var(--color-text-variant);
     border-radius: 2px;
 }
 

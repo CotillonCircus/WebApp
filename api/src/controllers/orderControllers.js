@@ -99,27 +99,26 @@ const getOrderByUser = async(req,res,next)=>{
 const filteredOrders = async(req,res,next)=>{
     const {userName,firstDate,secondDate,productName,id} = req.query;
 
-
+    
     try{
                 let condition ={}
-                // condition.status="approved";
+                condition.status="approved";
                 let userCondition = {}
                 const startedDate = (new Date(firstDate)).getTime();
                 const endDate = (new Date(secondDate)).getTime();
 
                 if(!(await Order.findAll()).length){
-                    await Order.create({totalPrize:1,products:[],status:"approved",date:(new Date("2022-10-12:00:00.000")).getTime()})
+                    await Order.create({totalPrize:1,products:[{name:"tuky"}],status:"approved",date:(new Date("2022-10-12:00:00.000")).getTime()})
                     await Order.create({totalPrize:1,products:[],status:"approved",date:(new Date("2022-11-12:00:00.000")).getTime()})
                     await Order.create({totalPrize:1,products:[],status:"approved",date:(new Date("2022-12-12:00:00.000")).getTime()})
                 }
                 
-                if(id)condition.id=id
+                idIsUuid = id?id.split("-").length:0
+                if(id && idIsUuid===5)condition.id=id
                 if(userName)userCondition.name={[Op.iLike]: `%${userName}%`};
                 if(firstDate && secondDate)condition.date= {[Op.between] : [startedDate , endDate ]};
                     
-
-
-                let orders = await Order.findAll({where: condition, include: {model: User, where: userCondition}});
+                let orders = await Order.findAll({where: condition, include: {model: User, required:false, where: userCondition}});
 
                 if(productName){
                     orders= orders.filter((order)=>
@@ -129,8 +128,6 @@ const filteredOrders = async(req,res,next)=>{
                     );
                     console.log(orders)
                 }
-
-                orders = await Order.findAll({where:condition});
                 
                 res.status(200).send(orders);                
 
@@ -161,7 +158,6 @@ const getOneOrder = async (req, res, next) => {
 
 const cancelOrder = async (req,res,next)=>{
     const {name,email,orderId,urlOrigin} = req.body
-    console.log({name,email,orderId,urlOrigin})
     try {
         const subject = "CANCELAR PAGO"
         const text = "El usuario "+name+" quiere cancelar una compra. Puede comunicarse con el en su correo: "+email
@@ -174,11 +170,22 @@ const cancelOrder = async (req,res,next)=>{
     }
 }
 
+const deleteOrder = async (req,res,next)=>{
+    const {id} = req.params
+    try {
+        await Order.update({status:"deleted"},{where:{id}})
+        res.send()
+    } catch (error) {
+        console.log(error.message)
+        res.send(error)
+    }
+}
 module.exports = {
   postOrder,
   getOrderByUser,
   filteredOrders,
   getOrderByUser,
   getOneOrder,
-  cancelOrder
+  cancelOrder,
+  deleteOrder
 };

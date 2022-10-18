@@ -19,12 +19,12 @@
 
 #catalogNewZone select{
     font-size: small;
-    background-color: pink;
+    background-color: var(--color-text-variant);
     border: 1px solid black;
 }
 
 #optionsButtons button{
-    background-color: pink;
+    background-color: var(--color-text-variant);
     margin-left: 50%;
 }
 
@@ -46,7 +46,7 @@
 }
  
 #imgLabel{
-    background-color: pink;
+    background-color: var(--color-text-variant);
     border: 1px solid black;
     border-radius: 10px;
     margin-top: 10%;
