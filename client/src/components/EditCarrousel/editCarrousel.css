@@ -37,7 +37,7 @@
 }
 
 #addImgInput label{
-    background-color: pink;
+    background-color: var(--color-text-variant);
     padding: 10%;
     text-transform: uppercase;
 }

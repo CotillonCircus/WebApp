@@ -1,4 +1,4 @@
-import { GET_ALL_ORDERS,GET_PRODUCTOS, GET_USER,CHANGE_USER_STATUS,GET_ALL_USERS,GET_PRODUCT_BY_ID,GET_ALL_CATALOGS, GET_ALL_AUTHS, GET_ALL_PRODUCTOS } from './actions';
+import { CHANGE_PATHNAME,GET_ALL_ORDERS,GET_PRODUCTOS, GET_USER,CHANGE_USER_STATUS,GET_ALL_USERS,GET_PRODUCT_BY_ID,GET_ALL_CATALOGS, GET_ALL_AUTHS, GET_ALL_PRODUCTOS } from './actions';
 
 const initialState = {
   productos: [],
@@ -8,11 +8,17 @@ const initialState = {
   productDetails:{},
   catalogs:[],
   auths:[],
-  orders:[]
+  orders:[],
+  pathname: ""
 };
 
 function reducer(state = initialState, { type, payload }) {
   switch (type) {
+    case CHANGE_PATHNAME:
+      return{
+        ...state,
+        pathname: payload
+      }
     case GET_ALL_PRODUCTOS:
       return {
         ...state,

@@ -10,7 +10,9 @@
     flex-direction: column;
     align-items: center;
     border: 1px solid black;
-    width: 50vw;
+    width: 40vw;
+    margin-left: 6vw;
+    margin-bottom: 3vh;
 }
 
 .img{
@@ -25,4 +27,9 @@
 .id{
     font-weight: 700;
     font-size: 18px;
+}
+
+.deleteOrderButton{
+    background-color: red;
+    margin-bottom: 1vh;
 }

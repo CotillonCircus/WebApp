@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllToFilter, getProductos } from '../../redux/actions';
-import { Stack } from 'react-bootstrap';
+import { Stack,Button } from 'react-bootstrap';
 
 export default function FilterSection({setProductsLoading}) {
   const initialFilter = {
@@ -208,7 +208,7 @@ export default function FilterSection({setProductsLoading}) {
           );
         })}
       </div>
-      <button onClick={reset}>reset</button>
+      <Button id="filtersResetButton" onClick={reset}>borrar<br></br>filtros</Button>
     </div>
   );
 }

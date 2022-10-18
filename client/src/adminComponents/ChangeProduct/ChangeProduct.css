@@ -21,8 +21,8 @@
 }
 
 #imgLabel{
-    background-color: pink;
-    border: 1px solid black;
+    background-color: var(--color-text-variant);
+    border: 1px solid var(--color-text-variant);
     border-radius: 10px;
     margin-top: 10%;
     padding: 1%;
@@ -51,12 +51,12 @@
 
 #catalogEditZone select{
     font-size: small;
-    background-color: pink;
+    background-color: var(--color-text-variant);
     border: 1px solid black;
 }
 
 #editButtons button{
-    background-color: pink;
+    background-color: var(--color-text-variant);
 }
 
 #productForm div input{

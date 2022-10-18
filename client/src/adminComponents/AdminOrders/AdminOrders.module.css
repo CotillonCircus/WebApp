@@ -18,3 +18,10 @@
 .input{
     width: 15vw;
 }
+
+#adminOrdersdiv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+}

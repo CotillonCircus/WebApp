@@ -22,14 +22,43 @@ const Admin = () => {
       {user ? (
         user.status === 'admin' ? (
           <div>
-            <div id="routesLinksAdmin" className='bg-light'>
-              <Link id={selected==="auth"?"linkSelected":""} onClick={changeLinkSelected} name="auth" to="auth">Autorizaciones</Link>
-              <Link id={selected==="users"?"linkSelected":""} onClick={changeLinkSelected} name="users" to="users">Usuarios</Link>
-              <Link id={selected==="car"?"linkSelected":""} onClick={changeLinkSelected} name="car" to="carrousell">Carrusel</Link>
-              <Link id={selected==="prods"?"linkSelected":""} onClick={changeLinkSelected} name="prods" to="prods">Productos</Link>
-              <Link id={selected==="prod"?"linkSelected":""} onClick={changeLinkSelected} name="prod" to="newProd">Nuevo Producto</Link>
-              <Link id={selected==="sells"?"linkSelected":""} onClick={changeLinkSelected} name="sells" to="sells">Ventas</Link>
-            </div>
+            <nav className='navbar navbar-expand-lg bg-light'>
+              <div className='bg-light container-fluid'>
+                <button
+                  className='navbar-toggler'
+                  type='button'
+                  data-bs-toggle='collapse'
+                  data-bs-target='#routesLinksAdmin'
+                  aria-controls='routesLinksAdmin'
+                  aria-expanded='false'
+                  aria-label='Toggle navigation'
+                >
+                  <span className='navbar-toggler-icon'></span>
+                </button>
+                <div id="routesLinksAdmin" className='collapse navbar-collapse'>
+                  <ul className='navbar-nav gap-4 mx-auto'>
+                    <li className='nav-item' id={selected==="auth"?"linkSelected":""}>
+                      <Link onClick={changeLinkSelected} name="auth" to="auth">Autorizaciones</Link>
+                    </li>
+                    <li className='nav-item ' id={selected==="users"?"linkSelected":""}>
+                      <Link onClick={changeLinkSelected} name="users" to="users">Usuarios</Link>
+                    </li>
+                    <li className='nav-item' id={selected==="car"?"linkSelected":""}>
+                      <Link onClick={changeLinkSelected} name="car" to="carrousell">Carrusel</Link>
+                    </li>
+                    <li className='nav-item' id={selected==="prods"?"linkSelected":""}>
+                      <Link onClick={changeLinkSelected} name="prods" to="prods">Productos</Link>
+                    </li>
+                    <li className='nav-item' id={selected==="prod"?"linkSelected":""}>
+                      <Link onClick={changeLinkSelected} name="prod" to="newProd">Nuevo Producto</Link>
+                    </li>
+                    <li className='nav-item' id={selected==="sells"?"linkSelected":""}>
+                      <Link onClick={changeLinkSelected} name="sells" to="sells">Ventas</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
             <div>
               <Outlet/>
             </div>

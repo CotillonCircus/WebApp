@@ -68,3 +68,8 @@
 #orderSection {
   text-align: left;
 }
+
+#filtersResetButton{
+  padding-top: 1%;
+  padding-bottom: 1%;
+}

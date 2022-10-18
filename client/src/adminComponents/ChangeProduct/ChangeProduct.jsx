@@ -50,6 +50,10 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
     const errors = {};
     if (!name) {
       errors.name = 'Ingresar nombre';
+    }else{
+      if(name.length>60){
+        errors.name = 'Debe contener menos de 60 letras ';
+      }
     }
     if (!img||!img.length) {
       errors.img = 'Ingrese imagen';
@@ -64,9 +68,17 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
     }
     if (!size) {
       errors.size = 'Ingrese tamaño';
+    }else{
+      if(size.length>20){
+        errors.size = 'Debe contener menos de 20 letras ';
+      }
     }
     if (!color) {
       errors.color = 'Ingrese color';
+    }else{
+      if(color.length>20){
+        errors.color = 'Debe contener menos de 20 letras ';
+      }
     }
     if (!catalogId) {
       errors.catalogId = 'Ingrese catalogo';
