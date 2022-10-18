@@ -12,6 +12,7 @@ export const POST_NEW_PRODUCT = 'POST_NEW_PRODUCT';
 export const POST_NEW_PREFERENCE = 'POST_NEW_PREFERENCE';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const GET_ALL_ORDERS = "GET_ALL_ORDERS";
+export const CHANGE_PATHNAME = "CHANGE_PATHNAME";
 
 
 export function getLogin(user) {
@@ -43,6 +44,19 @@ export function changeUserStatus(sub, status) {
       console.log(error.message);
     }
   };
+}
+
+export function changePathname(pathname){
+  return async function(dispatch){
+    try{
+      return dispatch({
+        type: CHANGE_PATHNAME,
+        payload: pathname
+      })
+    }catch(error){
+      console.log(error);
+    }
+  }
 }
 
 export function getAllUsers() {
