@@ -146,40 +146,6 @@ const DetailsProduct = () => {
                               </div>
                             )}
                           </div>
-                          {/* <div
-                            className='d-flex align-items-center justify-content-center'
-                            style={{ gap: '0.5rem' }}
-                          >
-                            <Button
-                              onClick={() =>
-                                decreaseCartQuantity(productDetails.id)
-                              }
-                              className='btn-secondary'
-                            >
-                              -
-                            </Button>
-                            <div>
-                              <span className='fs-3'>
-                                {getItemQuantity(productDetails.id)}
-                              </span>{' '}
-                              en carrito
-                            </div>
-                            <Button
-                              onClick={() =>
-                                increaseCartQuantity(productDetails.id)
-                              }
-                              className='btn-secondary'
-                            >
-                              +
-                            </Button>
-                          </div>
-                          <Button
-                            variant='danger'
-                            size='sm'
-                            onClick={() => removeFromCart(productDetails.id)}
-                          >
-                            Quitar
-                          </Button> */}
                         </div>
                       )}
                     </div>
