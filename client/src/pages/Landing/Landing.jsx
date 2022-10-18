@@ -1,9 +1,10 @@
 import React from 'react';
 import style from './Landing.module.css';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import Logo from '../../images/circus_cotillon_logo.jpg';
 
 const Landing = () => {
+
   return (
     <div className={style.container}>
       <div className='col-lg-6 logo'>
