@@ -19,10 +19,11 @@ const AdminOrders = () => {
     secondDate: ""
   })
   const [page,setPage] = useState(1)
+  const [flag,setFlag] = useState(false)
 
   useEffect(()=>{
     dispatch(getAllOrders(input))
-  },[dispatch,input])
+  },[dispatch,input,flag])
 
   const handleChange = (e)=>{
     e.preventDefault();
@@ -58,15 +59,16 @@ const AdminOrders = () => {
             </form>
         </div>
         <div>
-          <div>
+          <div id={style.adminOrdersdiv}>
               { 
               orders?.slice((page-1)*8,(page)*8).map((order)=>{
                 return(
                   <AdminOrderCard
+                  setFlag={setFlag}
                   key={order.id}
                   id={order.id}
                   products={order.products}
-                  userName={order.user?.name}
+                  user={order.user}
                   fecha={order.createdAt}
                   totalPrize={order.totalPrize}
                   />

@@ -36,5 +36,5 @@
 }
 
 #currentPage{
-    background-color: pink;
+    background-color: var(--color-text-variant);
 }

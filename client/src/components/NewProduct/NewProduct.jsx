@@ -65,6 +65,10 @@ export default function NewProduct() {
     const errors = {};
     if (!name) {
       errors.name = 'Ingresar nombre';
+    }else{
+      if(name.length>60){
+        errors.name = 'Debe contener menos de 60 letras ';
+      }
     }
     if (!img.length) {
       errors.img = 'Ingrese imagen';

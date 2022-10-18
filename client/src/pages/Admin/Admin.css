@@ -1,21 +1,38 @@
-#routesLinksAdmin{
-    display:flex;
-    flex-direction: row;
+#routesLinksAdmin ul{
+    display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: 100vw;
-    height: 10vh;
-    margin-bottom: 5vh;
 }
-
-#routesLinksAdmin a{
+#routesLinksAdmin ul li{
     text-decoration: none;
     color: inherit;
-    border: black 1px solid;
+    /* border: black 1px solid; */
     padding: 0.3%;
+    width: max-content;
+    height: min-content
+}
+
+#routesLinksAdmin ul li a{
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    display: flex;
 }
 
 #linkSelected{
-    transform: scale(120%);
-    background-color: pink;
-}
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+} 
+
+/* ========== MEDIA QUERIES (MEDIUM DEVICES) ========== */
+
+/* @media screen and (max-width: 992px) {
+    
+  } */
+  
+  /* ========== MEDIA QUERIES (SMALL DEVICES) ========== */
+  
+  /* @media screen and (max-width: 600px) {
+    .container {
+      width: var(--container-width-sm);
+    }
+  } */
