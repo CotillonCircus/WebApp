@@ -7,17 +7,22 @@ import HomeProducts from '../../components/HomeProducts/HomeProducts';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import {useNavigate } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Home = () => {
 
+  const {isAuthenticated} = useAuth0();
+
   const navigate = useNavigate();
   useEffect(()=>{
-    let path = localStorage.getItem("pathname")
-    if(path){
-      navigate(path)
-      localStorage.removeItem("pathname")
+    if(isAuthenticated){
+      let path = localStorage.getItem("pathname")
+      if(path){
+        localStorage.removeItem("pathname")
+        navigate(path)
+      }
     }
-  },[])
+  },[isAuthenticated])
 
   return (
     <div>
