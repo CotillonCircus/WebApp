@@ -31,7 +31,7 @@ const OrderCard = ({id,products,totalPrize,diference}) => {
       }
       <div>
         <p className={styles.id}>Precio total: {totalPrize + "$"}</p>
-        {diference<0&&<button id="deletedOrderbutton" onClick={()=>deleteOrder(id)}>cancel order</button>}
+        {diference<0&&<button className={styles.deletedOrderbutton} onClick={()=>deleteOrder(id)}>Cancelar orden</button>}
       </div>
     </div>
   )
