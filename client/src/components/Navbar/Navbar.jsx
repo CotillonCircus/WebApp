@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCatalogs, getProductos } from '../../redux/actions';
 
-const Navbar = () => {
+const Navbar = ({section}) => {
   const { isAuthenticated } = useAuth0();
   const { catalogs } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -49,7 +49,6 @@ const Navbar = () => {
                   </span>
                 </Link>
               </li>
-
               <li className='nav-item dropdown'>
                 <a
                   className='nav-link dropdown-toggle'
@@ -75,10 +74,10 @@ const Navbar = () => {
                   })}
                 </ul>
               </li>
-              <li className='nav-item'>
-                <Link to='/about' className='link'>
-                  <span className='nav-link'>Quienes Somos</span>
-                </Link>
+                  <li className='nav-item'>
+                  <Link to='/about' className='link'>
+                    <span className='nav-link'>Quienes Somos</span>
+                  </Link>
               </li>
               <li className='nav-item'>
                 <Link to={'/contact'} className='link'>
@@ -98,14 +97,17 @@ const Navbar = () => {
           ) : (
             <ul className='navbar-nav gap-4 mx-auto'>
               <li className='nav-item'>
-                <Link to={'/home'} className='link'>
+                <Link to={section=="minorist" ? "/m/home" : "/home"} className='link'>
                   <span className='nav-link active' aria-current='page' id='as'>
                     Inicio
                   </span>
                 </Link>
               </li>
 
-              <li className='nav-item dropdown'>
+             {
+              section !== "minorist" ? 
+              (
+                <li className='nav-item dropdown'>
                 <a
                   className='nav-link dropdown-toggle'
                   href='#products'
@@ -130,13 +132,15 @@ const Navbar = () => {
                   })}
                 </ul>
               </li>
+              ) : null
+             }
               <li className='nav-item'>
-                <Link to='/about' className='link'>
+                <Link to={section=="minorist" ? "/m/about" : "/about"} className='link'>
                   <span className='nav-link'>Quienes Somos</span>
                 </Link>
               </li>
               <li className='nav-item'>
-                <Link to={'/contact'} className='link'>
+                <Link to={section=="minorist" ? "/m/contact" : "/contact"} className='link'>
                   <span className='nav-link'>Contacto</span>
                 </Link>
               </li>
