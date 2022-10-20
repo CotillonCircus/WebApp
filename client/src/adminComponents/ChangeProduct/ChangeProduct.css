@@ -16,7 +16,8 @@
     justify-content: flex-start;
     border: 1px black solid;
     border-radius: 20px;
-    background-color: bisque;
+    background-color: #fa9e08;
+    color: white;
     flex-direction: row;
 }
 
@@ -40,7 +41,8 @@
     justify-content: flex-start;
     border: 1px black solid;
     border-radius: 20px;
-    background-color: bisque;
+    background-color: #fa9e08;
+    color: white;
 }
 
 #newProductImg img,#newProductSecondaryImg img{
