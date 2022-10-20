@@ -17,6 +17,9 @@ import EditCarrousel from './components/EditCarrousel/EditCarrousel';
 import NewProduct from './components/NewProduct/NewProduct';
 import ProductsList from './adminComponents/ProductsList/ProductsList';
 import AdminOrders from './adminComponents/AdminOrders/AdminOrders';
+import MHome from './minorist/pages/MHome';
+import MContact from "./minorist/pages/MContact"
+import MAbout from "./minorist/pages/MAbout"
 import { useAuth0 } from '@auth0/auth0-react';
 
 function App() {
@@ -44,6 +47,11 @@ function App() {
           <Route path="prods" element={<ProductsList/>}/>
           <Route path="newProd" element={<NewProduct/>}/>
           <Route path="sells" element={<AdminOrders/>}/>
+        </Route>
+        <Route path='/m/'>
+          <Route path='home' element={<MHome/>} />
+          <Route path='contact' element={<MContact/>} />
+          <Route path='about' element={<MAbout/>} />
         </Route>
       </Routes>
     </ShoppingCartProvider>

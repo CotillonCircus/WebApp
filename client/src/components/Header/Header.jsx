@@ -12,7 +12,7 @@ import { changeUserStatus } from '../../redux/actions';
 import { useEffect } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 
-const Header = () => {
+const Header = ({section}) => {
   const { isAuthenticated } = useAuth0();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -124,7 +124,10 @@ const Header = () => {
       ) : (
         <div className='container-fluid text-center'>
           <div className='row'>
-            <div className='col-lg-3 column_header'>
+            {
+              section !== "minorist" ? 
+              (
+                <div className='col-lg-3 column_header'>
               <div id='searchInput'>
                 <input id='searchheader' placeholder='Buscar...'></input>
                 <button
@@ -136,13 +139,19 @@ const Header = () => {
                 </button>
               </div>
             </div>
+              ) : <div className='col-lg-3 column_header'></div>
+            }
             <div className='col-lg-6'>
               {' '}
               <img src={Logo} className='d-block w-50 mx-auto' alt='logo' />
             </div>
+            {
+              section != "minorist" ? 
+              (
             <div className='col-lg-3 column_header loginbutton'>
               <LoginButton> </LoginButton>
-            </div>
+            </div>) : null
+              } 
           </div>
         </div>
       )}

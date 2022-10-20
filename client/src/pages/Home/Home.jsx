@@ -26,10 +26,10 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
-      <Navbar />
-      <Carousel />
-      <HomeProducts />
+      <Header/>
+      <Navbar/>
+      <Carousel/>
+      <HomeProducts/>
       <Footer />
     </div>
   );
