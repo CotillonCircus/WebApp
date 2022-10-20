@@ -7,14 +7,11 @@ import {
 import './editCarrousel.css';
 import cloudinary from 'cloudinary/lib/cloudinary';
 
-const cloud_name = 'circus-corillon';
-const api_key = '164947681452799';
-const api_secret = 'Ii4cdvwbN_kI8YNLnc0xMnAyyjw';
-
+const {REACT_APP_CLOUD_NAME,REACT_APP_API_KEY,REACT_APP_API_SECRET} = process.env
 cloudinary.config({
-  cloud_name: cloud_name,
-  api_key: api_key,
-  api_secret: api_secret,
+  cloud_name: REACT_APP_CLOUD_NAME,
+  api_key: REACT_APP_API_KEY,
+  api_secret: REACT_APP_API_SECRET,
 });
 
 export default function EditCarrousel() {

@@ -6,6 +6,8 @@ import Pagination from "../../components/pagination/pagination";
 import { getAllToFilter, getCatalogs, getProductsAdmin,putProductsGroup,updateProduct } from "../../redux/actions";
 import ChangeProduct from "../ChangeProduct/ChangeProduct";
 import "./ProductsList.css"
+import { confirmAlert } from 'react-confirm-alert';
+
 
 export default function ProductsList(){
     const [list,setList] = useState([])
@@ -34,8 +36,20 @@ export default function ProductsList(){
         dispatch(updateProduct({status:newStatus,id},setList))
     }
 
-    function deleteProduct(id,img){
-        dispatch(updateProduct({status:"deleted",id,img},setList))
+    function deleteProduct(id,img,name){
+        confirmAlert({
+            title: 'Eliminara el producto '+name,
+            message: '¿Está seguro?',
+            buttons: [
+              {
+                label: 'Sí',
+                onClick: () => dispatch(updateProduct({status:"deleted",id,img},setList)),
+              },
+              {
+                label: 'No',
+              },
+            ],
+          });
     }
 
     function deleteFilter(e){
@@ -168,9 +182,9 @@ export default function ProductsList(){
                             <span>{product.color}</span>
                             <span>{product.stock}</span>
                             <span>{product.cant}</span>
-                            <span onClick={()=>editProductStatus(product)}>{product.status}</span>
+                            <p className="productStatus" onClick={()=>editProductStatus(product)}>{product.status==="disponible"?"disponible":"oculto"}</p>
                             <button onClick={()=>{setProductToChange(product);setShowForm(true)}}>modificar</button>
-                            <button onClick={()=>{deleteProduct(product.id,product.img)}}>eliminar</button>
+                            <button onClick={()=>{deleteProduct(product.id,product.img,product.name)}}>eliminar</button>
                         </div>
                         )
                     })

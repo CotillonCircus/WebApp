@@ -42,14 +42,14 @@ const Navbar = ({section}) => {
         <div className='collapse navbar-collapse' id='navbarNavDropdown'>
           {isAuthenticated ? (
             <ul className='navbar-nav gap-4 mx-auto'>
-              <li className='nav-item'>
+              <li id={window.location.pathname.includes("home")?"currentLinkNavbar":""} className='nav-item'>
                 <Link to={'/home'} className='link'>
                   <span className='nav-link' aria-current='page' id='as'>
                     Inicio
                   </span>
                 </Link>
               </li>
-              <li className='nav-item dropdown'>
+              <li id={window.location.pathname.includes("products")?"currentLinkNavbar":""} className='nav-item dropdown'>
                 <a
                   className='nav-link dropdown-toggle'
                   href='#products'
@@ -74,19 +74,19 @@ const Navbar = ({section}) => {
                   })}
                 </ul>
               </li>
-                  <li className='nav-item'>
+              <li id={window.location.pathname.includes("about")?"currentLinkNavbar":""}  className='nav-item'>
                   <Link to='/about' className='link'>
                     <span className='nav-link'>Quienes Somos</span>
                   </Link>
               </li>
-              <li className='nav-item'>
+              <li id={window.location.pathname.includes("contact")?"currentLinkNavbar":""}  className='nav-item'>
                 <Link to={'/contact'} className='link'>
                   <span className='nav-link'>Contacto</span>
                 </Link>
               </li>
               {user ? (
                 user.status === 'admin' ? (
-                  <li className='nav-item'>
+                  <li id={window.location.pathname.includes("admin")?"currentLinkNavbar":""}  className='nav-item'>
                     <Link to={'/admin'} className='link'>
                       <span className='nav-link'>Dashboard Admin</span>
                     </Link>
@@ -96,7 +96,7 @@ const Navbar = ({section}) => {
             </ul>
           ) : (
             <ul className='navbar-nav gap-4 mx-auto'>
-              <li className='nav-item'>
+              <li id={window.location.pathname.includes("home")?"currentLinkNavbar":""}  className='nav-item'>
                 <Link to={section=="minorist" ? "/m/home" : "/home"} className='link'>
                   <span className='nav-link active' aria-current='page' id='as'>
                     Inicio
@@ -107,7 +107,7 @@ const Navbar = ({section}) => {
              {
               section !== "minorist" ? 
               (
-                <li className='nav-item dropdown'>
+                <li id={window.location.pathname.includes("products")?"currentLinkNavbar":""}  className='nav-item dropdown'>
                 <a
                   className='nav-link dropdown-toggle'
                   href='#products'
@@ -134,12 +134,12 @@ const Navbar = ({section}) => {
               </li>
               ) : null
              }
-              <li className='nav-item'>
+              <li id={window.location.pathname.includes("about")?"currentLinkNavbar":""}  className='nav-item'>
                 <Link to={section=="minorist" ? "/m/about" : "/about"} className='link'>
                   <span className='nav-link'>Quienes Somos</span>
                 </Link>
               </li>
-              <li className='nav-item'>
+              <li id={window.location.pathname.includes("contact")?"currentLinkNavbar":""}  className='nav-item'>
                 <Link to={section=="minorist" ? "/m/contact" : "/contact"} className='link'>
                   <span className='nav-link'>Contacto</span>
                 </Link>
