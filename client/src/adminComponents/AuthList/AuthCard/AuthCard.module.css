@@ -1,16 +1,18 @@
-.authCardContainer{
-    background: coral;
-    padding: 10px;
-    margin: 10px;
-    width: 20vw;
+.authCardContainer {
+  background: var(--color-text-variant);
+  color: var(--color-bg);
+  padding: 10px;
+  margin: 10px;
+  width: 20vw;
+  border-radius: 1rem;
 }
 
-.buttonsContainer{
-    display: flex;
-    gap: 5vw;
+.buttonsContainer {
+  display: flex;
+  gap: 5vw;
 }
 
-.buttonsContainer button{
-    border-radius: 10px;
-    padding: 1px;
+.buttonsContainer button {
+  border-radius: 10px;
+  padding: 1px;
 }
