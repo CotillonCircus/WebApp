@@ -17,7 +17,7 @@ const getAllProducts = async (req,res,next) => {
 
     const condition = {}
     const sort=[]
-    
+    sort.push(["createdAt","ASC"])
     order&&sort.push(order.split(" "))
 
     condition.name={[Op.iLike]:`%${name||""}%`}

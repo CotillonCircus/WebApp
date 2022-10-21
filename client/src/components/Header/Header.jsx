@@ -81,13 +81,16 @@ const Header = ({section}) => {
                   Menú
                 </button>
                 <ul className='dropdown-menu'>
-                  <li>
-                    <Link to={'/aform'} className='ddlink'>
-                      <span className='nav-link' href='#aform'>
-                        Formulario
-                      </span>
-                    </Link>
-                  </li>
+                  {user?.status!=="admin"?(
+                    <li>
+                      <Link to={'/aform'} className='ddlink'>
+                        <span className='nav-link' href='#aform'>
+                          Formulario
+                        </span>
+                      </Link>
+                    </li>)
+                    :null
+                  }
                   <li>
                     {user ? (
                       user.status === 'mayorista' ? (
