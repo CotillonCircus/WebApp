@@ -1,89 +1,96 @@
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
-#productForm{
-    display: flex;
-    flex-direction: column;
-}
-
-#productForm .simpleProp{
-    width: 30vw;
-    height: 10vh;
-    margin-top: 1vh;
-    margin-left:5%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    border: 1px black solid;
-    border-radius: 20px;
-    background-color: #fa9e08;
-    color: white;
-    flex-direction: row;
+#productForm {
+  display: flex;
+  flex-direction: column;
 }
 
-#imgLabel{
-    background-color: var(--color-text-variant);
-    border: 1px solid var(--color-text-variant);
-    border-radius: 10px;
-    margin-top: 10%;
-    padding: 1%;
-    text-transform: uppercase;
+#productForm .simpleProp {
+  width: 80%;
+  height: 10vh;
+  margin-top: 1vh;
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px black solid;
+  border-radius: 20px;
+  background-color: lightgray;
+  color: white;
+  flex-direction: row;
 }
 
-#newProductImg,#newProductSecondaryImg{
-    display: flex;
-    flex-direction: column;
-    width: 30vw;
-    height: 40vh;
-    margin-top: 1vh;
-    margin-left:5%;
-    align-items: center;
-    justify-content: flex-start;
-    border: 1px black solid;
-    border-radius: 20px;
-    background-color: #fa9e08;
-    color: white;
+#productForm .simpleProp input {
+  width: 80%;
 }
 
-#newProductImg img,#newProductSecondaryImg img{
-    height: 70%;
-    width: 80%;
-    margin-top: 5%;
+#imgLabel {
+  background-color: var(--color-text-variant);
+  border: 1px solid var(--color-text-variant);
+  border-radius: 10px;
+  margin-top: 10%;
+  padding: 1%;
+  text-transform: uppercase;
+  text-align: center;
 }
 
-#catalogEditZone select{
-    font-size: small;
-    background-color: var(--color-text-variant);
-    border: 1px solid black;
+#newProductImg,
+#newProductSecondaryImg {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 40vh;
+  margin-top: 1vh;
+  margin-left: 5%;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px black solid;
+  border-radius: 20px;
+  background-color: lightgray;
+  color: white;
 }
 
-#editButtons button{
-    background-color: var(--color-text-variant);
+#newProductImg img,
+#newProductSecondaryImg img {
+  height: 70%;
+  width: 80%;
+  margin-top: 5%;
 }
 
-#productForm div input{
-    height: 2vh;
-   margin: 0% 1%;
-   width: 30%;
+#catalogEditZone select {
+  font-size: small;
+  background-color: var(--color-text-variant);
+  border: 1px solid black;
 }
 
-#productForm div label{
-   margin: 0% 2%;
+#editButtons button {
+  background-color: var(--color-text-variant);
 }
 
-#editButtons img{
-    height: 10vh;
-    width: 10vh;
+#productForm div input {
+  height: 2vh;
+  margin: 0% 1%;
+  width: 30%;
 }
 
-#productForm span{
-    color: red;
-    padding: 0%;
+#productForm div label {
+  margin: 0% 2%;
 }
 
-#editButtons{
-    width: 30vw;
-    display: flex;
-    justify-content: space-around;
-    margin-left: 5%;
+#editButtons img {
+  height: 10vh;
+  width: 10vh;
+}
+
+#productForm span {
+  color: red;
+  padding: 0%;
+}
+
+#editButtons {
+  width: 30vw;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 5%;
 }

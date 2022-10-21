@@ -1,51 +1,50 @@
-.carrouselImg img{
-    width: 20vh;
-    height: 20vh;
+.carrouselImg img {
+  width: 20vh;
+  height: 20vh;
 }
 
-#carrouselImgs{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+#carrouselImgs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.carrouselImg{
-    display: flex;
-    flex-direction: column;
-    width: 10%;
-    /* align-items: center; */
-    justify-content: center;
-    align-items: center;
-    margin: 0% 5%;
+.carrouselImg {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  /* align-items: center; */
+  justify-content: center;
+  align-items: center;
+  margin: 0% 5%;
 }
 
-
-.carrouselImg button{
-    background-color: red;
-    width: 5vw;
-    border-radius: 10px;
-    /* align-self: center; */
+.carrouselImg button {
+  background-color: red;
+  width: 5vw;
+  border-radius: 10px;
+  /* align-self: center; */
 }
 
-
-#addImgInput{
-    width: 10vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+#addImgInput {
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#addImgInput label{
-    background-color: var(--color-text-variant);
-    padding: 10%;
-    text-transform: uppercase;
-    color:white
+#addImgInput label {
+  background-color: var(--color-text-variant);
+  padding: 10%;
+  text-transform: uppercase;
+  color: white;
+  border-radius: 1rem;
 }
 
 #addImgInput input {
-    /* text-w; */
-    /* width: 5vw; */
-    font-size: small;
-    display: none;
+  /* text-w; */
+  /* width: 5vw; */
+  font-size: small;
+  display: none;
 }

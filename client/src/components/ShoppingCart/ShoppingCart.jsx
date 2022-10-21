@@ -41,7 +41,7 @@ export function ShoppingCart({ isOpen }) {
             }, 0)}
           </div>
           {!loading ? (
-            <Button onClick={handleSubmit} className='ms-auto'>
+            <Button className='btn-secondary ms-auto' onClick={handleSubmit}>
               Pagar
             </Button>
           ) : (

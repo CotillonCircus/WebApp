@@ -1,122 +1,134 @@
-#adminProductsList{
-    display: flex;
-    flex-direction: column;
+#adminProductsList {
+  display: flex;
+  flex-direction: column;
 }
 
-#listProducts{
-    display: flex;
-    flex-direction: column;
-    /* transform: scaleY(0%); */
-    animation: anim 0.5s;
-    transform-origin: top;
+#listProducts {
+  display: flex;
+  flex-direction: column;
+  /* transform: scaleY(0%); */
+  animation: anim 0.5s;
+  transform-origin: top;
 }
 
-#listProducts > div{
-    margin: 1% 0%;
+#listProducts > div {
+  margin: 1% 0%;
 }
 
 @keyframes anim {
-    0%{transform: scaleY(0%) ;}
-    100%{transform: scaleY(100%);}
+  0% {
+    transform: scaleY(0%);
+  }
+  100% {
+    transform: scaleY(100%);
+  }
 }
 
-.singleListProduct{
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid black;
+.singleListProduct {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid black;
 }
-.singleListProduct span,#listProps span{
-    width: 12vw;
-    align-self: center;
+.singleListProduct span,
+#listProps span {
+  width: 12vw;
+  align-self: center;
 }
-.singleListProduct button{
-    font-size: small;
-    margin: 1% 1%;
-    background-color: var(--color-text-variant);
-    border: 1px black solid;
-    color: white; 
-    padding:0.5% 1%;
-}
-
-#listProps{
-    font-weight: 900;
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid black;
-    font-size: larger;
-    text-transform: uppercase;
+.singleListProduct button {
+  font-size: small;
+  margin: 1% 1%;
+  background-color: var(--color-text-variant);
+  border: 1px black solid;
+  color: white;
+  padding: 0.5% 1%;
 }
 
-#groupChange{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+#listProps {
+  font-weight: 900;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid black;
+  font-size: larger;
+  text-transform: uppercase;
 }
 
-#groupChange input{
-    width: min-content;
-    height: 2vh;
+#groupChange {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-#groupChange div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    /* border:black 1px solid; */
-    height: max-content;
-    width: max-content;
+#groupChange input {
+  width: min-content;
+  height: 2vh;
 }
 
-#groupChange div p{
-    font-size: xx-large;
-    transform: translateY(15%);
+#groupChange div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* border:black 1px solid; */
+  height: max-content;
+  width: max-content;
 }
 
-#groupChange button{
-    border: 1px solid black;
-    background-color: var(--color-text-variant);
-    border-radius: 2px;
-    color:white;
-    padding: 0.5% 1%;
+#groupChange div p {
+  font-size: xx-large;
+  transform: translateY(15%);
 }
 
-#filtersSelected span{
-    color:rgb(181, 37, 61);
-    text-transform: capitalize;
+#groupChange button {
+  border: 1px solid black;
+  background-color: var(--color-text-variant);
+  border-radius: 2px;
+  color: white;
+  padding: 0.5% 1%;
+  border-radius: 1rem;
 }
 
-#filtersSelected button{
-    border:1px solid rgb(181, 37, 61);
-    background-color: white;
-    margin: 0% 0.5%;
+#filtersSelected span {
+  color: rgb(181, 37, 61);
+  text-transform: capitalize;
 }
 
-#filtersSelection{
-    display: flex;
-    flex-direction: row;
+#filtersSelected button {
+  border: 1px solid rgb(181, 37, 61);
+  background-color: white;
+  margin: 0% 0.5%;
 }
 
-#filtersSelection div{
-    margin: 0% 1%;
-    /* display: flex; */
-    /* flex-direction: column; */
+#filtersSelection {
+  display: flex;
+  flex-direction: row;
 }
 
-#filtersSelection select{
-    border: 1px solid black;
-    border-radius: 10px;
+#filtersSelection div {
+  margin: 0% 1%;
+  /* display: flex; */
+  /* flex-direction: column; */
 }
 
-.productStatus{
-    border: 1px solid black;
-    background-color: var(--color-text-variant);
-    border-radius: 1px;
-    margin: 0%;
-    padding: 0%;
-    height: max-content;
-    padding: 0.3% 0.3%;
-    margin-right: 1% ;
-    display: flex;
-    align-self: center;
-    color: white;
+#filtersSelection select {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.productStatus {
+  border: 1px solid black;
+  background-color: var(--color-text-variant);
+  border-radius: 1px;
+  margin: 0%;
+  padding: 0%;
+  height: max-content;
+  padding: 0.3% 0.3%;
+  margin-right: 1%;
+  display: flex;
+  align-self: center;
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.productEdit {
+  border-radius: 1rem;
 }
