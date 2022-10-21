@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import default_img from '../../images/imagen_no_disponible.jpg';
 
-const HomeProducts = () => {
+const HomeProducts = ({section}) => {
   const dispatch = useDispatch();
   const { productos, catalogs } = useSelector((state) => state);
   const user = useSelector((state) => state.userLogged[0]);
@@ -47,7 +47,7 @@ const HomeProducts = () => {
             return (
               <Link
                 key={'/details/' + p.id}
-                to={'/details/' + p.id}
+                to={section=="minorist" ? "/m/home" : ('/details/' + p.id)}
                 className='singleProduct'
               >
                 <img src={p.img || default_img} alt={p.name} />
@@ -66,9 +66,15 @@ const HomeProducts = () => {
           })}
         </div>
       </div>
-      <div id='productsButton'>
-        <Link to='/products'>Ver todos los productos</Link>
-      </div>
+      {
+        section != "minorist" ? 
+        (
+        <div id='productsButton'>
+          <Link to='/products'>Ver todos los productos</Link>
+        </div>
+
+        ) : null
+      }
     </div>
   );
 };
