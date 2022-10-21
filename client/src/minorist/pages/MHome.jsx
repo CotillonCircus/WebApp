@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import Navbar from '../../components/Navbar/Navbar'
 import Carousel from '../../components/Carousel/Carousel'
+import HomeProducts from '../../components/HomeProducts/HomeProducts'
 
 const MHome = () => {
   return (
@@ -10,6 +11,7 @@ const MHome = () => {
       <Header section="minorist"/>
       <Navbar section="minorist"/>
       <Carousel section="minorist"/>
+      <HomeProducts section="minorist"/>
       <Footer section="minorist"/>
     </div>
   )
