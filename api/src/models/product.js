@@ -44,5 +44,5 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         defaultValue: "disponible"
     }
-  }, {timestamps:false});
+  });
 };

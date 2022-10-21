@@ -43,9 +43,23 @@ export default function ProductsList() {
     !toFilter && getAllToFilter(setToFilter);
   }, [toFilter]);
 
-  function editProductStatus({ status, id }) {
+  function editProductStatus({ status, id , name}) {
     const newStatus = status === 'disponible' ? 'no disponible' : 'disponible';
-    dispatch(updateProduct({ status: newStatus, id }, setList));
+    const newStatusrender = status === 'disponible' ? 'oculto' : 'disponible';
+    confirmAlert({
+      title: 'El producto ' + name + " cambiara a -" + newStatusrender,
+      message: '¿Está seguro?',
+      buttons: [
+        {
+          label: 'Sí',
+          onClick: () =>
+            dispatch(updateProduct({ status: newStatus, id }, setList))
+        },
+        {
+          label: 'No',
+        },
+      ],
+    });
   }
 
   function deleteProduct(id, img, name) {
@@ -163,7 +177,7 @@ export default function ProductsList() {
               name='colors'
               value={color}
             >
-              <span>{color}</span> x
+              <span>{"color: "+color}</span> x
             </button>
           ))}
           {filters.cants.map((quantity) => (
@@ -173,7 +187,7 @@ export default function ProductsList() {
               name='cants'
               value={quantity}
             >
-              <span>{quantity}</span> x
+              <span>{"cant: "+quantity}</span> x
             </button>
           ))}
           {filters.sizes.map((size) => (
@@ -183,12 +197,12 @@ export default function ProductsList() {
               name='sizes'
               value={size}
             >
-              <span>{size}</span> x
+              <span>{"tmño: "+size}</span> x
             </button>
           ))}
           {filters.catalogId.id && (
             <button onClick={deleteFilter} name='catalogId'>
-              <span>{filters.catalogId.name}</span> x
+              <span>{"catalogo: "+filters.catalogId.name}</span> x
             </button>
           )}
         </div>
@@ -244,6 +258,7 @@ export default function ProductsList() {
                   className='productEdit'
                   onClick={() => {
                     setProductToChange(product);
+                    window.scroll(0,1500)
                     setShowForm(true);
                   }}
                 >

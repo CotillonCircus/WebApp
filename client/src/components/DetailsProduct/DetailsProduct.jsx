@@ -175,6 +175,7 @@ const DetailsProduct = () => {
                 return (
                   <Link key={rel.id} to={'/details/' + rel.id}>
                     <img src={rel.img || default_img} alt={rel} key={rel.id} />
+                    <span>{rel.name}</span>
                   </Link>
                 );
               })}
