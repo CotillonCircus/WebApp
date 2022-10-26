@@ -27,7 +27,10 @@ const HomeProducts = ({section}) => {
   return (
     <div>
       <div id='homeProducts'>
-        <div id='catalogs'>
+        {
+          section != "minorist" ? 
+          (
+            <div id='catalogs'>
           <span className='bold'>Categorías Principales</span>
           {catalogs?.map((c) => {
             return (
@@ -42,6 +45,9 @@ const HomeProducts = ({section}) => {
             );
           })}
         </div>
+          ) : <div id='catalogs'></div>
+        }
+        
         <div id='products'>
           {productos?.slice(0, 8).map((p) => {
             return (

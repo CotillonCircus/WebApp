@@ -16,11 +16,11 @@ export default function Pagination({array, page, setPage, limit}){
 
     return(
         <div id="paginate"> 
-            {page!==firtsPage?<button className="prevButton" onClick={()=>setPage(page-1)}>prev</button>:<span>{"["}</span>}
+            {page!==firtsPage?<button className="prevButton" onClick={()=>setPage(page-1)}>Anterior</button>:<span>{"["}</span>}
             {
                 totalPages.slice(firstToRender,page+2).map(i=><button key={"buttonNumber"+i} id={page===i?"currentPage":""} className={"pageButton"} onClick={()=>setPage(parseInt(i))}>{i}</button>)
             }
-            {page!==lastPage?<button className="nextButton" onClick={()=>setPage(page+1)}>next</button>:<span>{"]"}</span>}
+            {page!==lastPage?<button className="nextButton" onClick={()=>setPage(page+1)}>Siguiente</button>:<span>{"]"}</span>}
             {/* <span id="actualPage">pagina {page}</span> */}
         </div>
     )
