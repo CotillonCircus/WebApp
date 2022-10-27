@@ -40,6 +40,7 @@
   text-transform: uppercase;
   color: white;
   border-radius: 1rem;
+  cursor: pointer;
 }
 
 #addImgInput input {
