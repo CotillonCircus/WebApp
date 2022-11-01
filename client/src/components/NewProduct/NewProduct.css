@@ -22,6 +22,9 @@
   font-size: small;
   background-color: var(--color-text-variant);
   border: 1px solid black;
+  color: white;
+  border-radius: 1rem;
+  padding: 1%;
 }
 
 #optionsButtons button {

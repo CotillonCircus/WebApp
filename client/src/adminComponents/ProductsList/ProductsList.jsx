@@ -195,12 +195,12 @@ export default function ProductsList() {
         <div id='groupChange'>
           <button onClick={updateProductsGroup}>EDITAR GRUPO</button>
           <div>
-            <select onChange={handleGroupProp}>
-              <option value={'price'}>precio</option>
-              <option value={'stock'}>stock</option>
+            <select onChange={handleGroupProp} id='editOption'>
+              <option value={'price'}>PRECIO</option>
+              <option value={'stock'}>STOCK</option>
             </select>
           </div>
-          <div>
+          <div id='inputOption'>
             <p>+</p>
             <input
               onChange={handleGroupChange}
