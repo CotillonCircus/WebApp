@@ -1,6 +1,8 @@
 #adminProductsList {
   display: flex;
   flex-direction: column;
+  margin-left: 2%;
+  margin-right: 1%;
 }
 
 #listProducts {
@@ -50,6 +52,20 @@
   border-bottom: 1px solid black;
   font-size: larger;
   text-transform: uppercase;
+}
+
+#editOption {
+  cursor: pointer;
+  margin-left: 40%;
+  border: 1px solid black;
+  background-color: var(--color-text-variant);
+  color: white;
+  border-radius: 1rem;
+  padding: 5%;
+}
+
+#inputOption {
+  margin-left: 5%;
 }
 
 #groupChange {

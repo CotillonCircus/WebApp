@@ -6,8 +6,8 @@ import {
   newProductImg,
 } from '../../redux/actions';
 import './ChangeProduct.css';
-import { Button } from "react-bootstrap";
-import loading from "../../images/cargando.gif"
+import { Button } from 'react-bootstrap';
+import loading from '../../images/cargando.gif';
 
 export default function ChangeProduct({ productToChange, setShowForm }) {
   const { catalogs } = useSelector((state) => state);
@@ -16,7 +16,7 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
   const [errors, setErrors] = useState({});
   const [productImg, setProductImg] = useState();
   const [productSecondaryImg, setProductSecondaryImg] = useState();
-  const [changeLoading,setChangeLoading] = useState(false)
+  const [changeLoading, setChangeLoading] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -46,16 +46,26 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
     setErrors(validate(modifiedProduct));
   }
 
-  function validate({ name, img,secondaryImg, price, size, color, catalogId, cant, stock }) {
+  function validate({
+    name,
+    img,
+    secondaryImg,
+    price,
+    size,
+    color,
+    catalogId,
+    cant,
+    stock,
+  }) {
     const errors = {};
     if (!name) {
       errors.name = 'Ingresar nombre';
-    }else{
-      if(name.length>60){
+    } else {
+      if (name.length > 60) {
         errors.name = 'Debe contener menos de 60 letras ';
       }
     }
-    if (!img||!img.length) {
+    if (!img || !img.length) {
       errors.img = 'Ingrese imagen';
     } else {
     }
@@ -68,15 +78,15 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
     }
     if (!size) {
       errors.size = 'Ingrese tamaño';
-    }else{
-      if(size.length>20){
+    } else {
+      if (size.length > 20) {
         errors.size = 'Debe contener menos de 20 letras ';
       }
     }
     if (!color) {
       errors.color = 'Ingrese color';
-    }else{
-      if(color.length>20){
+    } else {
+      if (color.length > 20) {
         errors.color = 'Debe contener menos de 20 letras ';
       }
     }
@@ -93,15 +103,19 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
   }
 
   async function handleSubmit(e) {
-    setChangeLoading(true)
+    setChangeLoading(true);
     e.preventDefault();
     if (Object.entries(validate(changedProduct)).length) {
       alert('corriga errores');
     } else {
       const cloudImg = await newProductImg(productImg);
       const cloudSecondaryImg = await newProductImg(productSecondaryImg);
-      const cloudProduct = { ...changedProduct, img: cloudImg, secondaryImg: cloudSecondaryImg  };
-      dispatch(updateProduct(cloudProduct,undefined,setChangeLoading));
+      const cloudProduct = {
+        ...changedProduct,
+        img: cloudImg,
+        secondaryImg: cloudSecondaryImg,
+      };
+      dispatch(updateProduct(cloudProduct, undefined, setChangeLoading));
       setShowForm(false);
     }
   }
@@ -120,7 +134,7 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             placeholder='ej:globo tuky'
           ></input>
         </div>
-        <span>{errors.name||" "}</span>
+        <span>{errors.name || ' '}</span>
         <div className='simpleProp'>
           <label>precio</label>
           <input
@@ -130,9 +144,9 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             value={changedProduct.price}
             onChange={handleChange}
             placeholder='ej:10.2'
-          ></input>  
+          ></input>
         </div>
-        <span>{errors.price||" "}</span>
+        <span>{errors.price || ' '}</span>
         <div className='simpleProp'>
           <label>tamaño</label>
           <input
@@ -143,12 +157,12 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             placeholder={`ej:10"`}
           ></input>
           <datalist id='sizesList'>
-            {filters.sizes?.map((size,i) => {
-              return <option key={"changeSize" + size + i} >{size}</option>;
+            {filters.sizes?.map((size, i) => {
+              return <option key={'changeSize' + size + i}>{size}</option>;
             })}
           </datalist>
         </div>
-        <span>{errors.size||" "}</span>
+        <span>{errors.size || ' '}</span>
         <div className='simpleProp'>
           <label>color</label>
           <input
@@ -159,29 +173,33 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             placeholder={`ej:rojo,amarillo`}
           ></input>
           <datalist id='colorsList'>
-            {filters.colors?.map((color,i) => {
-              return <option key={"changeColor" + color + i}>{color}</option>;
+            {filters.colors?.map((color, i) => {
+              return <option key={'changeColor' + color + i}>{color}</option>;
             })}
           </datalist>
         </div>
-        <span>{errors.color||" "}</span>
+        <span>{errors.color || ' '}</span>
         <div id='catalogEditZone' className='simpleProp'>
           <label>catalogo</label>
           <select
+            id='catalogIdChangeProduct'
             name='catalogId'
             value={changedProduct.catalogId}
             onChange={handleChange}
           >
             {catalogs?.map((catalog) => {
               return (
-                <option key={"changeCatalog" + catalog.name + catalog.id} value={catalog.id}>
+                <option
+                  key={'changeCatalog' + catalog.name + catalog.id}
+                  value={catalog.id}
+                >
                   {catalog.name}
                 </option>
               );
             })}
           </select>
-       </div>
-       <span>{errors.catalogId||" "}</span>
+        </div>
+        <span>{errors.catalogId || ' '}</span>
         <div className='simpleProp'>
           <label>cantidad de unidades</label>
           <input
@@ -194,12 +212,16 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             placeholder={`ej:1`}
           ></input>
           <datalist id='quantitisList'>
-            {filters.cants?.map((quantity,i) => {
-              return <option key={"changeQuantity" + quantity + i}>{quantity}</option>;
+            {filters.cants?.map((quantity, i) => {
+              return (
+                <option key={'changeQuantity' + quantity + i}>
+                  {quantity}
+                </option>
+              );
             })}
           </datalist>
         </div>
-        <span>{errors.cant||" "}</span>
+        <span>{errors.cant || ' '}</span>
         <div className='simpleProp'>
           <label>stock disponible</label>
           <input
@@ -210,52 +232,55 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             placeholder='ej:5'
           ></input>
         </div>
-        <span>{errors.stock||" "}</span>
-        <div id='newProductImg' >
-              <label id='imgLabel' for='productImgInput'>
-                {'imagen'}<br></br>{"principal"}
-              </label>
-              <input
-                onChange={(e) => handleImgChange(e)}
-                className='hidden'
-                id='productImgInput'
-                type='file'
-              ></input>
-              {productToChange.img ? (
-                <img src={productToChange.img} alt='newProduct.img' />
-              ) : (
-                <span>{errors.img}</span>
-              )}
-            </div>
-            <div id='newProductSecondaryImg'>
-              <label id='imgLabel' for='productSecondaryImgInput'>
-                {'imagen'}<br></br>{"secundaria"}
-              </label>
-              <input
-                onChange={(e) => handleSecondaryImgChange(e)}
-                className='hidden'
-                id='productSecondaryImgInput'
-                type='file'
-              ></input>
-              {productToChange.secondaryImg ? (
-                <img src={productToChange.secondaryImg} alt='newProduct.img' />
-              ) : (
-                <span>{errors.secondaryImg}</span>
-              )}
-          </div>
-        {
-          !changeLoading?
+        <span>{errors.stock || ' '}</span>
+        <div id='newProductImg'>
+          <label id='imgLabel' for='productImgInput'>
+            {'imagen'}
+            <br></br>
+            {'principal'}
+          </label>
+          <input
+            onChange={(e) => handleImgChange(e)}
+            className='hidden'
+            id='productImgInput'
+            type='file'
+          ></input>
+          {productToChange.img ? (
+            <img src={productToChange.img} alt='newProduct.img' />
+          ) : (
+            <span>{errors.img}</span>
+          )}
+        </div>
+        <div id='newProductSecondaryImg'>
+          <label id='imgLabel' for='productSecondaryImgInput'>
+            {'imagen'}
+            <br></br>
+            {'secundaria'}
+          </label>
+          <input
+            onChange={(e) => handleSecondaryImgChange(e)}
+            className='hidden'
+            id='productSecondaryImgInput'
+            type='file'
+          ></input>
+          {productToChange.secondaryImg ? (
+            <img src={productToChange.secondaryImg} alt='newProduct.img' />
+          ) : (
+            <span>{errors.secondaryImg}</span>
+          )}
+        </div>
+        {!changeLoading ? (
           <div id='editButtons'>
-            <Button type={'submit'}>actualizar</Button>
+            <Button type={'submit'}>ACTUALIZAR</Button>
             <Button type={'button'} onClick={() => setShowForm(false)}>
-              cancelar
+              CANCELAR
             </Button>
           </div>
-          :
+        ) : (
           <div id='editButtons'>
-            <img src={loading} alt="loading.gif"/>  
+            <img src={loading} alt='loading.gif' />
           </div>
-        }
+        )}
       </form>
     </div>
   );
