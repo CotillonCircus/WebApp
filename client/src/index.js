@@ -1,27 +1,27 @@
 import React from 'react';
-import ReactDOMClient from "react-dom/client";
+import ReactDOMClient from 'react-dom/client';
 import './index.css';
 import App from './App';
-import store from "./redux/store";
-import {Provider} from "react-redux";
-import {BrowserRouter} from "react-router-dom";
+import store from './redux/store';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import Auth0ProviderWithHistory from './components/auth0-provider-with-history/auth0-provider-with-history';
-import axios from "axios"
-import dotenv from "dotenv"
-dotenv.config()
+import axios from 'axios';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const container = document.getElementById("root")
+const container = document.getElementById('root');
 const root = ReactDOMClient.createRoot(container);
 
-axios.defaults.baseURL= process.env.REACT_APP_API || "http://localhost:3001"
+axios.defaults.baseURL =
+  process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001';
 
 root.render(
   <BrowserRouter>
     <Auth0ProviderWithHistory>
-        <Provider store={store}>
-          <App />
-        </Provider>
+      <Provider store={store}>
+        <App />
+      </Provider>
     </Auth0ProviderWithHistory>
   </BrowserRouter>
-  );
-
+);
