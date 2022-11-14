@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCatalogs, getProductos } from '../../redux/actions';
 
-const Navbar = ({section}) => {
+const Navbar = ({ section }) => {
   const { isAuthenticated } = useAuth0();
   const { catalogs } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -42,14 +42,28 @@ const Navbar = ({section}) => {
         <div className='collapse navbar-collapse' id='navbarNavDropdown'>
           {isAuthenticated ? (
             <ul className='navbar-nav gap-4 mx-auto'>
-              <li id={window.location.pathname.includes("home")?"currentLinkNavbar":""} className='nav-item'>
+              <li
+                id={
+                  window.location.pathname.includes('home')
+                    ? 'currentLinkNavbar'
+                    : ''
+                }
+                className='nav-item'
+              >
                 <Link to={'/home'} className='link'>
                   <span className='nav-link' aria-current='page' id='as'>
                     Inicio
                   </span>
                 </Link>
               </li>
-              <li id={window.location.pathname.includes("products")?"currentLinkNavbar":""} className='nav-item dropdown'>
+              <li
+                id={
+                  window.location.pathname.includes('products')
+                    ? 'currentLinkNavbar'
+                    : ''
+                }
+                className='nav-item dropdown'
+              >
                 <a
                   className='nav-link dropdown-toggle'
                   href='#products'
@@ -74,19 +88,40 @@ const Navbar = ({section}) => {
                   })}
                 </ul>
               </li>
-              <li id={window.location.pathname.includes("about")?"currentLinkNavbar":""}  className='nav-item'>
-                  <Link to='/about' className='link'>
-                    <span className='nav-link'>Quienes Somos</span>
-                  </Link>
+              <li
+                id={
+                  window.location.pathname.includes('about')
+                    ? 'currentLinkNavbar'
+                    : ''
+                }
+                className='nav-item'
+              >
+                <Link to='/about' className='link'>
+                  <span className='nav-link'>Quienes Somos</span>
+                </Link>
               </li>
-              <li id={window.location.pathname.includes("contact")?"currentLinkNavbar":""}  className='nav-item'>
+              <li
+                id={
+                  window.location.pathname.includes('contact')
+                    ? 'currentLinkNavbar'
+                    : ''
+                }
+                className='nav-item'
+              >
                 <Link to={'/contact'} className='link'>
                   <span className='nav-link'>Contacto</span>
                 </Link>
               </li>
               {user ? (
                 user.status === 'admin' ? (
-                  <li id={window.location.pathname.includes("admin")?"currentLinkNavbar":""}  className='nav-item'>
+                  <li
+                    id={
+                      window.location.pathname.includes('admin')
+                        ? 'currentLinkNavbar'
+                        : ''
+                    }
+                    className='nav-item'
+                  >
                     <Link to={'/admin'} className='link'>
                       <span className='nav-link'>Dashboard Admin</span>
                     </Link>
@@ -96,51 +131,85 @@ const Navbar = ({section}) => {
             </ul>
           ) : (
             <ul className='navbar-nav gap-4 mx-auto'>
-              <li id={window.location.pathname.includes("home")?"currentLinkNavbar":""}  className='nav-item'>
-                <Link to={section=="minorist" ? "/m/home" : "/home"} className='link'>
+              <li
+                id={
+                  window.location.pathname.includes('home')
+                    ? 'currentLinkNavbar'
+                    : ''
+                }
+                className='nav-item'
+              >
+                <Link
+                  to={section === 'minorist' ? '/m/home' : '/home'}
+                  className='link'
+                >
                   <span className='nav-link active' aria-current='page' id='as'>
                     Inicio
                   </span>
                 </Link>
               </li>
 
-             {
-              section !== "minorist" ? 
-              (
-                <li id={window.location.pathname.includes("products")?"currentLinkNavbar":""}  className='nav-item dropdown'>
-                <a
-                  className='nav-link dropdown-toggle'
-                  href='#products'
-                  role='button'
-                  data-bs-toggle='dropdown'
-                  aria-expanded='false'
+              {section !== 'minorist' ? (
+                <li
+                  id={
+                    window.location.pathname.includes('products')
+                      ? 'currentLinkNavbar'
+                      : ''
+                  }
+                  className='nav-item dropdown'
                 >
-                  Productos
-                </a>
-                <ul className='dropdown-menu'>
-                  {catalogs?.map((c) => {
-                    return (
-                      <li
-                        className='dropdown-item'
-                        onClick={handleClick}
-                        value={c.id}
-                        key={'li2' + c.id}
-                      >
-                        {c.name}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </li>
-              ) : null
-             }
-              <li id={window.location.pathname.includes("about")?"currentLinkNavbar":""}  className='nav-item'>
-                <Link to={section=="minorist" ? "/m/about" : "/about"} className='link'>
+                  <a
+                    className='nav-link dropdown-toggle'
+                    href='#products'
+                    role='button'
+                    data-bs-toggle='dropdown'
+                    aria-expanded='false'
+                  >
+                    Productos
+                  </a>
+                  <ul className='dropdown-menu'>
+                    {catalogs?.map((c) => {
+                      return (
+                        <li
+                          className='dropdown-item'
+                          onClick={handleClick}
+                          value={c.id}
+                          key={'li2' + c.id}
+                        >
+                          {c.name}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              ) : null}
+              <li
+                id={
+                  window.location.pathname.includes('about')
+                    ? 'currentLinkNavbar'
+                    : ''
+                }
+                className='nav-item'
+              >
+                <Link
+                  to={section === 'minorist' ? '/m/about' : '/about'}
+                  className='link'
+                >
                   <span className='nav-link'>Quienes Somos</span>
                 </Link>
               </li>
-              <li id={window.location.pathname.includes("contact")?"currentLinkNavbar":""}  className='nav-item'>
-                <Link to={section=="minorist" ? "/m/contact" : "/contact"} className='link'>
+              <li
+                id={
+                  window.location.pathname.includes('contact')
+                    ? 'currentLinkNavbar'
+                    : ''
+                }
+                className='nav-item'
+              >
+                <Link
+                  to={section === 'minorist' ? '/m/contact' : '/contact'}
+                  className='link'
+                >
                   <span className='nav-link'>Contacto</span>
                 </Link>
               </li>
