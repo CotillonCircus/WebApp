@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import default_img from '../../images/imagen_no_disponible.jpg';
 
-const HomeProducts = ({section}) => {
+const HomeProducts = ({ section }) => {
   const dispatch = useDispatch();
   const { productos, catalogs } = useSelector((state) => state);
   const user = useSelector((state) => state.userLogged[0]);
@@ -27,33 +27,32 @@ const HomeProducts = ({section}) => {
   return (
     <div>
       <div id='homeProducts'>
-        {
-          section != "minorist" ? 
-          (
-            <div id='catalogs'>
-          <span className='bold'>Categorías Principales</span>
-          {catalogs?.map((c) => {
-            return (
-              <li
-                className='mainclasses'
-                onClick={handleClick}
-                value={c.id}
-                key={'li' + c.id}
-              >
-                {c.name}
-              </li>
-            );
-          })}
-        </div>
-          ) : <div id='catalogs'></div>
-        }
-        
+        {section !== 'minorist' ? (
+          <div id='catalogs'>
+            <span className='bold'>Categorías Principales</span>
+            {catalogs?.map((c) => {
+              return (
+                <li
+                  className='mainclasses'
+                  onClick={handleClick}
+                  value={c.id}
+                  key={'li' + c.id}
+                >
+                  {c.name}
+                </li>
+              );
+            })}
+          </div>
+        ) : (
+          <div id='catalogs'></div>
+        )}
+
         <div id='products'>
           {productos?.slice(0, 8).map((p) => {
             return (
               <Link
                 key={'/details/' + p.id}
-                to={section=="minorist" ? "/m/home" : ('/details/' + p.id)}
+                to={section === 'minorist' ? '/m/home' : '/details/' + p.id}
                 className='singleProduct'
               >
                 <img src={p.img || default_img} alt={p.name} />
@@ -72,15 +71,11 @@ const HomeProducts = ({section}) => {
           })}
         </div>
       </div>
-      {
-        section != "minorist" ? 
-        (
+      {section !== 'minorist' ? (
         <div id='productsButton'>
           <Link to='/products'>Ver todos los productos</Link>
         </div>
-
-        ) : null
-      }
+      ) : null}
     </div>
   );
 };

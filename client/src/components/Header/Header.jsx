@@ -12,7 +12,7 @@ import { changeUserStatus } from '../../redux/actions';
 import { useEffect } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 
-const Header = ({section}) => {
+const Header = ({ section }) => {
   const { isAuthenticated } = useAuth0();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Header = ({section}) => {
   };
 
   const handleCLick = () => {
-    const search = document.getElementById("searchheader").value
+    const search = document.getElementById('searchheader').value;
     dispatch(getProductos({ name: search }));
     navigate('/products');
   };
@@ -81,16 +81,15 @@ const Header = ({section}) => {
                   Menú
                 </button>
                 <ul className='dropdown-menu'>
-                  {user?.status!=="admin"?(
+                  {user?.status !== 'admin' ? (
                     <li>
                       <Link to={'/aform'} className='ddlink'>
                         <span className='nav-link' href='#aform'>
                           Formulario
                         </span>
                       </Link>
-                    </li>)
-                    :null
-                  }
+                    </li>
+                  ) : null}
                   <li>
                     {user ? (
                       user.status === 'mayorista' ? (
@@ -127,34 +126,31 @@ const Header = ({section}) => {
       ) : (
         <div className='container-fluid text-center'>
           <div className='row'>
-            {
-              section !== "minorist" ? 
-              (
-                <div className='col-lg-3 column_header'>
-              <div id='searchInput'>
-                <input id='searchheader' placeholder='Buscar...'></input>
-                <button
-                  onClick={handleCLick}
-                  type='button'
-                  className='btn btn-secondary'
-                >
-                  Ir
-                </button>
+            {section !== 'minorist' ? (
+              <div className='col-lg-3 column_header'>
+                <div id='searchInput'>
+                  <input id='searchheader' placeholder='Buscar...'></input>
+                  <button
+                    onClick={handleCLick}
+                    type='button'
+                    className='btn btn-secondary'
+                  >
+                    Ir
+                  </button>
+                </div>
               </div>
-            </div>
-              ) : <div className='col-lg-3 column_header'></div>
-            }
+            ) : (
+              <div className='col-lg-3 column_header'></div>
+            )}
             <div className='col-lg-6'>
               {' '}
               <img src={Logo} className='d-block w-50 mx-auto' alt='logo' />
             </div>
-            {
-              section != "minorist" ? 
-              (
-            <div className='col-lg-3 column_header loginbutton'>
-              <LoginButton> </LoginButton>
-            </div>) : null
-              } 
+            {section !== 'minorist' ? (
+              <div className='col-lg-3 column_header loginbutton'>
+                <LoginButton> </LoginButton>
+              </div>
+            ) : null}
           </div>
         </div>
       )}
