@@ -129,48 +129,48 @@ export default function ProductsList() {
           <div>
             <label>color</label>
             <select name='colors' onChange={updateFilter}>
-              {Array.isArray(toFilter?.colors)?toFilter?.colors?.map((color) => (
+              {toFilter?.colors?.map((color) => (
                 <option key={'adminColor' + color} value={color}>
                   {color}
                 </option>
-              )):null}
+              ))}
             </select>
           </div>
           <div>
             <label>cantidad</label>
             <select name='cants' onChange={updateFilter}>
-              {Array.isArray(toFilter?.cants)?toFilter?.cants?.map((quantity) => (
+              {toFilter?.cants?.map((quantity) => (
                 <option key={'adminQuantity' + quantity} value={quantity}>
                   {quantity}
                 </option>
-              )):null}
+              ))}
             </select>
           </div>
           <div>
             <label>tamaño</label>
             <select name='sizes' onChange={updateFilter}>
-              {Array.isArray(toFilter?.sizes)?toFilter?.sizes?.map((size) => (
+              {toFilter?.sizes?.map((size) => (
                 <option key={'adminSize' + size} value={size}>
                   {size}
                 </option>
-              )):null}
+              ))}
             </select>
           </div>
           <div>
             <label>catalogo</label>
             <select name='catalogId' onChange={updateFilter}>
-              {Array.isArray(catalogs)?catalogs?.map((catalog) => (
+              {catalogs?.map((catalog) => (
                 <option key={'adminCatalog' + catalog.id} value={catalog.id}>
                   {catalog.name}
                 </option>
-              )):null}
+              ))}
             </select>
           </div>
         </div>
 
         <div id='filtersSelected'>
           <b>filtros aplicados: </b>
-          {Array.isArray(filters?.colors)?filters.colors.map((color) => (
+          {filters.colors.map((color) => (
             <button
               key={'adminSelected' + color}
               onClick={deleteFilter}
@@ -179,8 +179,8 @@ export default function ProductsList() {
             >
               <span>{"color: "+color}</span> x
             </button>
-          )):null}
-          {Array.isArray(filters?.cants)?filters.cants.map((quantity) => (
+          ))}
+          {filters.cants.map((quantity) => (
             <button
               key={'adminSelected' + quantity}
               onClick={deleteFilter}
@@ -189,8 +189,8 @@ export default function ProductsList() {
             >
               <span>{"cant: "+quantity}</span> x
             </button>
-          )):null}
-          {Array.isArray(filters?.sizes)?filters.sizes.map((size) => (
+          ))}
+          {filters.sizes.map((size) => (
             <button
               key={'adminSelected' + size}
               onClick={deleteFilter}
@@ -199,7 +199,7 @@ export default function ProductsList() {
             >
               <span>{"tmño: "+size}</span> x
             </button>
-          )):null}
+          ))}
           {filters.catalogId.id && (
             <button onClick={deleteFilter} name='catalogId'>
               <span>{"catalogo: "+filters.catalogId.name}</span> x
@@ -236,7 +236,7 @@ export default function ProductsList() {
             <span>editar</span>
             {/* <span></span> */}
           </div>
-          {Array.isArray(list)?list?.slice((page - 1) * 8, page * 8).map((product, i) => {
+          {list?.slice((page - 1) * 8, page * 8).map((product, i) => {
             return (
               <div
                 key={'adminProduct' + product.name + i}
@@ -274,7 +274,7 @@ export default function ProductsList() {
                 </button>
               </div>
             );
-          }):null}
+          })}
           <Pagination array={list} limit={8} page={page} setPage={setPage} />
         </div>
       </div>

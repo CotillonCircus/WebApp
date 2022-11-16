@@ -19,8 +19,8 @@ const Admin = () => {
     <div>
       <Header />
       <Navbar />
-      {/* {user ? (
-        user.status === 'admin' ? ( */}
+      {user ? (
+        user.status === 'admin' ? (
           <div>
             <nav className='navbar navbar-expand-lg bg-light'>
               <div className='bg-light container-fluid'>
@@ -63,12 +63,12 @@ const Admin = () => {
               <Outlet/>
             </div>
           </div>
-        {/* ) : (
+        ) : (
           <div>Debes ser administrador para ver esta página</div>
         )
       ) : (
         <div>Debes ser administrador para ver esta página</div>
-      )} */}
+      )}
       <Footer />
     </div>
   );

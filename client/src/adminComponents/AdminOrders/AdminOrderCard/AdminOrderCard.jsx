@@ -26,7 +26,7 @@ const AdminOrderCard = ({ id, products, fecha, user, totalPrize, setFlag }) => {
   return (
     <div className={styles.bigContainer}>
       <p className={styles.id}>Id de orden: {id}</p>
-      {Array.isArray(products)?products?.map((product) => {
+      {products?.map((product) => {
         return (
           <div key={product.name} className={styles.container}>
             <img src={product.img} alt={product.name} className={styles.img} />
@@ -35,7 +35,7 @@ const AdminOrderCard = ({ id, products, fecha, user, totalPrize, setFlag }) => {
             <p>Cantidad: {product.cantBuyed}</p>
           </div>
         );
-      }):null}
+      })}
       <p>Usuario: {user?.name}</p>
       <p>Fecha de compra: {fecha.split('T')[0]}</p>
       <p className={styles.id}>Precio total: {totalPrize + '$'}</p>

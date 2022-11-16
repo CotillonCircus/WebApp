@@ -22,7 +22,7 @@ const AuthList = () => {
     <div>
         <div className={styles.cardsContainer}>
             {
-                Array.isArray(auths)?auths.length? auths.slice((page-1)*8,(page)*8).map((auth)=>{
+                auths.length? auths.slice((page-1)*8,(page)*8).map((auth)=>{
                     return(
                         <div key={auth.id}>
                             <AuthCard                           
@@ -40,7 +40,7 @@ const AuthList = () => {
                     )
                 })
                 :<span>no hay pedidos de autorizacion pendientes</span>
-            :null}
+            }
         </div>
         <Pagination array={auths} limit={8} page={page} setPage={setPage}/>
     </div>
