@@ -168,7 +168,7 @@ const Navbar = ({ section }) => {
                     Productos
                   </a>
                   <ul className='dropdown-menu'>
-                    {catalogs?.map((c) => {
+                    {Array.isArray(catalogs)?catalogs.map((c) => {
                       return (
                         <li
                           className='dropdown-item'
@@ -179,7 +179,7 @@ const Navbar = ({ section }) => {
                           {c.name}
                         </li>
                       );
-                    })}
+                    }):null}
                   </ul>
                 </li>
               ) : null}
