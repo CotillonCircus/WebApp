@@ -168,7 +168,7 @@ const DetailsProduct = () => {
         <div id='relacionados'>
           <p id='prelacionados'>PRODUCTOS RELACIONADOS</p>
           <div id='imgrelacionados'>
-            {Array.isArray(related)?related
+            {related
               ?.filter((rel) => rel.id !== productDetails.id)
               .slice(0, 4)
               .map((rel) => {
@@ -178,7 +178,7 @@ const DetailsProduct = () => {
                     <span>{rel.name}</span>
                   </Link>
                 );
-              }):null}
+              })}
           </div>
         </div>
       </div>
