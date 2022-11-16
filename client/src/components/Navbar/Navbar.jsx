@@ -74,7 +74,7 @@ const Navbar = ({ section }) => {
                   Productos
                 </a>
                 <ul className='dropdown-menu'>
-                  {Array.isArray(catalogs)?catalogs.map((c) => {
+                  {catalogs?.map((c) => {
                     return (
                       <li
                         className='dropdown-item'
@@ -85,7 +85,7 @@ const Navbar = ({ section }) => {
                         {c.name}
                       </li>
                     );
-                  }):null}
+                  })}
                 </ul>
               </li>
               <li
