@@ -73,7 +73,7 @@ export default function FilterSection({ setProductsLoading }) {
     <div id='FiltersSection'>
       <div id='catalogs' className='filter'>
         <span>Categorías</span>
-        {catalogs?.map((catalogo) => {
+        {Array.isArray(catalogs)?catalogs?.map((catalogo) => {
           let value = catalogo.name;
           return (
             <button
@@ -90,11 +90,11 @@ export default function FilterSection({ setProductsLoading }) {
               {value}
             </button>
           );
-        })}
+        }):null}
       </div>
       <div id='filtersApplied' className='filter'>
         <b>FILTROS APLICADOS</b>
-        {filters.color.map((color) => (
+        {Array.isArray(filters?.colors)?filters.color.map((color) => (
           <button
             key={'appliedColor' + color}
             onClick={deleteFilter}
@@ -103,8 +103,8 @@ export default function FilterSection({ setProductsLoading }) {
           >
             <span>{color}</span> x
           </button>
-        ))}
-        {filters.cant.map((cant) => (
+        )):null}
+        {Array.isArray(filters?.cant)?filters.cant.map((cant) => (
           <button
             key={'appliedCant' + cant}
             onClick={deleteFilter}
@@ -113,8 +113,8 @@ export default function FilterSection({ setProductsLoading }) {
           >
             <span>{cant}</span> x
           </button>
-        ))}
-        {filters.size.map((size) => (
+        )):null}
+        {Array.isArray(filters?.size)?filters.size.map((size) => (
           <button
             key={'appliedSize' + size}
             onClick={deleteFilter}
@@ -123,7 +123,7 @@ export default function FilterSection({ setProductsLoading }) {
           >
             <span>{size}</span> x
           </button>
-        ))}
+        )):null}
       </div>
 
       <div className='filter'>
@@ -146,7 +146,7 @@ export default function FilterSection({ setProductsLoading }) {
 
       <div id='colorsFilters' className='filter'>
         <span>Colores</span>
-        {toFilter.colors?.map((color) => {
+        {Array.isArray(toFilter?.colors)?toFilter.colors?.map((color) => {
           const stock = productos.filter(
             (product) => product.color === color
           ).length;
@@ -171,11 +171,11 @@ export default function FilterSection({ setProductsLoading }) {
               </Stack>
             </div>
           );
-        })}
+        }):null}
       </div>
       <div id='cantsFilters' className='filter'>
         <span>Cantidad</span>
-        {toFilter.cants?.map((quantity) => {
+        {Array.isArray(toFilter?.cants)?toFilter.cants?.map((quantity) => {
           const stock = productos.filter(
             (product) => product.cant === quantity
           ).length;
@@ -200,11 +200,11 @@ export default function FilterSection({ setProductsLoading }) {
               </Stack>
             </div>
           );
-        })}
+        }):null}
       </div>
       <div id='sizesFilters' className='filter'>
         <span>Tamaños</span>
-        {toFilter.sizes?.map((size) => {
+        {Array.isArray(toFilter?.sizes)?toFilter.sizes?.map((size) => {
           const stock = productos.filter(
             (product) => product.size === size
           ).length;
@@ -229,7 +229,7 @@ export default function FilterSection({ setProductsLoading }) {
               </Stack>
             </div>
           );
-        })}
+        }):null}
       </div>
       <Button className='filtersResetButton btn-secondary' onClick={reset}>
         Borrar<br></br>filtros

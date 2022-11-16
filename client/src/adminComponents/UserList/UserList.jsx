@@ -18,7 +18,7 @@ const UserList = () => {
   return (
     <div>
       <div>
-        {users?.slice((page-1)*8,(page)*8).map((user) => {
+        {Array.isArray(users)?users?.slice((page-1)*8,(page)*8).map((user) => {
           return (
             <div key={user.sub}>
               <UserCard
@@ -29,7 +29,7 @@ const UserList = () => {
                 />
             </div>
           );
-        })}
+        }):null}
       </div>
       <Pagination array={users} limit={8} page={page} setPage={setPage}/>
     </div>
