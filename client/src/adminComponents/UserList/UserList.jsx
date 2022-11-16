@@ -9,7 +9,7 @@ const UserList = () => {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const [flag, setFlag] = useState(true);
-  const [page,setPage] = useState(1)
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     dispatch(getAllUsers());
@@ -18,7 +18,7 @@ const UserList = () => {
   return (
     <div>
       <div>
-        {users?.slice((page-1)*8,(page)*8).map((user) => {
+        {users?.slice((page - 1) * 8, page * 8)?.map((user) => {
           return (
             <div key={user.sub}>
               <UserCard
@@ -26,12 +26,12 @@ const UserList = () => {
                 email={user.email}
                 sub={user.sub}
                 setFlag={setFlag}
-                />
+              />
             </div>
           );
         })}
       </div>
-      <Pagination array={users} limit={8} page={page} setPage={setPage}/>
+      <Pagination array={users} limit={8} page={page} setPage={setPage} />
     </div>
   );
 };
