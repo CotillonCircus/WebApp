@@ -5,10 +5,11 @@ const {NODEMAILER_MAIL_USER,NODEMAILER_MAIL_PASS} = process.env
 
 
 const populate = async () => {
-
+  if(!(await Product.findOne())){
     await Catalog.bulkCreate(catalogos)
     await Product.bulkCreate(inventario)
     console.log("db populated")
+  }
 }
 
 
