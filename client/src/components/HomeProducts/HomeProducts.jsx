@@ -30,7 +30,7 @@ const HomeProducts = ({ section }) => {
         {section !== 'minorist' ? (
           <div id='catalogs'>
             <span className='bold'>Categorías Principales</span>
-            {catalogs?.map((c) => {
+            {Array.isArray(catalogs)?catalogs?.map((c) => {
               return (
                 <li
                   className='mainclasses'
@@ -41,14 +41,14 @@ const HomeProducts = ({ section }) => {
                   {c.name}
                 </li>
               );
-            })}
+            }):null}
           </div>
         ) : (
           <div id='catalogs'></div>
         )}
 
         <div id='products'>
-          {productos?.slice(0, 8).map((p) => {
+          {Array.isArray(productos)?productos?.slice(0, 8).map((p) => {
             return (
               <Link
                 key={'/details/' + p.id}
@@ -68,7 +68,7 @@ const HomeProducts = ({ section }) => {
                 )}
               </Link>
             );
-          })}
+          }):null}
         </div>
       </div>
       {section !== 'minorist' ? (

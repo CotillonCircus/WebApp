@@ -68,7 +68,7 @@ const Carousel = () => {
         <div className='carousel-item'>
           <img src={Globo} className='d-block w-50 mx-auto' alt='globo' />
         </div>
-        {carrosuelImgs?.map((img) => {
+        {Array.isArray(carrosuelImgs)?carrosuelImgs?.map((img) => {
           return (
             <div className='carousel-item' key={img.url}>
               <img
@@ -78,7 +78,7 @@ const Carousel = () => {
               />
             </div>
           );
-        })}
+        }):null}
       </div>
 
       {/* ===== Lateral controls ===== */}

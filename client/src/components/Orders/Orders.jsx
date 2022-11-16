@@ -23,7 +23,7 @@ const Orders = () => {
       <div>
         <h1>Mi historial de compras</h1>
         <br></br>
-        {orders?.slice((page-1)*8,(page)*8).map((order) => {
+        {Array.isArray(orders)?orders?.slice((page-1)*8,(page)*8).map((order) => {
           const actualDate = ((new Date()).getTime())
           const orderDate = ((new Date(order.createdAt)).getTime())
           const diference = (((actualDate-orderDate)/1000)/360)-360
@@ -37,7 +37,7 @@ const Orders = () => {
               />
             </div>
           );
-        })}
+        }):null}
       </div>
       <Pagination array={orders} limit={8} page={page} setPage={setPage}/>
     </div>

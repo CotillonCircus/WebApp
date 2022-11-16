@@ -61,7 +61,7 @@ const AdminOrders = () => {
         <div>
           <div id={style.adminOrdersdiv}>
               { 
-              orders?.slice((page-1)*8,(page)*8).map((order)=>{
+              Array.isArray(orders)?orders.slice((page-1)*8,(page)*8).map((order)=>{
                 return(
                   <AdminOrderCard
                   setFlag={setFlag}
@@ -74,6 +74,7 @@ const AdminOrders = () => {
                   />
                   )
                 })
+              :null
               }
           </div>
           <Pagination array={orders} limit={8} page={page} setPage={setPage}/>

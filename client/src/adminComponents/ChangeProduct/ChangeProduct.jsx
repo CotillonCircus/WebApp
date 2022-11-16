@@ -157,9 +157,9 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             placeholder={`ej:10"`}
           ></input>
           <datalist id='sizesList'>
-            {filters.sizes?.map((size, i) => {
+            {Array.isArray(filters?.sizes)?filters.sizes?.map((size, i) => {
               return <option key={'changeSize' + size + i}>{size}</option>;
-            })}
+            }):null}
           </datalist>
         </div>
         <span>{errors.size || ' '}</span>
@@ -173,9 +173,9 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             placeholder={`ej:rojo,amarillo`}
           ></input>
           <datalist id='colorsList'>
-            {filters.colors?.map((color, i) => {
+            {Array.isArray(filters?.colors)?filters.colors?.map((color, i) => {
               return <option key={'changeColor' + color + i}>{color}</option>;
-            })}
+            }):null}
           </datalist>
         </div>
         <span>{errors.color || ' '}</span>
@@ -187,7 +187,7 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             value={changedProduct.catalogId}
             onChange={handleChange}
           >
-            {catalogs?.map((catalog) => {
+            {Array.isArray(catalogs)?catalogs?.map((catalog) => {
               return (
                 <option
                   key={'changeCatalog' + catalog.name + catalog.id}
@@ -196,7 +196,7 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
                   {catalog.name}
                 </option>
               );
-            })}
+            }):null}
           </select>
         </div>
         <span>{errors.catalogId || ' '}</span>
@@ -212,13 +212,13 @@ export default function ChangeProduct({ productToChange, setShowForm }) {
             placeholder={`ej:1`}
           ></input>
           <datalist id='quantitisList'>
-            {filters.cants?.map((quantity, i) => {
+            {Array.isArray(filters?.cants)?filters.cants?.map((quantity, i) => {
               return (
                 <option key={'changeQuantity' + quantity + i}>
                   {quantity}
                 </option>
               );
-            })}
+            }):null}
           </datalist>
         </div>
         <span>{errors.cant || ' '}</span>
