@@ -44,7 +44,7 @@ const Carousel = () => {
           data-bs-slide-to='2'
           aria-label='Slide 3'
         ></button>
-        {carrosuelImgs?.map((img, i) => {
+        {/* {carrosuelImgs?.map((img, i) => {
           return (
             <button
               type='button'
@@ -55,7 +55,7 @@ const Carousel = () => {
               key={'img.button' + i}
             ></button>
           );
-        })}
+        })} */}
       </div>
       {/* ===== Images ===== */}
       <div className='carousel-inner'>
@@ -68,7 +68,7 @@ const Carousel = () => {
         <div className='carousel-item'>
           <img src={Globo} className='d-block w-50 mx-auto' alt='globo' />
         </div>
-        {Array.isArray(carrosuelImgs)?carrosuelImgs?.map((img) => {
+        {carrosuelImgs?.map((img) => {
           return (
             <div className='carousel-item' key={img.url}>
               <img
@@ -78,7 +78,7 @@ const Carousel = () => {
               />
             </div>
           );
-        }):null}
+        })}
       </div>
 
       {/* ===== Lateral controls ===== */}

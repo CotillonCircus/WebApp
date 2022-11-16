@@ -162,9 +162,9 @@ export default function NewProduct() {
             placeholder={`ej:10"`}
           ></input>
           <datalist id='sizesList'>
-            {Array.isArray(filters?.sizes)?filters.sizes?.map((size) => {
+            {filters.sizes?.map((size) => {
               return <option>{size}</option>;
-            }):null}
+            })}
           </datalist>
         </div>
         <span>{errors.size || ' '}</span>
@@ -178,9 +178,9 @@ export default function NewProduct() {
             placeholder={`ej:rojo,amarillo`}
           ></input>
           <datalist id='colorsList'>
-            {Array.isArray(filters?.colors)?filters.colors?.map((color) => {
+            {filters.colors?.map((color) => {
               return <option>{color}</option>;
-            }):null}
+            })}
           </datalist>
         </div>
         <span>{errors.color || ' '}</span>
@@ -194,14 +194,14 @@ export default function NewProduct() {
             <option selected disabled>
               elija catalogo/s del producto
             </option>
-            {Array.isArray(catalogs)?catalogs?.map((catalog) => {
+            {catalogs?.map((catalog) => {
               return (
                 <option value={catalog.id}>
                   {catalog.name}
                   {/* {catalog.name.split('_').join(' ')} */}
                 </option>
               );
-            }):null}
+            })}
           </select>
         </div>
         <span>{errors.catalogId || ' '}</span>
@@ -217,9 +217,9 @@ export default function NewProduct() {
             placeholder={`ej:1`}
           ></input>
           <datalist id='quantitisList'>
-            {Array.isArray(filters.cants)?filters.cants?.map((quantity) => {
+            {filters.cants?.map((quantity) => {
               return <option>{quantity}</option>;
-            }):null}
+            })}
           </datalist>
         </div>
         <span>{errors.cant || ' '}</span>

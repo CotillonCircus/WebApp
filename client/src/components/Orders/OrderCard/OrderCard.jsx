@@ -18,7 +18,7 @@ const OrderCard = ({id,products,totalPrize,diference}) => {
     <div className={styles.bigContainer}>
       <p className={styles.id}>Id de orden: {id}</p>
       {
-        Array.isArray(products)?products?.map((product)=>{
+        products?.map((product)=>{
           return(
             <div key={product.name} className={styles.container}>
               <img src={product.img||noDisponible} alt={product.name} className={styles.img}/>
@@ -27,7 +27,7 @@ const OrderCard = ({id,products,totalPrize,diference}) => {
               <p>Cantidad: {product.cantBuyed}</p>
             </div>
           )
-        }):null
+        })
       }
       <div>
         <p className={styles.id}>Precio total: {totalPrize + "$"}</p>

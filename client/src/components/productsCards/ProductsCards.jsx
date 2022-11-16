@@ -37,7 +37,7 @@ const ProductsCards = (id) => {
       {!productsLoading?
       <div>
         <div id='products'>
-          {Array.isArray(productos)?productos?.slice((page-1)*8,(page)*8).map((p) => {
+          {productos?.slice((page-1)*8,(page)*8).map((p) => {
             return (
               <div key={p.id} className='singleProduct'>
                 <Link to={'/details/' + p.id}>
@@ -103,7 +103,7 @@ const ProductsCards = (id) => {
                 )}
               </div>
             );
-          }):null}
+          })}
         </div>
         <Pagination array={productos} limit={8} page={page} setPage={setPage}/>
         </div>
