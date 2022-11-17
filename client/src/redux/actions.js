@@ -239,7 +239,6 @@ export async function newProductImg(file) {
         'https://api.cloudinary.com/v1_1/circus-corillon/image/upload',
         data
       );
-      console.log(created.data);
       return created.data.url;
     }
   } catch (error) {

@@ -36,7 +36,6 @@ const AdminOrders = () => {
     e.preventDefault();
     dispatch(getAllOrders(input));
   };
-  console.log(orders);
   return (
     <div className={style.generalContainer}>
       <p className='display-6'>Historial de compras</p>
