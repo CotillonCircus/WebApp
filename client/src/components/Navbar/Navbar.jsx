@@ -74,18 +74,20 @@ const Navbar = ({ section }) => {
                   Productos
                 </a>
                 <ul className='dropdown-menu'>
-                  {catalogs?.map((c) => {
-                    return (
-                      <li
-                        className='dropdown-item'
-                        onClick={handleClick}
-                        value={c.id}
-                        key={'li' + c.id}
-                      >
-                        {c.name}
-                      </li>
-                    );
-                  })}
+                  {Array.isArray(catalogs)
+                    ? catalogs?.map((c) => {
+                        return (
+                          <li
+                            className='dropdown-item'
+                            onClick={handleClick}
+                            value={c.id}
+                            key={'li' + c.id}
+                          >
+                            {c.name}
+                          </li>
+                        );
+                      })
+                    : null}
                 </ul>
               </li>
               <li

@@ -7,7 +7,8 @@ import {
 import './editCarrousel.css';
 import cloudinary from 'cloudinary/lib/cloudinary';
 
-const {REACT_APP_CLOUD_NAME,REACT_APP_API_KEY,REACT_APP_API_SECRET} = process.env
+const { REACT_APP_CLOUD_NAME, REACT_APP_API_KEY, REACT_APP_API_SECRET } =
+  process.env;
 cloudinary.config({
   cloud_name: REACT_APP_CLOUD_NAME,
   api_key: REACT_APP_API_KEY,
@@ -40,20 +41,22 @@ export default function EditCarrousel() {
   return (
     <div id='editCarrousel'>
       <div id='carrouselImgs'>
-        {carrouselImgs?.map((img) => {
-          return (
-            <div className='carrouselImg' key={img.url}>
-              <img src={img.url} alt={img.url}></img>
-              {img.public_id ? (
-                <button onClick={deleteHandler} value={img.public_id}>
-                  borrar
-                </button>
-              ) : (
-                <span>cargando</span>
-              )}
-            </div>
-          );
-        })}
+        {Array.isArray(carrouselImgs)
+          ? carrouselImgs?.map((img) => {
+              return (
+                <div className='carrouselImg' key={img.url}>
+                  <img src={img.url} alt={img.url}></img>
+                  {img.public_id ? (
+                    <button onClick={deleteHandler} value={img.public_id}>
+                      borrar
+                    </button>
+                  ) : (
+                    <span>cargando</span>
+                  )}
+                </div>
+              );
+            })
+          : null}
         <div id='addImgInput'>
           <label htmlFor='esto'>añadir</label>
           <input

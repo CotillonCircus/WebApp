@@ -15,7 +15,7 @@ const root = ReactDOMClient.createRoot(container);
 
 axios.defaults.baseURL =
   process.env.NODE_ENV === 'production'
-    ? 'v1/api'
+    ? '/v1/api'
     : 'http://localhost:3001/v1/api';
 
 root.render(
