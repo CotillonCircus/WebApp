@@ -6,7 +6,7 @@ const GLOBOS = [
     color: 'perlado',
     cant: 50,
     size: '',
-    img: 'http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/sza86x79iuvwk37fuft0.png',
+    img: 'https://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/sza86x79iuvwk37fuft0.png',
   },
   {
     name: 'tuky',
@@ -15,7 +15,7 @@ const GLOBOS = [
     color: 'std',
     cant: 50,
     size: '',
-    img: 'http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/kfxfbxyn5pbldyxoxo6y.png',
+    img: 'https://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/kfxfbxyn5pbldyxoxo6y.png',
   },
   {
     name: 'party time',
@@ -24,7 +24,7 @@ const GLOBOS = [
     color: 'std',
     cant: 50,
     size: '',
-    img: 'http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/u23wsojkbmts3rhe9ttx.png',
+    img: 'https://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/u23wsojkbmts3rhe9ttx.png',
   },
   {
     name: 'globox',
@@ -33,7 +33,7 @@ const GLOBOS = [
     color: 'perlado',
     cant: 50,
     size: '',
-    img: 'http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/hgci3yiii2knrkmgdnbd.png',
+    img: 'https://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/hgci3yiii2knrkmgdnbd.png',
   },
   {
     name: 'party time',
@@ -42,7 +42,7 @@ const GLOBOS = [
     color: 'perlado',
     cant: 25,
     size: '',
-    img: 'http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/aeiqswwqohgmwdwfwfe6.png',
+    img: 'https://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/aeiqswwqohgmwdwfwfe6.png',
   },
   {
     name: 'tuky',
@@ -51,7 +51,7 @@ const GLOBOS = [
     color: 'perlado',
     cant: 50,
     size: '',
-    img: 'http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/sza86x79iuvwk37fuft0.png',
+    img: 'https://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/sza86x79iuvwk37fuft0.png',
   },
   {
     name: 'tuky',
@@ -60,7 +60,7 @@ const GLOBOS = [
     color: 'std',
     cant: 50,
     size: '',
-    img: 'http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/kfxfbxyn5pbldyxoxo6y.png',
+    img: 'https://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/kfxfbxyn5pbldyxoxo6y.png',
   },
   {
     name: 'party time',
@@ -69,7 +69,7 @@ const GLOBOS = [
     color: 'std',
     cant: 50,
     size: '',
-    img: 'http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/u23wsojkbmts3rhe9ttx.png',
+    img: 'https://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/u23wsojkbmts3rhe9ttx.png',
   },
   {
     name: 'globox',
@@ -78,7 +78,7 @@ const GLOBOS = [
     color: 'perlado',
     cant: 50,
     size: '',
-    img: 'http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/hgci3yiii2knrkmgdnbd.png',
+    img: 'https://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/hgci3yiii2knrkmgdnbd.png',
   },
   {
     name: 'party time',
@@ -87,7 +87,7 @@ const GLOBOS = [
     color: 'perlado',
     cant: 25,
     size: '',
-    img: 'http://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/aeiqswwqohgmwdwfwfe6.png',
+    img: 'https://res.cloudinary.com/circus-corillon/image/upload/v1664505400/products/aeiqswwqohgmwdwfwfe6.png',
   },
 ];
 
