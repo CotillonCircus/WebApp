@@ -22,7 +22,6 @@ const Header = ({ section }) => {
   }, [dispatch]);
 
   const handleDown = (e) => {
-    console.log('Down');
     e.preventDefault();
     dispatch(changeUserStatus(user.sub, ''));
   };

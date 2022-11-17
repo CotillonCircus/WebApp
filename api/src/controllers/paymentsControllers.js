@@ -37,7 +37,6 @@ const createPreference = async (req, res, next) => {
   mercadopago.preferences
     .create(preference)
     .then(function (response) {
-      console.log(response.body.init_point);
       res.json({
         id: response.body.id,
         init_point: response.body.init_point,
@@ -73,7 +72,6 @@ const adaptProducts= async(products)=>{
       const product = await Product.findOne({where: {id}, include: Catalog});
       
       if(!product){
-          console.log("Entre a !product")
           throw new Error("Producto no encontrado");
       }
       if(product.stock-quantity>0){
@@ -96,7 +94,6 @@ const adaptProducts= async(products)=>{
           return falseProduct;
 
       }else{
-          console.log("Entre a no hay stock")
           throw new Error("No hay stock del producto de ID: " + id);
       }
 

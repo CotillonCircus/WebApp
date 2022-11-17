@@ -15,14 +15,13 @@ const postOrder = async (req,res)=>{
         
         const array = await adaptProducts(products);
 
-        console.log(array)
+
 
         const newOrder = await Order.create({totalPrize,products: array});
 
         const user = await User.findByPk(sub);
 
         if(!user){
-            console.log("Entre a !user")
             throw new Error("Usuario no encontrado o no autorizado");
         }
 
@@ -43,7 +42,6 @@ const adaptProducts= async(products)=>{
         const product = await Product.findOne({where: {id}, include: Catalog});
         
         if(!product){
-            console.log("Entre a !product")
             throw new Error("Producto no encontrado");
         }
         if(product.stock-cantBuyed>0){
@@ -68,7 +66,6 @@ const adaptProducts= async(products)=>{
             return falseProduct;
 
         }else{
-            console.log("Entre a no hay stock")
             throw new Error("No hay stock del producto de ID: " + id);
         }
 
@@ -126,7 +123,6 @@ const filteredOrders = async(req,res,next)=>{
                             return prod.name.includes(productName);
                         })
                     );
-                    console.log(orders)
                 }
                 
                 res.status(200).send(orders);                
