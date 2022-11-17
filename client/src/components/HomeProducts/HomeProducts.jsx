@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { getCatalogs, getProductos } from '../../redux/actions';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import default_img from '../../images/imagen_no_disponible.jpg';
+let default_img ="https://res.cloudinary.com/ddkurobug/image/upload/v1668720936/circus/nz5urtcilzmh5asyb3l5.png"
 
 const HomeProducts = ({ section }) => {
   const dispatch = useDispatch();

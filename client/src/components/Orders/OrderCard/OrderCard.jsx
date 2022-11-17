@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { cancelOrder } from '../../../redux/actions'
 import styles from "./OrderCard.module.css"
-import noDisponible from "../../../images/imagen_no_disponible.jpg"
+let noDisponible="https://res.cloudinary.com/ddkurobug/image/upload/v1668720936/circus/nz5urtcilzmh5asyb3l5.png"
 
 
 const OrderCard = ({id,products,totalPrize,diference}) => {

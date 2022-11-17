@@ -6,8 +6,8 @@ import './detailsProduct.css';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useShoppingCart } from '../Context/ShoppingCartContext';
-import default_img from '../../images/imagen_no_disponible.jpg';
 import ReactImageMagnify from 'react-image-magnify';
+let default_img ="https://res.cloudinary.com/ddkurobug/image/upload/v1668720936/circus/nz5urtcilzmh5asyb3l5.png"
 
 const DetailsProduct = () => {
   const { productDetails } = useSelector((state) => state);

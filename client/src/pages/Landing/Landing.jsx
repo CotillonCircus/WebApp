@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Landing.module.css';
 import { Link} from 'react-router-dom';
-import Logo from '../../images/circus_cotillon_logo.jpg';
+let Logo="https://res.cloudinary.com/ddkurobug/image/upload/v1668720916/circus/a3sporskwrjaiineevhc.jpg"
 
 const Landing = () => {
 

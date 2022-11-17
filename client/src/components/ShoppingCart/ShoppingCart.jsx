@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import { createPreference } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import loadingGIf from '../../images/cargando.gif';
 import './ShoppingCart.css';
+let loadingGIf="https://res.cloudinary.com/ddkurobug/image/upload/v1668720664/circus/ud7kads4mvh6epfjh1hl.png";
 
 export function ShoppingCart({ isOpen }) {
   const { closeCart, cartItems } = useShoppingCart();
