@@ -7,11 +7,11 @@ import FilterSection from '../FiltersSection/FiltersSection';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useShoppingCart } from '../Context/ShoppingCartContext';
-import default_img from "../../images/imagen_no_disponible.jpg"
 import { useState } from 'react';
 import loading from "../../images/cargando.gif"
 import Pagination from '../pagination/pagination';
 
+let default_img="https://res.cloudinary.com/ddkurobug/image/upload/v1668720936/circus/nz5urtcilzmh5asyb3l5.png"
 const ProductsCards = (id) => {
   const {
     getItemQuantity,

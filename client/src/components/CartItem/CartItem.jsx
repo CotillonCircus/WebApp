@@ -2,7 +2,7 @@ import { Button, Stack } from 'react-bootstrap';
 import { useShoppingCart } from '../Context/ShoppingCartContext';
 import { useSelector } from 'react-redux';
 import './cartitem.css';
-import default_img from '../../images/imagen_no_disponible.jpg';
+let default_img="https://res.cloudinary.com/ddkurobug/image/upload/v1668720936/circus/nz5urtcilzmh5asyb3l5.png"
 
 export function CartItem({ id, quantity }) {
   const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } =

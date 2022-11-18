@@ -219,7 +219,7 @@ export async function addCarrouselImg(e, imgs, setImgs) {
       data.append('file', file);
       data.append('upload_preset', 'carrousel');
       const created = await axios.post(
-        'https://api.cloudinary.com/v1_1/circus-corillon/image/upload',
+        'https://api.cloudinary.com/v1_1/ddkurobug/image/upload',
         data
       );
       setImgs([...imgs, created.data]);
@@ -236,7 +236,7 @@ export async function newProductImg(file) {
       data.append('file', file);
       data.append('upload_preset', 'products');
       const created = await axios.post(
-        'https://api.cloudinary.com/v1_1/circus-corillon/image/upload',
+        'https://api.cloudinary.com/v1_1/ddkurobug/image/upload',
         data
       );
       return created.data.url;

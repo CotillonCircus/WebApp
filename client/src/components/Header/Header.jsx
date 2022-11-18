@@ -3,7 +3,6 @@ import './header.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import LoginButton from '../../components/LoginButton/LoginButton';
 import LogOutButton from '../../components/LogOutButton/LogOutButton';
-import Logo from '../../images/circus_cotillon_logo.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductos, getAllProductos } from '../../redux/actions';
@@ -11,6 +10,7 @@ import Cart from '../Cart/Cart';
 import { changeUserStatus } from '../../redux/actions';
 import { useEffect } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
+let Logo="https://res.cloudinary.com/ddkurobug/image/upload/v1668720916/circus/a3sporskwrjaiineevhc.jpg"
 
 const Header = ({ section }) => {
   const { isAuthenticated } = useAuth0();
