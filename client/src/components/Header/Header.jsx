@@ -67,7 +67,13 @@ const Header = ({ section }) => {
               </div>
             </div>
             <div className='col-lg-6 logo'>
-              <img src={Logo} className='d-block w-50 mx-auto' alt='logo' />
+              <Link to={'/home'}>
+                <img
+                  src={Logo}
+                  className='d-block w-50 mx-auto homelink'
+                  alt='logo'
+                />
+              </Link>
             </div>
             <div className='col-lg-2'>
               <div className='btn-group'>
@@ -142,8 +148,13 @@ const Header = ({ section }) => {
               <div className='col-lg-3 column_header'></div>
             )}
             <div className='col-lg-6'>
-              {' '}
-              <img src={Logo} className='d-block w-50 mx-auto' alt='logo' />
+              <Link to={'/home'}>
+                <img
+                  src={Logo}
+                  className='d-block w-50 mx-auto homelink'
+                  alt='logo'
+                />
+              </Link>
             </div>
             {section !== 'minorist' ? (
               <div className='col-lg-3 column_header loginbutton'>

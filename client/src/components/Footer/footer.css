@@ -10,4 +10,5 @@
 
 .emailfooter {
   margin-top: 3vh;
+  text-transform: lowercase;
 }

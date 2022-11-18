@@ -56,6 +56,10 @@
   margin-top: 20vh;
 }
 
+.homelink {
+  cursor: pointer;
+}
+
 .headerbaja {
   cursor: pointer;
 }
