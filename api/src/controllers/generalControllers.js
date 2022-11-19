@@ -1,13 +1,13 @@
 const {Product,Catalog} = require("../db") 
 const nodemailer = require("nodemailer");
-const {inventario,catalogos} = require("./inventario")
+const {PRODUCTS,CATALOGS} = require("./inventario")
 const {NODEMAILER_MAIL_USER,NODEMAILER_MAIL_PASS} = process.env
 
 
 const populate = async () => {
   if(!(await Product.findOne())){
-    await Catalog.bulkCreate(catalogos)
-    await Product.bulkCreate(inventario)
+    await Catalog.bulkCreate(CATALOGS)
+    await Product.bulkCreate(PRODUCTS)
     console.log("db populated")
   }
 }
