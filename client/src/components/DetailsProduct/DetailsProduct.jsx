@@ -7,7 +7,8 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useShoppingCart } from '../Context/ShoppingCartContext';
 import ReactImageMagnify from 'react-image-magnify';
-let default_img ="https://res.cloudinary.com/ddkurobug/image/upload/v1668720936/circus/nz5urtcilzmh5asyb3l5.png"
+let default_img =
+  'https://res.cloudinary.com/ddkurobug/image/upload/v1668720936/circus/nz5urtcilzmh5asyb3l5.png';
 
 const DetailsProduct = () => {
   const { productDetails } = useSelector((state) => state);
@@ -15,7 +16,7 @@ const DetailsProduct = () => {
   const { ID } = useParams();
   const [related, setRelated] = useState([]);
   const user = useSelector((state) => state.userLogged[0]);
-  const [image, setImage] = useState(productDetails.img || default_img);
+  const [image, setImage] = useState(productDetails.img);
   const {
     getItemQuantity,
     increaseCartQuantity,
@@ -33,6 +34,7 @@ const DetailsProduct = () => {
 
   useEffect(() => {
     productDetails.name && getRelated(productDetails.name, setRelated);
+    productDetails && setImage(productDetails.img);
   }, [productDetails]);
 
   return (
@@ -43,19 +45,15 @@ const DetailsProduct = () => {
             <div id='left_1'>
               <img
                 id='left_1_top'
-                src={productDetails.img || default_img}
+                src={productDetails.img}
                 alt='productDetails.img'
-                onMouseOver={() =>
-                  hoverHandle(productDetails.img || default_img)
-                }
+                onMouseOver={() => hoverHandle(productDetails.img)}
               />
               <img
                 id='left_1_bottom'
-                src={productDetails.secondaryImg || default_img}
-                alt='productDetails.img'
-                onMouseOver={() =>
-                  hoverHandle(productDetails.secondaryImg || default_img)
-                }
+                src={productDetails.secondaryImg || false}
+                //alt='productDetails.img'
+                onMouseOver={() => hoverHandle(productDetails.secondaryImg)}
               />
             </div>
             <div id='left_2'>
@@ -68,8 +66,12 @@ const DetailsProduct = () => {
                   },
                   largeImage: {
                     src: image,
-                    width: 1500,
-                    height: 1500,
+                    width: 1250,
+                    height: 2500,
+                  },
+                  enlargedImageContainerDimensions: {
+                    width: '100%',
+                    height: '100%',
                   },
                 }}
               />
@@ -78,8 +80,8 @@ const DetailsProduct = () => {
           <div id='rigthDetails'>
             <div id='productDetails'>
               <span id='productName'>
-                {productDetails.name} {productDetails.color}{' '}
-                {productDetails.size || 24}" X{productDetails.cant || 20}
+                {productDetails.name} {productDetails.size} X
+                {productDetails.cant}
               </span>
               <span id='productPrice'>
                 {user ? (
