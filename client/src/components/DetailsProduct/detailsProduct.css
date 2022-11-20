@@ -27,8 +27,12 @@
 }
 
 #left_2 {
+  display: flex;
+  align-items: top;
+  justify-content: center;
   width: 78%;
   margin: 5%;
+  object-fit: contain;
 }
 
 #productImg {
@@ -115,9 +119,9 @@
   grid-gap: 10px;
 }
 
-#imgrelacionados a{
+#imgrelacionados a {
   text-decoration: none;
-  color:inherit;
+  color: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
