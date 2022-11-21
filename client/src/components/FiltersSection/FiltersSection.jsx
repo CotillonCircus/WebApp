@@ -45,6 +45,8 @@ export default function FilterSection({ setProductsLoading }) {
   };
 
   const reset = () => {
+    const checks = [...document.getElementsByName("color"),...document.getElementsByName("size"),...document.getElementsByName("cant")]
+    checks.forEach((check) => {check.checked = false})
     setFilters({ ...initialFilter });
     setProductsLoading(true);
     dispatch(getProductos({}, setProductsLoading));

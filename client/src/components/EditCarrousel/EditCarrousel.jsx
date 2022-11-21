@@ -6,6 +6,7 @@ import {
 } from '../../redux/actions';
 import './editCarrousel.css';
 import cloudinary from 'cloudinary/lib/cloudinary';
+import {Button} from "react-bootstrap"
 
 const { REACT_APP_CLOUD_NAME, REACT_APP_API_KEY, REACT_APP_API_SECRET } =
   process.env;
@@ -47,9 +48,9 @@ export default function EditCarrousel() {
                 <div className='carrouselImg' key={img.url}>
                   <img src={img.url} alt={img.url}></img>
                   {img.public_id ? (
-                    <button onClick={deleteHandler} value={img.public_id}>
+                    <Button onClick={deleteHandler} value={img.public_id}>
                       borrar
-                    </button>
+                    </Button>
                   ) : (
                     <span>cargando</span>
                   )}
