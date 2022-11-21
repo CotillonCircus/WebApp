@@ -21,8 +21,9 @@
 
 .carrouselImg button {
   background-color: red;
-  width: 5vw;
+  width: min-content;
   border-radius: 10px;
+  margin-top:2%
   /* align-self: center; */
 }
 

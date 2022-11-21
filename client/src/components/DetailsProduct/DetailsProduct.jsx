@@ -33,12 +33,12 @@ const DetailsProduct = () => {
   }, [dispatch, ID]);
 
   useEffect(() => {
-    productDetails.name && getRelated(productDetails.name, setRelated);
+    productDetails.name && getRelated(productDetails.name.split(" ")[0], setRelated);
     productDetails && setImage(productDetails.img);
   }, [productDetails]);
 
   return (
-    productDetails && (
+    productDetails && image && (
       <div id='detailsPage'>
         <div id='detailsContainer'>
           <div id='leftDetails'>
